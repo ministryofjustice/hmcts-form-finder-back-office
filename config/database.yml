@@ -23,14 +23,19 @@
 # Set timeout to a larger number if valid queries against a live db fail
 #
 default: &default
-  adapter: sqlserver
-  encoding: utf8
-  reconnect: false
-  username: form-finder-back-office
-  password: password
-  timeout: 25
-  host: 10.211.55.3
-  port: 1433
+  #adapter: sqlserver
+  #encoding: utf8
+  #reconnect: false
+  #username: form-finder-back-office
+  #password: password
+  #timeout: 25
+  #host: 10.211.55.3
+  #port: 1433
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
 
 development:
   <<: *default

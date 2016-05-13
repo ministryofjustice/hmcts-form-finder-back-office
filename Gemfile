@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'coffee-rails', '~> 4.1.0'
-
+gem 'devise', '~>4.1.0'
 gem 'govuk_template',         '~> 0.17.0'
 gem 'govuk_frontend_toolkit', '>= 4.6.1'
 gem 'govuk_elements_rails',   '>= 1.1.2'
@@ -10,7 +10,7 @@ gem 'govuk_elements_form_builder', git: 'git@github.com:ministryofjustice/govuk_
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
-
+gem 'pg'
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
 
