@@ -1,0 +1,5 @@
+= form_for @doc_attachment, multipart: true, url: doc_attachments_create_path do |f|
+  = f.text_field :doc_attachment_type_id
+  = f.file_field :attachment
+
+  = f.submit "Upload"

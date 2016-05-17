@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'doc_attachments/new'
+  post 'doc_attachments/create'
+
   devise_for :users
   root to: 'welcome#index'
 

@@ -26,7 +26,7 @@ Rails.application.configure do
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
-  # number of complex assets.
+  # number of complex assets.R
   config.assets.debug = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
@@ -40,4 +40,14 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+          bucket: ENV.fetch('DEV_FORM_FINDER_S3_BUCKET'),
+          access_key_id: ENV.fetch('DEV_FORM_FINDER_S3_ACCESS_KEY'),
+          secret_access_key: ENV.fetch('DEV_FORM_FINDER_S3_SECRET_KEY'),
+          s3_region: ENV.fetch('DEV_FORM_FINDER_S3_REGION'),
+      }
+  }
 end

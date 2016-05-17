@@ -23,6 +23,10 @@ gem 'turbolinks'
 
 gem 'uglifier', '>= 1.3.0'
 
+gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
+
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
