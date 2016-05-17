@@ -9,13 +9,13 @@
 require 'csv'
 
 #DocumentAttachmentType
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'document_attachment_types.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'doc_attachment_types.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
-  t = DocumentAttachmentType.new
+  t = DocAttachmentType.new
   t.id = row[0]
   t.name = row[1]
   t.save
 end
 
-puts "There are now #{DocumentAttachmentType.count} rows in the Document Attachment Types table"
+puts "There are now #{DocAttachmentType.count} rows in the Document Attachment Types table"
