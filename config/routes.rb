@@ -3,6 +3,17 @@ Rails.application.routes.draw do
   post 'doc_attachments/create'
 
   devise_for :users
+
+  authenticated :user  do
+    root to: 'doc_attachments#new', as: :users_home
+  end
+
+  devise_scope :user do
+    unauthenticated :user do
+      root 'sessions#new', as: :unauthenticated_root
+    end
+  end
+
   root to: 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
