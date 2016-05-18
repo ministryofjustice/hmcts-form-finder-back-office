@@ -21,6 +21,11 @@ Install gems
 ```
 bundle install
 ```
+Put the following environment variables into your shell profile
+
+```
+export COMMS_STAFF_PASSWORD='whatever'
+```
 
 Setup the database
 ```
@@ -28,6 +33,13 @@ rake db:create
 rake db:migrate
 rake db:seed
 ```
+
+## Other useful rake tasks
+
+```
+rake staff:sample_users --Create two new users
+```
+
 
 ##Testing
 
