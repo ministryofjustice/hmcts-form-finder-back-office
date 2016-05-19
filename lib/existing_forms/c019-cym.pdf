@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Error</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<p><img src="http://www.hmcourts-service.gov.uk/images/hmcs_logo.gif" width="176" height="102" /></p>
+
+<p>The page you are looking for might have been removed, had its name changed,
+or is temporarily unavailable. </p>
+<hr />
+<p>Please try the following:</p>
+<p>If you typed the page address in the Address bar, make sure that it is spelled
+  correctly.</p>
+<p>Open the <a href="http://www.hmcourts-service.gov.uk">www.hmcourts-service.gov.uk</a> home
+  page, and then look for links to the information you want. </p>
+</body>
+</html>
