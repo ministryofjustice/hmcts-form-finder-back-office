@@ -15,6 +15,11 @@
     = f.label :doc_attachment_type_id, 'Type', class: 'form-label'
     = collection_select :doc_attachment, :doc_attachment_type_id, DocAttachmentType.all, :id, :name, { include_blank: true }, { class: 'form-control' }
 
-  = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
+  .form-group
+    = f.label :language_id, 'Form language', class: 'form-label'
+    = collection_select :doc_attachment, :language_id, Language.all, :id, :name, { selected: 5}, { class: 'form-control' }
+  .form-group
+    = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 
-  = f.submit "Upload"
+  = f.submit "Upload", {class:"button", role:"button"}
+  = link_to "Cancel", users_home_path

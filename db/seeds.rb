@@ -19,3 +19,17 @@ csv.each do |row|
 end
 
 puts "There are now #{DocAttachmentType.count} rows in the Document Attachment Types table"
+
+#Languages
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'e_languages.csv'))
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+  t = Language.new
+  t.id = row['language_id']
+  t.old_language_id = row[0]
+  t.name = row['language_desc']
+  t.save
+end
+
+puts "There are now #{Language.count} rows in the languages table"
+

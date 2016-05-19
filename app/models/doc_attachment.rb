@@ -1,5 +1,6 @@
 class DocAttachment < ActiveRecord::Base
   belongs_to :doc_attachment_type
+  belongs_to :language
 
   has_attached_file :attachment
 
@@ -13,4 +14,5 @@ class DocAttachment < ActiveRecord::Base
   validates :doc_attachment_type_id, presence: true
   validates :code, presence: true
   validates :title, presence: true
+  validates :language_id, presence: true
 end

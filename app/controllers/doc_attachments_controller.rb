@@ -24,6 +24,6 @@ class DocAttachmentsController < ApplicationController
 
   def doc_attachment_params
     params.require(:doc_attachment)
-        .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy)
+        .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :language_id)
   end
 end
