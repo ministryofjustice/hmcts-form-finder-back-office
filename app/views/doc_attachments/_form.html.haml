@@ -1,5 +1,20 @@
 = form_for @doc_attachment, multipart: true, url: doc_attachments_create_path do |f|
-  = f.text_field :doc_attachment_type_id
-  = f.file_field :attachment
+
+
+  .form-group
+
+    = f.label :attachment, 'Upload PDF, Doc or XLS files', class:'form-hint'
+
+    = f.file_field :attachment
+
+  = f.text_field :code
+
+  = f.text_field :title
+
+  .form-group
+    = f.label :doc_attachment_type_id, 'Type', class: 'form-label'
+    = collection_select :doc_attachment, :doc_attachment_type_id, DocAttachmentType.all, :id, :name, { include_blank: true }, { class: 'form-control' }
+
+
 
   = f.submit "Upload"
