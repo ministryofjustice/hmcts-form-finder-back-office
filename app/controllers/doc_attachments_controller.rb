@@ -2,6 +2,10 @@ class DocAttachmentsController < ApplicationController
   #TODO Lock down the upload page
   before_action :authenticate_user!
 
+  def index
+    @doc_attachments = DocAttachment.all
+  end
+
   def new
     @doc_attachment = DocAttachment.new
   end
@@ -19,6 +23,7 @@ class DocAttachmentsController < ApplicationController
   private
 
   def doc_attachment_params
-    params.require(:doc_attachment).permit(:doc_attachment_type_id, :attachment)
+    params.require(:doc_attachment)
+        .permit(:attachment, :code, :title, :doc_attachment_type_id)
   end
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'doc_attachments/new'
+  get 'doc_attachments/index'
   post 'doc_attachments/create'
 
   devise_for :users

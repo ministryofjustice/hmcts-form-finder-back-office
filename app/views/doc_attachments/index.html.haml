@@ -1,0 +1,37 @@
+= render partial: 'layouts/header', locals: {page_heading: 'Document uploads'}
+
+#TODO Add upload form
+= link_to "Add documents", doc_attachments_new_path, {class: "button", role: 'button'}
+<!--#TODO Add attachments report-->
+
+.table-container.container
+  %table.report
+    %caption
+      %span.table-caption
+        = "All documents"
+      %span.claim-count
+        =# t('.show_count', page_count: claims.size, total: claims.total_count)
+    %colgroup
+      %col
+      %col
+      %col
+    %thead
+      %th{scope:'col'}
+        = "File"
+      %th{scope:'col'}
+        = "Code"
+      %th{scope:'col'}
+        = "Title"
+      %th{scope:'col'}
+        = "Type"
+    %tbody 
+      - @doc_attachments.each do | doc_attachment   |
+        %tr
+          %td
+            = "#{doc_attachment.attachment_file_name} (#{number_to_human_size(doc_attachment.attachment_file_size, precision: 2)})"
+          %td
+            = doc_attachment.code
+          %td
+            = doc_attachment.title
+          %td
+            = doc_attachment.doc_attachment_type.name
