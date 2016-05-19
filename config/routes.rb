@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user  do
-    root to: 'doc_attachments#new', as: :users_home
+    root to: 'doc_attachments#index', as: :users_home
   end
 
   devise_scope :user do
