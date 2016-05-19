@@ -24,6 +24,8 @@
         = "Title"
       %th{scope:'col'}
         = "Type"
+      %th{scope:'col'}
+        = "Publish date"
     %tbody 
       - @doc_attachments.each do | doc_attachment   |
         %tr
@@ -35,3 +37,5 @@
             = doc_attachment.title
           %td
             = doc_attachment.doc_attachment_type.name
+          %td
+            = l doc_attachment.published_date if doc_attachment.published_date.present?
