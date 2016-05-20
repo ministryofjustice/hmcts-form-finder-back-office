@@ -14,7 +14,7 @@ class DocAttachmentsController < ApplicationController
     @doc_attachment = DocAttachment.new(doc_attachment_params)
 
     if @doc_attachment.save
-      redirect_to doc_attachments_new_path, notice: 'Friend was successfully created.'
+      render doc_attachments_confirmation_path
     else
       render action: 'new'
     end

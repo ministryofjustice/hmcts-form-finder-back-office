@@ -4,12 +4,6 @@ html {
 body {
   background: #fff;
 }
-.outer-block {
-  @include outer-block;
-}
-.inner-block{
-  @include inner-block;
-}
 
 .container {
   @include container;
@@ -18,7 +12,7 @@ body {
 #page {
   @extend %site-width-container;
 }
-.body-content{
+.body-content {
   @include span(6 of 12);
   @include first;
 }
