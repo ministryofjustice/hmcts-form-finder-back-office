@@ -41,7 +41,7 @@ csv.each do |row|
 
   if File.file?(File.join(Rails.root, 'lib', 'existing_forms', row['court_forms_url']))
     t = DocAttachment.new
-    t.id = row['court_forms_id']
+    t.original_id = row['court_forms_id']
     t.code = row['court_forms_num']
     t.title = row['court_forms_title']
     #t.court_forms_type = row['court_forms_type']
@@ -56,9 +56,35 @@ csv.each do |row|
 
     t.save
   else
-    puts "#{row['court_froms_num']} - #{row['court_forms_title']} not imported"
+    puts "#{row['court_forms_num']} - #{row['court_forms_title']} not imported"
   end
 
 end
 
+#Court leaflets
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'e_court_leaflets_cleaned.csv'))
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+
+  if File.file?(File.join(Rails.root, 'lib', 'existing_forms', row['court_leaflets_url']))
+    t = DocAttachment.new
+    t.original_id = row['court_leaflets_id']
+    t.code = row['court_leaflets_num']
+    t.title = row['court_leaflets_title']
+    #t.court_leaflets_type = row['court_leaflets_type']
+    #t.court_leaflets_comments = row['court_leaflets_comments']
+    #t.court_leaflets_category = row['court_leaflets_category']
+    #t.court_leaflets_downloadable = row['court_leaflets_downloadable']
+    #t.court_leaflets_internal_flag = row['court_leaflets_internal_flag']
+    t.attachment =  File.open(File.join(Rails.root, 'lib', 'existing_forms', row['court_leaflets_url']))
+    t.attachment_updated_at = row['court_leaflets_lastupdate']
+    t.language_id = row['language_id']
+    t.doc_attachment_type_id = 2
+
+    t.save
+  else
+    puts "#{row['court_leaflets_num']} - #{row['court_leaflets_title']} not imported"
+  end
+
+end
 puts "There are now #{DocAttachment.count} rows in the Document Attachment table"
