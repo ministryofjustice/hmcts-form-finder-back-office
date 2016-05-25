@@ -1,6 +1,4 @@
 class DocAttachmentsController < ApplicationController
-  #TODO Lock down the upload page
-  before_action :authenticate_user!
 
   def index
     @doc_attachments = DocAttachment.all
