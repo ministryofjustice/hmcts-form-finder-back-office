@@ -1,4 +1,12 @@
-- @disable_logo_link  = true
+- content_for :logo_link_title do
+  = "Return to home page"
+
+- content_for :homepage_url do
+  = root_path
+
+- content_for :global_header_text do
+  %nbsp
+
 - content_for :head do
   %meta{:name =>"format-detection", :content => "telephone=no"}/
 
@@ -11,7 +19,7 @@
   .header-proposition
     .content
       %nav#proposition-menu
-        %a#proposition-name{:href =>"/"}
+        %a#proposition-name{:href => root_path}
           = "HMCTS Form finder"
 
 = content_for :content do
