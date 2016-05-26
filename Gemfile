@@ -3,9 +3,9 @@ ruby '2.3.1'
 
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~>4.1.0'
-gem 'govuk_template',         '~> 0.17.0'
-gem 'govuk_frontend_toolkit', '>= 4.6.1'
-gem 'govuk_elements_rails',   '>= 1.1.2'
+gem 'govuk_template',         '~> 0.17.2'
+gem 'govuk_frontend_toolkit', '>= 4.12.0'
+gem 'govuk_elements_rails',   '>= 1.2.0'
 gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
 gem 'gov_uk_date_fields', '>= 1.0.7'
 
