@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe DocAttachmentType, type: :model do
   it 'has a valid factory' do
-    expect(FactoryGirl.create(:doc_attachment_type)).to be_valid
+    expect(create(:doc_attachment_type)).to be_valid
   end
 
   it { should have_many(:doc_attachments)}
