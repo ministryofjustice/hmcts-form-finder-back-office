@@ -9,7 +9,7 @@ class DocAttachmentsController < ApplicationController
   end
 
   def create
-    @doc_attachment = DocAttachment.new(doc_attachment_params)
+    @doc_attachment = DocAttachment.new(params_with_user)
 
     if @doc_attachment.save
       render doc_attachments_confirmation_path
@@ -23,5 +23,11 @@ class DocAttachmentsController < ApplicationController
   def doc_attachment_params
     params.require(:doc_attachment)
         .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :language_id)
+  end
+
+  def params_with_user
+    form_params =  doc_attachment_params
+    form_params[:creator_id] = @user.id
+    form_params
   end
 end

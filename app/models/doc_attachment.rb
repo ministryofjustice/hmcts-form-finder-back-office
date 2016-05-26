@@ -1,6 +1,7 @@
 class DocAttachment < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
+  belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
 
   acts_as_gov_uk_date :published_date
 
