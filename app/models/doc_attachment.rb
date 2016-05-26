@@ -3,6 +3,9 @@ class DocAttachment < ActiveRecord::Base
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
 
+  #scope :created_by_user, lambda { |user| where( :creator_id => user.id ) }
+
+
   acts_as_gov_uk_date :published_date
 
   has_attached_file :attachment

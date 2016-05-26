@@ -1,7 +1,8 @@
 class DocAttachmentsController < ApplicationController
 
   def index
-    @doc_attachments = DocAttachment.all
+
+    @doc_attachments = current_user.doc_attachments
   end
 
   def new
