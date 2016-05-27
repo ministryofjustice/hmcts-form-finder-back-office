@@ -38,4 +38,5 @@ header.main-header {
 .table-caption {
   @include bold-24;
   float: left;
+  margin-top: $gutter;
 }
