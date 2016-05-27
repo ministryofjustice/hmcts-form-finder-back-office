@@ -39,7 +39,7 @@ default: &default
 
 development:
   <<: *default
-  database: form-finder-back-office-dev
+  database: form_finder_back_office_dev
   #database: courtfinder
 
 # Warning: The database defined as "test" will be erased and
@@ -47,7 +47,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: form-finder-back-office-test
+  database: form_finder_back_office_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -70,6 +70,6 @@ test:
 #
 production:
   <<: *default
-  database: form-finder-back-office-live
-  username: form-finder-back-office
+  database: form_finder_back_office_live
+  username: form_finder_back_office
   password: <%= ENV['HMCTS-FORM-FINDER-BACK-OFFICE_DATABASE_PASSWORD'] %>
