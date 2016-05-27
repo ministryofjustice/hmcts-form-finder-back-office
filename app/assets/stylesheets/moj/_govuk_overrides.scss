@@ -12,3 +12,7 @@
     @include span(6 of 12);
   }
 }
+
+.phase-banner {
+  @include phase-banner(beta);
+}
