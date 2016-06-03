@@ -21,6 +21,7 @@
       %nav#proposition-menu
         %a#proposition-name{:href => root_path}
           = "HMCTS Form finder"
+        = render partial:  'shared/loginout'
 
 = content_for :content do
   = csrf_meta_tags
