@@ -1,31 +1,4 @@
-# SQL Server (2005 or higher recommended)
-#
-# Install the adapters and driver
-#   gem install tiny_tds
-#   gem install activerecord-sqlserver-adapter
-#
-# Ensure the activerecord adapter and db driver gems are defined in your Gemfile
-#   gem 'tiny_tds'
-#   gem 'activerecord-sqlserver-adapter'
-#
-# You should make sure freetds is configured correctly first.
-# freetds.conf contains host/port/protocol_versions settings.
-# http://freetds.schemamania.org/userguide/freetdsconf.htm
-#
-# A typical Microsoft server
-#   [mssql]
-#   host = mssqlserver.yourdomain.com
-#   port = 1433
-#   tds version = 7.1
-
-# If you can connect with "tsql -S servername", your basic FreeTDS installation is working.
-# 'man tsql' for more info
-# Set timeout to a larger number if valid queries against a live db fail
-#
 default: &default
-  #adapter: sqlserver
-  #encoding: utf8
-  #reconnect: false
   #username: form-finder-back-office
   #password: password
   #timeout: 25
@@ -36,7 +9,7 @@ default: &default
   pool: 5
   username: <%= ENV['DB_USERNAME'] || ENV['PGUSER'] || 'postgres' %>
   password: <%= ENV['DB_PASSWORD'] || ENV['PGPASSWORD'] || 'postgres' %>
-  host: localhost
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
 
 development:
   <<: *default
