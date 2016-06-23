@@ -19,7 +19,7 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 ADD Gemfile* $APP_HOME/
-RUN bundle install
-
-
 ADD . $APP_HOME
+
+RUN bundle install
+ENTRYPOINT ['bundle', 'exec', 'rails', 'server', '-d', '--binding', '0.0.0.0']
