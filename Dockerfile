@@ -31,7 +31,7 @@ ADD . $APP_HOME
 
 RUN bundle install
 
-#RUN bundle exec rake assets:precompile RAILS_ENV=production SECRET_TOKEN=blah
+RUN bundle exec rake assets:precompile RAILS_ENV=production SECRET_TOKEN=blah COMMS_STAFF_PASSWORD=uploadme123 DEV_FORM_FINDER_S3_ACCESS_KEY=blah DEV_FORM_FINDER_S3_BUCKET=blah DEV_FORM_FINDER_S3_REGION=eu-west-1 DEV_FORM_FINDER_S3_SECRET_KEY=blah SECRET_KEY_BASE=blah
 
 #RUN bundle exec rake static_pages:generate RAILS_ENV=production SECRET_TOKEN=blah
 
