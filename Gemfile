@@ -33,6 +33,7 @@ group :development, :test do
   gem 'faker', '~> 1.6'
   gem 'guard-livereload', '>= 2.5.2'
   gem 'guard-rspec'
+  gem 'guard-rubocop'
   gem 'rspec-rails', '~> 3.0'
   gem 'thin'
 end
