@@ -25,10 +25,7 @@ class DocAttachment < ActiveRecord::Base
 
   def rename_file
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    filename = attachment_file_name.gsub(/\.#{extension}$/, '')
-    new_attachment_file_name = "#{self.code}-#{self.language.name}.#{extension}"
-
-    attachment.instance_write(:file_name, new_attachment_file_name)
-
+    attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
+                              "#{self.code}-#{self.language.name}.#{extension}")
   end
 end
