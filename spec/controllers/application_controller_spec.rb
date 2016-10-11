@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ApplicationController, type: :controller do
 
-  describe  'setting the current user ' do
+  describe 'setting the current user ' do
 
     let(:staff) { create(:user) }
 
