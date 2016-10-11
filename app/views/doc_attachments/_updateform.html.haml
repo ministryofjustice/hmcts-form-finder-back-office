@@ -7,6 +7,8 @@
 
     = f.file_field :attachment
 
+    = f.label :attachment , @doc_attachment.attachment_file_name
+
   = f.text_field :code
 
   = f.text_field :title
@@ -21,5 +23,5 @@
   .form-group
     = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 
-  = f.submit "Submit document", {class:"button", role:"button"}
+  = f.submit "Update", {class:"button", role:"button"}
   = link_to "Cancel", root_path
