@@ -20,7 +20,8 @@
     .content
       %nav#proposition-menu
         %a#proposition-name{:href => root_path}
-          = "HMCTS Form finder"
+          %abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
+          = "Form finder"
         = render partial:  'shared/loginout'
 
 = content_for :content do
