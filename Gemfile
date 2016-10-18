@@ -28,6 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rb-readline'
   gem 'byebug'
   gem 'factory_girl_rails', '~> 4.7'
   gem 'faker', '~> 1.6'
