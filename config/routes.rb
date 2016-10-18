@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   end
 
   root to: redirect('/users/sign_in')
-
-  get 'doc_attachments/new'
-  get 'doc_attachments/index'
-  get 'doc_attachments/confirmation'
-  post 'doc_attachments/create'
+  resources :doc_attachments
+  #get 'doc_attachments/new'
+  #get 'doc_attachments/index'
+  #get 'doc_attachments/confirmation'
+  #post 'doc_attachments/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

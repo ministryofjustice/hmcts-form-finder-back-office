@@ -16,5 +16,5 @@
     = l @doc_attachment.published_date
 
 .button-holder
-  = link_to "Upload more documents", doc_attachments_new_path, {class: 'button', role: 'button'}
-  = link_to "View your submissions", doc_attachments_index_path, {class: 'button-secondary button-left-spacing', role: 'button'}
+  = link_to "Upload more documents", new_doc_attachment_path, {class: 'button', role: 'button'}
+  = link_to "View your submissions", doc_attachments_path, {class: 'button-secondary button-left-spacing', role: 'button'}

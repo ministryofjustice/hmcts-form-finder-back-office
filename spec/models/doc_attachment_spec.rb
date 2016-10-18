@@ -13,4 +13,8 @@ RSpec.describe DocAttachment, type: :model do
     it { should validate_presence_of(:language_id) }
 
   end
+  describe 'Saving file' do
+    it {should have_attached_file(:attachment)}
+  end
+
 end

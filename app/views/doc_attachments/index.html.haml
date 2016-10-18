@@ -4,7 +4,7 @@
 = render partial: 'layouts/header', locals: {page_heading: 'Document upload'}
 
 #TODO Add upload form
-= link_to "Add documents", doc_attachments_new_path, {class: "button", role: 'button'}
+= link_to "Add documents", new_doc_attachment_path, {class: "button", role: 'button'}
 <!--#TODO Add attachments report-->
 
 .table-container.container
@@ -42,3 +42,7 @@
             = doc_attachment.doc_attachment_type.name
           %td
             = l doc_attachment.published_date if doc_attachment.published_date.present?
+          %td
+            = link_to "Edit document", edit_doc_attachment_path(doc_attachment.id)
+          %td
+            = link_to "Delete document", doc_attachment,:confirm => "are you sure?", :method => :delete
