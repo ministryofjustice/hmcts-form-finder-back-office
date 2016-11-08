@@ -15,11 +15,11 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
-    @category.english_name= 'Bob'
   end
 
   # GET /categories/1/edit
   def edit
+    render :edit
   end
 
   # POST /categories
@@ -70,6 +70,10 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:english_name, :welsh_name)
+      params.permit(:english_name, :welsh_name)
     end
+    def update_params
+      params.permit(:id, :english_name, :welsh_name)
+    end
+
 end
