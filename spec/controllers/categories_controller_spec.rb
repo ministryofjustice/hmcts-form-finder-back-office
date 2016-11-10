@@ -35,8 +35,9 @@ RSpec.describe CategoriesController, type: :controller do
     }
 
     let(:invalid_attributes) {
-      skip("Add a hash of attributes invalid for your model")
-      #{:english_name=>1, :welsh_name=>0}
+        {english_name: nil, welsh_name: nil}
+
+      #skip("Add a hash of attributes invalid for your model")
     }
 
     # This should return the minimal set of values that should be in the session
@@ -115,13 +116,16 @@ RSpec.describe CategoriesController, type: :controller do
       end
 
       context "with invalid params" do
+        before do
+          sign_in authorised
+        end
         it "assigns a newly created but unsaved category as @category" do
-          post :create, params: {category: invalid_attributes}, session: valid_session
+          post :create,category: invalid_attributes, session: valid_session
           expect(assigns(:category)).to be_a_new(Category)
         end
 
         it "re-renders the 'new' template" do
-          post :create, params: {category: invalid_attributes}, session: valid_session
+          post :create,category: invalid_attributes, session: valid_session
           expect(response).to render_template("new")
         end
       end
@@ -131,7 +135,7 @@ RSpec.describe CategoriesController, type: :controller do
       context "with valid params" do
 
         let(:new_attributes) {
-          attributes_for(:category)
+          {english_name: 'Braun', welsh_name: "Hansen"}
         }
 
         before do
@@ -140,9 +144,12 @@ RSpec.describe CategoriesController, type: :controller do
         it "updates the requested category" do
           category = Category.create! valid_attributes
           #put :update, params: {id: category.to_param, category: new_attributes}, session: valid_session
-          put :update, {id: category.to_param, category: valid_attributes}, session: valid_session
+          post :create,category: valid_attributes, session: valid_session
+          #category.english_name = "Joe"
+          put :update, {id: category.to_param, category: new_attributes}, session: valid_session
           category.reload
-          skip("Add assertions for updated state")
+          expect(category.english_name).to eq("Braun")
+          #skip("Add assertions for updated state")
         end
 
         before do
@@ -162,15 +169,18 @@ RSpec.describe CategoriesController, type: :controller do
       end
 
       context "with invalid params" do
+        before do
+          sign_in authorised
+        end
         it "assigns the category as @category" do
           category = Category.create! valid_attributes
-          put :update, params: {id: category.to_param, category: invalid_attributes}, session: valid_session
+          put :update, {id: category.to_param, category: invalid_attributes}, session: valid_session
           expect(assigns(:category)).to eq(category)
         end
 
         it "re-renders the 'edit' template" do
           category = Category.create! valid_attributes
-          put :update, params: {id: category.to_param, category: invalid_attributes}, session: valid_session
+          put :update, {id: category.to_param, category: invalid_attributes}, session: valid_session
           expect(response).to render_template("edit")
         end
       end
