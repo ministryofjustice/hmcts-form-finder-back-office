@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'byebug'
 
-RSpec.describe DocAttachmentsController, type: :controller do
+RSpec.describe DocumentsController, type: :controller do
 
   describe "anonymous user" do
     before :each do

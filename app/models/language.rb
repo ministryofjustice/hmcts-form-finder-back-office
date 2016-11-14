@@ -1,5 +1,5 @@
 class Language < ActiveRecord::Base
-  has_many :doc_attachments
+  has_many :documents
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 end

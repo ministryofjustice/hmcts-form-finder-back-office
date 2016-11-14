@@ -40,7 +40,7 @@ csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
 
   if File.file?(File.join(Rails.root, 'lib', 'existing_forms', row['court_forms_url']))
-    t = DocAttachment.new
+    t = Document.new
     t.original_id = row['court_forms_id']
     t.code = row['court_forms_num']
     t.title = row['court_forms_title']
@@ -67,7 +67,7 @@ csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
 
   if File.file?(File.join(Rails.root, 'lib', 'existing_forms', row['court_leaflets_url']))
-    t = DocAttachment.new
+    t = Document.new
     t.original_id = row['court_leaflets_id']
     t.code = row['court_leaflets_num']
     t.title = row['court_leaflets_title']
@@ -87,4 +87,4 @@ csv.each do |row|
   end
 
 end
-puts "There are now #{DocAttachment.count} rows in the Document Attachment table"
+puts "There are now #{Document.count} rows in the Document Attachment table"

@@ -3,15 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user  do
-    root to: 'doc_attachments#index', as: :authenticated_root
+    root to: 'documents#index', as: :authenticated_root
   end
 
   root to: redirect('/users/sign_in')
-  resources :doc_attachments
-  #get 'doc_attachments/new'
-  #get 'doc_attachments/index'
-  #get 'doc_attachments/confirmation'
-  #post 'doc_attachments/create'
+  resources :documents
+  #get 'documents/new'
+  #get 'documents/index'
+  #get 'documents/confirmation'
+  #post 'documents/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
