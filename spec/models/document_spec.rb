@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DocAttachment, type: :model do
+RSpec.describe Document, type: :model do
 
   it { should belong_to(:creator)}
   it { should belong_to(:doc_attachment_type) }

@@ -5,5 +5,5 @@ RSpec.describe User, type: :model do
     expect(create(:user)).to be_valid
   end
 
-  it { should have_many(:doc_attachments)}
+  it { should have_many(:documents)}
 end

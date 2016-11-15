@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :doc_attachment do
+  factory :document do
     doc_attachment_type_id 1
     code "MyString"
     title "MyString"

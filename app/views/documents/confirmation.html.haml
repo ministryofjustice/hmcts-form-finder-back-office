@@ -7,14 +7,14 @@
     = "Successfully submitted"
 
   .normal
-    = @doc_attachment.attachment_file_name
+    = @document.attachment_file_name
 
   .bold-medium
     = "To be published on"
 
   .bold-large
-    = l @doc_attachment.published_date
+    = l @document.published_date
 
 .button-holder
-  = link_to "Upload more documents", new_doc_attachment_path, {class: 'button', role: 'button'}
-  = link_to "View your submissions", doc_attachments_path, {class: 'button-secondary button-left-spacing', role: 'button'}
+  = link_to "Upload more documents", new_document_path, {class: 'button', role: 'button'}
+  = link_to "View your submissions", documents_path, {class: 'button-secondary button-left-spacing', role: 'button'}

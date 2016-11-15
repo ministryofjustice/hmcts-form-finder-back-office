@@ -5,7 +5,7 @@ RSpec.describe DocAttachmentType, type: :model do
     expect(create(:doc_attachment_type)).to be_valid
   end
 
-  it { should have_many(:doc_attachments)}
+  it { should have_many(:documents)}
 
   describe 'validations' do
     it { should validate_presence_of(:name) }
