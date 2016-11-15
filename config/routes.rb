@@ -6,12 +6,11 @@ Rails.application.routes.draw do
     root to: 'documents#index', as: :authenticated_root
   end
 
-  root to: redirect('/users/sign_in')
+  resources :categories
+
   resources :documents
-  #get 'documents/new'
-  #get 'documents/index'
-  #get 'documents/confirmation'
-  #post 'documents/create'
+
+  root to: redirect('/users/sign_in')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
