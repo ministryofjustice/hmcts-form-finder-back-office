@@ -6,8 +6,12 @@ Rails.application.routes.draw do
     root to: 'doc_attachments#index', as: :authenticated_root
   end
 
-  root to: redirect('/users/sign_in')
+  resources :categories
+
   resources :doc_attachments
+
+  root to: redirect('/users/sign_in')
+
   #get 'doc_attachments/new'
   #get 'doc_attachments/index'
   #get 'doc_attachments/confirmation'
