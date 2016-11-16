@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :document_categories
   devise_for :users
 
   authenticated :user  do
