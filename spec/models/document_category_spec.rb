@@ -1,5 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe DocumentCategory, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+#  let(:document) create(:document, valid_attributes)
+
+  it 'has a valid factory' do
+    expect(create(:document_category)).to be_valid
+  end
+
+  it { should belong_to(:document)}
+  it { should belong_to(:category)}
+
 end

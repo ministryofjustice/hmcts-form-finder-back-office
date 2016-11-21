@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :document_category do
-    document nil
-    category nil
-    sort_order 1
+    document
+    category
+    sequence :sort_order do |n|
+      n
+    end
   end
 end

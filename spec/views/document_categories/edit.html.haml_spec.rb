@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "document_categories/edit", type: :view do
+  let(:document) { create(:document)}
+  let(:category) { create(:category)}
+  let(:valid_attributes) {
+    {:document => document, :category => category}
+  }
+
   before(:each) do
-    @document_category = assign(:document_category, DocumentCategory.create!(
-      :document => nil,
-      :category => nil,
-      :sort_order => 1
-    ))
+    document_category = DocumentCategory.create! valid_attributes
+    @document_category = assign(:document_category, document_category )
   end
 
   it "renders the edit document_category form" do

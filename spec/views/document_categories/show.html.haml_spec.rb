@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "document_categories/show", type: :view do
+  let(:valid_attributes) {
+    attributes_for(:document_category)
+  }
+
   before(:each) do
-    @document_category = assign(:document_category, DocumentCategory.create!(
-      :document => nil,
-      :category => nil,
-      :sort_order => 2
-    ))
+    document_category = DocumentCategory.create! valid_attributes
+    @document_category = assign(:document_category, document_category)
   end
 
   it "renders attributes in <p>" do
