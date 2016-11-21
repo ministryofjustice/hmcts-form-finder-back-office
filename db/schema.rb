@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114105213) do
-
+ActiveRecord::Schema.define(version: 20161116113815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +29,17 @@ ActiveRecord::Schema.define(version: 20161114105213) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "document_categories", force: :cascade do |t|
+    t.integer  "document_id"
+    t.integer  "category_id"
+    t.integer  "sort_order"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "document_categories", ["category_id"], name: "index_document_categories_on_category_id", using: :btree
+  add_index "document_categories", ["document_id"], name: "index_document_categories_on_document_id", using: :btree
+
   create_table "documents", force: :cascade do |t|
     t.string   "code"
     t.string   "title"
@@ -45,6 +55,13 @@ ActiveRecord::Schema.define(version: 20161114105213) do
     t.integer  "language_id"
     t.integer  "original_id"
     t.integer  "creator_id"
+  end
+
+  create_table "formats", force: :cascade do |t|
+    t.string   "name"
+    t.string   "extension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "languages", force: :cascade do |t|
@@ -74,4 +91,6 @@ ActiveRecord::Schema.define(version: 20161114105213) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "document_categories", "categories"
+  add_foreign_key "document_categories", "documents"
 end
