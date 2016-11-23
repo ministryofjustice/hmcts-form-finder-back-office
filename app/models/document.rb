@@ -5,6 +5,7 @@ class Document < ActiveRecord::Base
 
   #scope :created_by_user, lambda { |user| where( :creator_id => user.id ) }
 
+  has_and_belongs_to_many :related_documents
 
   acts_as_gov_uk_date :published_date
 
