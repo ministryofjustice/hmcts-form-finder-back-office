@@ -2,16 +2,16 @@ id,english_name,welsh_name
 1,Administrative Appeals Chamber (Upper Tribunal),Siambr Apeliadau Gweinyddol (Uwch Dribiwnlys)
 2,Administrative Court,Llys gweinyddol
 3,Admiralty,Morlys
-4,Adoption,mabwysiadu
+4,Adoption,Mabwysiadu
 5,Agricultural Lands and Drainage,Tiroedd a Draenio Amaethyddol
-6,Asylum support,cymorth lloches
+6,Asylum support,Cymorth lloches
 7,Attachment of Earnings,Atafaelu Enillion
 8,Bankruptcy and Insolvency,Methdaliad ac Ansolfedd
 9,Care Standards (First-tier Tribunal),Safonau Gofal (Tribiwnlys Haen Gyntaf)
 10,Chancery,Siawnsri
 11,Charity Tribunal,Tribiwnlys Elusennau
 12,Children Act,Deddf plant
-13,Civil,sifil
+13,Civil,Sifil
 14,Claims Management Services,Gwasanaethau Rheoli Hawliadau
 15,Commercial Court,Llys masnachol
 16,County Court,Llys Sirol
@@ -22,39 +22,39 @@ id,english_name,welsh_name
 21,Court of Appeal Criminal Division,Llys Apêl Adran Droseddol
 22,Court of Protection,Llys Gwarchod
 23,Courts Charter,Siarter y llysoedd
-24,Criminal,troseddol
+24,Criminal,Troseddol
 25,Criminal Case Management,Rheoli Achosion Troseddol
 26,Criminal Injuries Compensation,Digolledu am Anafiadau Troseddol
 27,Crown Court,Llys y Goron
-28,Deed Poll,gweithred Newid Enw
+28,Deed Poll,Gweithred Newid Enw
 29,Divorce / Civil Partnership Dissolution,Ysgariad / Diddymu Partneriaeth Sifil
 30,Employment Appeal Tribunal,Tribiwnlys Apęl Cyflogaeth
 31,Employment Tribunal,Tribiwnlys cyflogaeth
-32,Enforcement,gorfodi
+32,Enforcement,Gorfodi
 33,Environment Tribunal,Tribiwnlys amgylchedd
-34,European cross-border claims,hawliadau trawsffiniol Ewropeaidd
-35,Family,teulu
+34,European cross-border claims,Hawliadau trawsffiniol Ewropeaidd
+35,Family,Teulu
 36,Fees and Help with Fees,Ffioedd a Help gyda ffioedd
 37,Gangmasters,Gangfeistri
 38,Gender Recognition Panel,Panel Cydnabod Rhyw
-39,General,cyffredinol
+39,General,Cyffredinol
 40,General Regulatory Chamber (First-tier Tribunal),Siambr Reoleiddio Gyffredinol (Tribiwnlys Haen Gyntaf)
-41,Housing,tai
+41,Housing,Tai
 42,Immigration and Asylum Chamber (Upper Tribunal),Siambr Mewnfudo a Lloches (Uwch Dribiwnlys)
 43,Immigration and Asylum Tribunal,Mewnfudo a Lloches y Tribiwnlys
 44,Jury Service,Gwasanaeth rheithgor
 45,Land Registration (First-tier Tribunal),Rheolau Cofrestru Tir (Tribiwnlys Haen Gyntaf)
 46,Lands Chamber (Upper Tribunal),Siambr Tiroedd (Uwch Dribiwnlys)
-47,Legal aid,cymorth cyfreithiol
+47,Legal aid,Cymorth cyfreithiol
 48,Magistrates' Court,Llys Ynadon
-49,Mediation,cyfryngu
+49,Mediation,Cyfryngu
 50,Mental Health Tribunal,Tribiwnlys Iechyd Meddwl
 51,Mercantile Court,Llys masnach
 52,MP Expenses,Treuliau AS
 53,Payment on Account,Taliad ar Gyfrif
 54,Planning Court,Llys cynllunio
 55,Primary Health Lists,Rhestri Iechyd Sylfaenol
-56,Probate,profiant
+56,Probate,Profiant
 57,Proscribed Organisations Appeal Commission,Apêl Sefydliadau gwaharddedig Comisiwn
 58,Queen's Bench,Mainc y Frenhines
 59,Reserve Forces Tribunal,Tribiwnlys Lluoedd Wrth Gefn
