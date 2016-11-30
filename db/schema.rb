@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20161114105213) do
   end
 
   create_table "languages", force: :cascade do |t|
-    t.integer  "old_language_id"
-    t.string   "name",            null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "english_name"
+    t.string   "welsh_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
