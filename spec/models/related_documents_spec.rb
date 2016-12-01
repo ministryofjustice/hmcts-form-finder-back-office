@@ -3,34 +3,34 @@ require 'spec_helper'
 describe "Linked Documents relationship" do
 
   before(:all) do
-    @kanye = FactoryGirl.create(:artist, :name => 'Kanye West')
-    @jz = FactoryGirl.create(:artist, :name => 'Jay Z')
-    @watch_the_throne = FactoryGirl.create(:release, :name => 'Watch the Throne')
-    @dropout = FactoryGirl.create(:release, :name => 'The College Dropout')
+    @parent_doc = FactoryGirl.create(:document, :title => 'Origin Document 1')
+    @parent_doc2 = FactoryGirl.create(:document, :title => 'Origin Document 2')
+    @referenced_doc = FactoryGirl.create(:document, :title => 'Referenced document 1')
+    @referenced_doc2 = FactoryGirl.create(:document, :title => 'Referenced document 2')
 
 
   end
 
-  it "should recognise when an artist has no releases" do
-    @kanye.releases.count.should == 0
+  it "should recognise when a document has no related_documents" do
+    @parent_doc.related_documents.count.should == 0
   end
 
-  it "should handle an artist with a release" do
-    @kanye.releases << @dropout
-    @kanye.releases.count.should == 1
+  it "should handle an document with a related document" do
+    @parent_doc.related_documents << @referenced_doc2
+    @parent_doc.related_documents.count.should == 1
   end
 
   # (testing 2-way fixup)
-  it "should automatically know a release's artist" do
-    @kanye.releases << @dropout
-    @dropout.artists.count.should == 1
+  it "should automatically know a document's related documents" do
+    @parent_doc.related_documents << @referenced_doc2
+    @referenced_doc2.related_documents.count.should == 1
   end
 
-  it "should hanlde an artist collaboration" do
-    @kanye.releases << @watch_the_throne
-    @jz.releases << @watch_the_throne
+  it "should handle a documents being referenced by more than one document" do
+    @parent_doc.related_documents << @referenced_doc
+    @parent_doc2.related_documents << @referenced_doc
 
-    @watch_the_throne.artists.count.should == 2
+    @referenced_doc.related_documents.count.should == 2
   end
 
 end
