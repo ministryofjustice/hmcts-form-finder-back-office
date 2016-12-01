@@ -17,7 +17,7 @@
 
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
-    = collection_select :document, :language_id, Language.all, :id, :name, { selected: 5}, { class: 'form-control' }
+    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 5}, { class: 'form-control' }
   .form-group
     = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 

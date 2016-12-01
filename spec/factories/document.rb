@@ -4,5 +4,8 @@ FactoryGirl.define do
     code "MyString"
     title "MyString"
     category "MyString"
+    attachment { File.new("#{Rails.root}/spec/support/fixtures/Blank.docx") }
+    language
+    attachment_file_name "Bob"
   end
 end

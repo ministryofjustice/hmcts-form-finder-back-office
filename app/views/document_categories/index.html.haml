@@ -1,0 +1,25 @@
+%h1 Listing document_categories
+
+%table
+  %thead
+    %tr
+      %th Document
+      %th Category
+      %th Sort order
+      %th
+      %th
+      %th
+
+  %tbody
+    - @document_categories.each do |document_category|
+      %tr
+        %td= document_category.document
+        %td= document_category.category
+        %td= document_category.sort_order
+        %td= link_to 'Show', document_category
+        %td= link_to 'Edit', edit_document_category_path(document_category)
+        %td= link_to 'Destroy', document_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Document category', new_document_category_path
