@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20161116113815) do
 
   # These are extensions that must be enabled in order to support this database
@@ -56,13 +55,6 @@ ActiveRecord::Schema.define(version: 20161116113815) do
     t.integer  "language_id"
     t.integer  "original_id"
     t.integer  "creator_id"
-  end
-
-  create_table "formats", force: :cascade do |t|
-    t.string   "name"
-    t.string   "extension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "languages", force: :cascade do |t|
