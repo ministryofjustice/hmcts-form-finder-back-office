@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     root to: 'documents#index', as: :authenticated_root
   end
 
+  resources :document_categories
+
   resources :categories
 
   resources :documents
