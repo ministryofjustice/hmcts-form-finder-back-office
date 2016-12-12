@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20161212111220) do
     t.string   "welsh_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "code"
+    t.string   "code",         null: false
   end
 
   create_table "users", force: :cascade do |t|
