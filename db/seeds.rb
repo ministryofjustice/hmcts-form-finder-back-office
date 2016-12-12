@@ -42,6 +42,7 @@ csv.each do |row|
   t.id = row['id']
   t.english_name = row['english_name']
   t.welsh_name = row['welsh_name']
+  t.code = row['code']
   t.save
 end
 
