@@ -23,14 +23,14 @@ describe "Linked Documents relationship" do
   # (testing 2-way fixup)
   it "should automatically know a document's related documents" do
     @parent_doc.related_documents << @referenced_doc2
-    @referenced_doc2.related_documents.count.should == 1
+    @referenced_doc2.all_related.count.should == 1
   end
 
   it "should handle a documents being referenced by more than one document" do
     @parent_doc.related_documents << @referenced_doc
     @parent_doc2.related_documents << @referenced_doc
 
-    @referenced_doc.related_documents.count.should == 2
+    @referenced_doc.all_related.count.should == 2
   end
 
 end
