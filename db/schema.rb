@@ -57,13 +57,6 @@ ActiveRecord::Schema.define(version: 20161122155527) do
     t.integer  "creator_id"
   end
 
-  create_table "formats", force: :cascade do |t|
-    t.string   "name"
-    t.string   "extension"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "languages", force: :cascade do |t|
     t.string   "english_name"
     t.string   "welsh_name"
