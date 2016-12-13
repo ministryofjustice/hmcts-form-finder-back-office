@@ -8,7 +8,7 @@ class Document < ActiveRecord::Base
                           join_table: :related_documents,
                           foreign_key: :document_id,
                           association_foreign_key: :linked_document_id,
-  uniq: true
+                          uniq: true
 
   acts_as_gov_uk_date :published_date
 
