@@ -12,25 +12,25 @@ describe "Linked Documents relationship" do
   end
 
   it "should recognise when a document has no related_documents" do
-    @parent_doc.related_documents.count.should == 0
+    expect(@parent_doc.related_documents.count).to eq 0
   end
 
   it "should handle an document with a related document" do
     @parent_doc.related_documents << @referenced_doc2
-    @parent_doc.related_documents.count.should == 1
+    expect(@parent_doc.related_documents.count).to eq 1
   end
 
   # (testing 2-way fixup)
   it "should automatically know a document's related documents" do
     @parent_doc.related_documents << @referenced_doc2
-    @referenced_doc2.all_related.count.should == 1
+    expect(@referenced_doc2.all_related.count).to eq 1
   end
 
   it "should handle a documents being referenced by more than one document" do
     @parent_doc.related_documents << @referenced_doc
     @parent_doc2.related_documents << @referenced_doc
 
-    @referenced_doc.all_related.count.should == 2
+    expect(@referenced_doc.all_related.count).to eq 2
   end
 
 end
