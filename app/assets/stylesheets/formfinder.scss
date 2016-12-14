@@ -1,3 +1,7 @@
 #global-header .header-wrapper {
   .sign-out { padding: 0.4em 1em; }
 }
+
+.button-warning{
+  @include button($red);
+}

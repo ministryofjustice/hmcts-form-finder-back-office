@@ -7,10 +7,8 @@
           %li= msg
 
   .field
-    = f.label :english_name
     = f.text_field :english_name
   .field
-    = f.label :welsh_name
     = f.text_field :welsh_name
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'button'
