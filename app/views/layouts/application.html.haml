@@ -27,10 +27,13 @@
 = content_for :content do
   = csrf_meta_tags
   #page
-    = render partial: 'shared/phase_banner'
-    .primary-nav-bar
-      -# if user_signed_in?
-        =# render partial: 'layouts/primary_navigation'
+
+    -if user_signed_in?
+      .primary-nav-bar
+        = render partial: 'shared/nav_bar'
+    -else
+      = render partial: 'shared/phase_banner'
+
     %main#content
       = render partial: 'layouts/flashes' unless flash.empty?
       = yield
