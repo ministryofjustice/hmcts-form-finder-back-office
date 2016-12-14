@@ -1,14 +1,9 @@
 = form_for @document, multipart: true do |f|
 
-
   .form-group
-
     = f.label :attachment, 'Upload PDF, Doc or XLS files', class:'form-hint'
-
     = f.file_field :attachment
-
   = f.text_field :code
-
   = f.text_field :title
 
   .form-group
