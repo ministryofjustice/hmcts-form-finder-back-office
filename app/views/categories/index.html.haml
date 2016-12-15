@@ -1,4 +1,4 @@
-%h1.heading-large Categories management
+= render partial: 'layouts/header', locals: {page_heading: 'Categories management'}
 
 %p
   = link_to 'Create a new category', new_category_path, class: 'button'
@@ -18,5 +18,5 @@
       %tr
         %td= category.english_name
         %td= category.welsh_name
-        %td= link_to 'Edit', edit_category_path(category), class: 'button'
-        %td= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning'
+        %td= link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
+        %td= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"

@@ -1,16 +1,10 @@
 = form_for @document, multipart: true do |f|
 
-
   .form-group
-
     = f.label :attachment, 'Upload PDF, Doc or XLS files', class:'form-hint'
-
     = f.file_field :attachment
-
     = f.label :attachment , @document.attachment_file_name
-
   = f.text_field :code
-
   = f.text_field :title
 
   .form-group
@@ -20,6 +14,7 @@
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
     = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 5}, { class: 'form-control' }
+
   .form-group
     = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 

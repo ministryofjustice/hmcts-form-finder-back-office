@@ -1,27 +1,27 @@
-id,english_name,welsh_name
-1,Amharic,Amhareg
-2,Arabic,Arabeg
-3,Bengali,Bengali
-4,Chinese (simplfied),Tseiniaidd (symleiddio)
-5,Chinese (traditional),Tsieinëeg (traddodiadol)
-6,Croatian,Croateg
-7,Czech,Tsiec
-8,English,Saesneg
-9,Farsi,Farsi
-10,French,Ffrangeg
-11,Greek,Groeg
-12,Gujarati,Gujarati
-13,Hindi,Hindi
-14,Kurdish,Kurdish
-15,Polish,Pwyleg
-16,Portuguese,Portiwgaleg
-17,Punjabi,Punjabi
-18,Serbian,Serbeg
-19,Somali,Somalia
-20,Spanish,Sbaeneg
-21,Swahili,Swahili
-22,Tigrigina,Tigrigna
-23,Turkish,Turkish
-24,Urdu,Urdu
-25,Welsh,Cymraeg
-26,Welsh / Bilingual,Cymraeg / Dwyieithog
+id,english_name,welsh_name,code
+1,Amharic,Amhareg,amh
+2,Arabic,Arabeg,ara
+3,Bengali,bengali,ben
+4,Chinese (simplfied),Tseiniaidd (symleiddio),zho
+5,Chinese (traditional),TsieinÌÇeg (traddodiadol),chi
+6,Croatian,Croateg,hrv
+7,Czech,Tsiec,cze
+8,English,Saesneg,eng
+9,Farsi,Farsi,far
+10,French,Ffrangeg,fre
+11,Greek,Groeg,gre
+12,Gujarati,gujarati,guj
+13,Hindi,hindi,hin
+14,Kurdish,Kurdish,kur
+15,Polish,Pwyleg,pol
+16,Portuguese,Portiwgaleg,por
+17,Punjabi,Punjabi,pun
+18,Serbian,Serbeg,srp
+19,Somali,Somalia,som
+20,Spanish,Sbaeneg,spa
+21,Swahili,Swahili,swa
+22,Tigrigina,Tigrigna,tir
+23,Turkish,turkish,tur
+24,Urdu,Urdu,urd
+25,Welsh,Cymraeg,cym
+26,Welsh / Bilingual,Cymraeg / Dwyieithog,bil
