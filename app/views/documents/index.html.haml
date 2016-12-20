@@ -1,7 +1,7 @@
 - content_for :page_title do
   = "Your submitted documents for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document upload'}
+= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
 
 #TODO Add upload form
 = link_to "Add documents", new_document_path, {class: "button", role: 'button'}
