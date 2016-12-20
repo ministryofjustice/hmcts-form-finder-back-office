@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212111220) do
+
+ActiveRecord::Schema.define(version: 20161122155527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +58,13 @@ ActiveRecord::Schema.define(version: 20161212111220) do
     t.integer  "creator_id"
   end
 
+  create_table "formats", force: :cascade do |t|
+    t.string   "name"
+    t.string   "extension"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string   "english_name"
     t.string   "welsh_name"
@@ -64,6 +72,14 @@ ActiveRecord::Schema.define(version: 20161212111220) do
     t.datetime "updated_at",   null: false
     t.string   "code",         null: false
   end
+
+  create_table "related_documents", force: :cascade do |t|
+    t.integer "document_id"
+    t.integer "linked_document_id"
+  end
+
+  add_index "related_documents", ["document_id", "linked_document_id"], name: "index_related_documents_on_document_id_and_linked_document_id", unique: true, using: :btree
+  add_index "related_documents", ["linked_document_id", "document_id"], name: "index_related_documents_on_linked_document_id_and_document_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
