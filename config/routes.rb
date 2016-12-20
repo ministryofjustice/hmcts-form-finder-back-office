@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :doc_attachment_types
   resources :languages
   resources :languages
