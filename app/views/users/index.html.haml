@@ -4,7 +4,8 @@
   = link_to 'Create a new User', new_user_path, class: 'button'
 
 %h2.heading-medium
-  Current users
+  = @users.size
+  current users
 
 %table
   %thead
