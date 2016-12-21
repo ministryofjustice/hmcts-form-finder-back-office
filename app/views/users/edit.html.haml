@@ -1,7 +1,5 @@
-%h1 Editing user
+= render partial: 'layouts/header', locals: {page_heading: 'User management'}
+
+%h2.heading-medium Edit a users details
 
 = render 'form'
-
-= link_to 'Show', @user
-\|
-= link_to 'Back', users_path
