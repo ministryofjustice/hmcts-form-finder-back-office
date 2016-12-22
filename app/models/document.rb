@@ -3,8 +3,12 @@ class Document < ActiveRecord::Base
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
 
-  #scope :created_by_user, lambda { |user| where( :creator_id => user.id ) }
-
+  has_and_belongs_to_many :related_documents,
+                          class_name: "Document",
+                          join_table: :related_documents,
+                          foreign_key: :document_id,
+                          association_foreign_key: :linked_document_id,
+                          uniq: true
 
   acts_as_gov_uk_date :published_date
 
@@ -27,5 +31,14 @@ class Document < ActiveRecord::Base
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
     attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
                               "#{self.code}-#{self.language.english_name}.#{extension}")
+  end
+  def all_related
+    Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.linked_document_id
+    AND  related_documents.document_id =  #{self.id}
+      UNION
+    SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.document_id
+    AND  related_documents.linked_document_id =  #{self.id})")
   end
 end

@@ -1,0 +1,25 @@
+= render partial: 'layouts/header', locals: {page_heading: 'User management'}
+
+%p
+  = link_to 'Create a new User', new_user_path, class: 'button'
+
+%h2.heading-medium
+  Current users
+
+%table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Email
+      %th
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.first_name
+        %td= user.last_name
+        %td= user.email
+        %td= link_to 'Edit', edit_user_path(user), {class:"button-secondary", role:"button"}
+        %td= link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
