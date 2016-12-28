@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /usr/src/app
+
+cd ${APP_HOME:-/rails}
+
 case ${DOCKER_STATE} in
 migrate)
     echo "running migrate"

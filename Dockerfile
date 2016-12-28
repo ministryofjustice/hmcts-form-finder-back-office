@@ -35,4 +35,4 @@ RUN bundle install
 
 #RUN bundle exec rake static_pages:generate RAILS_ENV=production SECRET_TOKEN=blah
 
-CMD ./run.sh
+CMD [ "/bin/bash", "./run.sh" ]
