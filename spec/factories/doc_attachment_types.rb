@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :doc_attachment_type do
-    sequence :name do |n|
-       "Document type #{n}"
-    end
+    english_name "MyString"
+    welsh_name "MyString"
   end
 end
