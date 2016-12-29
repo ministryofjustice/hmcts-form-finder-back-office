@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b English name:
+  = @doc_attachment_type.english_name
+%p
+  %b Welsh name:
+  = @doc_attachment_type.welsh_name
+
+= link_to 'Edit', edit_doc_attachment_type_path(@doc_attachment_type)
+\|
+= link_to 'Back', doc_attachment_types_path
