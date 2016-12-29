@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :languages
   resources :languages
   devise_for :users
+  resources :users
 
   authenticated :user  do
     root to: 'documents#index', as: :authenticated_root

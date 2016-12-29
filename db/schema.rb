@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 20161220144036) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "related_documents", force: :cascade do |t|
+    t.integer "document_id"
+    t.integer "linked_document_id"
+  end
+
+  add_index "related_documents", ["document_id", "linked_document_id"], name: "index_related_documents_on_document_id_and_linked_document_id", unique: true, using: :btree
+  add_index "related_documents", ["linked_document_id", "document_id"], name: "index_related_documents_on_linked_document_id_and_document_id", unique: true, using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
