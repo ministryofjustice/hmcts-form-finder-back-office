@@ -28,7 +28,8 @@ csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   t = DocAttachmentType.new
   t.id = row[0]
-  t.name = row[1]
+  t.english_name = row[1]
+  t.welsh_name = row[2]
   t.save
 end
 
