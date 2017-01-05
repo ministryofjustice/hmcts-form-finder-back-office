@@ -1,0 +1,16 @@
+= form_for @doc_attachment_type do |f|
+  - if @doc_attachment_type.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@doc_attachment_type.errors.count, "error")} prohibited this doc_attachment_type from being saved:"
+      %ul
+        - @doc_attachment_type.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :english_name
+    = f.text_field :english_name
+  .field
+    = f.label :welsh_name
+    = f.text_field :welsh_name
+  .actions
+    = f.submit 'Save'
