@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'paperclip', '4.3.6'
 gem 'pg'
 gem 'rails', '4.2.7.1'
+gem 'puma', '~> 3.4'
 gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'turbolinks'
@@ -36,7 +37,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'rspec-rails', '~> 3.0'
-  gem 'thin'
 end
 
 group :development do

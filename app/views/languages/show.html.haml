@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b English name:
+  = @language.english_name
+%p
+  %b Welsh name:
+  = @language.welsh_name
+%p
+  %b Code:
+  = @language.code
+
+= link_to 'Edit', edit_language_path(@language)
+\|
+= link_to 'Back', languages_path
