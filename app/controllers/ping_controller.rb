@@ -3,7 +3,7 @@ class PingController  < ApplicationController
 
   def index
     Rails.logger.silence do
-      respond_with Deployment.info
+      render :json => Deployment.info
     end
   end
 end
