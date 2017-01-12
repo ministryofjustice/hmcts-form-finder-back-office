@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :language do
-    english_name "Bob"
-    welsh_name "David"
-    code "Cym"
+    english_name "MyString"
+    welsh_name "MyString"
+    code "MyString"
   end
 end
