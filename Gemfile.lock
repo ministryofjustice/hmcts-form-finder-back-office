@@ -342,8 +342,8 @@ DEPENDENCIES
   jquery-rails
   paperclip (= 4.3.6)
   pg
-  rails (= 4.2.7.1)
   puma (~> 3.4)
+  rails (= 4.2.7.1)
   rails_12factor
   rb-readline
   rspec-rails (~> 3.0)
@@ -358,4 +358,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
