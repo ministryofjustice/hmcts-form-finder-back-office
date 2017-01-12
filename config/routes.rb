@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'ping'               => 'ping#index'
+  get 'healthcheck'        => 'health_check#index'
 
   devise_for :users
   resources :users
