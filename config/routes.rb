@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :languages
   resources :languages
   resources :languages
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'git
   resources :users
 
   authenticated :user  do
