@@ -1,5 +1,6 @@
-%h1 New language
+= render partial: 'layouts/header', locals: {page_heading: 'Language management'}
+
+%h2.heading-medium
+  Add a language
 
 = render 'form'
-
-= link_to 'Back', languages_path
