@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {created_at:nil, updated_at:nil, email:nil, encrypted_password:nil, sign_in_count:nil}
+    {created_at:nil, updated_at:nil, email:'not an email address', password:'test', sign_in_count:nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -88,9 +88,10 @@ RSpec.describe UsersController, type: :controller do
       sign_in authorised
     end
     context "with valid params" do
+
       it "creates a new User" do
         expect {
-          post :create, user: valid_attributes, session: valid_session
+          post :create, user: attributes_for(:user), session: valid_session
         }.to change(User, :count).by(1)
       end
 
@@ -149,9 +150,12 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "with invalid params" do
+      before do
+        sign_in authorised
+      end
       it "assigns the user as @user" do
         user = User.create! valid_attributes
-        put :update, id: user.to_param, user: invalid_attributes, session: valid_session
+        put :update, {id: user.to_param, user: invalid_attributes}, session: valid_session
         expect(assigns(:user)).to eq(user)
       end
 
@@ -164,6 +168,9 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe "DELETE #destroy" do
+    before {
+      sign_in authorised
+    }
     it "destroys the requested user" do
       user = User.create! valid_attributes
       expect {
