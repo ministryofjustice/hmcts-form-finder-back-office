@@ -29,7 +29,7 @@ RSpec.describe LanguagesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {english_name:nil, welsh_name:nil, code:nil}
+    {english_name:'', welsh_name:'', code:''}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -153,13 +153,13 @@ RSpec.describe LanguagesController, type: :controller do
       }
       it "assigns the language as @language" do
         language = Language.create! valid_attributes
-        put :update, {id: language.to_param, language: invalid_attributes}, session: valid_session
+        put :update,{id: language.to_param, language: invalid_attributes},session: valid_session
         expect(assigns(:language)).to eq(language)
       end
 
       it "re-renders the 'edit' template" do
         language = Language.create! valid_attributes
-        put :update, id: language.to_param, language: invalid_attributes, session: valid_session
+        put :update,id: language.to_param, language: invalid_attributes,session: valid_session
         expect(response).to render_template("edit")
       end
     end
