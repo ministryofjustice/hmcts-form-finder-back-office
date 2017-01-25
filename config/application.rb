@@ -1,4 +1,5 @@
 require File.expand_path('../boot', __FILE__)
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
 
 require "rails"
 # Pick the frameworks you want:
@@ -36,3 +37,5 @@ module HmctsFormFinderBackOffice
     ActionView::Base.default_form_builder = GovukElementsFormBuilder::FormBuilder
   end
 end
+
+require 'settings'
