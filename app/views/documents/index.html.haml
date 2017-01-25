@@ -39,7 +39,7 @@
           %td
             = doc_attachment.title
           %td
-            = doc_attachment.doc_attachment_type.name if doc_attachment.doc_attachment_type.present?
+            = doc_attachment.doc_attachment_type.english_name if doc_attachment.doc_attachment_type.present?
           %td
             = l doc_attachment.published_date if doc_attachment.published_date.present?
           %td
