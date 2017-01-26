@@ -30,7 +30,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {english_name:'',welsh_name:''}
+    {english_name: nil, welsh_name: nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -108,7 +108,6 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
       end
       it "assigns a newly created but unsaved doc_attachment_type as @doc_attachment_type" do
         post :create,doc_attachment_type: invalid_attributes, session: valid_session
-        post :create, :doc_attachment_type => {}
         expect(assigns(:doc_attachment_type)).to be_a_new(DocAttachmentType)
       end
 
@@ -150,6 +149,9 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
     end
 
     context "with invalid params" do
+      before do
+        sign_in authorised
+      end
       it "assigns the doc_attachment_type as @doc_attachment_type" do
         doc_attachment_type = DocAttachmentType.create! valid_attributes
         put :update, id: doc_attachment_type.to_param, doc_attachment_type: invalid_attributes, session: valid_session
