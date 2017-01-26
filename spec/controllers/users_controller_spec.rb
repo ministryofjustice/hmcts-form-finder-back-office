@@ -30,7 +30,7 @@ RSpec.describe UsersController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {created_at:nil, updated_at:nil, email:'not an email address', password:'test', sign_in_count:nil}
+    {email: 'not an email address', password: 'test'}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -108,8 +108,11 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context "with invalid params" do
+      before do
+        sign_in authorised
+      end
       it "assigns a newly created but unsaved user as @user" do
-        post :create, user: invalid_attributes, session: valid_session
+        post :create,user: invalid_attributes, session: valid_session
         expect(assigns(:user)).to be_a_new(User)
       end
 

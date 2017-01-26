@@ -29,7 +29,7 @@ RSpec.describe LanguagesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {english_name:'', welsh_name:'', code:''}
+    {english_name: nil, welsh_name: nil, code: nil}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -106,13 +106,16 @@ RSpec.describe LanguagesController, type: :controller do
     end
 
     context "with invalid params" do
+      before do
+        sign_in authorised
+      end
       it "assigns a newly created but unsaved language as @language" do
-        post :create, language: invalid_attributes, session: valid_session
+        post :create,language: invalid_attributes, session: valid_session
         expect(assigns(:language)).to be_a_new(Language)
       end
 
       it "re-renders the 'new' template" do
-        post :create, language: invalid_attributes, session: valid_session
+        post :create,language: invalid_attributes, session: valid_session
         expect(response).to render_template("new")
       end
     end
