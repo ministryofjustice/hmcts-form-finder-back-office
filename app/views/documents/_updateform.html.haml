@@ -1,22 +1,31 @@
 = form_for @document, multipart: true do |f|
 
   .form-group
-    = f.label :attachment, 'Upload PDF, Doc or XLS files', class:'form-hint'
+    %p
+      The current document file is:
+      %span.strong
+        = @document.attachment_file_name
+
+    %p
+      = f.label :attachment, 'Choose a different file to upload ?'
+
     = f.file_field :attachment
-    = f.label :attachment , @document.attachment_file_name
+
   = f.text_field :code
+
   = f.text_field :title
 
   .form-group
     = f.label :doc_attachment_type_id, 'Type', class: 'form-label'
-    = collection_select :document, :doc_attachment_type_id, DocAttachmentType.all, :id, :name, { include_blank: true }, { class: 'form-control' }
+    = collection_select :document, :doc_attachment_type_id, DocAttachmentType.all, :id, :english_name, { include_blank: true }, { class: 'form-control' }
 
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
-    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 5}, { class: 'form-control' }
+    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 8}, { class: 'form-control' }
 
   .form-group
     = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 
   = f.submit "Update", {class:"button", role:"button"}
-  = link_to "Cancel", root_path
+
+  = link_to "Cancel", root_path, class: 'button-warning button-left-spacing', role:"button"
