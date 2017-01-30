@@ -3,46 +3,38 @@
 
 = render partial: 'layouts/header', locals: {page_heading: 'Document management'}
 
-#TODO Add upload form
-= link_to "Add documents", new_document_path, {class: "button", role: 'button'}
-<!--#TODO Add attachments report-->
+.grid-row
+  .column-full
+    = link_to "Add documents", new_document_path, {class: "button", role: 'button'}
 
-.table-container.container
-  %table.report
-    %caption
-      %span.table-caption
-        = "Your submission history"
-      %span.claim-count
-        =# t('.show_count', page_count: claims.size, total: claims.total_count)
-    %colgroup
-      %col
-      %col
-      %col
-    %thead
-      %th{scope:'col'}
-        = "File"
-      %th{scope:'col'}
-        = "Code"
-      %th{scope:'col'}
-        = "Title"
-      %th{scope:'col'}
-        = "Type"
-      %th{scope:'col'}
-        = "Publish date"
-    %tbody 
-      - @documents.each do | doc_attachment   |
-        %tr
-          %td
-            = "#{doc_attachment.attachment_file_name} (#{number_to_human_size(doc_attachment.attachment_file_size, precision: 2)})"
-          %td
-            = doc_attachment.code
-          %td
-            = doc_attachment.title
-          %td
-            = doc_attachment.doc_attachment_type.english_name if doc_attachment.doc_attachment_type.present?
-          %td
-            = l doc_attachment.published_date if doc_attachment.published_date.present?
-          %td
-            = link_to "Edit document", edit_document_path(doc_attachment.id)
-          %td
-            = link_to "Delete document", doc_attachment,:confirm => "are you sure?", :method => :delete
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = "Your submission history"
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %th{scope:'col'}
+            = "Code"
+          %th{scope:'col'}
+            = "Title"
+          %th{scope:'col'}
+            = "Publish date"
+          %th
+          %th
+        %tbody
+          - @documents.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.code
+              %td
+                = doc_attachment.title
+              %td
+                = l doc_attachment.published_date if doc_attachment.published_date.present?
+              %td
+                = link_to "Edit", edit_document_path(doc_attachment.id), {class:"button-secondary", role:"button"}
+              %td
+                = link_to "Delete", doc_attachment, :method => :delete, :data => {:confirm => "are you sure?"},  class: 'button-warning', role:'button'

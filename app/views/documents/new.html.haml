@@ -3,4 +3,12 @@
 
 = render partial: 'layouts/header', locals: {page_heading: 'Document management'}
 
-= render 'form'
+.grid-row
+  .column-two-thirds
+
+    %h2.heading-medium
+      Add a document
+
+    = render 'form'
+
+  .column-one-third
