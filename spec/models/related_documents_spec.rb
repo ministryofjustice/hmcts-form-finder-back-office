@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Linked Documents relationship" do
 
-  before(:all) do
+  before(:each) do
     @parent_doc = FactoryGirl.create(:document, :title => 'Origin Document 1')
     @parent_doc2 = FactoryGirl.create(:document, :title => 'Origin Document 2')
     @referenced_doc = FactoryGirl.create(:document, :title => 'Referenced document 1')
