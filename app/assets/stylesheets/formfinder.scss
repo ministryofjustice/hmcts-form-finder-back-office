@@ -1,6 +1,26 @@
 body {
+
   #global-header .header-wrapper {
-    .sign-out { padding: 0.4em 1em; }
+
+    .header-global,
+    .header-proposition {
+      display: inline-block
+    }
+
+    .header-global {
+      float: none;
+      margin-left: 1em;
+      margin-right: 1em;
+      width: 264px
+    }
+
+    .header-proposition {
+      padding-top: 10px;
+      width: 66%;
+      .sign-out {
+        padding-right: 1em
+      }
+    }
   }
 
   #admin-navigation ul {
@@ -9,27 +29,37 @@ body {
     margin: 0;
     overflow: hidden;
     padding: 0;
-    li { display: inline-block;
+
+    li {
+      display: inline-block;
+
       a {
         color: $text-colour;
         display: inline-block;
         padding: 8px 16px;
         text-align: center;
-        text-decoration: none;
+        text-decoration: none
       }
-      a:hover { background-color: $grey-3; }
 
+      a:hover {
+        background-color: $grey-3
+      }
     }
-    li.active { background-color: $grey-2; }
+
+    li.active {
+      background-color: $grey-2
+    }
   }
 
   @media screen and (max-width: 568px) {
     #admin-navigation ul {
-      li { display: block; }
+      li {
+        display: block
+      }
     }
   }
 
-  .button-warning{
+  .button-warning {
     @include button($red);
   }
 }
