@@ -9,7 +9,7 @@
 
   .form-group
     = f.label :doc_attachment_type_id, 'Type', class: 'form-label'
-    = collection_select :document, :doc_attachment_type_id, DocAttachmentType.all, :id, :name, { include_blank: true }, { class: 'form-control' }
+    = collection_select :document, :doc_attachment_type_id, DocAttachmentType.all, :id, :english_name, { include_blank: true }, { class: 'form-control' }
 
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
