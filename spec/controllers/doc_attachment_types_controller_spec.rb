@@ -72,10 +72,13 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
   end
 
   describe "GET #edit" do
+    before do
+      sign_in authorised
+    end
     it "assigns the requested doc_attachment_type as @doc_attachment_type" do
       doc_attachment_type = DocAttachmentType.create! valid_attributes
-      get :edit, id: doc_attachment_type.to_param, session: valid_session
-      expect(assigns(:doc_attachment_type)).to eq(@doc_attachment_type)
+      get :edit, {id: doc_attachment_type.to_param}, session: valid_session
+      expect(assigns(:doc_attachment_type)).to eq(doc_attachment_type)
     end
   end
 
