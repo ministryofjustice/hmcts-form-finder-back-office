@@ -18,11 +18,10 @@
 - content_for :proposition_header do
   .header-proposition
     .content
-      %nav#proposition-menu
-        %a#proposition-name{:href => root_path}
-          %abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
-          = "Form finder"
-        = render partial:  'shared/loginout'
+      %a#proposition-name{:href => root_path}
+        %abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
+        = "Form finder"
+      = render partial:  'shared/loginout'
 
 = content_for :content do
   = csrf_meta_tags
