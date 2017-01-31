@@ -7,8 +7,6 @@ describe "Linked Documents relationship" do
     @parent_doc2 = FactoryGirl.create(:document, :title => 'Origin Document 2')
     @referenced_doc = FactoryGirl.create(:document, :title => 'Referenced document 1')
     @referenced_doc2 = FactoryGirl.create(:document, :title => 'Referenced document 2')
-
-
   end
 
   it "should recognise when a document has no related_documents" do
