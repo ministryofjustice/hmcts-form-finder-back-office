@@ -107,20 +107,7 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    context "with invalid params" do
-      before do
-        sign_in authorised
-      end
-      it "assigns a newly created but unsaved user as @user" do
-        post :create,user: invalid_attributes, session: valid_session
-        expect(assigns(:user)).to be_a_new(User)
-      end
 
-      it "re-renders the 'new' template" do
-        post :create, user: invalid_attributes, session: valid_session
-        expect(response).to render_template("new")
-      end
-    end
   end
 
   describe "PUT #update" do
