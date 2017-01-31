@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
+
   get 'ping'               => 'ping#index'
   get 'healthcheck'        => 'health_check#index'
 
   resources :doc_attachment_types
   resources :languages
 
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
   resources :users
 
   authenticated :user  do

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< c840566d3bd171f0a39ac707c3bb344089b8a647
 ActiveRecord::Schema.define(version: 20161220152930) do
+=======
+ActiveRecord::Schema.define(version: 20161220144036) do
+>>>>>>> Language CRUD functions added
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
