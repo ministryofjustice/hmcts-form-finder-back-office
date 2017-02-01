@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :doc_attachment_types
   resources :languages
 
-  devise_for :users, :path_prefix => 'my'
+  devise_for :users
   resources :users
 
   authenticated :user  do
