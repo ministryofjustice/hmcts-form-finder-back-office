@@ -1,6 +1,11 @@
 = render partial: 'layouts/header', locals: {page_heading: 'User management'}
 
-%h2.heading-medium
-  Add a new user
+.grid-row
+  .column-two-thirds
 
-= render 'form'
+    %h2.heading-medium
+      Add a new user
+
+    = render 'form'
+
+  .column-one-third
