@@ -5,7 +5,8 @@
 
 .grid-row
   .column-full
-    = link_to "Add documents", new_document_path, {class: "button", role: 'button'}
+
+    = link_to "Add a document", new_document_path, {class: "button", role: 'button'}
 
     .table-container.container
       %table.report
@@ -17,14 +18,15 @@
           %col
           %col
         %thead
-          %th{scope:'col'}
-            = "Code"
-          %th{scope:'col'}
-            = "Title"
-          %th{scope:'col'}
-            = "Publish date"
-          %th
-          %th
+          %tr
+            %th{scope:'col'}
+              = "Code"
+            %th{scope:'col'}
+              = "Title"
+            %th{scope:'col'}
+              = "Publish date"
+            %th
+            %th
         %tbody
           - @documents.each do | doc_attachment   |
             %tr
