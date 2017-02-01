@@ -1,9 +1,14 @@
 = form_for @document, multipart: true do |f|
 
   .form-group
-    = f.label :attachment, 'Upload PDF, Doc or XLS files', class:'form-hint'
-    = f.file_field :attachment
+
+    = f.label :attachment, 'Choose a file to upload'
+
+    %p
+      = f.file_field :attachment
+
   = f.text_field :code
+
   = f.text_field :title
 
   .form-group
@@ -12,9 +17,11 @@
 
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
-    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 5}, { class: 'form-control' }
+    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 8}, { class: 'form-control' }
+
   .form-group
     = f.gov_uk_date_field :published_date, legend_text: 'Date to publish', placeholders:true
 
   = f.submit "Submit document", {class:"button", role:"button"}
-  = link_to "Cancel", root_path
+
+  = link_to "Cancel", root_path, class: 'button-warning button-left-spacing', role:"button"

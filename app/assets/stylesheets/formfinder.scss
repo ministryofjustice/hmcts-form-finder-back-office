@@ -1,7 +1,22 @@
+#admin-navigation ul {
+  border-bottom-color: $border-colour
+}
+#admin-navigation ul li.active {
+  background-color: $grey-2
+}
+#admin-navigation ul li a {
+  color: $text-colour
+}
+#admin-navigation ul li a:hover {
+  background-color: $grey-3
+}
+.button-warning {
+  @include button($red)
+}
+
 body {
 
   #global-header .header-wrapper {
-
     .header-global,
     .header-proposition {
       display: inline-block
@@ -21,10 +36,11 @@ body {
         padding-right: 1em
       }
     }
+
   }
 
   #admin-navigation ul {
-    border-bottom: 1px solid #bfc1c3;
+    border-bottom: 1px solid;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
@@ -34,32 +50,36 @@ body {
       display: inline-block;
 
       a {
-        color: $text-colour;
         display: inline-block;
         padding: 8px 16px;
         text-align: center;
         text-decoration: none
       }
-
-      a:hover {
-        background-color: $grey-3
-      }
     }
 
-    li.active {
-      background-color: $grey-2
-    }
   }
 
   @media screen and (max-width: 568px) {
+
     #admin-navigation ul {
       li {
         display: block
       }
     }
+
   }
 
-  .button-warning {
-    @include button($red);
+}
+
+.form-group p {
+  margin-bottom: 0;
+
+  .form-hint{
+    margin-bottom: 5px;
   }
+
+}
+
+.strong {
+  font-weight: 600
 }
