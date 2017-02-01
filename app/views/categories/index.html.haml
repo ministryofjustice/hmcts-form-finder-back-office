@@ -1,24 +1,27 @@
 = render partial: 'layouts/header', locals: {page_heading: 'Categories management'}
 
-%p
-  = link_to 'Create a new category', new_category_path, class: 'button'
+.grid-row
+  .column-full
 
-%h2.heading-medium
-  = @categories.size
-  categories current available
+    %p
+      = link_to 'Create a new category', new_category_path, class: 'button'
 
-%table
-  %thead
-    %tr
-      %th English name
-      %th Welsh name
-      %th
-      %th
+    %h2.heading-medium
+      = @categories.size
+      categories current available
 
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= category.english_name
-        %td= category.welsh_name
-        %td= link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
-        %td= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+    %table
+      %thead
+        %tr
+          %th English name
+          %th Welsh name
+          %th
+          %th
+
+      %tbody
+        - @categories.each do |category|
+          %tr
+            %td= category.english_name
+            %td= category.welsh_name
+            %td= link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
+            %td= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"

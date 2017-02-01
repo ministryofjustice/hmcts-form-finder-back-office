@@ -1,12 +1,19 @@
-%p
-  %b First name:
-  = @user.first_name
-%p
-  %b Last name:
-  = @user.last_name
-%p
-  %b Email:
-  = @user.email
+.grid-row
+  .column-two-thirds
 
-= link_to 'Edit', edit_user_path(@user), {class:'button-secondary', role:'button'}
-= link_to 'Continue', users_path, class: 'button button-left-spacing'
+    %p
+      %b First name:
+      = @user.first_name
+
+    %p
+      %b Last name:
+      = @user.last_name
+
+    %p
+      %b Email:
+      = @user.email
+
+    = link_to 'Edit', edit_user_path(@user), {class:'button-secondary', role:'button'}
+    = link_to 'Continue', users_path, class: 'button button-left-spacing'
+
+  .column-one-third
