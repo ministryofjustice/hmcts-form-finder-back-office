@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'ping'               => 'ping#index'
   get 'healthcheck'        => 'health_check#index'
 
