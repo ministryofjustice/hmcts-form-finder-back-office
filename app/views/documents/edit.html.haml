@@ -3,4 +3,12 @@
 
 = render partial: 'layouts/header', locals: {page_heading: 'Document management'}
 
-= render 'updateform'
+.grid-row
+  .column-two-thirds
+
+    %h2.heading-medium
+      Edit a document
+
+    = render 'updateform'
+
+  .column-one-third
