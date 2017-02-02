@@ -1,9 +1,15 @@
-%p
-  %b English name:
-  = @category.english_name
-%p
-  %b Welsh name:
-  = @category.welsh_name
+.grid-row
+  .column-two-thirds
 
-= link_to 'Edit', edit_category_path(@category), {class:'button-secondary', role:'button'}
-= link_to 'Continue', categories_path, class: 'button button-left-spacing'
+    %p
+      %b English name:
+      = @category.english_name
+
+    %p
+      %b Welsh name:
+      = @category.welsh_name
+
+    = link_to 'Edit', edit_category_path(@category), {class:'button-secondary', role:'button'}
+    = link_to 'Continue', categories_path, class: 'button button-left-spacing'
+
+  .column-one-third
