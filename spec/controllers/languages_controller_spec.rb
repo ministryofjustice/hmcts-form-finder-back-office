@@ -64,7 +64,6 @@ RSpec.describe LanguagesController, type: :controller do
       sign_in authorised
     }
     it "assigns a new language as @language" do
-      language = Language.create! valid_attributes
       get :new, params: {}, session: valid_session
       expect(assigns(:language)).to be_a_new(Language)
     end
