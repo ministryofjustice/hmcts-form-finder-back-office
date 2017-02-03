@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: documents
+#
+#  id                      :integer          not null, primary key
+#  code                    :string
+#  title                   :string
+#  category                :string
+#  doc_attachment_type_id  :integer          not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  attachment_file_name    :string
+#  attachment_content_type :string
+#  attachment_file_size    :integer
+#  attachment_updated_at   :datetime
+#  published_date          :date
+#  language_id             :integer
+#  original_id             :integer
+#  creator_id              :integer
+#
+
 class Document < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
