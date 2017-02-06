@@ -22,6 +22,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'paper_trail'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
