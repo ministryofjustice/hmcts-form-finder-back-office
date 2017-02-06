@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+  before_action :authenticate_user!, :set_user
   before_action :set_language, only: [:show, :edit, :update, :destroy]
   before_action :set_paper_trail_whodunnit
 
