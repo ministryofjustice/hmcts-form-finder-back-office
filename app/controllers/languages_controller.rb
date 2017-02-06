@@ -1,5 +1,6 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
+  before_action :set_paper_trail_whodunnit
 
   # GET /languages
   # GET /languages.json
