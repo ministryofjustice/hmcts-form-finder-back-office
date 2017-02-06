@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, :set_user
-
+  before_action :set_paper_trail_whodunnit
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
