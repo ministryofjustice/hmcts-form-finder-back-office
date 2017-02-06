@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :set_user
+  before_action :set_paper_trail_whodunnit
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
