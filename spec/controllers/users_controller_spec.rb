@@ -43,7 +43,6 @@ RSpec.describe UsersController, type: :controller do
       sign_in authorised
     }
     it "show a list of all users" do
-      total=User.all.count
       get :index
       expect(assigns[:users].size).to eq 1
 
@@ -66,7 +65,6 @@ RSpec.describe UsersController, type: :controller do
       sign_in authorised
     }
     it "assigns a new user as @user" do
-      user = User.create! valid_attributes
       get :new, params: {}, session: valid_session
       expect(assigns(:user)).to be_a_new(User)
     end
@@ -174,5 +172,5 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(users_url)
     end
   end
- end
+  end
 end

@@ -65,7 +65,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
       sign_in authorised
     end
     it "assigns a new doc_attachment_type as @doc_attachment_type" do
-      doc_attachment_type = DocAttachmentType.create! valid_attributes
+
       get :new, params: {}, session: valid_session
       expect(assigns(:doc_attachment_type)).to be_a_new(DocAttachmentType)
     end
@@ -186,5 +186,5 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
       expect(response).to redirect_to(doc_attachment_types_url)
     end
   end
- end
+  end
 end
