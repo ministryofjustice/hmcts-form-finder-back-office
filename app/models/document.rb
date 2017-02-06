@@ -20,6 +20,7 @@
 #
 
 class Document < ActiveRecord::Base
+  has_paper_trail
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
