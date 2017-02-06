@@ -42,6 +42,7 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
+  gem 'annotate'
 end
 
 group :test do
