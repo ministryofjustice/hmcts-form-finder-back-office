@@ -23,7 +23,8 @@ gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'paper_trail'
-
+gem 'factory_girl_rails', '~> 4.7'
+gem 'faker', '~> 1.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
@@ -32,8 +33,6 @@ gem 'paper_trail'
 group :development, :test do
   gem 'rb-readline'
   gem 'byebug'
-  gem 'factory_girl_rails', '~> 4.7'
-  gem 'faker', '~> 1.6'
   gem 'guard-livereload', '>= 2.5.2'
   gem 'guard-rspec'
   gem 'guard-rubocop'
@@ -41,6 +40,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'factory_girl_rails', '~> 4.7'
+  gem 'faker', '~> 1.6'
   gem 'web-console', '~> 2.0'
   gem 'annotate'
 end
