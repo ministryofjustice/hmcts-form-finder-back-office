@@ -33,8 +33,6 @@ gem 'faker', '~> 1.6'
 group :development, :test do
   gem 'rb-readline'
   gem 'byebug'
-  gem 'factory_girl_rails', '~> 4.7'
-  gem 'faker', '~> 1.6'
   gem 'guard-livereload', '>= 2.5.2'
   gem 'guard-rspec'
   gem 'guard-rubocop'
@@ -42,6 +40,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'factory_girl_rails', '~> 4.7'
+  gem 'faker', '~> 1.6'
   gem 'web-console', '~> 2.0'
   gem 'annotate'
 end
