@@ -23,7 +23,8 @@ gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'paper_trail'
-
+gem 'factory_girl_rails', '~> 4.7'
+gem 'faker', '~> 1.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
