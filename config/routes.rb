@@ -4,23 +4,27 @@ Rails.application.routes.draw do
   get 'ping'               => 'ping#index'
   get 'healthcheck'        => 'health_check#index'
 
-  resources :doc_attachment_types
-  resources :languages
+  scope "(:locale)", locale: /en|cy/ do
 
-  devise_for :users
-  resources :users
+    resources :doc_attachment_types
+    resources :languages
 
-  authenticated :user  do
-    root to: 'documents#index', as: :authenticated_root
+    devise_for :users
+    resources :users
+
+    authenticated :user  do
+      root to: 'documents#index', as: :authenticated_root
+    end
+
+    resources :document_categories
+
+    resources :categories
+
+    resources :documents
+
+    root to: redirect('/users/sign_in')
+
   end
-
-  resources :document_categories
-
-  resources :categories
-
-  resources :documents
-
-  root to: redirect('/users/sign_in')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
