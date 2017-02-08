@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20170202104537) do
-
+ActiveRecord::Schema.define(version: 20170208122406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170202104537) do
     t.string   "welsh_name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "inactive"
   end
 
   create_table "doc_attachment_types", force: :cascade do |t|
@@ -59,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170202104537) do
     t.integer  "language_id"
     t.integer  "original_id"
     t.integer  "creator_id"
+    t.boolean  "inactive"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170202104537) do
     t.string   "code",         null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "inactive"
   end
 
   create_table "related_documents", force: :cascade do |t|
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170202104537) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.boolean  "inactive"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
