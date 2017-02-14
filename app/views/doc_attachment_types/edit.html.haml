@@ -1,7 +1,13 @@
-%h1 Editing doc_attachment_type
+- content_for :page_title do
+  = "Types management for HMCTS Form finder"
 
-= render 'form'
+= render partial: 'layouts/header', locals: {page_heading: 'Types management'}
 
-= link_to 'Show', @doc_attachment_type
-\|
-= link_to 'Back', doc_attachment_types_path
+.grid-row
+  .column-two-thirds
+
+    %h2.heading-medium Edit a document type
+
+    = render 'form'
+
+  .column-one-third
