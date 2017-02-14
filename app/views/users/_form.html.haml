@@ -1,4 +1,5 @@
 = form_for @user do |f|
+
   - if @user.errors.any?
     #error_explanation
       %h2= "#{pluralize(@user.errors.count, "error")} prevented this user from being saved:"
