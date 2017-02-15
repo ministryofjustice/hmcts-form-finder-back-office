@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|cy/ do
 
+    get 'search'             => 'search#index'
+
     resources :doc_attachment_types
     resources :languages
 
