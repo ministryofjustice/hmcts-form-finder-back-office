@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
+
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+  
   # SSL Production Config
   if Rails.env.production? && !HostEnv.is_dev?
     # Force SSL except in excepted routes
