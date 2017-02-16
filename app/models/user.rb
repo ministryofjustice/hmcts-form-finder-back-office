@@ -21,6 +21,9 @@
 
 class User < ActiveRecord::Base
 
+  extend  SoftDeletion::Collection
+  include SoftDeletion::Record
+
   has_many :documents, foreign_key: 'creator_id'
 
   # Include default devise modules. Others available are:
