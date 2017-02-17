@@ -18,6 +18,7 @@
           %col
           %col
           %col
+          %col
         %thead
           %tr
             %th{scope:'col'}
@@ -26,7 +27,8 @@
               = "Welsh name"
             %th{scope:'col'}
               = "Code"
-            %th
+            %th{scope:'col'}
+              = "Inactive"
             %th
         %tbody
           - @languages.each do |language|
@@ -38,6 +40,6 @@
               %td
                 = language.code
               %td
-                = link_to 'Edit', edit_language_path(language), {class:"button-secondary", role:"button"}
+                = language.inactive ? 'Yes' : 'No'
               %td
-                = link_to 'Delete', language, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+                = link_to "Edit", edit_language_path(language), class:"button-secondary", role:"button"
