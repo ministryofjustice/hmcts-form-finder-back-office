@@ -17,6 +17,7 @@
           %col
           %col
           %col
+          %col
         %thead
           %tr
             %th{scope:'col'}
@@ -25,7 +26,8 @@
               = "Title"
             %th{scope:'col'}
               = "Publish date"
-            %th
+            %th{scope:'col'}
+              = "Inactive"
             %th
         %tbody
           - @documents.each do | doc_attachment   |
@@ -37,6 +39,6 @@
               %td
                 = l doc_attachment.published_date if doc_attachment.published_date.present?
               %td
-                = link_to "Edit", edit_document_path(doc_attachment.id), {class:"button-secondary", role:"button"}
+                = doc_attachment.inactive ? "Yes" : "No"
               %td
-                = link_to "Delete", doc_attachment, :method => :delete, :data => {:confirm => "are you sure?"},  class: 'button-warning', role:'button'
+                = link_to "Edit", edit_document_path(doc_attachment.id), {class: 'button-secondary', role: 'button'}
