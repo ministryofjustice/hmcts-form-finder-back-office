@@ -1,9 +1,13 @@
-= render partial: 'layouts/header', locals: {page_heading: 'User management'}
+- content_for :page_title do
+  = "Edit a user account in HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'User account management'}
 
 .grid-row
   .column-two-thirds
 
-    %h2.heading-medium Edit a users details
+    %h2.heading-medium
+      Edit a users details
 
     = render 'form'
 
