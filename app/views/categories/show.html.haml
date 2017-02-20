@@ -14,6 +14,10 @@
       %b Welsh name:
       = @category.welsh_name
 
+    %p
+      %b Inactive:
+      = @category.inactive ? 'Yes' : 'No'
+
     = link_to 'Edit', edit_category_path(@category), {class:'button-secondary', role:'button'}
     = link_to 'Continue', categories_path, class: 'button button-left-spacing'
 
