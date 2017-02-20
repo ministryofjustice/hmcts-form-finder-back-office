@@ -23,7 +23,7 @@
         %thead
           %tr
             %th{scope:'col'}
-              = "Code"
+              = "Reference number"
             %th{scope:'col'}
               = "Title"
             %th{scope:'col'}
@@ -40,7 +40,7 @@
               %td
                 = l doc_attachment.published_date if doc_attachment.published_date.present?
               %td
-                = link_to "Unlink", my_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
+                = link_to "Unlink", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
           - if @linkeddocuments.empty?
             %p No linked documents found to display
           - else
@@ -61,7 +61,7 @@
         %thead
           %tr
             %th{scope:'col'}
-              = "Code"
+              = "Reference number"
             %th{scope:'col'}
               = "Title"
             %th{scope:'col'}
@@ -79,6 +79,6 @@
               %td
                 = l doc_attachment.published_date if doc_attachment.published_date.present?
               %td
-                = link_to "Link", my_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+                = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
           -if @documents.empty?
             %p No result found to display
