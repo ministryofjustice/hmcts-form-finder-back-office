@@ -22,12 +22,18 @@ Rails.application.routes.draw do
 
     resources :categories
 
-    resources :documents
 
-    root to: redirect('/users/sign_in')
+  resources :documents
+  get 'link/documents/list'          => 'documents#search'
+  get 'link/documents/search'          => 'documents#search'
+  get 'link/documents/filter'          => 'documents#filter'
+  get 'link/documents/link'          => 'documents#link'
+  get 'link/documents/connect'          => 'documents#connect'
+  get 'link/documents/links'          => 'documents#links'
+  get 'link/documents/unconnect'          => 'documents#unconnect'
+  root to: redirect('/users/sign_in')
 
   end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

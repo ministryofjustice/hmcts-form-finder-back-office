@@ -40,7 +40,4 @@ RSpec.describe DocumentsController, type: :controller do
     end
   end
 
-
-
-
 end
