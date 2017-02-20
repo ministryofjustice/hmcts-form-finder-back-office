@@ -24,6 +24,7 @@
             %th{scope:'col'}
               = "Welsh name"
             %th
+              = "Inactive"
             %th
         %tbody
           - @categories.each do |category|
@@ -33,6 +34,6 @@
               %td
                 = category.welsh_name
               %td
-                = link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
+                = category.inactive ? 'Yes' : 'No'
               %td
-                = link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+                = link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
