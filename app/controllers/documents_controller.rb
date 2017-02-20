@@ -117,7 +117,7 @@ class DocumentsController < ApplicationController
 
   def doc_attachment_params
     params.require(:document)
-        .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :language_id)
+        .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :language_id, :inactive)
   end
 
   def params_with_user
