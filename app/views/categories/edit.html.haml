@@ -1,9 +1,13 @@
-= render partial: 'layouts/header', locals: {page_heading: 'Categories management'}
+- content_for :page_title do
+  = "Edit a document category in HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document category management'}
 
 .grid-row
   .column-two-thirds
 
-    %h2.heading-medium Edit a category
+    %h2.heading-medium
+      Edit a document category
 
     = render 'form'
 
