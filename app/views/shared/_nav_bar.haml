@@ -1,18 +1,16 @@
 %nav{ id:'admin-navigation' }
   %ul
     %li
-      = link_to "Categories", Category
+      = link_to "Categories", categories_url
     %li
-      = link_to "Documents", Document
+      = link_to "Documents", documents_url
     %li
-      = link_to "Languages", Language
+      = link_to "Languages", languages_url
     %li
       %a{ href: '#' }
         Links
       -#= link_to "Links", Links
     %li
-      %a{ href: '#' }
-        Types
-      -#= link_to "Types", Types
+      = link_to "Types", doc_attachment_types_url
     %li
-      = link_to "Users", User
+      = link_to "Users", users_url
