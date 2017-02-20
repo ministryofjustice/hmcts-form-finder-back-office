@@ -8,8 +8,9 @@
   = f.text_field :title
 
   .form-group
-    = f.label :doc_attachment_type_id, 'Type', class: 'form-label'
-    = collection_select :document, :doc_attachment_type_id, DocAttachmentType.all, :id, :english_name, { include_blank: true }, { class: 'form-control' }
+    %fieldset
+      %legend What type of document is this?
+      = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: "block-label selection-button-radio"){b.radio_button + b.text} end
 
   .form-group
     = f.label :language_id, 'Form language', class: 'form-label'
