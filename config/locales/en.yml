@@ -26,3 +26,18 @@ en:
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+  search_page_title: "Courts and tribunal form finder"
+  search_for_forms_and_leaflets: "Search for forms and leaflets"
+  step1_para1: "Find court and tribunal forms and leaflets, including divorce, probate, deed poll, money claim, help with fees and social security tribunal forms."
+  step1_para2: "If you know the number of the form/leaflet you wish to locate please enter it in the free text box below."
+  step1_para3: "Alternatively, if you do not know the form number enter a title (or keyword) or choose a category from the work type drop down list which lists the forms available by business type."
+  search_by: "Search by"
+  form_number: "Form/leaflet number"
+  form_title: "Form/leaflet title"
+  available_types: "Available types"
+  close: "Close"
+  clear: "Clear"
+  search: "Search"
+  about_hmcts: "About Her Majesty's Court and Tribunals Service"
+  privacy: "Privacy"
+  crown_copyright: "Crown Copyright"
