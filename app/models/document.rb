@@ -63,4 +63,8 @@ class Document < ActiveRecord::Base
     WHERE documents.id = related_documents.document_id
     AND  related_documents.linked_document_id =  #{self.id})")
   end
+  def self.search(search)
+    where("code LIKE ?", "%#{search}%")
+    where("title LIKE ?", "%#{search}%")
+  end
 end
