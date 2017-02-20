@@ -36,8 +36,15 @@ rake db:seed
 
 ## Other useful rake tasks
 
+It's done using devise and devise invitable:
+
+https://github.com/plataformatec/devise
+https://github.com/scambra/devise_invitable
+
+You can create users with a rake task.
+
 ```
-rake staff:sample_users --Create two new users
+rake "user:create[admin@admin.com, 123456789, admin, test]" to create a user.
 ```
 
 

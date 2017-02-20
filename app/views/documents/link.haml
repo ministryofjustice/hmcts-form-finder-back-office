@@ -1,0 +1,84 @@
+- content_for :page_title do
+  = "Your submitted documents for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
+
+.grid-row
+  .column-full
+
+
+
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = "You have selected form #{params[:document_title]}"
+        %caption
+          %span.table-caption
+            = "Currently linked documents are :"
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "Reference number"
+            %th{scope:'col'}
+              = "Title"
+            %th{scope:'col'}
+              = "Publish date"
+            %th
+            %th
+        %tbody
+          - @linkeddocuments.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.code
+              %td
+                = doc_attachment.title
+              %td
+                = l doc_attachment.published_date if doc_attachment.published_date.present?
+              %td
+                = link_to "Unlink", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
+          - if @linkeddocuments.empty?
+            %p No linked documents found to display
+          - else
+    Search for documents to link
+    = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
+      = text_field_tag :linksearch, params[:linksearch], :id => 'search_field'
+      = hidden_field_tag 'document', params[:document]
+      = hidden_field_tag 'document_title', params[:document_title]
+      = submit_tag "Search", :name => nil
+
+
+      .table-container.container
+      %table.report
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "Reference number"
+            %th{scope:'col'}
+              = "Title"
+            %th{scope:'col'}
+              = "Publish date"
+            %th
+            %th
+        %tbody
+
+          - @documents.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.code
+              %td
+                = doc_attachment.title
+              %td
+                = l doc_attachment.published_date if doc_attachment.published_date.present?
+              %td
+                = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+          -if @documents.empty?
+            %p No result found to display
