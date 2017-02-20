@@ -33,7 +33,6 @@ class DocumentsController < ApplicationController
     end
   end
   def edit
-
     @document = Document.find(params[:id])
   end
   def destroy
@@ -48,6 +47,72 @@ class DocumentsController < ApplicationController
       render :action => 'index'
     end
   end
+  def show
+  end
+  def list
+    @documents = Document.all
+  end
+  def link
+    @document = Document.find(params[:document])
+    @linkeddocuments=@document.all_related
+    @documents=[]
+    render 'documents/link'
+  end
+  def connect
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+    else
+      @documents = []
+    end
+    @document = Document.find(params[:related_document])
+    @parent_document = Document.find(params[:document])
+    @parent_document.related_documents << @document
+    @linkeddocuments=@parent_document.all_related
+    @documents=@documents - [@parent_document]
+    @documents=@documents-@linkeddocuments
+    render 'documents/link'
+  end
+  def unconnect
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+    else
+      @documents = []
+    end
+    @document = Document.find(params[:related_document])
+    @parent_document = Document.find(params[:document])
+    (@parent_document.related_documents).delete(@document)
+    @linkeddocuments=@parent_document.all_related
+    @documents=@documents - [@parent_document]
+    @documents=@documents-@linkeddocuments
+    render 'documents/link'
+  end
+  def search
+    @documents = Document.all
+
+    if params[:search].present?
+      @documents = Document.search(params[:search]).order("created_at DESC")
+    else
+      @documents = []
+    end
+
+
+  end
+  def links
+    @documents = []
+
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+    else
+      @documents = []
+    end
+    @parent_document = Document.find(params[:document])
+    @linkeddocuments=@parent_document.all_related
+    @documents=@documents - [@parent_document]
+    @documents=@documents - @linkeddocuments
+    render 'documents/link'
+  end
+
+
   private
 
   def doc_attachment_params
@@ -60,4 +125,5 @@ class DocumentsController < ApplicationController
     form_params[:creator_id] = @user.id
     form_params
   end
+
 end
