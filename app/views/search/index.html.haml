@@ -1,0 +1,21 @@
+- content_for :page_title do
+  = "Categories management for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: t(:search_page_title)}
+= t(:step1_para1)
+= t(:step1_para2)
+= t(:step1_para3)
+
+.grid-row
+  .column-full
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = t(:search_by)
+        %tbody
+          %tr
+            %td
+              = t(:form_number)
+            %td
+              = t(:form_title)
