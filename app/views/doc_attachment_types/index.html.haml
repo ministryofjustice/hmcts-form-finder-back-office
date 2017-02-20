@@ -1,23 +1,38 @@
-%h1 Listing doc_attachment_types
+- content_for :page_title do
+  = "Types management for HMCTS Form finder"
 
-%table
-  %thead
-    %tr
-      %th English name
-      %th Welsh name
-      %th
-      %th
-      %th
+= render partial: 'layouts/header', locals: {page_heading: 'Types management'}
 
-  %tbody
-    - @doc_attachment_types.each do |doc_attachment_type|
-      %tr
-        %td= doc_attachment_type.english_name
-        %td= doc_attachment_type.welsh_name
-        %td= link_to 'Show', doc_attachment_type
-        %td= link_to 'Edit', edit_doc_attachment_type_path(doc_attachment_type)
-        %td= link_to 'Destroy', doc_attachment_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.grid-row
+  .column-full
 
-%br
+    = link_to 'Create a new type', new_doc_attachment_type_path, class: 'button'
 
-= link_to 'New Doc attachment type', new_doc_attachment_type_path
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = @doc_attachment_types.size
+            types current available
+        %colgroup
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "English name"
+            %th{scope:'col'}
+              = "Welsh name"
+            %th
+            %th
+        %tbody
+          - @doc_attachment_types.each do |doc_attachment_type|
+            %tr
+              %td
+                = doc_attachment_type.english_name
+              %td
+                = doc_attachment_type.welsh_name
+              %td
+                = link_to 'Edit', edit_doc_attachment_type_path(doc_attachment_type), {class:"button-secondary", role:"button"}
+              %td
+                = link_to 'Delete', doc_attachment_type, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
