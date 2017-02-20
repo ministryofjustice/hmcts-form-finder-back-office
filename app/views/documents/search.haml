@@ -1,0 +1,46 @@
+- content_for :page_title do
+  = "Your submitted documents for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
+
+.grid-row
+  .column-full
+
+    = form_tag url_for(:controller => 'documents', :action => 'search'), :method => 'get' do
+      = text_field_tag :search, params[:search], :id => 'search_field'
+      = submit_tag "Search", :name => nil
+
+
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = "Your search results"
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "Reference number"
+            %th{scope:'col'}
+              = "Title"
+            %th{scope:'col'}
+              = "Publish date"
+            %th
+            %th
+        %tbody
+          - @documents.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.code
+              %td
+                = doc_attachment.title
+              %td
+                = l doc_attachment.published_date if doc_attachment.published_date.present?
+
+              %td
+                = link_to "Select", link_documents_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: 'button-secondary', role:'button'
+          -if @documents.empty?
+            %p No result found to display
