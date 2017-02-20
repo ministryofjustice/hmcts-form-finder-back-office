@@ -1,12 +1,13 @@
 - content_for :page_title do
-  = "Types management for HMCTS Form finder"
+  = "Edit a document type in HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Types management'}
+= render partial: 'layouts/header', locals: {page_heading: 'Document type management'}
 
 .grid-row
   .column-two-thirds
 
-    %h2.heading-medium Edit a document type
+    %h2.heading-medium
+      Edit a document type
 
     = render 'form'
 
