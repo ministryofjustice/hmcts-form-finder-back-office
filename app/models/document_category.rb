@@ -15,4 +15,9 @@ class DocumentCategory < ActiveRecord::Base
   validates :document_id, presence: true
   belongs_to :document
   belongs_to :category
+
+
+  def all_related
+    DocumentCategory.where("document_categories.document_id =  #{self.id}")
+  end
 end
