@@ -2,10 +2,10 @@
 
 %p
   %b Document:
-  = @document_category.document
+  = @document_category.document.title
 %p
   %b Category:
-  = @document_category.category
+  = @document_category.category.english_name
 %p
   %b Sort order:
   = @document_category.sort_order

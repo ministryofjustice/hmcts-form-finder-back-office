@@ -1,0 +1,76 @@
+- content_for :page_title do
+  = "Your submitted documents for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
+
+.grid-row
+  .column-full
+
+
+
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = "You have selected form #{params[:document]}"
+        %caption
+          %span.table-caption
+            = "Currently linked categories are :"
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "English Name"
+            %th{scope:'col'}
+              = "Welsh Name"
+            %th
+            %th
+        %tbody
+          - @linkedcategories.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.category.english_name
+              %td
+                = doc_attachment.category.welsh_name
+              %td
+                = link_to "Unlink", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
+          - if @linkedcategories.empty?
+            %p No linked documents found to display
+          - else
+    Search for documents to link
+    = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get' do
+      = text_field_tag :linksearch, params[:linksearch], :id => 'search_field'
+      = hidden_field_tag 'document', params[:document]
+      = hidden_field_tag 'document_title', params[:document_title]
+      = submit_tag "Search", :name => nil
+
+
+      .table-container.container
+      %table.report
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "English Name"
+            %th{scope:'col'}
+              = "Welsh Name"
+            %th
+            %th
+        %tbody
+
+          - @categories.each do | doc_attachment   |
+            %tr
+              %td
+                = doc_attachment.english_name
+              %td
+                = doc_attachment.welsh_name
+              %td
+                = link_to "Link", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+          -if @linkedcategories.empty?
+            %p No result found to display

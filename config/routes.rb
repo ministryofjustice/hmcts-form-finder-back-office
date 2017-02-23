@@ -28,6 +28,14 @@ Rails.application.routes.draw do
   get 'link/documents/unconnect'          => 'documents#unconnect'
   root to: redirect('/users/sign_in')
 
+  get 'link/document_categories/search'          => 'document_categories#search'
+  get 'link/document_categories/link'          => 'document_categories#link'
+  get 'link/document_categories/unconnect'          => 'document_categories#unconnect'
+  get 'link/document_categories/connect'          => 'document_categories#connect'
+  get 'link/document_categories/links'          => 'document_categories#links'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
