@@ -18,3 +18,4 @@
 .button-holder
   = link_to "Upload more documents", new_document_path, {class: 'button', role: 'button'}
   = link_to "View your submissions", documents_path, {class: 'button-secondary button-left-spacing', role: 'button'}
+  = link_to "Assign Categories to the Document", link_document_categories_link_path(:document => @document.id ), {class: 'button-secondary button-left-spacing', role: 'button'}
