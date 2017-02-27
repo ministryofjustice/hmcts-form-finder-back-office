@@ -11,12 +11,12 @@ RSpec.describe DocumentsController, type: :controller do
 
     it "should be redirected to signin if trying to access list of submitted documents" do
       get :index
-      expect( response ).to redirect_to( new_user_session_path )
+      expect( response ).to redirect_to( "http://test.host/users/sign_in" )
     end
 
     it "should be redirected to sigin if trying to access the new submitted documents page" do
       get :new
-      expect( response ).to redirect_to( new_user_session_path )
+      expect( response ).to redirect_to( "http://test.host/users/sign_in" )
     end
 
 

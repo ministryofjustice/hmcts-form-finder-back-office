@@ -18,6 +18,7 @@
           %col
           %col
           %col
+          %col
         %thead
           %tr
             %th{scope:'col'}
@@ -26,7 +27,8 @@
               = "Last name"
             %th{scope:'col'}
               = "Email"
-            %th
+            %th{scope:'col'}
+              = "Inactive"
             %th
         %tbody
           - @users.each do |user|
@@ -38,6 +40,6 @@
               %td
                 = user.email
               %td
-                = link_to 'Edit', edit_user_path(user), {class:"button-secondary", role:"button"}
+                = user.inactive ? 'Yes' : 'No'
               %td
-                = link_to 'Delete', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+                = link_to "Edit", edit_user_path(user), {class:"button-secondary", role:"button"}

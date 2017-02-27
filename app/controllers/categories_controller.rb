@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.all.order(english_name: :asc)
   end
 
   # GET /categories/1
@@ -72,10 +72,11 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:english_name, :welsh_name)
+      params.require(:category).permit(:english_name, :welsh_name, :inactive)
     end
+
     def update_params
-      params.permit(:id, :english_name, :welsh_name)
+      params.permit(:id, :english_name, :welsh_name, :inactive)
     end
 
 end
