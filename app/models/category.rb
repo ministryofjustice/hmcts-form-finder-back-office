@@ -10,8 +10,14 @@
 #
 
 class Category < ActiveRecord::Base
+
+  extend  SoftDeletion::Collection
+  include SoftDeletion::Record
+
   has_paper_trail
+
   has_many :documents, :through => :document_categories
+
   validates :english_name, presence: true, unless: :welsh_name
   validates :welsh_name, presence: true, unless: :english_name
 

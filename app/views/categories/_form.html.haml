@@ -7,5 +7,12 @@
           %li= msg
 
   = f.text_field :english_name
+
   = f.text_field :welsh_name
+
+  .form-group
+    %label.block-label.selection-button-checkbox{ for: "category_inactive" }
+      Inactive
+      = f.check_box(:inactive, {}, true)
+
   = f.submit 'Save', {class:"button", role:"button"}
