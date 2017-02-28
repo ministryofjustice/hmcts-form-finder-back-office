@@ -1,84 +1,92 @@
 - content_for :page_title do
-  = "Your submitted documents for HMCTS Form finder"
+  = "Your document linking for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
+= render partial: 'layouts/header', locals: {page_heading: 'Linking one document to another'}
 
 .grid-row
-  .column-full
+  .column-two-thirds
 
+    %h2.heading-medium
+      Document:
 
+    #{@document.code}
+    %span -
+    #{@document.title}
 
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = "You have selected form #{params[:document_title]}"
-        %caption
-          %span.table-caption
-            = "Currently linked documents are :"
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = "Reference number"
-            %th{scope:'col'}
-              = "Title"
-            %th{scope:'col'}
-              = "Publish date"
-            %th
-            %th
-        %tbody
-          - @linkeddocuments.each do | doc_attachment   |
-            %tr
-              %td
-                = doc_attachment.code
-              %td
-                = doc_attachment.title
-              %td
-                = l doc_attachment.published_date if doc_attachment.published_date.present?
-              %td
-                = link_to "Unlink", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
-          - if @linkeddocuments.empty?
-            %p No linked documents found to display
-          - else
-    Search for documents to link
+    %h3.heading-small Step 3 of 4 - Find the document to link to
+
     = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
-      = text_field_tag :linksearch, params[:linksearch], :id => 'search_field'
+
       = hidden_field_tag 'document', params[:document]
       = hidden_field_tag 'document_title', params[:document_title]
-      = submit_tag "Search", :name => nil
 
+      .form-group
+        = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
+        = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
+
+      = submit_tag "Search", :name => nil, class:'button', role:'button'
+
+  .column-one-third
+
+  .column-full
+
+    - if @documents.empty?
+
+      -#%p.no-result-message No result found to display
+      %p
+
+    - else
+
+      %h3.heading-small
+        Step 4 of 4 - Choose one of the following:
 
       .table-container.container
-      %table.report
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = "Reference number"
-            %th{scope:'col'}
-              = "Title"
-            %th{scope:'col'}
-              = "Publish date"
-            %th
-            %th
-        %tbody
-
-          - @documents.each do | doc_attachment   |
+        %table.report
+          %colgroup
+            %col
+            %col
+          %thead
             %tr
-              %td
-                = doc_attachment.code
-              %td
-                = doc_attachment.title
-              %td
-                = l doc_attachment.published_date if doc_attachment.published_date.present?
-              %td
-                = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
-          -if @documents.empty?
-            %p No result found to display
+              %th{scope:'col'}
+                = "Reference/number"
+              %th{scope:'col'}
+                = "Title"
+              %th
+          %tbody
+            - @documents.each do | doc_attachment   |
+              %tr
+                %td
+                  = doc_attachment.code
+                %td
+                  = doc_attachment.title
+                %td.action
+                  = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
+
+    - if @linkeddocuments.exists?
+
+      %h3.heading-small
+        #{@document.code}
+        %span -
+        #{@document.title} is linked to:
+
+      .table-container.container
+        %table.report
+          %colgroup
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = "Reference/number"
+              %th{scope:'col'}
+                = "Title"
+              %th
+          %tbody
+            - @linkeddocuments.each do | doc_attachment   |
+              %tr
+                %td
+                  = doc_attachment.code
+                %td
+                  = doc_attachment.title
+                %td.action
+                  = link_to "Unlink", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}

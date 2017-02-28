@@ -3,7 +3,6 @@ class DocumentsController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   def index
-
     @documents = Document.all
   end
 
@@ -13,7 +12,6 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(params_with_user)
-
     if @document.save
       render 'documents/confirmation'
     else
@@ -23,22 +21,20 @@ class DocumentsController < ApplicationController
 
   def update
     @document= Document.find(params[:id])
-
     if @document.update(params_with_user)
       render 'documents/confirmation'
     else
       flash[:error] = 'Form can not be updated'
-
       render action: 'edit'
     end
   end
+
   def edit
     @document = Document.find(params[:id])
   end
+
   def destroy
-
     @document = Document.find(params[:id])
-
     if @document.destroy
       redirect_to documents_path , :notice => "Your form has been succcessfully deleted."
     else
@@ -47,17 +43,21 @@ class DocumentsController < ApplicationController
       render :action => 'index'
     end
   end
+
   def show
   end
+
   def list
     @documents = Document.all
   end
+
   def link
     @document = Document.find(params[:document])
     @linkeddocuments=@document.all_related
     @documents=[]
     render 'documents/link'
   end
+
   def connect
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order("created_at DESC")
@@ -70,8 +70,10 @@ class DocumentsController < ApplicationController
     @linkeddocuments=@parent_document.all_related
     @documents=@documents - [@parent_document]
     @documents=@documents-@linkeddocuments
+    @document=@parent_document
     render 'documents/link'
   end
+
   def unconnect
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order("created_at DESC")
@@ -84,22 +86,21 @@ class DocumentsController < ApplicationController
     @linkeddocuments=@parent_document.all_related
     @documents=@documents - [@parent_document]
     @documents=@documents-@linkeddocuments
+    @document=@parent_document
     render 'documents/link'
   end
+
   def search
     @documents = Document.all
-
     if params[:search].present?
       @documents = Document.search(params[:search]).order("created_at DESC")
     else
       @documents = []
     end
-
-
   end
+
   def links
     @documents = []
-
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order("created_at DESC")
     else
@@ -109,9 +110,9 @@ class DocumentsController < ApplicationController
     @linkeddocuments=@parent_document.all_related
     @documents=@documents - [@parent_document]
     @documents=@documents - @linkeddocuments
+    @document=@parent_document
     render 'documents/link'
   end
-
 
   private
 
@@ -125,5 +126,4 @@ class DocumentsController < ApplicationController
     form_params[:creator_id] = @user.id
     form_params
   end
-
 end
