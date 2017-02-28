@@ -26,8 +26,11 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
 
       click_button 'Submit document'
     end
+    save_and_open_page
 
     expect(page).to have_content 'Successfully submitted'
+    # sleep(100)
+    # expect(Rails.root.join('public/system/document/attachment/:id_partition/:style/:filename').exist?)
   end
 
   scenario "from the home page upload and process multiple forms" do
