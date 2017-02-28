@@ -29,6 +29,7 @@ class Document < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
+  has_many :categories, :through => :document_categories
 
   has_and_belongs_to_many :related_documents,
                           class_name: "Document",
@@ -68,6 +69,8 @@ class Document < ActiveRecord::Base
     WHERE documents.id = related_documents.document_id
     AND  related_documents.linked_document_id =  #{self.id})")
   end
+
+
   def self.search(search)
     where("code LIKE ?", "%#{search}%")
     where("title LIKE ?", "%#{search}%")
