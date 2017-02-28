@@ -13,8 +13,8 @@
   %tbody
     - @document_categories.each do |document_category|
       %tr
-        %td= document_category.document
-        %td= document_category.category
+        %td= document_category.document.title
+        %td= document_category.category.english_name
         %td= document_category.sort_order
         %td= link_to 'Show', document_category
         %td= link_to 'Edit', edit_document_category_path(document_category)
