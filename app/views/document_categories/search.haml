@@ -1,16 +1,16 @@
 - content_for :page_title do
-  = "Add a document to a category for HMCTS Form finder"
+  = "Assign Category for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Link categories'}
+= render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
 
 .grid-row
   .column-two-thirds
 
-    %h2.heading-medium Step 1 of 4 - Find the document you'd like to add to a category
+    %h2.heading-medium Step 1 of 4 - Find the document you'd like to assign to a category
 
     = form_tag url_for(:controller => 'document_categories', :action => 'search'), :method => 'get' do
       .form-group
-        = label_tag :'search_field', 'Enter a form title or reference/number', class:'form-label'
+        = label_tag :'search_field', 'Enter a document title or reference/number', class:'form-label'
         = text_field_tag :search, params[:search], :id => 'search_field', class:'form-control'
 
       = submit_tag "Search", :name => nil, class:'button', role:'button'
