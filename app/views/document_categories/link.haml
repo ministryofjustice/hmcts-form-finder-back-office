@@ -1,7 +1,7 @@
 - content_for :page_title do
-  = "Add a document to a category for HMCTS Form finder"
+  = "Assign Category for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Link categories'}
+= render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
 
 .grid-row
   .column-two-thirds
@@ -13,7 +13,7 @@
     %span -
     #{@document.title}
 
-    %h2.heading-medium Step 3 of 4 - Find the category to add this document to
+    %h2.heading-medium Step 3 of 4 - Find the category
 
     = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get' do
 
@@ -55,7 +55,7 @@
               %td
                 = doc_attachment.welsh_name
               %td.action
-                = link_to "Link", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
+                = link_to "Assign", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
 
     -#- if @linkedcategories.exists?
 
@@ -79,4 +79,4 @@
               %td
                 = doc_attachment.category.english_name
               %td.action
-                = link_to "Unlink", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+                = link_to "Un-Assign", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
