@@ -1,3 +1,8 @@
+- content_for :page_title do
+  = "User account management for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'User account management'}
+
 .grid-row
   .column-two-thirds
 
@@ -12,6 +17,10 @@
     %p
       %b Email:
       = @user.email
+
+    %p
+      %b Inactive:
+      = @user.inactive ? 'Yes' : 'No'
 
     = link_to 'Edit', edit_user_path(@user), {class:'button-secondary', role:'button'}
     = link_to 'Continue', users_path, class: 'button button-left-spacing'

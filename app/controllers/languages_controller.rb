@@ -1,10 +1,12 @@
 class LanguagesController < ApplicationController
+  before_action :authenticate_user!, :set_user
   before_action :set_language, only: [:show, :edit, :update, :destroy]
+  before_action :set_paper_trail_whodunnit
 
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all
+    @languages = Language.all.order(english_name: :asc)
   end
 
   # GET /languages/1
@@ -28,7 +30,7 @@ class LanguagesController < ApplicationController
 
     respond_to do |format|
       if @language.save
-        format.html { redirect_to @language, notice: 'Language successfully added.' }
+        format.html { redirect_to @language, notice: 'The language was successfully created.' }
         format.json { render :show, status: :created, location: @language }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class LanguagesController < ApplicationController
   def update
     respond_to do |format|
       if @language.update(language_params)
-        format.html { redirect_to @language, notice: 'Language update was successful.' }
+        format.html { redirect_to @language, notice: 'The language was successfully updated.' }
         format.json { render :show, status: :ok, location: @language }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class LanguagesController < ApplicationController
   def destroy
     @language.destroy
     respond_to do |format|
-      format.html { redirect_to languages_url, notice: 'Language successfully deleted.' }
+      format.html { redirect_to languages_url, notice: 'The language successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +71,6 @@ class LanguagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def language_params
-      params.require(:language).permit(:english_name, :welsh_name, :code)
+      params.require(:language).permit(:english_name, :welsh_name, :code, :inactive)
     end
 end

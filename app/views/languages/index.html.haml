@@ -1,29 +1,45 @@
-= render partial: 'layouts/header', locals: {page_heading: 'Language management'}
+- content_for :page_title do
+  = "Document language management for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document language management'}
 
 .grid-row
   .column-full
 
-    %p
-      = link_to 'Add a language', new_language_path, class: 'button'
+    = link_to 'Add a language', new_language_path, class: 'button'
 
-    %h2.heading-medium
-      = @languages.size
-      languages currently available
-
-    %table
-      %thead
-        %tr
-          %th English name
-          %th Welsh name
-          %th Code
-          %th
-          %th
-
-      %tbody
-        - @languages.each do |language|
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = @languages.size
+            languages currently available
+        %colgroup
+          %col
+          %col
+          %col
+          %col
+        %thead
           %tr
-            %td= language.english_name
-            %td= language.welsh_name
-            %td= language.code
-            %td= link_to 'Edit', edit_language_path(language), {class:"button-secondary", role:"button"}
-            %td= link_to 'Delete', language, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+            %th{scope:'col'}
+              = "English name"
+            %th{scope:'col'}
+              = "Welsh name"
+            %th{scope:'col'}
+              = "Code"
+            %th{scope:'col'}
+              = "Inactive"
+            %th
+        %tbody
+          - @languages.each do |language|
+            %tr
+              %td
+                = language.english_name
+              %td
+                = language.welsh_name
+              %td
+                = language.code
+              %td
+                = language.inactive ? 'Yes' : 'No'
+              %td
+                = link_to "Edit", edit_language_path(language), class:"button-secondary", role:"button"

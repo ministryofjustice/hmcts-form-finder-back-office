@@ -1,4 +1,6 @@
 class DocAttachmentTypesController < ApplicationController
+  before_action :authenticate_user!, :set_user
+  before_action :set_paper_trail_whodunnit
   before_action :set_doc_attachment_type, only: [:show, :edit, :update, :destroy]
 
   # GET /doc_attachment_types

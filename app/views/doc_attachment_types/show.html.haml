@@ -1,12 +1,20 @@
-%p#notice= notice
+- content_for :page_title do
+  = "Document type management for HMCTS Form finder"
 
-%p
-  %b English name:
-  = @doc_attachment_type.english_name
-%p
-  %b Welsh name:
-  = @doc_attachment_type.welsh_name
+= render partial: 'layouts/header', locals: {page_heading: 'Document type management'}
 
-= link_to 'Edit', edit_doc_attachment_type_path(@doc_attachment_type)
-\|
-= link_to 'Back', doc_attachment_types_path
+.grid-row
+  .column-two-thirds
+
+    %p
+      %b English name:
+      = @doc_attachment_type.english_name
+
+    %p
+      %b Welsh name:
+      = @doc_attachment_type.welsh_name
+
+    = link_to 'Edit', edit_doc_attachment_type_path(@doc_attachment_type), {class:'button-secondary', role:'button'}
+    = link_to 'Continue', doc_attachment_types_path, class: 'button button-left-spacing'
+
+  .column-one-third
