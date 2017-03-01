@@ -97,6 +97,7 @@ class DocumentCategoriesController < ApplicationController
       @cate=@cate.push(linkedcategory.category)
     end
     @categories=@categories-@cate
+    @document=@parent_document
     render 'document_categories/link'
   end
   def connect
@@ -122,6 +123,7 @@ class DocumentCategoriesController < ApplicationController
       @cate=@cate.push(linkedcategory.category)
     end
     @categories=@categories-@cate
+    @document=@parent_document
     render 'document_categories/link'
   end
   def links
@@ -139,7 +141,7 @@ class DocumentCategoriesController < ApplicationController
       @cate=@cate.push(linkedcategory.category)
     end
     @categories=@categories-@cate
-
+    @document=@parent_document
     render 'document_categories/link'
   end
 
