@@ -1,12 +1,12 @@
 - content_for :page_title do
-  = "Document type management for HMCTS Form finder"
+  = "Document types for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document type management'}
+= render partial: 'layouts/header', locals: {page_heading: 'Document types'}
 
 .grid-row
   .column-full
 
-    = link_to 'Create a new type', new_doc_attachment_type_path, class: 'button'
+    = link_to 'Add a type', new_doc_attachment_type_path, {class:"button", role:"button"}
 
     .table-container.container
       %table.report
@@ -17,22 +17,24 @@
         %colgroup
           %col
           %col
+          %col
         %thead
           %tr
             %th{scope:'col'}
               = "English name"
             %th{scope:'col'}
               = "Welsh name"
-            %th
+            %th{scope:'col'}
+              = "Inactive"
             %th
         %tbody
-          - @doc_attachment_types.each do |doc_attachment_type|
+          - @doc_attachment_types.each do | doc_attachment_type |
             %tr
               %td
                 = doc_attachment_type.english_name
               %td
                 = doc_attachment_type.welsh_name
               %td
-                = link_to 'Edit', edit_doc_attachment_type_path(doc_attachment_type), {class:"button-secondary", role:"button"}
+                = doc_attachment_type.inactive ? 'Yes' : 'No'
               %td
-                = link_to 'Delete', doc_attachment_type, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+                = link_to 'Edit', edit_doc_attachment_type_path(doc_attachment_type), {class:"button-secondary", role:"button"}
