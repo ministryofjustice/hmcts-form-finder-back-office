@@ -33,8 +33,5 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
     # expect(Rails.root.join('public/system/document/attachment/:id_partition/:style/:filename').exist?)
   end
 
-  scenario "from the home page upload and process multiple forms" do
-    skip 'allows the user to upload a form'
-    skip 'allows user to fill in the details for the form'
-  end
+
 end
