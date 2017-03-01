@@ -1,10 +1,10 @@
 - content_for :page_title do
-  = "Document category management for HMCTS Form finder"
+  = "Document categories for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document category management'}
+= render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
 
 .grid-row
-  .column-two-thirds
+  .column-full
 
     %p
       %b English name:
@@ -19,6 +19,5 @@
       = @category.inactive ? 'Yes' : 'No'
 
     = link_to 'Edit', edit_category_path(@category), {class:'button-secondary', role:'button'}
-    = link_to 'Continue', categories_path, class: 'button button-left-spacing'
+    = link_to 'Continue', categories_path, {class: 'button button-left-spacing', role:'button'}
 
-  .column-one-third

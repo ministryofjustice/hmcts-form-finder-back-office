@@ -1,12 +1,12 @@
 - content_for :page_title do
-  = "Document category management for HMCTS Form finder"
+  = "Document categories for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document category management'}
+= render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
 
 .grid-row
   .column-full
 
-    = link_to 'Create a new category', new_category_path, class: 'button'
+    = link_to 'Add a category', new_category_path, {class:"button", role:"button"}
 
     .table-container.container
       %table.report
