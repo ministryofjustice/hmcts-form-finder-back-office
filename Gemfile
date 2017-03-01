@@ -37,6 +37,7 @@ group :development, :test do
   gem 'guard-rubocop'
   gem 'rb-readline'
   gem 'rspec-rails', '~> 3.0'
+  gem 'launchy'
 end
 
 group :development do
