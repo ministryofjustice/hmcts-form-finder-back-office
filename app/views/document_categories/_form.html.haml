@@ -5,15 +5,11 @@
       %ul
         - @document_category.errors.full_messages.each do |msg|
           %li= msg
-
   .field
-    = f.label :document
-    = f.text_field :document
+    = f.select :document_id, Document.all.collect { |p| [ p.title, p.id ] }
   .field
-    = f.label :category
-    = f.text_field :category
+    = f.select :category_id, Category.all.collect { |p| [ p.english_name, p.id ] },{:multiple => true}
   .field
-    = f.label :sort_order
     = f.number_field :sort_order
   .actions
     = f.submit 'Save'

@@ -1,5 +1,6 @@
 class DocumentCategoriesController < ApplicationController
   before_action :authenticate_user!, :set_user
+  before_action :set_paper_trail_whodunnit
 
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
 
@@ -62,6 +63,88 @@ class DocumentCategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def search
+    @documents = Document.all
+
+    if params[:search].present?
+      @documents = Document.search(params[:search]).order("created_at DESC")
+    else
+      @documents = []
+    end
+  end
+  def link
+    @document = Document.find(params[:document])
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @categories=[]
+    render 'document_categories/link'
+  end
+  def unconnect
+    @cate=[]
+    if params[:linksearch].present?
+      @categories = Category.search(params[:linksearch]).order("created_at DESC")
+    else
+      @categories = []
+    end
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+    else
+      @documents = []
+    end
+    @parent_document = Document.find(params[:document])
+    DocumentCategory.destroy(params[:related_category])
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories.each do |linkedcategory|
+      @cate=@cate.push(linkedcategory.category)
+    end
+    @categories=@categories-@cate
+    @document=@parent_document
+    render 'document_categories/link'
+  end
+  def connect
+    @cate= []
+    if params[:linksearch].present?
+      @categories = Category.search(params[:linksearch]).order("created_at DESC")
+    else
+      @categories = []
+    end
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+    else
+      @documents = []
+    end
+    @parent_document = Document.find(params[:document])
+    @category = Category.find(params[:related_category])
+    @documentcategory=DocumentCategory.new
+    @documentcategory.category_id=params[:related_category]
+    @documentcategory.document_id=params[:document]
+    @documentcategory.save
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories.each do |linkedcategory|
+      @cate=@cate.push(linkedcategory.category)
+    end
+    @categories=@categories-@cate
+    @document=@parent_document
+    render 'document_categories/link'
+  end
+  def links
+    @categories = []
+    @cate=[]
+
+    if params[:linksearch].present?
+      @categories = Category.search(params[:linksearch]).order("created_at DESC")
+    else
+      @categories = []
+    end
+    @parent_document = Document.find(params[:document])
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories.each do |linkedcategory|
+      @cate=@cate.push(linkedcategory.category)
+    end
+    @categories=@categories-@cate
+    @document=@parent_document
+    render 'document_categories/link'
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

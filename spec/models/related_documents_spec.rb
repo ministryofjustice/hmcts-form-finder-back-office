@@ -30,5 +30,11 @@ describe "Linked Documents relationship" do
 
     expect(@referenced_doc.all_related.count).to eq 2
   end
+  it "should handle a document if related document is deleted" do
+    @parent_doc.related_documents << @referenced_doc
+    @parent_doc.related_documents << @referenced_doc2
+    (@parent_doc.related_documents).delete(@referenced_doc2)
+    expect(@referenced_doc.all_related.count).to eq 1
+  end
 
 end

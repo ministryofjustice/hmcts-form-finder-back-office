@@ -1,7 +1,35 @@
+# == Schema Information
+#
+# Table name: documents
+#
+#  id                      :integer          not null, primary key
+#  code                    :string
+#  title                   :string
+#  category                :string
+#  doc_attachment_type_id  :integer          not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  attachment_file_name    :string
+#  attachment_content_type :string
+#  attachment_file_size    :integer
+#  attachment_updated_at   :datetime
+#  published_date          :date
+#  language_id             :integer
+#  original_id             :integer
+#  creator_id              :integer
+#
+
 class Document < ActiveRecord::Base
+
+  extend  SoftDeletion::Collection
+  include SoftDeletion::Record
+
+  has_paper_trail
+
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
+  has_many :categories, :through => :document_categories
 
   has_and_belongs_to_many :related_documents,
                           class_name: "Document",
@@ -40,5 +68,11 @@ class Document < ActiveRecord::Base
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
     AND  related_documents.linked_document_id =  #{self.id})")
+  end
+
+
+  def self.search(search)
+    where("code LIKE ?", "%#{search}%")
+    where("title LIKE ?", "%#{search}%")
   end
 end

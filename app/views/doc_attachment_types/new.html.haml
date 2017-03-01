@@ -1,5 +1,14 @@
-%h1 New doc_attachment_type
+- content_for :page_title do
+  = "Add a document type to HMCTS Form finder"
 
-= render 'form'
+= render partial: 'layouts/header', locals: {page_heading: 'Document type management'}
 
-= link_to 'Back', doc_attachment_types_path
+.grid-row
+  .column-two-thirds
+
+    %h2.heading-medium
+      Add a new document type
+
+    = render 'form'
+
+  .column-one-third

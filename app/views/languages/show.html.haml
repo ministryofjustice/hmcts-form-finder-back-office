@@ -1,3 +1,8 @@
+- content_for :page_title do
+  = "Document language management for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document language management'}
+
 .grid-row
   .column-two-thirds
 
@@ -13,7 +18,11 @@
       %b Code:
       = @language.code
 
-    = link_to 'Edit', edit_language_path(@language), {class:'button-secondary', role:'button'}
-    = link_to 'Continue', languages_path, class: 'button button-left-spacing'
+    %p
+      %b Inactive:
+      = @language.inactive ? 'Yes' : 'No'
+
+    = link_to 'Edit', edit_language_path(@language), class:"button-secondary", role:"button"
+    = link_to 'Continue', languages_path, class:"button button-left-spacing"
 
   .column-one-third

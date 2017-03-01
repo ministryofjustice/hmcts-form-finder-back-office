@@ -1,27 +1,40 @@
-= render partial: 'layouts/header', locals: {page_heading: 'Categories management'}
+- content_for :page_title do
+  = "Document category management for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document category management'}
 
 .grid-row
   .column-full
 
-    %p
-      = link_to 'Create a new category', new_category_path, class: 'button'
+    = link_to 'Create a new category', new_category_path, class: 'button'
 
-    %h2.heading-medium
-      = @categories.size
-      categories current available
-
-    %table
-      %thead
-        %tr
-          %th English name
-          %th Welsh name
-          %th
-          %th
-
-      %tbody
-        - @categories.each do |category|
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = @categories.size
+            categories current available
+        %colgroup
+          %col
+          %col
+          %col
+        %thead
           %tr
-            %td= category.english_name
-            %td= category.welsh_name
-            %td= link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
-            %td= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'button-warning', role:"button"
+            %th{scope:'col'}
+              = "English name"
+            %th{scope:'col'}
+              = "Welsh name"
+            %th{scope:'col'}
+              = "Inactive"
+            %th
+        %tbody
+          - @categories.each do |category|
+            %tr
+              %td
+                = category.english_name
+              %td
+                = category.welsh_name
+              %td
+                = category.inactive ? 'Yes' : 'No'
+              %td
+                = link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}

@@ -1,0 +1,49 @@
+- content_for :page_title do
+  = "Assign Category for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
+
+.grid-row
+  .column-two-thirds
+
+    %h2.heading-medium Step 1 of 4 - Find the document you'd like to assign to a category
+
+    = form_tag url_for(:controller => 'document_categories', :action => 'search'), :method => 'get' do
+      .form-group
+        = label_tag :'search_field', 'Enter a document title or reference/number', class:'form-label'
+        = text_field_tag :search, params[:search], :id => 'search_field', class:'form-control'
+
+      = submit_tag "Search", :name => nil, class:'button', role:'button'
+
+  .column-one-third
+
+  .column-full
+    - if @documents.empty?
+
+      -#%p.no-result-message No result found to display
+      %p
+
+    - else
+
+      %h2.heading-medium Step 2 of 4 - Choose one of the following documents
+
+      .table-container.container
+        %table.report
+          %colgroup
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = "Document reference/number, title and language"
+              %th.action
+          %tbody
+            - @documents.each do | doc_attachment |
+              %tr
+                %td
+                  = doc_attachment.code
+                  %br
+                  = doc_attachment.title
+                  %br
+                  = doc_attachment.language.english_name
+                %td.action
+                  = link_to "Select", link_document_categories_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: 'button-secondary', role:'button'

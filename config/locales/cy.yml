@@ -1,0 +1,43 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+cy:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+  search_page_title: "Ffurflenni a thaflenni"
+  search_for_forms_and_leaflets: "Chwilio am ffurflenni a thaflenni"
+  step1_para1: "Mae'r gwasanaeth hwn yn rhoi rhestr o'r holl ffurflenni a thaflenni a ddarperir gan WLlEM i'r cyhoedd. Mae'r rhestr yn tyfu ac ychwanegir rhagor o ffurflenni a thaflenni ati'n rheolaidd."
+  step1_para2: "Os gwyddoch rif y ffurflen neu'r daflen yr hoffech ddod o hyd iddi, rhowch y rhif yn y blwch testun rhydd isod"
+  step1_para3: "Fel arall, os nad ydych yn gwybod beth yw rhif y ffurflen, rhowch deitl (neu allweddair) neu dewiswch gategori o'r rhestr ddisgyn 'math o waith' sy'n rhestru'r holl ffurflenni sydd ar gael yn ôl math y busnes"
+  search_by: "Chwilio am lys gydag enw'r stryd neu'r cod post"
+  form_number: "Rhif ffurflen/Rhif taflen"
+  form_title: "Teitl ffurflen/Teitl tafle"
+  available_types: "Mathau ar gael"
+  close: "Cau"
+  clear: "Clirio"
+  search: "Chwilio"
+  about_hmcts: ""
+  privacy: ""
+  crown_copyright: ""
