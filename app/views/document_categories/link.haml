@@ -1,76 +1,82 @@
 - content_for :page_title do
-  = "Your submitted documents for HMCTS Form finder"
+  = "Add a document to a category for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Categorise Document'}
+= render partial: 'layouts/header', locals: {page_heading: 'Link categories'}
 
 .grid-row
-  .column-full
+  .column-two-thirds
 
+    %h2.heading-medium
+      Document:
 
+    #{@document.code}
+    %span -
+    #{@document.title}
 
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = "Document: #{params[:document]}"
-        %caption
-          %span.table-caption
-            = "This document is in the following categories:"
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = "English Name"
-            %th{scope:'col'}
-              = "Welsh Name"
-            %th
-            %th
-        %tbody
-          - @linkedcategories.each do | doc_attachment   |
-            %tr
-              %td
-                = doc_attachment.category.english_name
-              %td
-                = doc_attachment.category.welsh_name
-              %td
-                = link_to "Unlink", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), {class:"button-secondary", role:"button"}
-          - if @linkedcategories.empty?
-            %p This document is not in any categories
-          - else
-    Search for categories that apply
+    %h2.heading-medium Step 3 of 4 - Find the category to add this document to
+
     = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get' do
-      = text_field_tag :linksearch, params[:linksearch], :id => 'search_field'
+
       = hidden_field_tag 'document', params[:document]
       = hidden_field_tag 'document_title', params[:document_title]
-      = submit_tag "Search", :name => nil
 
+      .form-group
+        = label_tag :'search_field', 'Enter the category name', class:'form-label'
+        = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
 
-      .table-container.container
+      = submit_tag "Search", :name => nil, class:'button', role:'button'
+
+  .column-one-third
+
+  .column-full
+
+    -#- if @linkedcategories.empty?
+    -#  -#%p.no-result-message No categories where found for this search
+    -#  %p
+    -#- else
+    %h2.heading-medium Step 4 of 4 - Choose one of the following:
+    .table-container.container
       %table.report
         %colgroup
-          %col
           %col
           %col
         %thead
           %tr
             %th{scope:'col'}
-              = "English Name"
+              = "Category"
             %th{scope:'col'}
-              = "Welsh Name"
-            %th
+              = "Welsh category"
             %th
         %tbody
-
-          - @categories.each do | doc_attachment   |
+          - @categories.each do | doc_attachment |
             %tr
               %td
                 = doc_attachment.english_name
               %td
                 = doc_attachment.welsh_name
+              %td.action
+                = link_to "Link", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
+
+    -#- if @linkedcategories.exists?
+
+    %h3.heading-small
+      #{@document.code}
+      %span -
+      #{@document.title} is in these categories:
+
+    .table-container.container
+      %table.report
+        %colgroup
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = "Category"
+            %th
+        %tbody
+          - @linkedcategories.each do | doc_attachment |
+            %tr
               %td
-                = link_to "Link", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
-          -if @categories.empty?
-            %p No Categories found for this search
+                = doc_attachment.category.english_name
+              %td.action
+                = link_to "Unlink", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
