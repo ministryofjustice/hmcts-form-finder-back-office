@@ -13,7 +13,7 @@
     %span -
     #{@document.title}
 
-    %h3.heading-small Step 3 of 4 - Find the document to link to
+    %h2.heading-medium Step 3 of 4 - Find the document to link to
 
     = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
 
@@ -37,7 +37,7 @@
 
     - else
 
-      %h3.heading-small
+      %h2.heading-medium
         Step 4 of 4 - Choose one of the following:
 
       .table-container.container
@@ -64,7 +64,7 @@
 
     - if @linkeddocuments.exists?
 
-      %h3.heading-small
+      %h2.heading-medium
         #{@document.code}
         %span -
         #{@document.title} is linked to:
