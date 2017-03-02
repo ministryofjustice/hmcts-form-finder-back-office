@@ -17,5 +17,12 @@ class Language < ActiveRecord::Base
 
   has_paper_trail
 
-  validates :english_name, presence: true, unless: :welsh_name
+  validate :has_a_name
+
+  private
+  def has_a_name
+    if english_name.empty? && welsh_name.empty?
+      errors[:base] << "A language must have a name"
+    end
+  end
 end
