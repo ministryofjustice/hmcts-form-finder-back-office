@@ -12,12 +12,13 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
 
   scenario "from the home page upload and process 1 form" do
     visit documents_path
-    click_link 'Add documents'
+    click_link 'Add a document'
 
     within("#new_document") do
       fill_in 'Code', with: Faker::Lorem.characters(8)
       fill_in 'Title', with: Faker::Lorem.characters(8)
-      select type.english_name, from: 'Type'
+      # select type.english_name, from: 'Type'
+      choose type.english_name
       attach_file 'Choose a file to upload', Rails.root.join('spec/support/fixtures/Blank.docx')
 
       fill_in 'Day', with: Time.zone.now.day

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :document do
     doc_attachment_type_id 1
-    code "MyString"
-    title "MyString"
+    code "DOC code"
+    title "DOC"
     category "MyString"
     attachment { File.new("#{Rails.root}/spec/support/fixtures/Blank.docx") }
     language
