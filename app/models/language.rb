@@ -10,7 +10,7 @@
 #  updated_at   :datetime         not null
 #
 
-require 'Validators'
+require 'validators'
 class Language < ActiveRecord::Base
 
   extend  SoftDeletion::Collection
