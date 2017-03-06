@@ -14,6 +14,7 @@ class Language < ActiveRecord::Base
 
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
+  include Validators::
 
   has_paper_trail
   validates :english_name, presence: true, unless: :welsh_name
