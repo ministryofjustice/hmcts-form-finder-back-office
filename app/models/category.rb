@@ -8,7 +8,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
-require 'Validators'
+require 'validators'
 class Category < ActiveRecord::Base
 
   extend  SoftDeletion::Collection
