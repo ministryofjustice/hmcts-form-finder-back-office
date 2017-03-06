@@ -18,13 +18,10 @@ RSpec.describe Category, type: :model do
   it "can have an English name if there is no Welsh name" do
     expect(Category.create(english_name: "George") ).to be_valid
   end
-  it "can have an Welsh name if there is no Welsh name" do
+  it "can have a Welsh name if there is no Welsh name" do
     expect(Category.create(welsh_name: "David") ).to be_valid
   end
-  it "must have an English name if there is no Welsh name" do
-    expect(Category.create ).to_not be_valid
-  end
-  it "must have an Welsh name if there is no English name" do
+  it "must have a name" do
     expect(Category.create ).to_not be_valid
   end
 end
