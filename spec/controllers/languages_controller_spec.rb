@@ -29,7 +29,7 @@ RSpec.describe LanguagesController, type: :controller do
   }
 
   let(:invalid_attributes) {
-    {english_name: nil, welsh_name: nil, code: nil}
+    {english_name: "", welsh_name: "", code: ""}
   }
 
   # This should return the minimal set of values that should be in the session

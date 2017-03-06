@@ -16,6 +16,23 @@ class Language < ActiveRecord::Base
   include SoftDeletion::Record
 
   has_paper_trail
-
   validates :english_name, presence: true, unless: :welsh_name
+  validates :code, presence:true
+  validate :has_a_name
+
+  private
+  def has_a_name
+    if nil_or_empty(english_name) && nil_or_empty(welsh_name)
+      errors[:base] << "A language must have a name"
+    end
+  end
+  def nil_or_empty(x)
+    if x.nil?
+      true
+    elsif x.empty?
+      true
+    else
+      false
+    end
+  end
 end
