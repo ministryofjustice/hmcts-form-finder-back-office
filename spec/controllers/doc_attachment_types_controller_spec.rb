@@ -135,7 +135,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
         doc_attachment_type = DocAttachmentType.create! valid_attributes
         put :update,id: doc_attachment_type.to_param, doc_attachment_type: new_attributes, session: valid_session
         doc_attachment_type.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:doc_attachment_type)).to eq(doc_attachment_type)
       end
 
       it "assigns the requested doc_attachment_type as @doc_attachment_type" do
