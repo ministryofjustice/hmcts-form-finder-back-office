@@ -27,7 +27,7 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
 
       click_button 'Submit document'
     end
-    save_and_open_page
+
 
     expect(page).to have_content 'Successfully submitted'
     # sleep(100)
