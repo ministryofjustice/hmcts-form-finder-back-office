@@ -1,19 +1,38 @@
 require 'rails_helper'
 
 feature "HMCTS Users should be able to upload and process forms/leaflets" do
+
+  let!(:user) { create :user }
+  let!(:language) { create :language }
+  let!(:type) { create :doc_attachment_type }
+
   background do
-    user = create(:user)
     login_as(user, :scope => :user)
   end
 
   scenario "from the home page upload and process 1 form" do
-    skip 'allows the user to upload a form'
-    skip 'allows user to fill in the details for the form'
+    visit documents_path
+    click_link 'Add a document'
+
+    within("#new_document") do
+      fill_in 'Code', with: Faker::Lorem.characters(8)
+      fill_in 'Title', with: Faker::Lorem.characters(8)
+      # select type.english_name, from: 'Type'
+      choose type.english_name
+      attach_file 'Choose a file to upload', Rails.root.join('spec/support/fixtures/Blank.docx')
+
+      fill_in 'Day', with: Time.zone.now.day
+      fill_in 'Month', with: Time.zone.now.month
+      fill_in 'Year', with: Time.zone.now.year
+
+      click_button 'Submit document'
+    end
+
+
+    expect(page).to have_content 'Successfully submitted'
+    # sleep(100)
+    # expect(Rails.root.join('public/system/document/attachment/:id_partition/:style/:filename').exist?)
   end
 
-  scenario "from the home page upload and process multiple forms" do
-    skip 'allows the user to upload a form'
-    skip 'allows user to fill in the details for the form'
-  end
 
 end
