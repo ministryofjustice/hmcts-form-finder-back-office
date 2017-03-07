@@ -12,19 +12,19 @@
     #{@document.code}
     %span -
     #{@document.title}
+    - if @documents.count == 0
+      %h2.heading-medium Step 3 of 4 - Find the document to link to
 
-    %h2.heading-medium Step 3 of 4 - Find the document to link to
+      = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
 
-    = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
+        = hidden_field_tag 'document', params[:document]
+        = hidden_field_tag 'document_title', params[:document_title]
 
-      = hidden_field_tag 'document', params[:document]
-      = hidden_field_tag 'document_title', params[:document_title]
+        .form-group
+          = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
+          = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
 
-      .form-group
-        = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
-        = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
-
-      = submit_tag "Search", :name => nil, class:'button', role:'button'
+        = submit_tag "Search", :name => nil, class:'button', role:'button'
 
   .column-one-third
 
