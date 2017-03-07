@@ -37,5 +37,17 @@ RSpec.describe Document, type: :model do
   describe 'Saving file' do
     it {should have_attached_file(:attachment)}
   end
+  it "documents search works with a query" do
+    document = create :document
+    @documents = Document.search(document.title)
+    @documents.should include(document)
 
+  end
+  it "documents search is case insensitive" do
+    language = create :language
+    document = Document.create(doc_attachment_type_id: 1, code: "case insensitive test 555", title: "DOC", category: "MyString", :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: "Bob", language_id: language.id)
+    @documents = Document.search('TEST')
+    @documents.should include(document)
+
+  end
 end
