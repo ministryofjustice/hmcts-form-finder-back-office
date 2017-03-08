@@ -27,11 +27,11 @@ RSpec.describe Category, type: :model do
   it "categories search works with a query" do
     category = create :category
     @categories = Category.search(category.english_name)
-    @categories.should include(category)
+    expect(@categories).to include(category)
   end
   it "categories search is case insensitive" do
     category=Category.create(english_name: "Case SEnsitive test", welsh_name: "David")
     @categories = Category.search('CASE seNSITIVE')
-    @categories.should include(category)
+    expect(@categories).to include(category)
   end
 end
