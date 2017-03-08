@@ -72,7 +72,7 @@ class Document < ActiveRecord::Base
 
 
   def self.search(search)
-    where("code LIKE ?", "%#{search}%")
-    where("title LIKE ?", "%#{search}%")
+    where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
+
   end
 end
