@@ -9,8 +9,13 @@
 #  updated_at   :datetime         not null
 #
 
+require 'validators'
+
 class DocAttachmentType < ActiveRecord::Base
+  include Validators::ValueCheck
+
   has_paper_trail
   validates :english_name, presence: true, unless: :welsh_name
-  validates :welsh_name, presence: true, unless: :english_name
+  validate :has_a_name
+
 end
