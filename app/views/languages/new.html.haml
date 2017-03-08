@@ -1,14 +1,12 @@
 - content_for :page_title do
-  = "Add a document language to HMCTS Form finder"
-
-= render partial: 'layouts/header', locals: {page_heading: 'Document language management'}
+  = "Add a language to HMCTS Form finder"
 
 .grid-row
-  .column-two-thirds
+  .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'Document languages'}
 
     %h2.heading-medium
       Add a language
 
-    = render 'form'
-
-  .column-one-third
+= render 'form'
