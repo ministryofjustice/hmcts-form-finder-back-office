@@ -1,20 +1,26 @@
-= form_for @language do |f|
-  - if @language.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@language.errors.count, "error")} prevented this language from being saved:"
-      %ul
-        - @language.errors.full_messages.each do |msg|
-          %li= msg
+.grid-row
+  .column-full
 
-  = f.text_field :english_name
+    - if @language.errors.any?
 
-  = f.text_field :welsh_name
+      .error-summary{role: 'group', 'aria-labelledby':'error-summary-add-language', tabindex: '-1'}
+        %h1#error-summary-add-language.heading-medium.error-summary-heading
+          = "#{pluralize(@language.errors.count, "error")} prevented this language from being added:"
+        %p
+        %ul.error-summary-list
+          - @language.errors.full_messages.each do |msg|
+            %li= msg
 
-  = f.text_field :code
+.grid-row
+  .column-two-thirds
 
-  .form-group
-    %label.block-label.selection-button-checkbox{ for:"language_inactive" }
-      Inactive
-      = f.check_box(:inactive, {}, true)
+    = form_for @language do |f|
+      = f.text_field :english_name
+      = f.text_field :welsh_name
+      = f.text_field :code
+      .form-group
+        %label.block-label.selection-button-checkbox{ for:"language_inactive" }
+          Inactive
+          = f.check_box(:inactive, {}, true)
 
-  = f.submit "Save", class:"button", role:"button"
+      = f.submit "Save", class:"button", role:"button"
