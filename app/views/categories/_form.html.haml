@@ -1,17 +1,24 @@
-= form_for @category do |f|
-  - if @category.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@category.errors.count, "error")} prevented this category from being saved:"
-      %ul
-        - @category.errors.full_messages.each do |msg|
-          %li= msg
+.grid-row
+  .column-full
 
-  = f.text_field :english_name
-  = f.text_field :welsh_name
+    - if @category.errors.any?
 
-  .form-group
-    %label.block-label.selection-button-checkbox{ for: "category_inactive" }
-      Inactive
-      = f.check_box(:inactive, {}, true)
+      .error-summary{role: 'group', 'aria-labelledby':'error-summary-add-category', tabindex: '-1'}
+        %h1#error-summary-adding-a-language.heading-medium.error-summary-heading
+          = "#{pluralize(@category.errors.count, "error")} prevented this category from being added:"
+        %ul.error-summary-list
+          - @category.errors.full_messages.each do |msg|
+            %li= msg
 
-  = f.submit 'Save', {class:"button", role:"button"}
+.grid-row
+  .column-two-thirds
+
+    = form_for @category do |f|
+      = f.text_field :english_name
+      = f.text_field :welsh_name
+      .form-group
+        %label.block-label.selection-button-checkbox{ for: "category_inactive" }
+          Inactive
+          = f.check_box(:inactive, {}, true)
+
+      = f.submit 'Save', {class:"button", role:"button"}
