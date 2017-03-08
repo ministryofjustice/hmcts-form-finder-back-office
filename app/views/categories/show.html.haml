@@ -1,29 +1,24 @@
 - content_for :page_title do
   = "Document categories for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
-
 .grid-row
   .column-full
-    .confirmation-header
 
-      %h1.page-title.bold-large
-        %object{:type => 'image/svg+xml', :data => image_path('icons/tick-white.svg'), :class => "confirmation-tick"}
-        = "Category successfully added"
+    = render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
 
-      - if @category.english_name.present?
-        .normal
-          English name:
-          = @category.english_name
+    - if @category.english_name.present?
+      %p
+        English name:
+        = @category.english_name
 
-      - if @category.welsh_name.present?
-        .normal
-          Welsh name:
-          = @category.welsh_name
+    - if @category.welsh_name.present?
+      %p
+        Welsh name:
+        = @category.welsh_name
 
-      .normal
-        Inactive:
-        = @category.inactive ? 'Yes' : 'No'
+    %p
+      Inactive:
+      = @category.inactive ? 'Yes' : 'No'
 
 .grid-row
   .column-one-half
