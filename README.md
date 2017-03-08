@@ -2,6 +2,9 @@
 
 The HMCTS Form Finder Back Office app to maintain forms and leaflets.
 
+[![Code Climate](https://lima.codeclimate.com/github/ministryofjustice/hmcts-form-finder-back-office/badges/gpa.svg)](https://lima.codeclimate.com/github/ministryofjustice/hmcts-form-finder-back-office)
+[![Test Coverage](https://lima.codeclimate.com/github/ministryofjustice/hmcts-form-finder-back-office/badges/coverage.svg)](https://lima.codeclimate.com/github/ministryofjustice/hmcts-form-finder-back-office/coverage)
+
 ## S3 for document storage
 AWS S3 the **default** document storage mechanism. It is stubbed out
 using webmock for all tests, but active in development mode.
