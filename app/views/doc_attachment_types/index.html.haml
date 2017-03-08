@@ -1,10 +1,10 @@
 - content_for :page_title do
   = "Document types for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document types'}
-
 .grid-row
   .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'Document types'}
 
     = link_to 'Add a type', new_doc_attachment_type_path, {class:"button", role:"button"}
 
