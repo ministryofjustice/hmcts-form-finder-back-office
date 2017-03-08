@@ -23,7 +23,6 @@ class Category < ActiveRecord::Base
   validate :has_a_name
 
   def self.search(search)
-    where("english_name LIKE ?", "%#{search}%")
-    where("welsh_name LIKE ?", "%#{search}%")
+    where("lower(english_name) LIKE ? or lower(welsh_name) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
   end
 end
