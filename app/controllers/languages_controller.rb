@@ -27,29 +27,20 @@ class LanguagesController < ApplicationController
   # POST /languages.json
   def create
     @language = Language.new(language_params)
-
-    respond_to do |format|
-      if @language.save
-        format.html { redirect_to @language, notice: 'The language was successfully created.' }
-        format.json { render :show, status: :created, location: @language }
-      else
-        format.html { render :new }
-        format.json { render json: @language.errors, status: :unprocessable_entity }
-      end
+    if @language.save
+      render 'languages/show'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /languages/1
   # PATCH/PUT /languages/1.json
   def update
-    respond_to do |format|
-      if @language.update(language_params)
-        format.html { redirect_to @language, notice: 'The language was successfully updated.' }
-        format.json { render :show, status: :ok, location: @language }
-      else
-        format.html { render :edit }
-        format.json { render json: @language.errors, status: :unprocessable_entity }
-      end
+    if @language.update(language_params)
+      render 'languages/show'
+    else
+      render action: 'new'
     end
   end
 
