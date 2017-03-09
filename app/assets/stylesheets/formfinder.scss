@@ -14,6 +14,12 @@
   @include button($red)
 }
 
+.notice-summary {
+  background-color: $turquoise;
+  border-color: $turquoise;
+  color: $page-colour;
+}
+
 body {
   #global-header .header-wrapper {
     .header-global,
@@ -69,6 +75,10 @@ form {
       margin-top: 3px
     }
   }
+}
+
+.notice-summary {
+  text-align: center
 }
 
 @media screen and (max-width: 640px) {
