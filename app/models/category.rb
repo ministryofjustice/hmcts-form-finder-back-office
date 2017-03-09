@@ -12,6 +12,7 @@
 require 'validators'
 
 class Category < ActiveRecord::Base
+
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
   include Validators::ValueCheck
