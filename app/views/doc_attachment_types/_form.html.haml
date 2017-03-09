@@ -1,17 +1,25 @@
-= form_for @doc_attachment_type do |f|
-  - if @doc_attachment_type.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@doc_attachment_type.errors.count, "error")} prevented this type from being saved:"
-      %ul
-        - @doc_attachment_type.errors.full_messages.each do |msg|
-          %li= msg
+.grid-row
+  .column-full
 
-  = f.text_field :english_name
-  = f.text_field :welsh_name
+    - if @doc_attachment_type.errors.any?
 
-  .form-group
-    %label.block-label.selection-button-checkbox{ for: "type_inactive" }
-      Inactive
-      = f.check_box(:inactive, {}, true)
+      .error-summary{role: 'group', 'aria-labelledby': 'error-summary-add-type', tabindex: '-1'}
+        %h1#error-summary-add-type.heading-medium.error-summary-heading
+          = "#{pluralize(@doc_attachment_type.errors.count, "error")} prevented this type from being added:"
+        %p
+        %ul.error-summary-list
+          - @doc_attachment_type.errors.full_messages.each do |msg|
+            %li= msg
 
-  = f.submit 'Save', {class:"button", role:"button"}
+.grid-row
+  .column-two-thirds
+
+    = form_for @doc_attachment_type do |f|
+      = f.text_field :english_name
+      = f.text_field :welsh_name
+      .form-group
+        %label.block-label.selection-button-checkbox{ for: "type_inactive" }
+          Inactive
+          = f.check_box(:inactive, {}, true)
+
+      = f.submit 'Save', {class:"button", role:"button"}
