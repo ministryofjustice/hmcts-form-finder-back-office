@@ -8,7 +8,9 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
+
 require 'validators'
+
 class Category < ActiveRecord::Base
 
   extend  SoftDeletion::Collection
@@ -16,16 +18,12 @@ class Category < ActiveRecord::Base
   include Validators::ValueCheck
 
   has_paper_trail
-
   has_many :documents, :through => :document_categories
 
   validates :english_name, presence: true, unless: :welsh_name
-  validates :welsh_name, presence: true, unless: :english_name
-
   validate :has_a_name
 
   def self.search(search)
-    where("english_name LIKE ?", "%#{search}%")
-    where("welsh_name LIKE ?", "%#{search}%")
+    where("lower(english_name) LIKE ? or lower(welsh_name) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
   end
 end
