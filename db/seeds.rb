@@ -27,9 +27,9 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'doc_attachment_types.csv')
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   t = DocAttachmentType.new
-  t.id = row[0]
-  t.english_name = row[1]
-  t.welsh_name = row[2]
+  t.id = row['id']
+  t.english_name = row['english_name']
+  t.welsh_name = row['welsh_name']
   t.save
 end
 
