@@ -75,30 +75,32 @@ form {
   .button-left-spacing {
     margin-left: 0
   }
-  .button-warning {
-    width: 100%;
-    text-align: center;
+  .button,
+  .button-warning,
+  .button-secondary  {
     margin-top: 10px;
     padding-left: 0;
-    padding-right: 0
+    padding-right: 0;
+    text-align: center;
+    width: 100%
   }
 }
 
-b,.bold {
+b,
+.bold {
   font-weight: 700
 }
 
-
 .no-result-message {
-  display: block;
   border: 2px solid #f00;
+  display: block;
   margin: 15px;
   padding: 15px;
-  text-align: center;
+  text-align: center
 }
 
 .action {
-  width: 10%;
   padding-left: 5px;
   padding-right: 5px;
+  width: 10%;
 }
