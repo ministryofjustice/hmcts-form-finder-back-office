@@ -9,7 +9,7 @@ migrate)
     ;;
 seed)
     echo "running seed"
-    bundle exec rake db:migrate
+    bundle exec rake db:migrate && \
     bundle exec rake db:seed
     ;;
 vagrant)
@@ -20,8 +20,8 @@ vagrant)
     ;;
 create)
     echo "running create"
-    bundle exec rake db:create
-    bundle exec rake db:migrate
+    bundle exec rake db:create && \
+    bundle exec rake db:migrate && \
     bundle exec rake db:seed
     ;;
 setup)
