@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-      if User.create!(user_params)
+      if @user.save
         format.html { redirect_to @user, notice: "The user account was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
