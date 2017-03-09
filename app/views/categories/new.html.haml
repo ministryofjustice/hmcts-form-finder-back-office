@@ -1,14 +1,12 @@
 - content_for :page_title do
   = "Add a category to HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
-
 .grid-row
-  .column-two-thirds
+  .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
 
     %h2.heading-medium
-      Add a new category
+      Add a category
 
-    = render 'form'
-
-  .column-one-third
+= render 'form'
