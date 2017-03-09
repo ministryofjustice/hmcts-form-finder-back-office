@@ -12,9 +12,11 @@
 require 'validators'
 
 class DocAttachmentType < ActiveRecord::Base
+
   include Validators::ValueCheck
 
   has_paper_trail
+
   validates :english_name, presence: true, unless: :welsh_name
   validate :has_a_name
 
