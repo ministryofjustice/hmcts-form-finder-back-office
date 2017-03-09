@@ -11,6 +11,7 @@
 #
 
 require 'validators'
+
 class Language < ActiveRecord::Base
 
   extend  SoftDeletion::Collection
@@ -18,6 +19,7 @@ class Language < ActiveRecord::Base
   include Validators::ValueCheck
 
   has_paper_trail
+
   validates :english_name, presence: true, unless: :welsh_name
   validates :code, presence:true
   validate :has_a_name

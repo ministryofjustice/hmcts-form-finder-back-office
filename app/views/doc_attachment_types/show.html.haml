@@ -1,22 +1,27 @@
 - content_for :page_title do
   = "Document types for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document types'}
-
 .grid-row
   .column-full
 
-    %p
-      %b English name:
-      = @doc_attachment_type.english_name
+    = render partial: 'layouts/header', locals: {page_heading: 'Document types'}
+
+    - if @doc_attachment_type.english_name.present?
+      %p
+        English name:
+        = @doc_attachment_type.english_name
+
+    - if @doc_attachment_type.welsh_name.present?
+      %p
+        Welsh name:
+        = @doc_attachment_type.welsh_name
 
     %p
-      %b Welsh name:
-      = @doc_attachment_type.welsh_name
-
-    %p
-      %b Inactive:
+      Inactive:
       = @doc_attachment_type.inactive ? 'Yes' : 'No'
 
+.grid-row
+  .column-one-half
     = link_to 'Edit', edit_doc_attachment_type_path(@doc_attachment_type), {class:'button-secondary', role:'button'}
+  .column-one-half
     = link_to 'Continue', doc_attachment_types_path, {class: 'button button-left-spacing', role:'button'}
