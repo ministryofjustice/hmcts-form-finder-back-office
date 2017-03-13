@@ -1,14 +1,12 @@
 - content_for :page_title do
-  = "Add a user account to HMCTS Form finder"
-
-= render partial: 'layouts/header', locals: {page_heading: 'User account management'}
+  = "Add a user to HMCTS Form finder"
 
 .grid-row
-  .column-two-thirds
+  .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
 
     %h2.heading-medium
-      Add a new user
+      Add a user
 
-    = render 'form'
-
-  .column-one-third
+= render 'form'
