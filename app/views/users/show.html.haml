@@ -1,28 +1,29 @@
 - content_for :page_title do
-  = "User account management for HMCTS Form finder"
-
-= render partial: 'layouts/header', locals: {page_heading: 'User account management'}
+  = "User accounts for HMCTS Form finder"
 
 .grid-row
-  .column-two-thirds
+  .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
 
     %p
-      %b First name:
+      First name:
       = @user.first_name
 
     %p
-      %b Last name:
+      Last name:
       = @user.last_name
 
     %p
-      %b Email:
+      Email:
       = @user.email
 
     %p
-      %b Inactive:
+      Inactive:
       = @user.inactive ? 'Yes' : 'No'
 
-    = link_to 'Edit', edit_user_path(@user), {class:'button-secondary', role:'button'}
-    = link_to 'Continue', users_path, class: 'button button-left-spacing'
-
-  .column-one-third
+.grid-row
+  .column-one-half
+    = link_to 'Edit', edit_user_path(@user), class:'button-secondary', role:'button'
+  .column-one-half
+    = link_to 'Continue', users_path, class: 'button button-left-spacing', role:'button'
