@@ -55,6 +55,8 @@ class Document < ActiveRecord::Base
   validates :title, presence: true
   validates :language_id, presence: true
 
+
+
   def rename_file
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
     attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
@@ -75,4 +77,7 @@ class Document < ActiveRecord::Base
     where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
 
   end
+  private
+
+
 end
