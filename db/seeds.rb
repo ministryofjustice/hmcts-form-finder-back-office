@@ -49,7 +49,7 @@ end
 
 puts "There are now #{Language.count} rows in the languages table"
 
-#Court forms
+#Documents
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'documents.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -71,6 +71,20 @@ csv.each do |row|
 end
 
 puts "There are now #{Document.count} rows in the Documents table"
+
+#Document_categories
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'document_categories.csv'))
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+  t = DocumentCategory.new
+  t.id = row['id']
+  t.document_id = row['document_id']
+  t.category_id = row['category_id']
+  t.sort_order = row['sort_order']
+  t.save
+end
+
+puts "There are now #{DocumentCategory.count} rows in the Document_categories table"
 
 # #Court forms
 # csv_text = File.read(Rails.root.join('lib', 'seeds', 'e_court_forms_cleaned.csv'))
