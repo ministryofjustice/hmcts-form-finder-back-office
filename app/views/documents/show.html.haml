@@ -1,0 +1,74 @@
+- content_for :page_title do
+  = "Your document linking for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: {page_heading: 'Document Summary'}
+
+.grid-row
+  .column-two-thirds
+    %h2.heading-medium
+      Document:
+
+    #{@document.code}
+    %span -
+    #{@document.title}
+
+  .column-one-third
+
+  .column-full
+
+
+    - if @linkeddocuments.exists?
+      %h2.heading-medium
+        #{@document.code}
+        %span -
+        #{@document.title} is linked to below documents:
+      .table-container.container
+        %table.report
+          %colgroup
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = "Reference/number"
+              %th{scope:'col'}
+                = "Title"
+              %th
+          %tbody
+            - @linkeddocuments.each do | doc_attachment   |
+              %tr
+                %td
+                  = doc_attachment.code
+                %td
+                  = doc_attachment.title
+      -#%p.no-result-message No result found to display
+    - if @linkedcategories.exists?
+
+      %h2.heading-medium
+        #{@document.code}
+        %span -
+        #{@document.title} is assigned to below categories:
+
+      .table-container.container
+        %table.report
+          %colgroup
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = "Document"
+              %th{scope:'col'}
+                = "Category"
+              %th
+          %tbody
+            - @linkedcategories.each do | category   |
+              %tr
+                %td
+                  = category.document.title
+                %td
+                  = category.category.english_name
+%p
+= link_to 'Link more documents', link_documents_link_path(:document => @document), {class:"button-secondary", role:"button"}
+\|
+= link_to 'Assign more categories', link_document_categories_link_path(:document => @document), {class:"button-secondary", role:"button"}

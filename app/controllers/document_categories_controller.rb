@@ -98,7 +98,8 @@ class DocumentCategoriesController < ApplicationController
     end
     @categories=@categories-@cate
     @document=@parent_document
-    render 'document_categories/link'
+    @linkeddocuments=@parent_document.all_related
+    render 'documents/show'
   end
   def connect
     @cate= []
@@ -124,7 +125,8 @@ class DocumentCategoriesController < ApplicationController
     end
     @categories=@categories-@cate
     @document=@parent_document
-    render 'document_categories/link'
+    @linkeddocuments=@parent_document.all_related
+    render 'documents/show'
   end
   def links
     @categories = []
