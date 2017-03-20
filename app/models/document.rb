@@ -5,7 +5,6 @@
 #  id                      :integer          not null, primary key
 #  code                    :string
 #  title                   :string
-#  category                :string
 #  doc_attachment_type_id  :integer          not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
