@@ -77,7 +77,5 @@ class Document < ActiveRecord::Base
     where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
 
   end
-  private
-
 
 end
