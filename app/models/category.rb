@@ -30,7 +30,7 @@ class Category < ActiveRecord::Base
 
   def only_inactive_if_unreferenced
     if inactive && DocumentCategory.where(:category_id => id).count > 0
-        errors[:base] << "Can't make a Category inactive which is in use. Please remove all the documents from the category."
+        errors[:base] << "Can't make a Category inactive when it is still in use. Please remove all the documents from the category."
     end
   end
 end
