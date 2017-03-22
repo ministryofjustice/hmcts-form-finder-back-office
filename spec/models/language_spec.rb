@@ -29,4 +29,20 @@ RSpec.describe Language, type: :model do
     expect(Language.create(english_name: "George", welsh_name: "David")).to_not be_valid
   end
 
+  it "Cannot deactivate a Language if a document belongs to it" do
+
+    document = create :document
+    language = create :language
+
+    document.language = language
+
+    document.save!
+    language.save!
+
+    language.inactive = true
+
+    expect(language.save).to be_falsey
+
+  end
+
 end
