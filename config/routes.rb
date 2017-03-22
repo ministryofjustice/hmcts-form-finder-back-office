@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'link/documents/connect'          => 'documents#connect'
   get 'link/documents/links'          => 'documents#links'
   get 'link/documents/unconnect'          => 'documents#unconnect'
+  get 'link/documents/show'          => 'documents#show'
   root to: redirect('/users/sign_in')
 
 
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   get 'link/document_categories/unconnect'          => 'document_categories#unconnect'
   get 'link/document_categories/connect'          => 'document_categories#connect'
   get 'link/document_categories/links'          => 'document_categories#links'
+
 
 
 
