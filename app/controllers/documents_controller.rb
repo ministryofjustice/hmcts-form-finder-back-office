@@ -71,7 +71,8 @@ class DocumentsController < ApplicationController
     @documents=@documents - [@parent_document]
     @documents=@documents-@linkeddocuments
     @document=@parent_document
-    render 'documents/link'
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    render 'documents/show'
   end
 
   def unconnect
@@ -87,7 +88,8 @@ class DocumentsController < ApplicationController
     @documents=@documents - [@parent_document]
     @documents=@documents-@linkeddocuments
     @document=@parent_document
-    render 'documents/link'
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    render 'documents/show'
   end
 
   def search
