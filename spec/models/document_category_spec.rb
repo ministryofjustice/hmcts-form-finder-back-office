@@ -21,6 +21,13 @@ RSpec.describe DocumentCategory, type: :model do
   it { should belong_to(:document)}
   it { should belong_to(:category)}
 
+  it "Can be deactivated if no documents belong to it" do
+    category = create :category
+    category.save!
+    category.inactive = true
+    expect(category.save).to be_truthy
+
+  end
   it "Cannot inactivate a Category if a document belongs to it" do
 
     document = create :document
