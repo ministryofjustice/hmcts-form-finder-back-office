@@ -19,7 +19,6 @@ RUN apt-get install -y nodejs
 ENV APP_HOME /rails
 
 ENV APP_PORT 3000
-ENV DOCKER_STATE=create
 
 EXPOSE $APP_PORT
 
