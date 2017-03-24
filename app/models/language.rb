@@ -23,5 +23,6 @@ class Language < ActiveRecord::Base
   validates :english_name, presence: true, unless: :welsh_name
   validates :code, presence:true
   validate :has_a_name
+  validate :only_inactive_if_not_used
 
 end
