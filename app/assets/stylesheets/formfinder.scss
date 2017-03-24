@@ -1,17 +1,44 @@
 #admin-navigation ul {
   border-bottom-color: $border-colour
 }
+
 #admin-navigation ul li.active {
   background-color: $grey-2
 }
+
 #admin-navigation ul li a {
   color: $text-colour
 }
+
 #admin-navigation ul li a:hover {
   background-color: $grey-3
 }
+
 .button-warning {
   @include button($red)
+}
+
+.reference {
+  font-weight: bold;
+  display: inline;
+  margin-right: 1em;
+}
+
+.attributes:before {
+  content: "(";
+}
+
+.attributes:after {
+  content: ")";
+}
+
+.attributes {
+  display: inline;
+  font-size: smaller;
+}
+
+ul.list li {
+  margin-bottom: 15px;
 }
 
 .notice-summary {
