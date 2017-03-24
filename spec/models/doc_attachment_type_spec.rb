@@ -24,7 +24,16 @@ RSpec.describe DocAttachmentType, type: :model do
   it "must have a name" do
     expect(DocAttachmentType.create ).to_not be_valid
   end
+  it "Can be deactivated if no documents belong to it" do
+    doc_attachment_type = create :doc_attachment_type
+    doc_attachment_type.save!
 
+    doc_attachment_type.inactive = true
+    doc_attachment_type.save!
+
+    expect(doc_attachment_type.save).to be_truthy
+
+  end
   it "Cannot deactivate a Type if a document belongs to it" do
 
     document = create :document
