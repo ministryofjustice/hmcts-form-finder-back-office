@@ -79,54 +79,18 @@ class DocumentCategoriesController < ApplicationController
     render 'document_categories/link'
   end
   def unconnect
-    @cate=[]
-    if params[:linksearch].present?
-      @categories = Category.search(params[:linksearch]).order("created_at DESC")
-    else
-      @categories = []
-    end
-    if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order("created_at DESC")
-    else
-      @documents = []
-    end
-    @parent_document = Document.find(params[:document])
+    prelink
     DocumentCategory.destroy(params[:related_category])
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-    @linkedcategories.each do |linkedcategory|
-      @cate=@cate.push(linkedcategory.category)
-    end
-    @categories=@categories-@cate
-    @document=@parent_document
-    @linkeddocuments=@parent_document.all_related
-    render 'documents/show'
+    postlink
   end
   def connect
-    @cate= []
-    if params[:linksearch].present?
-      @categories = Category.search(params[:linksearch]).order("created_at DESC")
-    else
-      @categories = []
-    end
-    if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order("created_at DESC")
-    else
-      @documents = []
-    end
-    @parent_document = Document.find(params[:document])
+    prelink
     @category = Category.find(params[:related_category])
     @documentcategory=DocumentCategory.new
     @documentcategory.category_id=params[:related_category]
     @documentcategory.document_id=params[:document]
     @documentcategory.save
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-    @linkedcategories.each do |linkedcategory|
-      @cate=@cate.push(linkedcategory.category)
-    end
-    @categories=@categories-@cate
-    @document=@parent_document
-    @linkeddocuments=@parent_document.all_related
-    render 'documents/show'
+    postlink
   end
   def links
     @categories = []
@@ -157,5 +121,29 @@ class DocumentCategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_category_params
       params.require(:document_category).permit(:document_id, :category_id, :sort_order)
+    end
+    def prelink
+      @cate=[]
+      if params[:linksearch].present?
+        @categories = Category.search(params[:linksearch]).order("created_at DESC")
+      else
+        @categories = []
+      end
+      if params[:linksearch].present?
+        @documents = Document.search(params[:linksearch]).order("created_at DESC")
+      else
+        @documents = []
+      end
+      @parent_document = Document.find(params[:document])
+    end
+    def postlink
+      @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+      @linkedcategories.each do |linkedcategory|
+        @cate=@cate.push(linkedcategory.category)
+      end
+      @categories=@categories-@cate
+      @document=@parent_document
+      @linkeddocuments=@parent_document.all_related
+      render 'documents/show'
     end
 end
