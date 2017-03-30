@@ -78,6 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.paperclip_defaults = {
+      url: ':s3_domain_url',
+      path: ':filename',
       storage: :s3,
       s3_credentials: {
           bucket: ENV.fetch('DEV_FORM_FINDER_S3_BUCKET'),
