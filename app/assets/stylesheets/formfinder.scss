@@ -1,3 +1,4 @@
+// === Colour definitions ================
 #admin-navigation ul {
   border-bottom-color: $border-colour
 }
@@ -18,33 +19,62 @@
   @include button($red)
 }
 
-.reference {
-  font-weight: bold;
-  display: inline;
-  margin-right: 1em;
-}
-
-.attributes:before {
-  content: "(";
-}
-
-.attributes:after {
-  content: ")";
-}
-
-.attributes {
-  display: inline;
-  font-size: smaller;
-}
-
-ul.list li {
-  margin-bottom: 15px;
+.no-result-message {
+  border-color: $error-colour;
 }
 
 .notice-summary {
   background-color: $turquoise;
   border-color: $turquoise;
-  color: $page-colour;
+  color: $page-colour
+}
+
+// === Class definitions =================
+.action {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 10%
+}
+
+.attributes:after {
+  content: ")"
+}
+
+.attributes:before {
+  content: "("
+}
+
+.attributes {
+  display: inline;
+  font-size: smaller
+}
+
+.no-result-message {
+  border-style: solid;
+  border-width: 2px;
+  display: block;
+  margin: 15px;
+  padding: 15px;
+  text-align: center
+}
+
+.notice-summary {
+  text-align: center
+}
+
+.reference {
+  display: inline;
+  font-weight: bold;
+  margin-right: 0.4em
+}
+
+.title {
+  margin-top: 5px;
+}
+
+// === Element definitions ===============
+ul.list li {
+  margin-bottom: 15px
 }
 
 body {
@@ -104,10 +134,6 @@ form {
   }
 }
 
-.notice-summary {
-  text-align: center
-}
-
 @media screen and (max-width: 640px) {
   .button-left-spacing {
     margin-left: 0
@@ -121,23 +147,4 @@ form {
     text-align: center;
     width: 100%
   }
-}
-
-b,
-.bold {
-  font-weight: 700
-}
-
-.no-result-message {
-  border: 2px solid #f00;
-  display: block;
-  margin: 15px;
-  padding: 15px;
-  text-align: center
-}
-
-.action {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 10%;
 }
