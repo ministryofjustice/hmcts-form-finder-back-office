@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+  include Search
+
   before_action :authenticate_user!, :set_user
   before_action :set_paper_trail_whodunnit
 
@@ -68,15 +70,6 @@ class DocumentsController < ApplicationController
     preconnect
     (@parent_document.related_documents).delete(@document)
     postconnect
-  end
-
-  def search
-    @documents = Document.all
-    if params[:search].present?
-      @documents = Document.search(params[:search]).order("created_at DESC")
-    else
-      @documents = []
-    end
   end
 
   def links
