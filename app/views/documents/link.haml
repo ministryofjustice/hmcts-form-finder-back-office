@@ -1,94 +1,104 @@
 - content_for :page_title do
-  = "Your document linking for HMCTS Form finder"
+  = "Document linking for HMCTS Form finder"
 
 = render partial: 'layouts/header', locals: {page_heading: 'Link Documents'}
 
-.grid-row
-  .column-two-thirds
+- if @documents.count == 0
+  .grid-row
+    .column-full
+      %h2.heading-large
+        Step 3 of 4
+      %h3.heading-medium
+        Find the document to link to this one:
 
-    %h2.heading-medium
-      Document:
-
-    #{@document.code}
-    %span -
-    #{@document.title}
-    - if @documents.count == 0
-      %h2.heading-medium Step 3 of 4 - Find the document to link to
-
-      = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get' do
-
-        = hidden_field_tag 'document', params[:document]
-        = hidden_field_tag 'document_title', params[:document_title]
-
-        .form-group
+  .grid-row
+    .column-two-thirds
+      %span.reference
+        = @document.code
+      %span.attributes
+        = @document.language.english_name
+        format
+      .title
+        = @document.title
+      %br
+      .search-wrapper
+        = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
+          = hidden_field_tag 'document', params[:document]
+          = hidden_field_tag 'document_title', params[:document_title]
           = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
+          = submit_tag "Search", :name => nil, role:"button", class:"button"
+    .column-one-third
 
-        = submit_tag "Search", :name => nil, class:'button', role:'button'
+  .grid-row
+    .column-full
+      - if @documents.empty?
+        -#%p.no-result-message No result found to display
+        -#%p
 
-  .column-one-third
+- else
 
-  .column-full
+  .grid-row
+    .column-full
 
-    - if @documents.empty?
+      %h2.heading-large
+        Step 4 of 4
 
-      -#%p.no-result-message No result found to display
+      %h3.heading-medium
+        Choose a document to link to this one
+
+      %span.reference
+        = @document.code
+      %span.attributes
+        = @document.language.english_name
+        format
+      .title
+        = @document.title
+
+      %hr
+
       %p
+        Your searched for
+        %i "#{params[:linksearch]}" returned the following results.
 
-    - else
-      %h2.heading-medium
-        You searched for <i>" #{params[:linksearch]} " </i>
+      %ul.list
+        - @documents.each do | doc_attachment   |
+          %li
+            .item
+              %span.reference
+                = doc_attachment.code
+              %span.attributes
+                = doc_attachment.language.english_name
+                format
+              .title
+                = doc_attachment.title
+            .action
+              = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
 
-      %h2.heading-medium
-        Step 4 of 4 - Choose one of the following:
+- if @linkeddocuments.exists?
+  .grid-row
+    .column-full
 
-      .table-container.container
-        %table.report
-          %colgroup
-            %col
-            %col
-          %thead
-            %tr
-              %th{scope:'col'}
-                = "Reference/number"
-              %th{scope:'col'}
-                = "Title"
-              %th
-          %tbody
-            - @documents.each do | doc_attachment   |
-              %tr
-                %td
-                  = doc_attachment.code
-                %td
-                  = doc_attachment.title
-                %td.action
-                  = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
+      %hr
 
-    - if @linkeddocuments.exists?
+  .grid-row
+    .column-two-thirds
 
-      %h2.heading-medium
-        #{@document.code}
-        %span -
-        #{@document.title} is linked to:
+      %h3.heading-medium
+        This document is already linked to:
 
-      .table-container.container
-        %table.report
-          %colgroup
-            %col
-            %col
-          %thead
-            %tr
-              %th{scope:'col'}
-                = "Reference/number"
-              %th{scope:'col'}
-                = "Title"
-              %th
-          %tbody
-            - @linkeddocuments.each do | doc_attachment   |
-              %tr
-                %td
-                  = doc_attachment.code
-                %td
-                  = doc_attachment.title
-                %td.action
-                  = link_to "Unlink", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+      %ul.list
+        - @linkeddocuments.each do | doc_attachment   |
+          %li
+            .item
+              %span.reference
+                = doc_attachment.code
+              %span.attributes
+                = doc_attachment.language.english_name
+                format
+              .title
+                = doc_attachment.title
+            .action
+              = link_to "Remove", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+
+    .column-one-third
