@@ -7,27 +7,17 @@
 
   .grid-row
     .column-full
-
-      %h2.heading-large
-        Step 1 of 4
-
-      %h3.heading-medium
-        Search for one of the documents you would like to link
+      %h2.heading-large Step 1 of 4
 
   .grid-row
-    .column-half
-
+    .column-one-third
+      %h3.heading-medium Find a document
+    .column-two-thirds
       .search-wrapper
         = form_tag url_for(:controller => 'documents', :action => 'search'), :method => 'get', id:'search', class:'search-box', role:'search' do
-          = label_tag :'search_field', 'Enter a form title or reference/number', class:'form-label'
+          = label_tag :'search_field', 'Enter a document title or reference/number', class:'form-label'
           = text_field_tag :search, params[:search], :id => 'search_field', class:'form-control'
           = submit_tag "Search", :name => nil, role:"button", class:"button"
-
-    .column-half
-
-  .grid-row
-    .column-full
-
       - if @documents.empty?
         -#%p.no-result-message No result found to display
         %p
@@ -36,17 +26,16 @@
 
   .grid-row
     .column-full
+      %h2.heading-large Step 2 of 4
 
-      %h2.heading-large
-        Step 2 of 4
-
-      %h3.heading-medium
-        Select a document
-
+  .grid-row
+    .column-one-third
+      %h3.heading-medium Select a document
+    .column-two-thirds
       %p
         Your searched for
-        %i "#{params[:search]}" returned the following results.
-
+        %i "#{params[:search]}"
+        returned the following results:
       %ul.list
         - @documents.each do | doc_attachment |
           %li
