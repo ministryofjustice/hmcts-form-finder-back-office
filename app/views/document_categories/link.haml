@@ -12,6 +12,7 @@
       %h3.heading-medium
         Find the category to assign to this document:
 
+  .grid-row
     .column-two-thirds
       %span.reference
         = @document.code
@@ -28,18 +29,19 @@
           = label_tag :'search_field', 'Enter the category name', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
           = submit_tag "Search", :name => nil, role:"button", class:"button"
+    .column-one-third
 
-      .column-one-third
-
-- if @categories.empty?
-  -#.grid-row
-  -#  .column-two-thirds
-  -#    %p.no-result-message No categories where found for this search
-  %p
+    -#- if @categories.empty?
+    -#
+    -#      -#%p.no-result-message No categories where found for this search
+    -#      %p
+    -#
 
 - else
+
   .grid-row
     .column-full
+
       %h2.heading-large
         Step 4 of 4
       %h3.heading-medium
@@ -55,6 +57,12 @@
       .title
         = @document.title
 
+      %hr
+
+      %p
+        Your searched for
+        %i "#{params[:linksearch]}" returned the following results.
+
       %ul.list
         - @categories.each do | doc_attachment |
           %li
@@ -67,27 +75,31 @@
             .action
               = link_to "Assign", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), class:'button', role:'button'
 
-.grid-row
-  .column-full
-    %hr
-    %h3.heading-medium
-      = @document.code
-      is already assigned to these categories:
+- if @linkedcategories.exists?
 
-.grid-row
-  .column-two-thirds
-    - if @linkedcategories.exists?
-      %ul.list
-        - @linkedcategories.each do | doc_attachment |
-          %li
-            .item
-              = doc_attachment.category.english_name
-              - if doc_attachment.category.welsh_name != nil
-                %br
-                Welsh:
-              = doc_attachment.category.welsh_name
-            .action
-              = link_to "Remove", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), class:'button-warning', role:'button'
-    - else
-      none
-  .column-one-third
+  .grid-row
+    .column-full
+
+      %hr
+
+      %h3.heading-medium
+        This document is already assigned to these categories:
+
+  .grid-row
+    .column-two-thirds
+
+      - if @linkedcategories.exists?
+
+        %ul.list
+          - @linkedcategories.each do | doc_attachment |
+            %li
+              .item
+                = doc_attachment.category.english_name
+                - if doc_attachment.category.welsh_name != nil
+                  %br
+                  Welsh:
+                = doc_attachment.category.welsh_name
+              .action
+                = link_to "Remove", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), class:'button-warning', role:'button'
+
+    .column-one-third

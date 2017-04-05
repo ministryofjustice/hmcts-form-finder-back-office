@@ -1,51 +1,62 @@
 - content_for :page_title do
-  = "Your document linking for HMCTS Form finder"
+  = "Document linking for HMCTS Form finder"
 
 = render partial: 'layouts/header', locals: {page_heading: 'Link documents'}
 
-.grid-row
-  .column-two-thirds
-    - if @documents.count == 0
+- if @documents.count == 0
 
+  .grid-row
+    .column-full
 
-      %h2.heading-medium Step 1 of 4 - Find one of the documents you would like to link
+      %h2.heading-large
+        Step 1 of 4
 
-      = form_tag url_for(:controller => 'documents', :action => 'search'), :method => 'get' do
-        .form-group
+      %h3.heading-medium
+        Search for one of the documents you would like to link
+
+  .grid-row
+    .column-half
+
+      .search-wrapper
+        = form_tag url_for(:controller => 'documents', :action => 'search'), :method => 'get', id:'search', class:'search-box', role:'search' do
           = label_tag :'search_field', 'Enter a form title or reference/number', class:'form-label'
           = text_field_tag :search, params[:search], :id => 'search_field', class:'form-control'
+          = submit_tag "Search", :name => nil, role:"button", class:"button"
 
-        = submit_tag "Search", :name => nil, class:'button', role:'button'
+    .column-half
 
-  .column-one-third
+  .grid-row
+    .column-full
 
-  .column-full
-    - if @documents.empty?
+      - if @documents.empty?
+        -#%p.no-result-message No result found to display
+        %p
 
-      -#%p.no-result-message No result found to display
+- else
+
+  .grid-row
+    .column-full
+
+      %h2.heading-large
+        Step 2 of 4
+
+      %h3.heading-medium
+        Select a document
+
       %p
+        Your searched for
+        %i "#{params[:search]}" returned the following results.
 
-    - else
-
-      %h2.heading-medium Step 2 of 4 - Choose one of the following documents
-
-      .table-container.container
-        %table.report
-          %colgroup
-            %col
-          %thead
-            %tr
-              %th{scope:'col'}
-                = "Document reference/number, title and language"
-              %th.action
-          %tbody
-            - @documents.each do | doc_attachment   |
-              %tr
-                %td
-                  = doc_attachment.code
-                  %br
-                  = doc_attachment.title
-                  %br
-                    = doc_attachment.language.english_name
-                %td.action
-                  = link_to "Select", link_documents_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), { class: 'button-secondary', role: 'button' }
+      %ul.list
+        - @documents.each do | doc_attachment |
+          %li
+            .item
+              %span.reference
+                = doc_attachment.code
+              %span.attributes
+                = doc_attachment.language.english_name
+                format
+              .title
+                = doc_attachment.title
+            .action
+              = link_to "Select", link_documents_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: "button-secondary", role: "button"
