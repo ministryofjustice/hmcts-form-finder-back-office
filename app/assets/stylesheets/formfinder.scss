@@ -44,9 +44,9 @@
 
 @media (min-width: 641px) {
   .action {
-    float: right;
-    position: relative;
-    top: -2.5em;
+    display: inline-block;
+    height: 100%;
+    width: 54px;
   }
 }
 
@@ -63,13 +63,18 @@
   font-size: smaller;
 }
 
+@media (min-width: 641px) {
+  .column-two-thirds #search_field {
+    width: 80%;
+  }
+}
+
 .list li {
   margin-bottom: 1em;
 }
 
 @media (min-width: 641px) {
   .list li {
-    display: block;
     height: 100%;
     margin-bottom: 0;
     padding: 15px;
@@ -102,15 +107,34 @@
   margin-right: 0.4em;
 }
 
+#search_field {
+  margin-bottom: 5px;
+}
+
 .search-wrapper {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   padding: 15px;
 }
 
-.title {
+.item {
   display: block;
-  width: 85%;
+}
+
+@media (min-width: 641px) {
+  .item {
+    display: inline-block;
+    margin-bottom: 0;
+    height: 100%;
+  }
+  .column-full ul li .item {
+    width: 91%;
+    vertical-align: -moz-middle-with-baseline;
+  }
+  .column-two-thirds ul li .item {
+    width: 84%;
+    vertical-align: -moz-middle-with-baseline;
+  }
 }
 
 // === Element definitions ===============

@@ -37,12 +37,13 @@
       %ul.list
         - @documents.each do | doc_attachment |
           %li
-            %span.reference
-              = doc_attachment.code
-            %span.attributes
-              = doc_attachment.language.english_name
-              format
-            %span.title
-              = doc_attachment.title
-            %span.action
+            .item
+              %span.reference
+                = doc_attachment.code
+              %span.attributes
+                = doc_attachment.language.english_name
+                format
+              .title
+                = doc_attachment.title
+            .action
               = link_to "Select", link_document_categories_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), {class:"button-secondary", role:"button"}
