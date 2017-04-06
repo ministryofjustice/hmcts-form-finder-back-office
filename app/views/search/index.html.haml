@@ -10,12 +10,21 @@
   .column-full
     .table-container.container
       %table.report
-        %caption
-          %span.table-caption
-            = t(:search_by)
-        %tbody
-          %tr
-            %td
-              = t(:form_number)
-            %td
-              = t(:form_title)
+        %span.table-caption
+          %caption
+          %p
+          = form_tag url_for(:controller => 'search', :action => 'search'), :method => 'get' do
+            = label_tag :'search_field', 'Enter a form title or reference/number', class:'form-label'
+            = text_field_tag :searchcode, params[:search], :id => 'search_field'
+            %p
+            or
+            %p
+            - if params[:locale] == 'en'
+              = label_tag :'search_field1', 'Enter a category to search', class:'form-label'
+              = collection_select :searchcategory, params[:id], Category.all, :id, :english_name, { :prompt => 'Select a Category' }, { class: "form-control" }
+            - if params[:locale] == 'cy'
+              = label_tag :'search_field1', 'Enter a category to search', class:'form-label'
+              = collection_select :searchcategory, params[:id], Category.all, :id, :welsh_name, { :prompt => 'Select a Category' }, { class: "form-control" }
+
+            %p
+            = submit_tag "Search", :name => nil

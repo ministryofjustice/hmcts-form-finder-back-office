@@ -144,6 +144,6 @@ class DocumentCategoriesController < ApplicationController
       @categories=@categories-@cate
       @document=@parent_document
       @linkeddocuments=@parent_document.all_related
-      render 'documents/show'
+      render 'documents/details'
     end
 end

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|cy/ do
 
     get 'search'             => 'search#index'
+    get 'search/search'             => 'search#search'
+    get 'search/results'             => 'search#results'
+    get 'search/show'             => 'search#show'
 
     resources :doc_attachment_types
     resources :languages
@@ -31,7 +34,8 @@ Rails.application.routes.draw do
   get 'link/documents/connect'          => 'documents#connect'
   get 'link/documents/links'          => 'documents#links'
   get 'link/documents/unconnect'          => 'documents#unconnect'
-  get 'link/documents/show'          => 'documents#show'
+  get 'link/documents/details'          => 'documents#details'
+
   root to: redirect('/users/sign_in')
 
 

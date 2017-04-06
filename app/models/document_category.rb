@@ -20,4 +20,5 @@ class DocumentCategory < ActiveRecord::Base
   def all_related
     DocumentCategory.where("document_categories.document_id =  #{self.id}")
   end
+
 end

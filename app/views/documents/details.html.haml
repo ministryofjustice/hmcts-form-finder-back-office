@@ -1,0 +1,53 @@
+- content_for :page_title do
+  = "Your document linking summary for HMCTS Form finder"
+
+= render partial: 'layouts/header', locals: { page_heading: 'Document linking summary' }
+
+.grid-row
+  .column-two-thirds
+    %p
+      %span.reference
+        = @document.code
+      %span.attributes
+        = @document.language.english_name
+        format
+      %br
+        = @document.title
+
+%hr
+
+.grid-row
+  - if @linkeddocuments.exists?
+    .column-one-third
+      %h2.bold-medium
+        Is linked to:
+    .column-two-thirds
+      %ul.list
+        - @linkeddocuments.each do | doc_attachment |
+          %li
+            %span.reference
+              = doc_attachment.code
+            %span.attributes
+              = doc_attachment.language.english_name
+              format
+            %br
+              = doc_attachment.title
+
+      = link_to 'Link to another document', link_documents_link_path(:document => @document), { class:"button", role:"button" }
+
+%hr
+
+.grid-row
+  - if @linkedcategories.exists?
+    .column-one-third
+      %h2.bold-medium
+        Is in these categories:
+    .column-two-thirds
+      %ul.list
+        - @linkedcategories.each do | category |
+          %li
+            = category.category.english_name
+
+      = link_to 'Assign to another category', link_document_categories_link_path(:document => @document), { class:"button", role:"button" }
+
+%hr
