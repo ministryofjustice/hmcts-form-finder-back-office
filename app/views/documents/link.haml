@@ -5,6 +5,7 @@
 
 - if @documents.count == 0
 
+
   .grid-row
     .column-full
       %h2.heading-large Step 3 of 4
@@ -12,6 +13,7 @@
   .grid-row
     .column-one-third
       %h3.heading-medium 1st chosen document:
+
     .column-two-thirds
       %span.reference
         = @document.code
@@ -20,12 +22,14 @@
         format
       .title
         = @document.title
+
       %hr
 
   .grid-row
     .column-one-third
       %h3.heading-medium Find the 2nd document to link to
     .column-two-thirds
+
       .search-wrapper
         = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
           = hidden_field_tag 'document', params[:document]
@@ -33,6 +37,7 @@
           = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
           = submit_tag "Search", :name => nil, role:"button", class:"button"
+
       - if @documents.empty?
         -#%p.no-result-message No result found to display
         %p
@@ -41,6 +46,7 @@
 
   .grid-row
     .column-full
+
       %h2.heading-large Step 4 of 4
 
   .grid-row
@@ -54,6 +60,7 @@
         format
       .title
         = @document.title
+
       %hr
 
   .grid-row
@@ -80,6 +87,7 @@
 
 - if @linkeddocuments.exists?
 
+
   .grid-row
     .column-full
       %hr
@@ -94,6 +102,7 @@
           format
         is already linked to:
     .column-two-thirds
+
       %ul.list
         - @linkeddocuments.each do | doc_attachment   |
           %li
@@ -107,3 +116,6 @@
                 = doc_attachment.title
             .action
               = link_to "Remove", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
+
+
+   

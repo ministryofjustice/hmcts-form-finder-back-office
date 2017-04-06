@@ -7,11 +7,13 @@
 
   .grid-row
     .column-full
+
       %h2.heading-large Step 3 of 4
 
   .grid-row
     .column-one-third
       %h3.heading-medium The document
+
     .column-two-thirds
       %span.reference
         = @document.code
@@ -20,6 +22,7 @@
         format
       .title
         = @document.title
+
       %hr
 
   .grid-row
@@ -64,6 +67,7 @@
         Your searched for
         %i "#{params[:linksearch]}"
         returned the following results:
+
       %ul.list
         - @categories.each do | doc_attachment |
           %li
@@ -74,12 +78,15 @@
                 Welsh:
                 = doc_attachment.welsh_name
             .action
+
               = link_to "Assign", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), class:"button", role:"button"
+
 
 - if @linkedcategories.exists?
 
   .grid-row
     .column-full
+
       %hr
 
   .grid-row
@@ -93,6 +100,7 @@
         is already assigned to these categories:
     .column-two-thirds
       - if @linkedcategories.exists?
+
         %ul.list
           - @linkedcategories.each do | doc_attachment |
             %li
@@ -103,4 +111,6 @@
                   Welsh:
                 = doc_attachment.category.welsh_name
               .action
+
                 = link_to "Remove", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), class:"button-warning", role:"button"
+
