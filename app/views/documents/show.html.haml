@@ -1,0 +1,39 @@
+- content_for :page_title do
+  = "Document details for HMCTS Form finder"
+
+.grid-row
+  .column-full
+
+    = render partial: 'layouts/header', locals: {page_heading: 'Document details'}
+
+    - if @document.title.present?
+      %p
+        Title:
+        = @document.title
+      %p
+        Document language :
+        = @document.language.english_name
+      %p
+        Last Modified :
+        = @document.published_date.month
+        \/
+        = @document.published_date.year
+      %p
+        Download:
+        = link_to @document.attachment_file_name, @document.attachment.url
+.grid-row
+  - if @linkeddocuments.exists?
+    .column-one-third
+      %h2.bold-medium
+        Associated leaflets:
+    .column-two-thirds
+      %ul.list
+        - @linkeddocuments.each do | doc_attachment |
+          %li
+            %span.reference
+              = doc_attachment.code
+            %span.attributes
+              = doc_attachment.language.english_name
+              format
+            %br
+              = doc_attachment.title
