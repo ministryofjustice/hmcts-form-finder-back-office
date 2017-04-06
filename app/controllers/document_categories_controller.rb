@@ -1,4 +1,6 @@
 class DocumentCategoriesController < ApplicationController
+  include Search
+
   before_action :authenticate_user!, :set_user
   before_action :set_paper_trail_whodunnit
 
@@ -63,15 +65,7 @@ class DocumentCategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def search
-    @documents = Document.all
 
-    if params[:search].present?
-      @documents = Document.search(params[:search]).order("created_at DESC")
-    else
-      @documents = []
-    end
-  end
   def link
     @document = Document.find(params[:document])
     @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
