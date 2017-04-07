@@ -16,6 +16,7 @@
 #  language_id             :integer
 #  original_id             :integer
 #  creator_id              :integer
+#  original_url            :string
 #
 
 class Document < ActiveRecord::Base
@@ -54,13 +55,12 @@ class Document < ActiveRecord::Base
   validates :title, presence: true
   validates :language_id, presence: true
 
-
-
   def rename_file
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
     attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
                               "#{self.code}-#{self.language.english_name}.#{extension}")
   end
+
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
@@ -71,10 +71,8 @@ class Document < ActiveRecord::Base
     AND  related_documents.linked_document_id =  #{self.id})")
   end
 
-
   def self.search(search)
     where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
-
   end
 
 end

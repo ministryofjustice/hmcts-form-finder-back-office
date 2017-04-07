@@ -65,8 +65,9 @@ csv.each do |row|
   t.doc_attachment_type_id = row['doc_attachment_type_id']
   t.inactive = row['inactive']
   t.creator_id = row['creator_id']
-  t.original_id = row['original_id']
   t.published_date = row['published_date']
+  t.original_url = row['original_url']
+  t.original_id = row['original_id']
   t.save
 end
 
