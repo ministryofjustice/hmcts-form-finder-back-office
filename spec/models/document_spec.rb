@@ -49,4 +49,7 @@ RSpec.describe Document, type: :model do
     expect(@documents).to include(document)
 
   end
+
+
+
 end

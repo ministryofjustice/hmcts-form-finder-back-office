@@ -41,4 +41,6 @@
               %td
                 = doc_attachment.inactive ? "Yes" : "No"
               %td
+                = link_to "PDF" , doc_attachment.attachment.url
+              %td
                 = link_to "Edit", edit_document_path(doc_attachment.id), {class: 'button-secondary', role: 'button'}
