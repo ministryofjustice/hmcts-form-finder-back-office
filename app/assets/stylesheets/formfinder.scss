@@ -1,52 +1,53 @@
 // === Colour definitions ================
-#admin-navigation ul {
-  border-bottom-color: $border-colour
+
+
+#admin-navigation ul { border-bottom-color: $border-colour; }
+#admin-navigation ul li.active { background-color: $grey-2; }
+#admin-navigation ul li a { color: $text-colour; }
+#admin-navigation ul li a:hover { background-color: $grey-3; }
+
+.button-warning { @include button($red); }
+
+.list li:nth-child(even),
+.un-assigned li:nth-child(even) {
+  background-color: $highlight-colour;
+  border-bottom-color: $panel-colour;
 }
 
-#admin-navigation ul li.active {
-  background-color: $grey-2
-}
+.no-result-message { border-color: $error-colour; }
 
-#admin-navigation ul li a {
-  color: $text-colour
-}
-
-#admin-navigation ul li a:hover {
-  background-color: $grey-3
-}
-
-.button-warning {
-  @include button($red)
-}
-
-.no-result-message {
-  border-color: $error-colour;
-}
 
 .notice-summary {
   background-color: $turquoise;
   border-color: $turquoise;
-  color: $page-colour
+  color: $page-colour;
+
+}
+
+.search-wrapper {
+  background-color: $panel-colour;
+  border-bottom-color: $border-colour;
 }
 
 // === Class definitions =================
-.action {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 10%
-}
 
-.attributes:after {
-  content: ")"
-}
 
-.attributes:before {
-  content: "("
-}
-
+.attributes:after { content: ")"; }
+.attributes:before { content: "("; }
 .attributes {
   display: inline;
-  font-size: smaller
+  font-size: smaller;
+}
+
+
+.item { display: block; }
+
+.list li { margin-bottom: 15px; }
+
+.list li:nth-child(even),
+.un-assigned li:nth-child(even) {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 }
 
 .no-result-message {
@@ -55,45 +56,87 @@
   display: block;
   margin: 15px;
   padding: 15px;
-  text-align: center
+  text-align: center;
 }
 
-.notice-summary {
-  text-align: center
-}
+.notice-summary { text-align: center; }
+
 
 .reference {
   display: inline;
   font-weight: bold;
-  margin-right: 0.4em
+  margin-right: 0.4em;
 }
 
-.title {
-  margin-top: 5px;
+
+.search-wrapper {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding: 15px;
+  width: 20em;
+}
+
+@media (min-width: 641px) {
+  .action {
+    display: inline-block;
+    height: 100%;
+    width: 54px;
+  }
+}
+
+@media (min-width: 641px) {
+  .form-control { width: 100%; }
+}
+
+@media (min-width: 641px) {
+  .list li {
+    height: 100%;
+    margin-bottom: 0;
+    padding: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  #search_field { margin-bottom: 5px; }
+}
+
+
+@media (min-width: 641px) {
+  .item {
+    display: inline-block;
+    margin-bottom: 0;
+    height: 100%;
+  }
+  .column-full ul li .item {
+    width: 91%;
+    vertical-align: -moz-middle-with-baseline;
+  }
+  .column-two-thirds ul li .item {
+    width: 84%;
+    vertical-align: -moz-middle-with-baseline;
+  }
 }
 
 // === Element definitions ===============
-ul.list li {
-  margin-bottom: 15px
-}
 
 body {
   #global-header .header-wrapper {
     .header-global,
     .header-proposition {
-      display: inline-block
+      display: inline-block;
     }
     .header-global {
       float: none;
       margin-left: 1em;
       margin-right: 1em;
-      width: 264px
+      width: 264px;
     }
     .header-proposition {
       padding-top: 10px;
       width: 66%;
       .sign-out {
-        padding-right: 1em
+        padding-right: 1em;
       }
     }
   }
@@ -109,14 +152,14 @@ body {
         display: inline-block;
         padding: 8px 16px;
         text-align: center;
-        text-decoration: none
+        text-decoration: none;
       }
     }
   }
-  @media screen and (max-width: 568px) {
+  @media screen and (max-width: 640px) {
     #admin-navigation ul {
       li {
-        display: block
+        display: block;
       }
     }
   }
@@ -125,18 +168,18 @@ body {
 form {
   .form-group {
     .form-hint {
-      margin-bottom: 5px
+      margin-bottom: 5px;
     }
     input#document_attachment {
       display: block;
-      margin-top: 3px
+      margin-top: 3px;
     }
   }
 }
 
 @media screen and (max-width: 640px) {
   .button-left-spacing {
-    margin-left: 0
+    margin-left: 0;
   }
   .button,
   .button-warning,
@@ -145,6 +188,7 @@ form {
     padding-left: 0;
     padding-right: 0;
     text-align: center;
-    width: 100%
+    width: 100%;
+
   }
 }

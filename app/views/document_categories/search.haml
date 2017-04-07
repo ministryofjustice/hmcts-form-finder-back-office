@@ -3,48 +3,55 @@
 
 = render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
 
-.grid-row
-  .column-two-thirds
-    - if @documents.count == 0
+- if @documents.count == 0
 
-      %h2.heading-medium Step 1 of 4 - Find the document you'd like to assign to a category
+  .grid-row
+    .column-full
 
-      = form_tag url_for(:controller => 'document_categories', :action => 'search'), :method => 'get' do
-        .form-group
+      %h2.heading-large Step 1 of 4
+
+  .grid-row
+    .column-one-third
+      %h3.heading-medium Find the document you'd like to assign to a category
+    .column-two-thirds
+
+      .search-wrapper
+        = form_tag url_for(:controller => 'document_categories', :action => 'search'), :method => 'get', id:'search', class:'search-box', role:'search' do
           = label_tag :'search_field', 'Enter a document title or reference/number', class:'form-label'
           = text_field_tag :search, params[:search], :id => 'search_field', class:'form-control'
+          = submit_tag "Search", :name => nil, role:"button", class:"button"
 
-        = submit_tag "Search", :name => nil, class:'button', role:'button'
+      - if @documents.empty?
+        -#%p.no-result-message No result found to display
+        %p
 
-  .column-one-third
 
-  .column-full
-    - if @documents.empty?
+- else
 
-      -#%p.no-result-message No result found to display
+  .grid-row
+    .column-full
+
+      %h2.heading-large Step 2 of 4
+
+  .grid-row
+    .column-one-third
+      %h3.heading-medium Select a document
+    .column-two-thirds
       %p
+        Your searched for
+        %i "#{params[:search]}"
+        returned the following results:
 
-    - else
-
-      %h2.heading-medium Step 2 of 4 - Choose one of the following documents
-
-      .table-container.container
-        %table.report
-          %colgroup
-            %col
-          %thead
-            %tr
-              %th{scope:'col'}
-                = "Document reference/number, title and language"
-              %th.action
-          %tbody
-            - @documents.each do | doc_attachment |
-              %tr
-                %td
-                  = doc_attachment.code
-                  %br
-                  = doc_attachment.title
-                  %br
-                  = doc_attachment.language.english_name
-                %td.action
-                  = link_to "Select", link_document_categories_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: 'button-secondary', role:'button'
+      %ul.list
+        - @documents.each do | doc_attachment |
+          %li
+            .item
+              %span.reference
+                = doc_attachment.code
+              %span.attributes
+                = doc_attachment.language.english_name
+                format
+              .title
+                = doc_attachment.title
+            .action
+              = link_to "Select", link_document_categories_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), {class:"button-secondary", role:"button"}
