@@ -4,49 +4,17 @@
 = render partial: 'layouts/header', locals: {page_heading: 'Link Documents'}
 
 - if @documents.count == 0
-  .grid-row
-    .column-full
-      %h2.heading-large
-        Step 3 of 4
-      %h3.heading-medium
-        Find the document to link to this one:
+
 
   .grid-row
-    .column-two-thirds
-      %span.reference
-        = @document.code
-      %span.attributes
-        = @document.language.english_name
-        format
-      .title
-        = @document.title
-      %br
-      .search-wrapper
-        = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
-          = hidden_field_tag 'document', params[:document]
-          = hidden_field_tag 'document_title', params[:document_title]
-          = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
-          = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
-          = submit_tag "Search", :name => nil, role:"button", class:"button"
+    .column-full
+      %h2.heading-large Step 3 of 4
+
+  .grid-row
     .column-one-third
+      %h3.heading-medium 1st chosen document:
 
-  .grid-row
-    .column-full
-      - if @documents.empty?
-        -#%p.no-result-message No result found to display
-        -#%p
-
-- else
-
-  .grid-row
-    .column-full
-
-      %h2.heading-large
-        Step 4 of 4
-
-      %h3.heading-medium
-        Choose a document to link to this one
-
+    .column-two-thirds
       %span.reference
         = @document.code
       %span.attributes
@@ -57,10 +25,52 @@
 
       %hr
 
+  .grid-row
+    .column-one-third
+      %h3.heading-medium Find the 2nd document to link to
+    .column-two-thirds
+
+      .search-wrapper
+        = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
+          = hidden_field_tag 'document', params[:document]
+          = hidden_field_tag 'document_title', params[:document_title]
+          = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
+          = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
+          = submit_tag "Search", :name => nil, role:"button", class:"button"
+
+      - if @documents.empty?
+        -#%p.no-result-message No result found to display
+        %p
+
+- else
+
+  .grid-row
+    .column-full
+
+      %h2.heading-large Step 4 of 4
+
+  .grid-row
+    .column-one-third
+      %h3.heading-medium The document
+    .column-two-thirds
+      %span.reference
+        = @document.code
+      %span.attributes
+        = @document.language.english_name
+        format
+      .title
+        = @document.title
+
+      %hr
+
+  .grid-row
+    .column-one-third
+      %h3.heading-medium To be linked to
+    .column-two-thirds
       %p
         Your searched for
-        %i "#{params[:linksearch]}" returned the following results.
-
+        %i "#{params[:linksearch]}"
+        returned the following results:
       %ul.list
         - @documents.each do | doc_attachment   |
           %li
@@ -76,16 +86,22 @@
               = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
 
 - if @linkeddocuments.exists?
+
+
   .grid-row
     .column-full
-
       %hr
 
   .grid-row
-    .column-two-thirds
-
+    .column-one-third
       %h3.heading-medium
-        This document is already linked to:
+        The
+        = @document.code
+        %span.attributes
+          = @document.language.english_name
+          format
+        is already linked to:
+    .column-two-thirds
 
       %ul.list
         - @linkeddocuments.each do | doc_attachment   |
@@ -101,4 +117,5 @@
             .action
               = link_to "Remove", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
 
-    .column-one-third
+
+   
