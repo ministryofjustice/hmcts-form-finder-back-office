@@ -54,7 +54,6 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'documents.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
   t = Document.new
-  t.id = row['id']
   t.code = row['code']
   t.title = row['title']
   t.attachment_file_name = row['attachment_file_name']
@@ -65,6 +64,7 @@ csv.each do |row|
   t.doc_attachment_type_id = row['doc_attachment_type_id']
   t.inactive = row['inactive']
   t.creator_id = row['creator_id']
+  t.original_url = row['original_url']
   t.original_id = row['original_id']
   t.published_date = row['published_date']
   t.save
@@ -85,7 +85,6 @@ csv.each do |row|
 end
 
 puts "There are now #{DocumentCategory.count} rows in the Document_categories table"
-
 
 #Document_categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'related_document.csv'))
