@@ -2,20 +2,21 @@
 #
 # Table name: documents
 #
-#  id                      :integer          not null, primary key
-#  code                    :string
-#  title                   :string
-#  doc_attachment_type_id  :integer          not null
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  attachment_file_name    :string
-#  attachment_content_type :string
-#  attachment_file_size    :integer
-#  attachment_updated_at   :datetime
-#  published_date          :date
-#  language_id             :integer
-#  original_id             :integer
-#  creator_id              :integer
+#  id                       :integer    not null, primary key
+#  code                     :string
+#  title                    :string
+#  doc_attachment_type_id   :integer    not null
+#  created_at               :datetime   not null
+#  updated_at               :datetime   not null
+#  attachment_file_name     :string
+#  attachment_content_type  :string
+#  attachment_file_size     :integer
+#  attachment_updated_at    :datetime
+#  published_date           :date
+#  language_id              :integer
+#  original_id              :integer
+#  creator_id               :integer
+#  original_url             :string
 #
 
 class Document < ActiveRecord::Base
@@ -46,7 +47,7 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :attachment
 
   validates_attachment_content_type :attachment,
-                                    content_type: %w(application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document text/plain),
+                                    content_type: %w(application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document text/plain),
                                     size: { :in => 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
