@@ -15,6 +15,6 @@ feature "Admin user should be able to search for documents" do
     visit link_document_categories_search_path
     fill_in :search, with: category.english_name
     click_on 'Search'
-    expect(page).to have_content #{category.english_name}
+    expect(page).to have_content # {category.english_name}
   end
 end

@@ -1062,13 +1062,10 @@
         null,
         1,
         1,
-        null,
-        1,
-        null,
         1,
         1,
         1,
-        null,
+        1,
         null,
         null,
         1,
@@ -1533,8 +1530,6 @@
         1,
         null,
         1,
-        null,
-        null,
         1,
         1,
         1,
@@ -2458,7 +2453,6 @@
         null,
         null,
         null,
-        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/search_controller.rb": [
@@ -3311,7 +3305,6 @@
         1,
         1,
         1,
-        null,
         1,
         1,
         57,
@@ -4122,6 +4115,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/document_categories/new.html.haml_spec.rb": [
@@ -4350,6 +4344,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/new.html.haml_spec.rb": [
@@ -4402,6 +4397,7 @@
         null,
         null,
         null,
+        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/app/services/deployment.rb": [
@@ -4426,6 +4422,6 @@
         null
       ]
     },
-    "timestamp": 1493720446
+    "timestamp": 1493729929
   }
 }

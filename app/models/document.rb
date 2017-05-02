@@ -65,7 +65,6 @@ class Document < ActiveRecord::Base
   scope :language_english, -> { where(language_id:  '8') }
   scope :language_bilingual, -> { where(language_id: '26') }
   scope :language_welsh, -> { where(language_id: '25') }
-  #scope :language_other, -> { where("language_id != ?",'8') }
   scope :language_other, -> { where.not(language_id: [8,25]) }
   def rename_file
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')

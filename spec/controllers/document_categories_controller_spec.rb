@@ -67,8 +67,6 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         sign_in authorised
       }
       it "assigns a new document_category as @document_category" do
-        #get :new, params: {}, session: valid_session
-        #expect(assigns(:document_category)).to be_a_new(DocumentCategory)
         document_category = DocumentCategory.create! valid_attributes
         get :new, params: {id: document_category.to_param}, session: valid_session
         expect(assigns(:document_category)).to be_a_new(DocumentCategory)

@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-02T11:20:46+01:00">2017-05-02T11:20:46+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-02T13:58:49+01:00">2017-05-02T13:58:49+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -183,7 +183,7 @@
       <tr>
         <td class="strong"><a href="#fdc440922f80372b5bdf14e4e2b535b892a8923f" class="src_link" title="app/models/document.rb">app/models/document.rb</a></td>
         <td class="green strong">95.45 %</td>
-        <td>104</td>
+        <td>103</td>
         <td>44</td>
         <td>42</td>
         <td>2</td>
@@ -473,7 +473,7 @@
       <tr>
         <td class="strong"><a href="#287a52492c77358531d46c1f749806f35369f584" class="src_link" title="spec/controllers/categories_controller_spec.rb">spec/controllers/categories_controller_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>154</td>
+        <td>151</td>
         <td>88</td>
         <td>88</td>
         <td>0</td>
@@ -493,7 +493,7 @@
       <tr>
         <td class="strong"><a href="#b1f1ee25a6583e9fbe8e6ef2951a8e211fbe5a1b" class="src_link" title="spec/controllers/document_categories_controller_spec.rb">spec/controllers/document_categories_controller_spec.rb</a></td>
         <td class="green strong">99.03 %</td>
-        <td>211</td>
+        <td>209</td>
         <td>103</td>
         <td>102</td>
         <td>1</td>
@@ -543,7 +543,7 @@
       <tr>
         <td class="strong"><a href="#c388e4345c9987b15db5dd11efef3cdbc4ddd081" class="src_link" title="spec/controllers/search_controller_spec.rb">spec/controllers/search_controller_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>79</td>
+        <td>78</td>
         <td>64</td>
         <td>64</td>
         <td>0</td>
@@ -943,7 +943,7 @@
       <tr>
         <td class="strong"><a href="#8cf325fccb180a855aabb90f67f128311e25467b" class="src_link" title="spec/views/document_categories/index.html.haml_spec.rb">spec/views/document_categories/index.html.haml_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
+        <td>25</td>
         <td>12</td>
         <td>12</td>
         <td>0</td>
@@ -1033,7 +1033,7 @@
       <tr>
         <td class="strong"><a href="#8f2308a0952fa4bae6d9ccc308425f4cf5a03738" class="src_link" title="spec/views/users/index.html.haml_spec.rb">spec/views/users/index.html.haml_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>28</td>
+        <td>29</td>
         <td>6</td>
         <td>6</td>
         <td>0</td>
@@ -1053,7 +1053,7 @@
       <tr>
         <td class="strong"><a href="#ca24381aa301857f7cfec8d7efba01c9b9510834" class="src_link" title="spec/views/users/show.html.haml_spec.rb">spec/views/users/show.html.haml_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>21</td>
+        <td>22</td>
         <td>6</td>
         <td>6</td>
         <td>0</td>
@@ -6280,100 +6280,100 @@
           <code class="ruby">  scope :language_welsh, -&gt; { where(language_id: &#39;25&#39;) }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">  #scope :language_other, -&gt; { where(&quot;language_id != ?&quot;,&#39;8&#39;) }</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="69">
+        <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
           <code class="ruby">  scope :language_other, -&gt; { where.not(language_id: [8,25]) }</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="70">
+        <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
           <code class="ruby">  def rename_file</code>
         </li>
       
-        <li class="covered" data-hits="57" data-linenumber="71">
+        <li class="covered" data-hits="57" data-linenumber="70">
           <span class="hits">57</span>
           
           <code class="ruby">    extension = File.extname(attachment_file_name).gsub(/^\.+/, &#39;&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="57" data-linenumber="72">
+        <li class="covered" data-hits="57" data-linenumber="71">
           <span class="hits">57</span>
           
           <code class="ruby">    attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, &#39;&#39;),</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">                              &quot;#{self.code}-#{self.language.english_name}.#{extension}&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="75">
+        <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
           <code class="ruby">  def all_related</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="76">
+        <li class="covered" data-hits="3" data-linenumber="75">
           <span class="hits">3</span>
           
           <code class="ruby">    Document.where(&quot;id IN (SELECT DISTINCT documents.id FROM documents, related_documents</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">    WHERE documents.id = related_documents.linked_document_id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">    AND  related_documents.document_id =  #{self.id}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">      UNION</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="79">
           
           
           <code class="ruby">    SELECT DISTINCT documents.id FROM documents, related_documents</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">    WHERE documents.id = related_documents.document_id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby">    AND  related_documents.linked_document_id =  #{self.id})&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
@@ -6382,121 +6382,115 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
+        <li class="covered" data-hits="1" data-linenumber="85">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.search(search)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="87">
+        <li class="covered" data-hits="6" data-linenumber="86">
           <span class="hits">6</span>
           
           <code class="ruby">    where(&quot;lower(code) LIKE ? or lower(title) LIKE ?&quot;, &quot;%#{search.downcase}%&quot;,&quot;%#{search.downcase}%&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="88">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="89">
+        <li class="covered" data-hits="1" data-linenumber="88">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchcategory(search)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="90">
+        <li class="missed" data-hits="0" data-linenumber="89">
           
           
           <code class="ruby">    where(&quot;lower(code) LIKE ? or lower(title) LIKE ?&quot;, &quot;%#{search.downcase}%&quot;,&quot;%#{search.downcase}%&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="92">
+        <li class="covered" data-hits="1" data-linenumber="91">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchdocument(search)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="93">
+        <li class="covered" data-hits="2" data-linenumber="92">
           <span class="hits">2</span>
           
           <code class="ruby">      document_ids = DocumentCategory.where(&quot;category_id = ? &quot;,search).pluck(:document_id)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="94">
+        <li class="covered" data-hits="2" data-linenumber="93">
           <span class="hits">2</span>
           
           <code class="ruby">      Document.where(id: document_ids)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="95">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="96">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="97">
+        <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchdocs(search,searchcode)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="98">
+        <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
           <code class="ruby">      document_ids = DocumentCategory.where(&quot;category_id = ? &quot;,search).pluck(:document_id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="99">
+        <li class="covered" data-hits="1" data-linenumber="98">
           <span class="hits">1</span>
           
           <code class="ruby">      ids = Document.where(&quot;lower(code) LIKE ? or lower(title) LIKE ?&quot;, &quot;%#{searchcode.downcase}%&quot;,&quot;%#{searchcode.downcase}%&quot;).pluck(:id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="99">
           <span class="hits">1</span>
           
           <code class="ruby">      document_ids = document_ids + ids</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="101">
+        <li class="covered" data-hits="1" data-linenumber="100">
           <span class="hits">1</span>
           
           <code class="ruby">      Document.where(id: document_ids)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="102">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="never" data-hits="" data-linenumber="103">
           
           
           <code class="ruby">end</code>
@@ -8419,7 +8413,7 @@
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">    #config.active_record.schema_format = :sql</code>
+          <code class="ruby">    # config.active_record.schema_format = :sql</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
@@ -10021,7 +10015,7 @@
         <li class="never" data-hits="" data-linenumber="144">
           
           
-          <code class="ruby">  #config.rememberable = false</code>
+          <code class="ruby">  # config.rememberable = false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="145">
@@ -13078,277 +13072,259 @@
           <code class="ruby">          category = Category.create! valid_attributes</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="109">
-          
-          
-          <code class="ruby">          #put :update, params: {id: category.to_param, category: new_attributes}, session: valid_session</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="110">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">          post :create,category: valid_attributes, session: valid_session</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
-          
-          
-          <code class="ruby">          #category.english_name = &quot;Joe&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="112">
+        <li class="covered" data-hits="1" data-linenumber="110">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: category.to_param, category: new_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
+        <li class="covered" data-hits="1" data-linenumber="111">
           <span class="hits">1</span>
           
           <code class="ruby">          category.reload</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="112">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(category.english_name).to eq(&quot;Braun&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
-          
-          
-          <code class="ruby">          #skip(&quot;Add assertions for updated state&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="116">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="114">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="118">
+        <li class="covered" data-hits="1" data-linenumber="115">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="119">
+        <li class="covered" data-hits="3" data-linenumber="116">
           <span class="hits">3</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="118">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns the requested category as @category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="122">
+        <li class="covered" data-hits="1" data-linenumber="119">
           <span class="hits">1</span>
           
           <code class="ruby">          category = Category.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="123">
+        <li class="covered" data-hits="1" data-linenumber="120">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: category.to_param, category: valid_attributes}, session: valid_session</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="121">
+          <span class="hits">1</span>
+          
+          <code class="ruby">          expect(assigns(:category)).to eq(category)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="122">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="123">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="124">
           <span class="hits">1</span>
           
-          <code class="ruby">          expect(assigns(:category)).to eq(category)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="125">
-          
-          
-          <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="126">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="127">
-          <span class="hits">1</span>
-          
           <code class="ruby">        it &quot;redirects to the category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
+        <li class="covered" data-hits="1" data-linenumber="125">
           <span class="hits">1</span>
           
           <code class="ruby">          category = Category.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="129">
+        <li class="covered" data-hits="1" data-linenumber="126">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: category.to_param, category: valid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="130">
+        <li class="covered" data-hits="1" data-linenumber="127">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to redirect_to(category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="128">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="129">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="never" data-hits="" data-linenumber="130">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="134">
+        <li class="covered" data-hits="1" data-linenumber="131">
           <span class="hits">1</span>
           
           <code class="ruby">      context &quot;with invalid params&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="135">
+        <li class="covered" data-hits="1" data-linenumber="132">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="136">
+        <li class="covered" data-hits="2" data-linenumber="133">
           <span class="hits">2</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="137">
+        <li class="never" data-hits="" data-linenumber="134">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="138">
+        <li class="covered" data-hits="1" data-linenumber="135">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns the category as @category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="139">
+        <li class="covered" data-hits="1" data-linenumber="136">
           <span class="hits">1</span>
           
           <code class="ruby">          category = Category.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="140">
+        <li class="covered" data-hits="1" data-linenumber="137">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: category.to_param, category: invalid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="141">
+        <li class="covered" data-hits="1" data-linenumber="138">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:category)).to eq(category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="139">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="143">
+        <li class="never" data-hits="" data-linenumber="140">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="144">
+        <li class="covered" data-hits="1" data-linenumber="141">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;re-renders the &#39;edit&#39; template&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="145">
+        <li class="covered" data-hits="1" data-linenumber="142">
           <span class="hits">1</span>
           
           <code class="ruby">          category = Category.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="146">
+        <li class="covered" data-hits="1" data-linenumber="143">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: category.to_param, category: invalid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="147">
+        <li class="covered" data-hits="1" data-linenumber="144">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to render_template(&quot;edit&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="148">
+        <li class="never" data-hits="" data-linenumber="145">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="149">
+        <li class="never" data-hits="" data-linenumber="146">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="150">
+        <li class="never" data-hits="" data-linenumber="147">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="151">
+        <li class="never" data-hits="" data-linenumber="148">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="152">
+        <li class="never" data-hits="" data-linenumber="149">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="153">
+        <li class="never" data-hits="" data-linenumber="150">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="154">
+        <li class="never" data-hits="" data-linenumber="151">
           
           
           <code class="ruby">end</code>
@@ -14944,853 +14920,841 @@
           <code class="ruby">      it &quot;assigns a new document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">        #get :new, params: {}, session: valid_session</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby">        #expect(assigns(:document_category)).to be_a_new(DocumentCategory)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="70">
           <span class="hits">1</span>
           
           <code class="ruby">        document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="73">
+        <li class="covered" data-hits="1" data-linenumber="71">
           <span class="hits">1</span>
           
           <code class="ruby">        get :new, params: {id: document_category.to_param}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="74">
+        <li class="covered" data-hits="1" data-linenumber="72">
           <span class="hits">1</span>
           
           <code class="ruby">        expect(assigns(:document_category)).to be_a_new(DocumentCategory)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="79">
+        <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
           <code class="ruby">    describe &quot;GET #edit&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="80">
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
           <code class="ruby">      before do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="79">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        sign_in authorised</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="81">
           <span class="hits">1</span>
           
-          <code class="ruby">        sign_in authorised</code>
+          <code class="ruby">      it &quot;assigns the requested document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="covered" data-hits="1" data-linenumber="82">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">        document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;assigns the requested document_category as @document_category&quot; do</code>
+          <code class="ruby">        get :edit, id: document_category.to_param, session: valid_session</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
-          <code class="ruby">        document_category = DocumentCategory.create! valid_attributes</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="85">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        get :edit, id: document_category.to_param, session: valid_session</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
           <code class="ruby">        expect(assigns(:document_category)).to eq(document_category)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="88">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="90">
+        <li class="covered" data-hits="1" data-linenumber="88">
           <span class="hits">1</span>
           
           <code class="ruby">    describe &quot;POST #create&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="91">
+        <li class="covered" data-hits="1" data-linenumber="89">
           <span class="hits">1</span>
           
           <code class="ruby">      context &quot;with valid params&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="92">
+        <li class="covered" data-hits="1" data-linenumber="90">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="93">
+        <li class="covered" data-hits="3" data-linenumber="91">
           <span class="hits">3</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="92">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="95">
+        <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;creates a new DocumentCategory&quot; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="94">
           
           
           <code class="ruby">          # expect {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="95">
           
           
           <code class="ruby">          #   post :create, document_category: attributes_for(:document_category), session: valid_session</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby">          # }.to change(DocumentCategory, :count).by(1)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="99">
+        <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
           <code class="ruby">          expect {</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="98">
           <span class="hits">1</span>
           
           <code class="ruby">            post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="never" data-hits="" data-linenumber="99">
           
           
           <code class="ruby">          }.to change(DocumentCategory, :count).by(1)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="104">
+        <li class="covered" data-hits="1" data-linenumber="102">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns a newly created document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="105">
+        <li class="covered" data-hits="1" data-linenumber="103">
           <span class="hits">1</span>
           
           <code class="ruby">          post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="106">
+        <li class="covered" data-hits="1" data-linenumber="104">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:document_category)).to be_a(DocumentCategory)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="105">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:document_category)).to be_persisted</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="never" data-hits="" data-linenumber="106">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="109">
+        <li class="never" data-hits="" data-linenumber="107">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="110">
+        <li class="covered" data-hits="1" data-linenumber="108">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;redirects to the created document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="111">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">          post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="112">
+        <li class="covered" data-hits="1" data-linenumber="110">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to redirect_to(DocumentCategory.last)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="111">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="116">
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
           <code class="ruby">      context &quot;with invalid params&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="117">
+        <li class="covered" data-hits="1" data-linenumber="115">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="118">
+        <li class="covered" data-hits="2" data-linenumber="116">
           <span class="hits">2</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="120">
+        <li class="covered" data-hits="1" data-linenumber="118">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns a newly created but unsaved document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="121">
+        <li class="covered" data-hits="1" data-linenumber="119">
           <span class="hits">1</span>
           
           <code class="ruby">          post :create,document_category: invalid_attributes, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="122">
+        <li class="covered" data-hits="1" data-linenumber="120">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:document_category)).to be_a_new(DocumentCategory)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="123">
+        <li class="never" data-hits="" data-linenumber="121">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="124">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="125">
+        <li class="covered" data-hits="1" data-linenumber="123">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="126">
+        <li class="covered" data-hits="2" data-linenumber="124">
           <span class="hits">2</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="127">
+        <li class="never" data-hits="" data-linenumber="125">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="128">
+        <li class="covered" data-hits="1" data-linenumber="126">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;re-renders the &#39;new&#39; template&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="129">
+        <li class="covered" data-hits="1" data-linenumber="127">
           <span class="hits">1</span>
           
           <code class="ruby">          post :create, document_category: invalid_attributes, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="130">
+        <li class="covered" data-hits="1" data-linenumber="128">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to render_template(&quot;new&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="129">
           
           
           <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="130">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="131">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="132">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="133">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="134">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="135">
+        <li class="covered" data-hits="1" data-linenumber="133">
           <span class="hits">1</span>
           
           <code class="ruby">    describe &quot;PUT #update&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="136">
+        <li class="covered" data-hits="1" data-linenumber="134">
           <span class="hits">1</span>
           
           <code class="ruby">      context &quot;with valid params&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="137">
+        <li class="covered" data-hits="1" data-linenumber="135">
           <span class="hits">1</span>
           
           <code class="ruby">        let(:new_attributes) {</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="138">
+        <li class="missed" data-hits="0" data-linenumber="136">
           
           
           <code class="ruby">          attributes_for(:document_category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="137">
           
           
           <code class="ruby">        }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="140">
+        <li class="never" data-hits="" data-linenumber="138">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="141">
+        <li class="covered" data-hits="1" data-linenumber="139">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="142">
+        <li class="covered" data-hits="3" data-linenumber="140">
           <span class="hits">3</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="143">
+        <li class="never" data-hits="" data-linenumber="141">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="144">
+        <li class="covered" data-hits="1" data-linenumber="142">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;updates the requested document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="145">
+        <li class="covered" data-hits="1" data-linenumber="143">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="146">
+        <li class="never" data-hits="" data-linenumber="144">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="147">
+        <li class="never" data-hits="" data-linenumber="145">
           
           
           <code class="ruby">#          put :update, {id: document_category.to_param, document_category: new_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="148">
+        <li class="covered" data-hits="1" data-linenumber="146">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="149">
+        <li class="covered" data-hits="1" data-linenumber="147">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category.reload</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="150">
+        <li class="never" data-hits="" data-linenumber="148">
           
           
           <code class="ruby"># TO DO Flesh this out</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="151">
+        <li class="never" data-hits="" data-linenumber="149">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="152">
+        <li class="never" data-hits="" data-linenumber="150">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="153">
+        <li class="covered" data-hits="1" data-linenumber="151">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="154">
+        <li class="covered" data-hits="3" data-linenumber="152">
           <span class="hits">3</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="155">
+        <li class="never" data-hits="" data-linenumber="153">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="156">
+        <li class="covered" data-hits="1" data-linenumber="154">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns the requested document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="157">
+        <li class="covered" data-hits="1" data-linenumber="155">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="158">
+        <li class="covered" data-hits="1" data-linenumber="156">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: document_category.to_param, document_category: valid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="159">
+        <li class="covered" data-hits="1" data-linenumber="157">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:document_category)).to eq(document_category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="160">
+        <li class="never" data-hits="" data-linenumber="158">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="161">
+        <li class="never" data-hits="" data-linenumber="159">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="162">
+        <li class="covered" data-hits="1" data-linenumber="160">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;redirects to the document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="163">
+        <li class="covered" data-hits="1" data-linenumber="161">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="164">
+        <li class="covered" data-hits="1" data-linenumber="162">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: document_category.to_param, document_category: valid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="165">
+        <li class="covered" data-hits="1" data-linenumber="163">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to redirect_to(document_category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="166">
+        <li class="never" data-hits="" data-linenumber="164">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="167">
+        <li class="never" data-hits="" data-linenumber="165">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="168">
+        <li class="never" data-hits="" data-linenumber="166">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="169">
+        <li class="covered" data-hits="1" data-linenumber="167">
           <span class="hits">1</span>
           
           <code class="ruby">      context &quot;with invalid params&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="170">
+        <li class="covered" data-hits="1" data-linenumber="168">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="171">
+        <li class="covered" data-hits="2" data-linenumber="169">
           <span class="hits">2</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="172">
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="173">
+        <li class="covered" data-hits="1" data-linenumber="171">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;assigns the document_category as @document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="174">
+        <li class="covered" data-hits="1" data-linenumber="172">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="175">
+        <li class="covered" data-hits="1" data-linenumber="173">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="176">
+        <li class="covered" data-hits="1" data-linenumber="174">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(assigns(:document_category)).to eq(document_category)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="177">
+        <li class="never" data-hits="" data-linenumber="175">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="178">
+        <li class="never" data-hits="" data-linenumber="176">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="179">
+        <li class="covered" data-hits="1" data-linenumber="177">
           <span class="hits">1</span>
           
           <code class="ruby">        before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="180">
+        <li class="covered" data-hits="2" data-linenumber="178">
           <span class="hits">2</span>
           
           <code class="ruby">          sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="181">
+        <li class="never" data-hits="" data-linenumber="179">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="182">
+        <li class="covered" data-hits="1" data-linenumber="180">
           <span class="hits">1</span>
           
           <code class="ruby">        it &quot;re-renders the &#39;edit&#39; template&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="183">
+        <li class="covered" data-hits="1" data-linenumber="181">
           <span class="hits">1</span>
           
           <code class="ruby">          document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="184">
+        <li class="covered" data-hits="1" data-linenumber="182">
           <span class="hits">1</span>
           
           <code class="ruby">          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="185">
+        <li class="covered" data-hits="1" data-linenumber="183">
           <span class="hits">1</span>
           
           <code class="ruby">          expect(response).to render_template(&quot;edit&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="186">
+        <li class="never" data-hits="" data-linenumber="184">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="187">
+        <li class="never" data-hits="" data-linenumber="185">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="188">
+        <li class="never" data-hits="" data-linenumber="186">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="189">
+        <li class="never" data-hits="" data-linenumber="187">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="190">
+        <li class="covered" data-hits="1" data-linenumber="188">
           <span class="hits">1</span>
           
           <code class="ruby">    describe &quot;DELETE #destroy&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="191">
+        <li class="covered" data-hits="1" data-linenumber="189">
           <span class="hits">1</span>
           
           <code class="ruby">      before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="192">
+        <li class="covered" data-hits="2" data-linenumber="190">
           <span class="hits">2</span>
           
           <code class="ruby">        sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="193">
+        <li class="never" data-hits="" data-linenumber="191">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="194">
+        <li class="covered" data-hits="1" data-linenumber="192">
           <span class="hits">1</span>
           
           <code class="ruby">      it &quot;destroys the requested document_category&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="195">
+        <li class="covered" data-hits="1" data-linenumber="193">
           <span class="hits">1</span>
           
           <code class="ruby">        document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="196">
+        <li class="covered" data-hits="1" data-linenumber="194">
           <span class="hits">1</span>
           
           <code class="ruby">        expect {</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="197">
+        <li class="covered" data-hits="1" data-linenumber="195">
           <span class="hits">1</span>
           
           <code class="ruby">          delete :destroy, {id: document_category.to_param}, session: valid_session</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="198">
+        <li class="never" data-hits="" data-linenumber="196">
           
           
           <code class="ruby">        }.to change(DocumentCategory, :count).by(-1)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="199">
+        <li class="never" data-hits="" data-linenumber="197">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="200">
+        <li class="never" data-hits="" data-linenumber="198">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="201">
+        <li class="covered" data-hits="1" data-linenumber="199">
           <span class="hits">1</span>
           
           <code class="ruby">      before do</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="202">
+        <li class="covered" data-hits="2" data-linenumber="200">
           <span class="hits">2</span>
           
           <code class="ruby">        sign_in authorised</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="203">
+        <li class="never" data-hits="" data-linenumber="201">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="204">
+        <li class="covered" data-hits="1" data-linenumber="202">
           <span class="hits">1</span>
           
           <code class="ruby">      it &quot;redirects to the document_categories list&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="205">
+        <li class="covered" data-hits="1" data-linenumber="203">
           <span class="hits">1</span>
           
           <code class="ruby">        document_category = DocumentCategory.create! valid_attributes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="206">
+        <li class="covered" data-hits="1" data-linenumber="204">
           <span class="hits">1</span>
           
           <code class="ruby">        delete :destroy, {id: document_category.to_param}, session: valid_session</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="207">
+        <li class="covered" data-hits="1" data-linenumber="205">
           <span class="hits">1</span>
           
           <code class="ruby">        expect(response).to redirect_to(document_categories_url)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="208">
+        <li class="never" data-hits="" data-linenumber="206">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="209">
+        <li class="never" data-hits="" data-linenumber="207">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="210">
+        <li class="never" data-hits="" data-linenumber="208">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="211">
+        <li class="never" data-hits="" data-linenumber="209">
           
           
           <code class="ruby">end</code>
@@ -18169,13 +18133,13 @@
         <li class="never" data-hits="" data-linenumber="74">
           
           
-          <code class="ruby">    #expect(@documents).not_to include(document2)</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="75">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
@@ -18187,16 +18151,10 @@
         <li class="never" data-hits="" data-linenumber="77">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="78">
-          
-          
           <code class="ruby">end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby"></code>
@@ -20653,7 +20611,7 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(page).to have_content #{category.english_name}</code>
+          <code class="ruby">    expect(page).to have_content # {category.english_name}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -20791,13 +20749,13 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(page).to have_content #{document.title}</code>
+          <code class="ruby">    expect(page).to have_content # {document.title}</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(page).to have_content #{document.code}</code>
+          <code class="ruby">    expect(page).to have_content # {document.code}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -26449,28 +26407,34 @@
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; nil.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; nil.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; nil.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; nil.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">    #assert_select &quot;td&quot;, :text =&gt; 2.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;td&quot;, :text =&gt; 2.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # TODO Flesh out this test</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
@@ -27865,34 +27829,40 @@
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Email&quot;.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Email&quot;.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Password&quot;.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Password&quot;.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;First Name&quot;.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;First Name&quot;.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">    #assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Last Name&quot;.to_s, :count =&gt; 2</code>
+          <code class="ruby">    # assert_select &quot;tr&gt;td&quot;, :text =&gt; &quot;Last Name&quot;.to_s, :count =&gt; 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # TODO Flesh out this test</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">end</code>
@@ -28189,34 +28159,40 @@
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">    #expect(rendered).to match(/First Name/)</code>
+          <code class="ruby">    # expect(rendered).to match(/First Name/)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">    #expect(rendered).to match(/Last Name/)</code>
+          <code class="ruby">    # expect(rendered).to match(/Last Name/)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">    #expect(rendered).to match(/Email/)</code>
+          <code class="ruby">    # expect(rendered).to match(/Email/)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">    #expect(rendered).to match(/Encrypted Password/)</code>
+          <code class="ruby">    # expect(rendered).to match(/Encrypted Password/)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # TODO Flesh out this test</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">end</code>

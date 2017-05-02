@@ -106,13 +106,10 @@ RSpec.describe CategoriesController, type: :controller do
         end
         it "updates the requested category" do
           category = Category.create! valid_attributes
-          #put :update, params: {id: category.to_param, category: new_attributes}, session: valid_session
           post :create,category: valid_attributes, session: valid_session
-          #category.english_name = "Joe"
           put :update, {id: category.to_param, category: new_attributes}, session: valid_session
           category.reload
           expect(category.english_name).to eq("Braun")
-          #skip("Add assertions for updated state")
         end
 
         before do
