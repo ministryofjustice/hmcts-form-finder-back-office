@@ -50,6 +50,6 @@ group :test do
   gem 'shoulda-matchers',           '~> 3.1.1', require: false
 end
 
-#For Heroku
+# For Heroku
 gem 'rails_12factor', group: :production
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil

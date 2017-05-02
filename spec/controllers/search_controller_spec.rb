@@ -71,7 +71,6 @@ RSpec.describe SearchController, type: :controller do
     @documentcategory2.save
     @documents = Document.searchdocument(category3.id)
     expect(@documents).to be_empty
-    #expect(@documents).not_to include(document2)
   end
 
 
