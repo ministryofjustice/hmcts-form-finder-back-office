@@ -11,7 +11,7 @@ RSpec.describe "document_categories/index", type: :view do
     document_category = DocumentCategory.create! valid_attributes
     document_category2 = DocumentCategory.create! valid_attributes
     assign(:document_categories, [document_category,
-           document_category2
+                                  document_category2
     ])
   end
 
