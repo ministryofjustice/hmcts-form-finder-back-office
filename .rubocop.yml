@@ -708,7 +708,7 @@ Style/LambdaCall:
 Style/LeadingCommentSpace:
   Description: 'Comments should start with a space.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-space'
-  Enabled: false
+  Enabled: true
 
 Style/LineEndConcatenation:
   Description: >-
