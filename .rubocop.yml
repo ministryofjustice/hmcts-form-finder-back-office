@@ -317,25 +317,25 @@ Performance/StringReplacement:
 
 Rails/ActionFilter:
   Description: 'Enforces consistent use of action filter methods.'
-  Enabled: false
+  Enabled: true
 
 Rails/Date:
   Description: >-
                   Checks the correct usage of date aware methods,
                   such as Date.today, Date.current etc.
-  Enabled: false
+  Enabled: true
 
 Rails/Delegate:
   Description: 'Prefer delegate method for delegations.'
-  Enabled: false
+  Enabled: true
 
 Rails/FindBy:
   Description: 'Prefer find_by over where.first.'
-  Enabled: false
+  Enabled: true
 
 Rails/FindEach:
   Description: 'Prefer all.find_each over all.find.'
-  Enabled: false
+  Enabled: true
 
 Rails/HasAndBelongsToMany:
   Description: 'Prefer has_many :through to has_and_belongs_to_many.'
@@ -349,44 +349,44 @@ Rails/ReadWriteAttribute:
   Description: >-
                  Checks for read_attribute(:attr) and
                  write_attribute(:attr, val).
-  Enabled: false
+  Enabled: true
 
 Rails/ScopeArgs:
   Description: 'Checks the arguments of ActiveRecord scopes.'
-  Enabled: false
+  Enabled: true
 
 Rails/TimeZone:
   Description: 'Checks the correct usage of time zone aware methods.'
   StyleGuide: 'https://github.com/bbatsov/rails-style-guide#time'
   Reference: 'http://danilenko.org/2012/7/6/rails_timezones'
-  Enabled: false
+  Enabled: true
 
 Rails/Validation:
   Description: 'Use validates :attribute, hash of validations.'
-  Enabled: false
+  Enabled: true
 
 ################## Style #################################
 
 Style/AccessModifierIndentation:
   Description: Check indentation of private/protected visibility modifiers.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-public-private-protected'
-  Enabled: false
+  Enabled: true
 
 Style/AccessorMethodName:
   Description: Check the naming of accessor methods for get_/set_.
-  Enabled: false
+  Enabled: true
 
 Style/Alias:
   Description: 'Use alias_method instead of alias.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#alias-method'
-  Enabled: false
+  Enabled: true
 
 Style/AlignArray:
   Description: >-
                  Align the elements of an array literal if they span more than
                  one line.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#align-multiline-arrays'
-  Enabled: false
+  Enabled: true
 
 Style/AlignHash:
   Description: >-
