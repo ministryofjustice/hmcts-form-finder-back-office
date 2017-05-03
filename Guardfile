@@ -8,10 +8,10 @@ guard 'livereload' do
 end
 
 # guard :jasmine do
- # watch(%r{^spec/javascripts/.*(?:_s|S)pec\.(coffee|js)$})
-  # watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) do |m|
-   # "spec/javascripts/jasmine/#{ m[1] }_spec.#{ m[2] }"
-  # end
+#  watch(%r{^spec/javascripts/.*(?:_s|S)pec\.(coffee|js)$})
+#  watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) do |m|
+# "spec/javascripts/jasmine/#{ m[1] }_spec.#{ m[2] }"
+# end
 # end
 
 guard :rspec, cmd: 'bundle exec rspec -fd' do
