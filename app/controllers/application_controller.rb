@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def ssl_excepted?
     Settings.excepted_from_ssl.any? do |excepted_path|
-      !!(request.fullpath =~ Regexp.new(excepted_path))
+      (request.fullpath =~ Regexp.new(excepted_path))
     end
   end
 end
