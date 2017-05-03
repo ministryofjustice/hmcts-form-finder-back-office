@@ -5,24 +5,18 @@ RSpec.describe CategoriesController, type: :controller do
   context "Internal User" do
     let(:authorised) { create(:user) }
 
-    before {
+    before do
       sign_in :authorised
-    }
+    end
 
-    let(:valid_attributes) {
-      attributes_for(:category)
-    }
+    let(:valid_attributes) {attributes_for(:category)}
 
-    let(:invalid_attributes) {
-        {english_name: nil, welsh_name: nil}
-    }
+    let(:invalid_attributes) {{english_name: nil, welsh_name: nil}}
 
     let(:valid_session) { {} }
 
-    describe "GET #index" do
-      before {
-        sign_in authorised
-      }
+    describe("GET #index") do
+      before {sign_in authorised}
 
       it "assigns all categories as @categories" do
         category = Category.create! valid_attributes
@@ -33,9 +27,9 @@ RSpec.describe CategoriesController, type: :controller do
     end
 
     describe "GET #new" do
-      before {
+      before do
         sign_in authorised
-      }
+      end
       it "assigns a new category as @category" do
         category = Category.create! valid_attributes
         get :new, params: {id: category.to_param}, session: valid_session
@@ -60,10 +54,10 @@ RSpec.describe CategoriesController, type: :controller do
           sign_in authorised
         end
         it "creates a new Category" do
-          expect {
+          expect do
             post :create, category: attributes_for(:category), session: valid_session
-     #       post :create, params: {category: valid_attributes}, session: valid_session
-          }.to change(Category, :count).by(1)
+            #       post :create, params: {category: valid_attributes}, session: valid_session
+          end.to change(Category, :count).by(1)
         end
 
         it "assigns a newly created category as @category" do
@@ -94,19 +88,19 @@ RSpec.describe CategoriesController, type: :controller do
       end
     end
 
-    describe "PUT #update" do
-      context "with valid params" do
+    describe("PUT #update") do
+      context("with valid params") do
 
-        let(:new_attributes) {
+        let(:new_attributes) do
           {english_name: 'Braun', welsh_name: "Hansen"}
-        }
+        end
 
         before do
           sign_in authorised
         end
         it "updates the requested category" do
           category = Category.create! valid_attributes
-          post :create,category: valid_attributes, session: valid_session
+          post :create, category: valid_attributes, session: valid_session
           put :update, {id: category.to_param, category: new_attributes}, session: valid_session
           category.reload
           expect(category.english_name).to eq("Braun")

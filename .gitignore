@@ -11,7 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
-/coverage
+/coverage/*
 
 /.idea
 set_env.sh

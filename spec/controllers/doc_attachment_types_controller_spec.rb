@@ -25,13 +25,9 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # DocAttachmentType. As you add validations to DocAttachmentType, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    attributes_for(:doc_attachment_type)
-  }
+  let(:valid_attributes) {attributes_for(:doc_attachment_type)}
 
-  let(:invalid_attributes) {
-    {english_name: nil, welsh_name: nil}
-  }
+  let(:invalid_attributes) {{english_name: nil, welsh_name: nil}}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -39,9 +35,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    before {
-      sign_in authorised
-    }
+    before {sign_in authorised}
     it "assigns all doc_attachment_types as @doc_attachment_types" do
       doc_attachment_type = DocAttachmentType.create! valid_attributes
       get :index, params: {}, session: valid_session
@@ -50,9 +44,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
   end
 
   describe "GET #show" do
-    before {
-      sign_in authorised
-    }
+    before {sign_in authorised}
     it "assigns the requested doc_attachment_type as @doc_attachment_type" do
       doc_attachment_type = DocAttachmentType.create! valid_attributes
       get :show, id: doc_attachment_type.to_param, session: valid_session
@@ -88,9 +80,9 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
         sign_in authorised
       end
       it "creates a new DocAttachmentType" do
-        expect {
-          post :create, doc_attachment_type:  attributes_for(:doc_attachment_type), session: valid_session
-        }.to change(DocAttachmentType, :count).by(1)
+        expect do
+          post :create, doc_attachment_type: attributes_for(:doc_attachment_type), session: valid_session
+        end.to change(DocAttachmentType, :count).by(1)
       end
 
       it "assigns a newly created doc_attachment_type as @doc_attachment_type" do
@@ -127,9 +119,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
       before do
         sign_in authorised
       end
-      let(:new_attributes) {
-        attributes_for(:doc_attachment_type)
-      }
+      let(:new_attributes) {attributes_for(:doc_attachment_type)}
 
       it "updates the requested doc_attachment_type" do
         doc_attachment_type = DocAttachmentType.create! valid_attributes
@@ -175,9 +165,9 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
     end
     it "destroys the requested doc_attachment_type" do
       doc_attachment_type = DocAttachmentType.create! valid_attributes
-      expect {
+      expect do
         delete :destroy, id: doc_attachment_type.to_param, session: valid_session
-      }.to change(DocAttachmentType, :count).by(-1)
+      end.to change(DocAttachmentType, :count).by(-1)
     end
 
     it "redirects to the doc_attachment_types list" do
