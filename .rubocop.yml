@@ -521,17 +521,17 @@ Style/CommentIndentation:
 Style/ConstantName:
   Description: 'Constants should use SCREAMING_SNAKE_CASE.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#screaming-snake-case'
-  Enabled: false
+  Enabled: true
 
 Style/DefWithParentheses:
   Description: 'Use def with parentheses when there are arguments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#method-parens'
-  Enabled: false
+  Enabled: true
 
 Style/PreferredHashMethods:
   Description: 'Checks for use of deprecated Hash methods.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-key'
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
@@ -540,7 +540,7 @@ Style/Documentation:
 Style/DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
-  Enabled: false
+  Enabled: true
 
 Style/DoubleNegation:
   Description: 'Checks for uses of double negation (!!).'
