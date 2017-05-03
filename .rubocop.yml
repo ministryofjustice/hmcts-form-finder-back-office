@@ -507,16 +507,16 @@ Style/ColonMethodCall:
 Style/CommandLiteral:
   Description: 'Use `` or %x around command literals.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-x'
-  Enabled: false
+  Enabled: true
 
 Style/CommentAnnotation:
   Description: 'Checks formatting of annotation comments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#annotate-keywords'
-  Enabled: false
+  Enabled: true
 
 Style/CommentIndentation:
   Description: 'Indentation of comments.'
-  Enabled: false
+  Enabled: true
 
 Style/ConstantName:
   Description: 'Constants should use SCREAMING_SNAKE_CASE.'
