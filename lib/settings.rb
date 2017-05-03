@@ -3,7 +3,7 @@ module Settings
 
   module_function
   filepath         = File.expand_path('../config/settings.yml', __dir__)
-  @h               = YAML::load_file(filepath)
+  @h               = YAML.load_file(filepath)
   @config_keys     = @h.keys.map { |k| k.to_sym }
 
   def live_url
