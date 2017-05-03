@@ -549,32 +549,32 @@ Style/DoubleNegation:
 
 Style/EachWithObject:
   Description: 'Prefer `each_with_object` over `inject` or `reduce`.'
-  Enabled: false
+  Enabled: true
 
 Style/ElseAlignment:
   Description: 'Align elses and elsifs correctly.'
-  Enabled: false
+  Enabled: true
 
 Style/EmptyElse:
   Description: 'Avoid empty else-clauses.'
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLineBetweenDefs:
   Description: 'Use empty lines between defs.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#empty-lines-between-methods'
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLines:
   Description: "Don't use several empty lines in a row."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundAccessModifier:
   Description: "Keep blank lines around access modifiers."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundBlockBody:
   Description: "Keeps track of empty lines around block bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundClassBody:
   Description: "Keeps track of empty lines around class bodies."
@@ -582,11 +582,11 @@ Style/EmptyLinesAroundClassBody:
 
 Style/EmptyLinesAroundModuleBody:
   Description: "Keeps track of empty lines around module bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundMethodBody:
   Description: "Keeps track of empty lines around method bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLiteral:
   Description: 'Prefer literals to Array.new/Hash.new/String.new.'
