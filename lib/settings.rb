@@ -2,6 +2,7 @@ module Settings
   DEFAULT_GA_TRACKER_ID = 'UA-12345678-12'
 
   module_function
+
   filepath         = File.expand_path('../config/settings.yml', __dir__)
   @h               = YAML.load_file(filepath)
   @config_keys     = @h.keys.map { |k| k.to_sym }
@@ -21,5 +22,4 @@ module Settings
   def healthcheck_pqa_api_interval
     @h['healthcheck_pqa_api_interval']
   end
-
 end

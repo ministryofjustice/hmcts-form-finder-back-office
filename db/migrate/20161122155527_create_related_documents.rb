@@ -7,6 +7,5 @@ class CreateRelatedDocuments < ActiveRecord::Migration
 
     add_index(:related_documents, [:document_id, :linked_document_id], :unique => true)
     add_index(:related_documents, [:linked_document_id, :document_id], :unique => true)
-
   end
 end
