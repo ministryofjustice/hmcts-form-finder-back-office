@@ -19,121 +19,120 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe LanguagesController, type: :controller do
-  context "Internal User" do
+  context 'Internal User' do
     let(:authorised) { create(:user) }
   # This should return the minimal set of attributes required to create a valid
   # Language. As you add validations to Language, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {attributes_for(:language)}
 
-  let(:invalid_attributes) {{english_name: "", welsh_name: "", code: ""}}
+  let(:invalid_attributes) {{english_name: '', welsh_name: '', code: ''}}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # LanguagesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
+  describe 'GET #index' do
     before {sign_in authorised}
-    it "assigns all languages as @languages" do
+    it 'assigns all languages as @languages' do
       language = Language.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:languages)).to eq([language])
     end
   end
 
-  describe "GET #show" do
+  describe 'GET #show' do
     before {sign_in authorised}
-    it "assigns the requested language as @language" do
+    it 'assigns the requested language as @language' do
       language = Language.create! valid_attributes
       get :show,id: language.to_param, session: valid_session
       expect(assigns(:language)).to eq(language)
     end
   end
 
-  describe "GET #new" do
+  describe 'GET #new' do
     before {sign_in authorised}
-    it "assigns a new language as @language" do
+    it 'assigns a new language as @language' do
       get :new, params: {}, session: valid_session
       expect(assigns(:language)).to be_a_new(Language)
     end
   end
 
-  describe "GET #edit" do
+  describe 'GET #edit' do
     before {sign_in authorised}
-    it "assigns the requested language as @language" do
+    it 'assigns the requested language as @language' do
       language = Language.create! valid_attributes
       get :edit, id: language.to_param, session: valid_session
       expect(assigns(:language)).to eq(language)
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     before {sign_in authorised}
-    context "with valid params" do
-
-      it "creates a new Language" do
+    context 'with valid params' do
+      it 'creates a new Language' do
         expect do
           post :create, language: valid_attributes, session: valid_session
         end.to change(Language, :count).by(1)
       end
 
-      it "assigns a newly created language as @language" do
+      it 'assigns a newly created language as @language' do
         post :create, language: valid_attributes, session: valid_session
         expect(assigns(:language)).to be_a(Language)
         expect(assigns(:language)).to be_persisted
       end
 
-      it "redirects to the created language" do
+      it 'redirects to the created language' do
         post :create, language: valid_attributes, session: valid_session
         expect(response).to redirect_to(Language.last)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       before do
         sign_in authorised
       end
-      it "assigns a newly created but unsaved language as @language" do
+      it 'assigns a newly created but unsaved language as @language' do
         post :create,language: invalid_attributes, session: valid_session
         expect(assigns(:language)).to be_a_new(Language)
       end
 
       it "re-renders the 'new' template" do
         post :create,language: invalid_attributes, session: valid_session
-        expect(response).to render_template("new")
+        expect(response).to render_template('new')
       end
     end
   end
 
-  describe "PUT #update" do
+  describe 'PUT #update' do
     before {sign_in authorised}
-    context "with valid params" do
-      let(:new_attributes) {{english_name: 'Braun', welsh_name: "Hansen"}}
+    context 'with valid params' do
+      let(:new_attributes) {{english_name: 'Braun', welsh_name: 'Hansen'}}
 
-      it "updates the requested language" do
+      it 'updates the requested language' do
         language = Language.create! valid_attributes
         put :update, id: language.to_param, language: new_attributes, session: valid_session
         language.reload
-        expect(language.english_name).to eq("Braun")
+        expect(language.english_name).to eq('Braun')
       end
 
-      it "assigns the requested language as @language" do
+      it 'assigns the requested language as @language' do
         language = Language.create! valid_attributes
         put :update, id: language.to_param, language: valid_attributes, session: valid_session
         expect(assigns(:language)).to eq(language)
       end
 
-      it "redirects to the language" do
+      it 'redirects to the language' do
         language = Language.create! valid_attributes
         put :update, id: language.to_param, language: valid_attributes, session: valid_session
         expect(response).to redirect_to(language)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       before {sign_in authorised}
-      it "assigns the language as @language" do
+      it 'assigns the language as @language' do
         language = Language.create! valid_attributes
         put :update,{id: language.to_param, language: invalid_attributes},session: valid_session
         expect(assigns(:language)).to eq(language)
@@ -142,21 +141,21 @@ RSpec.describe LanguagesController, type: :controller do
       it "re-renders the 'edit' template" do
         language = Language.create! valid_attributes
         put :update,id: language.to_param, language: invalid_attributes,session: valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template('edit')
       end
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     before {sign_in authorised}
-    it "destroys the requested language" do
+    it 'destroys the requested language' do
       language = Language.create! valid_attributes
       expect do
         delete :destroy, id: language.to_param, session: valid_session
       end.to change(Language, :count).by(-1)
     end
 
-    it "redirects to the languages list" do
+    it 'redirects to the languages list' do
       language = Language.create! valid_attributes
       delete :destroy, id: language.to_param, session: valid_session
       expect(response).to redirect_to(languages_url)

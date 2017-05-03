@@ -28,9 +28,11 @@ class Language < ActiveRecord::Base
   def the_collection
     Document
   end
+
   def the_attribute
     :language_id
   end
+
   def the_error
     "Can't make a Language inactive when it is still in use. Please remove all the documents from the language."
   end

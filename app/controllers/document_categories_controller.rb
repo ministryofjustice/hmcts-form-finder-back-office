@@ -72,11 +72,13 @@ class DocumentCategoriesController < ApplicationController
     @categories=[]
     render 'document_categories/link'
   end
+
   def unconnect
     prelink
     DocumentCategory.destroy(params[:related_category])
     postlink
   end
+
   def connect
     prelink
     @category = Category.find(params[:related_category])
@@ -86,12 +88,13 @@ class DocumentCategoriesController < ApplicationController
     @documentcategory.save
     postlink
   end
+
   def links
     @categories = []
-    @cate=[]
+    @cate = []
 
     if params[:linksearch].present?
-      @categories = Category.search(params[:linksearch]).order("created_at DESC")
+      @categories = Category.search(params[:linksearch]).order('created_at DESC')
     else
       @categories = []
     end
@@ -103,10 +106,11 @@ class DocumentCategoriesController < ApplicationController
     @categories=@categories-@cate
     @document=@parent_document
     render 'document_categories/link'
+    # TODO: Refactor Collection subtraction logic.
   end
 
-
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_document_category
       @document_category = DocumentCategory.find(params[:id])
@@ -116,20 +120,22 @@ class DocumentCategoriesController < ApplicationController
     def document_category_params
       params.require(:document_category).permit(:document_id, :category_id, :sort_order)
     end
+
     def prelink
       @cate=[]
       if params[:linksearch].present?
-        @categories = Category.search(params[:linksearch]).order("created_at DESC")
+        @categories = Category.search(params[:linksearch]).order('created_at DESC')
       else
         @categories = []
       end
       if params[:linksearch].present?
-        @documents = Document.search(params[:linksearch]).order("created_at DESC")
+        @documents = Document.search(params[:linksearch]).order('created_at DESC')
       else
         @documents = []
       end
       @parent_document = Document.find(params[:document])
     end
+
     def postlink
       @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
       @linkedcategories.each do |linkedcategory|

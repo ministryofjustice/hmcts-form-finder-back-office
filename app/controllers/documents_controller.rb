@@ -38,15 +38,14 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     if @document.destroy
-      redirect_to documents_path , :notice => "Your form has been succcessfully deleted."
+      redirect_to documents_path , :notice => 'Your form has been succcessfully deleted.'
     else
       flash[:error] = 'Form can not be deleted'
 
       render :action => 'index'
     end
   end
-  # GET /document/1
-  # GET /document/1.json
+
   def show
     @document = Document.find(params[:id])
     @linkeddocuments=@document.all_related
@@ -78,7 +77,7 @@ class DocumentsController < ApplicationController
   def links
     @documents = []
     if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+      @documents = Document.search(params[:linksearch]).order('created_at DESC')
     else
       @documents = []
     end
@@ -88,6 +87,7 @@ class DocumentsController < ApplicationController
     @documents=@documents - @linkeddocuments
     @document=@parent_document
     render 'documents/link'
+    # TODO: Refactor Collection subtraction logic.
   end
 
   private
@@ -102,15 +102,17 @@ class DocumentsController < ApplicationController
     form_params[:creator_id] = @user.id
     form_params
   end
+
   def preconnect
     if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order("created_at DESC")
+      @documents = Document.search(params[:linksearch]).order('created_at DESC')
     else
       @documents = []
     end
     @document = Document.find(params[:related_document])
     @parent_document = Document.find(params[:document])
   end
+
   def postconnect
     @linkeddocuments=@parent_document.all_related
     @documents=@documents - [@parent_document]

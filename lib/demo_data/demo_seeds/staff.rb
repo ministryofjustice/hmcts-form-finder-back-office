@@ -1,10 +1,7 @@
 # Notes
 # Creates demo user accounts
-
-
 require 'csv'
 require Rails.root.join('db','seed_helper')
-
 
 SeedHelper.find_or_create_user!(
     first_name: Faker::Name.first_name,
