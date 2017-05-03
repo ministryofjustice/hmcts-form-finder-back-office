@@ -132,7 +132,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
           document_category = DocumentCategory.create! valid_attributes
           put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session
           document_category.reload
-# TO DO Flesh this out
+          # TO DO Flesh this out
         end
 
         before do
