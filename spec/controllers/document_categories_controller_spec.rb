@@ -27,13 +27,9 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # This should return the minimal set of attributes required to create a valid
     # DocumentCategory. As you add validations to DocumentCategory, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) {
-      {:document => document, :category => category}
-    }
+    let(:valid_attributes) {{:document => document, :category => category}}
 
-    let(:invalid_attributes) {
-      {document_id: nil, category_id: nil, sort_order: nil}
-    }
+    let(:invalid_attributes) {{document_id: nil, category_id: nil, sort_order: nil}}
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -41,9 +37,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     let(:valid_session) { {} }
 
     describe "GET #index" do
-      before {
-        sign_in authorised
-      }
+      before {sign_in authorised}
       it "assigns all document_categories as @document_categories" do
         document_category = DocumentCategory.create! valid_attributes
         get :index, params: {}, session: valid_session
@@ -63,14 +57,11 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # end
 
     describe "GET #new" do
-      before {
-        sign_in authorised
-      }
+      before {sign_in authorised}
       it "assigns a new document_category as @document_category" do
         document_category = DocumentCategory.create! valid_attributes
         get :new, params: {id: document_category.to_param}, session: valid_session
         expect(assigns(:document_category)).to be_a_new(DocumentCategory)
-
       end
     end
 
@@ -94,9 +85,9 @@ RSpec.describe DocumentCategoriesController, type: :controller do
           # expect {
           #   post :create, document_category: attributes_for(:document_category), session: valid_session
           # }.to change(DocumentCategory, :count).by(1)
-          expect {
+          expect do
             post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
-          }.to change(DocumentCategory, :count).by(1)
+          end.to change(DocumentCategory, :count).by(1)
         end
 
         it "assigns a newly created document_category as @document_category" do
@@ -132,17 +123,13 @@ RSpec.describe DocumentCategoriesController, type: :controller do
 
     describe "PUT #update" do
       context "with valid params" do
-        let(:new_attributes) {
-          attributes_for(:document_category)
-        }
+        let(:new_attributes) {attributes_for(:document_category)}
 
         before do
           sign_in authorised
         end
         it "updates the requested document_category" do
           document_category = DocumentCategory.create! valid_attributes
-
-#          put :update, {id: document_category.to_param, document_category: new_attributes}, session: valid_session
           put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session
           document_category.reload
 # TO DO Flesh this out
@@ -191,9 +178,9 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       end
       it "destroys the requested document_category" do
         document_category = DocumentCategory.create! valid_attributes
-        expect {
+        expect do
           delete :destroy, {id: document_category.to_param}, session: valid_session
-        }.to change(DocumentCategory, :count).by(-1)
+        end.to change(DocumentCategory, :count).by(-1)
       end
 
       before do
