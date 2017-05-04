@@ -98,7 +98,7 @@ class DocumentsController < ApplicationController
   end
 
   def params_with_user
-    form_params =  doc_attachment_params
+    form_params = doc_attachment_params
     form_params[:creator_id] = @user.id
     form_params
   end
@@ -120,5 +120,6 @@ class DocumentsController < ApplicationController
     @document=@parent_document
     @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
     render 'documents/details'
+    # TODO: Refactor Collection subtraction logic.
   end
 end
