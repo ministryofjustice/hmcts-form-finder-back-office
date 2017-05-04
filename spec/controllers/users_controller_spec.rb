@@ -19,129 +19,112 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe UsersController, type: :controller do
-  context "Internal User" do
+  context 'Internal User' do
     let(:authorised) { create(:user) }
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    attributes_for(:user)
-  }
+  let(:valid_attributes) {attributes_for(:user)}
 
-  let(:invalid_attributes) {
-    {email: 'not an email address', password: 'test'}
-  }
+  let(:invalid_attributes) {{email: 'not an email address', password: 'test'}}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    before {
-      sign_in authorised
-    }
-    it "show a list of all users" do
+  describe 'GET #index' do
+    before {sign_in authorised}
+    it 'show a list of all users' do
       get :index
       expect(assigns[:users].size).to eq 1
-
     end
   end
 
-  describe "GET #show" do
-    before {
-      sign_in authorised
-    }
-    it "assigns the requested user as @user" do
+  describe 'GET #show' do
+    before {sign_in authorised}
+    it 'assigns the requested user as @user' do
       user = User.create! valid_attributes
       get :show, id: user.to_param, session: valid_session
       expect(assigns(:user)).to eq(user)
     end
   end
 
-  describe "GET #new" do
-    before {
-      sign_in authorised
-    }
-    it "assigns a new user as @user" do
+  describe 'GET #new' do
+    before {sign_in authorised}
+    it 'assigns a new user as @user' do
       get :new, params: {}, session: valid_session
       expect(assigns(:user)).to be_a_new(User)
     end
   end
 
-  describe "GET #edit" do
+  describe 'GET #edit' do
     before do
       sign_in authorised
     end
-    it "assigns the requested user as @user" do
+    it 'assigns the requested user as @user' do
       user = User.create! valid_attributes
       get :edit, id: user.to_param, session: valid_session
       expect(assigns(:user)).to eq(user)
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     before do
       sign_in authorised
     end
-    context "with valid params" do
-
-      it "creates a new User" do
-        expect {
+    context 'with valid params' do
+      it 'creates a new User' do
+        expect do
           post :create, user: attributes_for(:user), session: valid_session
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
       end
 
-      it "assigns a newly created user as @user" do
+      it 'assigns a newly created user as @user' do
         post :create, user: valid_attributes, session: valid_session
         expect(assigns(:user)).to be_a(User)
-
       end
 
-      it "redirects to the created user" do
+      it 'redirects to the created user' do
         post :create,user: valid_attributes, session: valid_session
         expect(response).to redirect_to(User.last)
       end
     end
-
-
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
+  describe 'PUT #update' do
+    context 'with valid params' do
       before do
         sign_in authorised
       end
-      let(:new_attributes) {
-        attributes_for(:user)
-      }
+      let(:new_attributes) {attributes_for(:user)}
 
-      it "updates the requested user" do
+      it 'updates the requested user' do
         user = User.create! valid_attributes
         put :update, id: user.to_param, user: new_attributes, session: valid_session
         user.reload
         expect(assigns(:user)).to eq(user)
       end
 
-      it "assigns the requested user as @user" do
+      it 'assigns the requested user as @user' do
         user = User.create! valid_attributes
         put :update, id: user.to_param, user: valid_attributes, session: valid_session
         expect(assigns(:user)).to eq(user)
       end
 
-      it "redirects to the user" do
+      it 'redirects to the user' do
         user = User.create! valid_attributes
         put :update, id: user.to_param, user: valid_attributes, session: valid_session
         expect(response).to redirect_to(user)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       before do
         sign_in authorised
       end
-      it "assigns the user as @user" do
+      it 'assigns the user as @user' do
         user = User.create! valid_attributes
         put :update, {id: user.to_param, user: invalid_attributes}, session: valid_session
         expect(assigns(:user)).to eq(user)
@@ -150,23 +133,21 @@ RSpec.describe UsersController, type: :controller do
       it "re-renders the 'edit' template" do
         user = User.create! valid_attributes
         put :update, id: user.to_param, user: invalid_attributes, session: valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template('edit')
       end
     end
   end
 
-  describe "DELETE #destroy" do
-    before {
-      sign_in authorised
-    }
-    it "destroys the requested user" do
+  describe 'DELETE #destroy' do
+    before {sign_in authorised}
+    it 'destroys the requested user' do
       user = User.create! valid_attributes
-      expect {
+      expect do
         delete :destroy, id: user.to_param, session: valid_session
-      }.to change(User, :count).by(-1)
+      end.to change(User, :count).by(-1)
     end
 
-    it "redirects to the users list" do
+    it 'redirects to the users list' do
       user = User.create! valid_attributes
       delete :destroy, id: user.to_param, session: valid_session
       expect(response).to redirect_to(users_url)

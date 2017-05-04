@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-feature "HMCTS Users should be able to upload and process forms/leaflets" do
-
+feature 'HMCTS Users should be able to upload and process forms/leaflets' do
   let!(:user) { create :user }
   let!(:language) { create :language }
   let!(:type) { create :doc_attachment_type }
@@ -10,11 +9,11 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
     login_as(user, :scope => :user)
   end
 
-  scenario "from the home page upload and process 1 form" do
+  scenario 'from the home page upload and process 1 form' do
     visit documents_path
     click_link 'Add a document'
 
-    within("#new_document") do
+    within('#new_document') do
       fill_in 'Code', with: Faker::Lorem.characters(8)
       fill_in 'Title', with: Faker::Lorem.characters(8)
       # select type.english_name, from: 'Type'
@@ -28,11 +27,6 @@ feature "HMCTS Users should be able to upload and process forms/leaflets" do
       click_button 'Submit document'
     end
 
-
     expect(page).to have_content 'Successfully submitted'
-    # sleep(100)
-    # expect(Rails.root.join('public/system/document/attachment/:id_partition/:style/:filename').exist?)
   end
-
-
 end

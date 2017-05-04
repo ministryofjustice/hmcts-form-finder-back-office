@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-
-
   get 'ping'               => 'ping#index'
   get 'healthcheck'        => 'health_check#index'
 
-  scope "(:locale)", locale: /en|cy/ do
-
+  scope '(:locale)', locale: /en|cy/ do
     get 'search'             => 'search#index'
-    get 'search/search'             => 'search#search'
-    get 'search/results'             => 'search#results'
-    get 'search/show'             => 'search#show'
+    get 'search/search'      => 'search#search'
+    get 'search/results'     => 'search#results'
+    get 'search/show'        => 'search#show'
 
     resources :doc_attachment_types
     resources :languages
@@ -17,7 +14,7 @@ Rails.application.routes.draw do
     devise_for :users
     resources :users
 
-    authenticated :user  do
+    authenticated :user do
       root to: 'documents#index', as: :authenticated_root
     end
 
@@ -25,30 +22,23 @@ Rails.application.routes.draw do
 
     resources :categories
 
+    resources :documents
+    get 'link/documents/list'       => 'documents#search'
+    get 'link/documents/search'     => 'documents#search'
+    get 'link/documents/filter'     => 'documents#filter'
+    get 'link/documents/link'       => 'documents#link'
+    get 'link/documents/connect'    => 'documents#connect'
+    get 'link/documents/links'      => 'documents#links'
+    get 'link/documents/unconnect'  => 'documents#unconnect'
+    get 'link/documents/details'    => 'documents#details'
 
-  resources :documents
-  get 'link/documents/list'          => 'documents#search'
-  get 'link/documents/search'          => 'documents#search'
-  get 'link/documents/filter'          => 'documents#filter'
-  get 'link/documents/link'          => 'documents#link'
-  get 'link/documents/connect'          => 'documents#connect'
-  get 'link/documents/links'          => 'documents#links'
-  get 'link/documents/unconnect'          => 'documents#unconnect'
-  get 'link/documents/details'          => 'documents#details'
+    root to: redirect('/users/sign_in')
 
-  root to: redirect('/users/sign_in')
-
-
-  get 'link/document_categories/search'          => 'document_categories#search'
-  get 'link/document_categories/link'          => 'document_categories#link'
-  get 'link/document_categories/unconnect'          => 'document_categories#unconnect'
-  get 'link/document_categories/connect'          => 'document_categories#connect'
-  get 'link/document_categories/links'          => 'document_categories#links'
-
-
-
-
-
+    get 'link/document_categories/search'    => 'document_categories#search'
+    get 'link/document_categories/link'      => 'document_categories#link'
+    get 'link/document_categories/unconnect' => 'document_categories#unconnect'
+    get 'link/document_categories/connect'   => 'document_categories#connect'
+    get 'link/document_categories/links'     => 'document_categories#links'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

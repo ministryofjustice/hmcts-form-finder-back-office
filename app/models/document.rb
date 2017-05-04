@@ -32,7 +32,7 @@ class Document < ActiveRecord::Base
   has_many :categories, :through => :document_categories
 
   has_and_belongs_to_many :related_documents,
-                          class_name: "Document",
+                          class_name: 'Document',
                           join_table: :related_documents,
                           foreign_key: :document_id,
                           association_foreign_key: :linked_document_id,
@@ -55,23 +55,25 @@ class Document < ActiveRecord::Base
   validates :title, presence: true
   validates :language_id, presence: true
 
-
   def active
-   Document.where("inactive = ?", "False")
+   Document.where('inactive = ?', 'False')
   end
-  scope :leaflets, -> { where("doc_attachment_type_id != ?", '1') }
+
+  scope :leaflets, -> { where('doc_attachment_type_id != ?', '1') }
   scope :forms, -> { where(doc_attachment_type_id: '1') }
   scope :document, -> { where(doc_attachment_type_id: '1') }
-  scope :language_english, -> { where(language_id:  '8') }
+  scope :language_english, -> { where(language_id: '8') }
   scope :language_bilingual, -> { where(language_id: '26') }
   scope :language_welsh, -> { where(language_id: '25') }
-  #scope :language_other, -> { where("language_id != ?",'8') }
   scope :language_other, -> { where.not(language_id: [8,25]) }
+  # TODO: Refactor non-human-readable where clause
+
   def rename_file
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
     attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
                               "#{self.code}-#{self.language.english_name}.#{extension}")
   end
+
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
@@ -82,23 +84,23 @@ class Document < ActiveRecord::Base
     AND  related_documents.linked_document_id =  #{self.id})")
   end
 
-
   def self.search(search)
-    where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
   end
-  def self.searchcategory(search)
-    where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{search.downcase}%","%#{search.downcase}%")
-  end
-  def self.searchdocument(search)
-      document_ids = DocumentCategory.where("category_id = ? ",search).pluck(:document_id)
-      Document.where(id: document_ids)
 
+  def self.searchcategory(search)
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
   end
+
+  def self.searchdocument(search)
+      document_ids = DocumentCategory.where('category_id = ? ',search).pluck(:document_id)
+      Document.where(id: document_ids)
+  end
+
   def self.searchdocs(search,searchcode)
-      document_ids = DocumentCategory.where("category_id = ? ",search).pluck(:document_id)
-      ids = Document.where("lower(code) LIKE ? or lower(title) LIKE ?", "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
+      document_ids = DocumentCategory.where('category_id = ?' ,search).pluck(:document_id)
+      ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
       document_ids = document_ids + ids
       Document.where(id: document_ids)
   end
-
 end
