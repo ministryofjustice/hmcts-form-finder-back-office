@@ -1,6 +1,5 @@
 // === Colour definitions ================
 
-
 #admin-navigation ul { border-bottom-color: $border-colour; }
 #admin-navigation ul li.active { background-color: $grey-2; }
 #admin-navigation ul li a { color: $text-colour; }
@@ -16,12 +15,10 @@
 
 .no-result-message { border-color: $error-colour; }
 
-
 .notice-summary {
   background-color: $turquoise;
   border-color: $turquoise;
   color: $page-colour;
-
 }
 
 .search-wrapper {
@@ -31,14 +28,12 @@
 
 // === Class definitions =================
 
-
 .attributes:after { content: ")"; }
 .attributes:before { content: "("; }
 .attributes {
   display: inline;
   font-size: smaller;
 }
-
 
 .item { display: block; }
 
@@ -61,13 +56,11 @@
 
 .notice-summary { text-align: center; }
 
-
 .reference {
   display: inline;
   font-weight: bold;
   margin-right: 0.4em;
 }
-
 
 .search-wrapper {
   border-bottom-style: solid;
@@ -85,10 +78,6 @@
 }
 
 @media (min-width: 641px) {
-  .form-control { width: 100%; }
-}
-
-@media (min-width: 641px) {
   .list li {
     height: 100%;
     margin-bottom: 0;
@@ -100,7 +89,6 @@
 @media (min-width: 641px) {
   #search_field { margin-bottom: 5px; }
 }
-
 
 @media (min-width: 641px) {
   .item {
@@ -189,6 +177,12 @@ form {
     padding-right: 0;
     text-align: center;
     width: 100%;
+  }
+}
 
+@media (min-width: 641px) {
+  input#search_field.form-control {
+    display: block;
+    width: 20em;
   }
 }
