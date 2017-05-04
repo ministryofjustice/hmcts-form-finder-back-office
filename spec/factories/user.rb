@@ -14,7 +14,6 @@
 # t.inet     "current_sign_in_ip"
 # t.inet     "last_sign_in_ip"
 
-
 FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }

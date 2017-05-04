@@ -12,19 +12,19 @@
 require 'rails_helper'
 
 RSpec.describe DocAttachmentType, type: :model do
-  it "has a valid factory" do
-    expect(DocAttachmentType.create(english_name: "George", welsh_name: "David") ).to be_valid
+  it 'has a valid factory' do
+    expect(DocAttachmentType.create(english_name: 'George', welsh_name: 'David') ).to be_valid
   end
-  it "can have an English name if there is no Welsh name" do
-    expect(DocAttachmentType.create(english_name: "George") ).to be_valid
+  it 'can have an English name if there is no Welsh name' do
+    expect(DocAttachmentType.create(english_name: 'George') ).to be_valid
   end
-  it "can have an Welsh name if there is no Welsh name" do
-    expect(DocAttachmentType.create(welsh_name: "David") ).to be_valid
+  it 'can have an Welsh name if there is no Welsh name' do
+    expect(DocAttachmentType.create(welsh_name: 'David') ).to be_valid
   end
-  it "must have a name" do
+  it 'must have a name' do
     expect(DocAttachmentType.create ).to_not be_valid
   end
-  it "Can be deactivated if no documents belong to it" do
+  it 'Can be deactivated if no documents belong to it' do
     doc_attachment_type = create :doc_attachment_type
     doc_attachment_type.save!
 
@@ -32,10 +32,8 @@ RSpec.describe DocAttachmentType, type: :model do
     doc_attachment_type.save!
 
     expect(doc_attachment_type.save).to be_truthy
-
   end
-  it "Cannot deactivate a Type if a document belongs to it" do
-
+  it 'Cannot deactivate a Type if a document belongs to it' do
     document = create :document
     doc_attachment_type = create :doc_attachment_type
 
@@ -47,7 +45,5 @@ RSpec.describe DocAttachmentType, type: :model do
     doc_attachment_type.inactive = true
 
     expect(doc_attachment_type.save).to be_falsey
-
   end
-
 end

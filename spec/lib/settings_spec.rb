@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Settings do
-
   context 'settings file values' do
-
     describe 'non existent config key' do
       it 'should raise NoMethodError' do
         expect {Settings.unknown_config_key}.to raise_error NoMethodError,
@@ -16,7 +14,5 @@ describe Settings do
         expect(Settings.excepted_from_ssl).to eq ['ping.json']
       end
     end
-
   end
-
 end
