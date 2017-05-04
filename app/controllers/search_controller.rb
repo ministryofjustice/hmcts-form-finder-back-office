@@ -3,7 +3,6 @@ class SearchController < ApplicationController
 
   def index
     @page_title = t(:search)
-
   end
 
   def search

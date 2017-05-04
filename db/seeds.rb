@@ -9,7 +9,7 @@
 require 'csv'
 require 'byebug'
 
-#Categories
+# Categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'categories.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -22,7 +22,7 @@ end
 
 puts "There are now #{Category.count} rows in the categories table"
 
-#DocumentAttachmentType
+# DocumentAttachmentType
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'doc_attachment_types.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -35,7 +35,7 @@ end
 
 puts "There are now #{DocAttachmentType.count} rows in the Document Attachment Types table"
 
-#Languages
+# Languages
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'languages.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -49,7 +49,7 @@ end
 
 puts "There are now #{Language.count} rows in the languages table"
 
-#Documents
+# Documents
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'documents.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -72,7 +72,7 @@ end
 
 puts "There are now #{Document.count} rows in the Documents table"
 
-#Document_categories
+# Document_categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'document_categories.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|
@@ -86,7 +86,7 @@ end
 
 puts "There are now #{DocumentCategory.count} rows in the Document_categories table"
 
-#Document_categories
+# Document_categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'related_document.csv'))
 csv = CSV.parse(csv_text, :headers => true)
 csv.each do |row|

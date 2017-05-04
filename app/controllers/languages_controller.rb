@@ -3,28 +3,20 @@ class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
   before_action :set_paper_trail_whodunnit
 
-  # GET /languages
-  # GET /languages.json
   def index
     @languages = Language.all.order(english_name: :asc)
   end
 
-  # GET /languages/1
-  # GET /languages/1.json
   def show
   end
 
-  # GET /languages/new
   def new
     @language = Language.new
   end
 
-  # GET /languages/1/edit
   def edit
   end
 
-  # POST /languages
-  # POST /languages.json
   def create
     @language = Language.new(language_params)
 
@@ -39,8 +31,6 @@ class LanguagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /languages/1
-  # PATCH/PUT /languages/1.json
   def update
     respond_to do |format|
       if @language.update(language_params)
@@ -64,6 +54,7 @@ class LanguagesController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_language
       @language = Language.find(params[:id])

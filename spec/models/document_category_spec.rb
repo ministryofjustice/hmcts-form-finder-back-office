@@ -13,7 +13,6 @@
 require 'rails_helper'
 
 RSpec.describe DocumentCategory, type: :model do
-
   it 'has a valid factory' do
     expect(create(:document_category)).to be_valid
   end
@@ -21,15 +20,13 @@ RSpec.describe DocumentCategory, type: :model do
   it { should belong_to(:document)}
   it { should belong_to(:category)}
 
-  it "Can be deactivated if no documents belong to it" do
+  it 'Can be deactivated if no documents belong to it' do
     category = create :category
     category.save!
     category.inactive = true
     expect(category.save).to be_truthy
-
   end
-  it "Cannot inactivate a Category if a document belongs to it" do
-
+  it 'Cannot inactivate a Category if a document belongs to it' do
     document = create :document
     category = create :category
     document_category = create :document_category
@@ -43,7 +40,5 @@ RSpec.describe DocumentCategory, type: :model do
     category.inactive = true
 
     expect(category.save).to be_falsey
-
   end
-
 end

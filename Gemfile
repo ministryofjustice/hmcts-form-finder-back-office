@@ -47,9 +47,9 @@ end
 
 group :test do
   gem 'capybara', '~> 2.7', '>= 2.7.1'
-  gem 'shoulda-matchers',           '~> 3.1.1', require: false
+  gem 'shoulda-matchers', '~> 3.1.1', require: false
 end
 
-#For Heroku
+# For Heroku
 gem 'rails_12factor', group: :production
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil
