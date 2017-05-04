@@ -591,36 +591,36 @@ Style/EmptyLinesAroundMethodBody:
 Style/EmptyLiteral:
   Description: 'Prefer literals to Array.new/Hash.new/String.new.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#literal-array-hash'
-  Enabled: false
+  Enabled: true
 
 Style/EndBlock:
   Description: 'Avoid the use of END blocks.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-END-blocks'
-  Enabled: false
+  Enabled: true
 
 Style/EndOfLine:
   Description: 'Use Unix-style line endings.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#crlf'
-  Enabled: false
+  Enabled: true
 
 Style/EvenOdd:
   Description: 'Favor the use of Fixnum#even? && Fixnum#odd?'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
-  Enabled: false
+  Enabled: true
 
 Style/ExtraSpacing:
   Description: 'Do not use unnecessary spacing.'
-  Enabled: false
+  Enabled: true
 
 Style/FileName:
   Description: 'Use snake_case for source file names.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-files'
-  Enabled: false
+  Enabled: true
 
 Style/InitialIndentation:
   Description: >-
     Checks the indentation of the first non-blank non-comment line in a file.
-  Enabled: false
+  Enabled: true
 
 Style/FirstParameterIndentation:
   Description: 'Checks the indentation of the first parameter in a method call.'
