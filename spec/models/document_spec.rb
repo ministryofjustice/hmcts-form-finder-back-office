@@ -21,7 +21,6 @@
 require 'rails_helper'
 
 RSpec.describe Document, type: :model do
-
   it { should belong_to(:creator)}
   it { should belong_to(:doc_attachment_type) }
   it { should belong_to(:language) }
@@ -31,25 +30,19 @@ RSpec.describe Document, type: :model do
     it { should validate_presence_of(:code) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:language_id) }
-
   end
   describe 'Saving file' do
     it {should have_attached_file(:attachment)}
   end
-  it "documents search works with a query" do
+  it 'documents search works with a query' do
     document = create :document
     @documents = Document.search(document.title)
     expect(@documents).to include(document)
-
   end
-  it "documents search is case insensitive" do
+  it 'documents search is case insensitive' do
     language = create :language
-    document = Document.create(doc_attachment_type_id: 1, code: "case insensitive test 555", title: "DOC", :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: "Bob", language_id: language.id)
+    document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
     @documents = Document.search('TEST')
     expect(@documents).to include(document)
-
   end
-
-
-
 end
