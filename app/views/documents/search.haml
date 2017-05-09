@@ -10,7 +10,6 @@
       = text_field_tag :search, params[:search], :id => 'search_field'
       = submit_tag "Search", :name => nil
 
-
     .table-container.container
       %table.report
         %caption
@@ -31,16 +30,15 @@
             %th
             %th
         %tbody
-          - @documents.each do | doc_attachment   |
+          - @documents.each do |item|
             %tr
               %td
-                = doc_attachment.code
+                = item.code
               %td
-                = doc_attachment.title
+                = item.title
               %td
-                = l doc_attachment.published_date if doc_attachment.published_date.present?
-
+                = l item.published_date if item.published_date.present?
               %td
-                = link_to "Select", link_documents_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: 'button-secondary', role:'button'
+                = link_to 'Select', link_documents_link_path( :document => item.id, :document_title => item.title ), class: 'button-secondary', role:'button'
           -if @documents.empty?
             %p No result found to display

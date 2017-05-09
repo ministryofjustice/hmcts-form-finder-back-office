@@ -67,6 +67,7 @@ csv.each do |row|
   t.original_url = row['original_url']
   t.original_id = row['original_id']
   t.published_date = row['published_date']
+  t.file_format = row['file_format']
   t.save
 end
 
