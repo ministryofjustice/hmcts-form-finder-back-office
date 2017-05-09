@@ -34,6 +34,14 @@ RSpec.describe Document, type: :model do
   describe 'Saving file' do
     it {should have_attached_file(:attachment)}
   end
+  describe 'Rename and save' do
+    it 'Has correct extension type ' do
+      language = create :language
+      document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id)
+      document.save!
+      expect(document.file_format).to eq('PDF')
+    end
+  end
   it 'documents search works with a query' do
     document = create :document
     @documents = Document.search(document.title)
