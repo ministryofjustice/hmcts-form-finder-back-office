@@ -4,7 +4,6 @@
 = render partial: 'layouts/header', locals: { page_heading: 'Summary' }
 
 .grid-row
-
   .column-one-third
     %h2.heading-medium
       The document:
@@ -15,14 +14,13 @@
         = @document.code
       %span.attributes
         = @document.language.english_name
-        format
+        = @document.file_format
       %br
         = @document.title
 
 - if @linkeddocuments.exists?
 
   .grid-row
-
     .column-one-third
       %h3.heading-medium
         Is linked to:
@@ -30,22 +28,21 @@
     .column-two-thirds
       %hr
       %ul.list
-        - @linkeddocuments.each do |doc_attachment|
+        - @linkeddocuments.each do |item|
           %li
             %span.reference
-              = doc_attachment.code
+              = item.code
             %span.attributes
-              = doc_attachment.language.english_name
-              format
+              = item.language.english_name
+              = item.file_format
             %br
-              = doc_attachment.title
+              = item.title
 
       = link_to 'Link to another document', link_documents_link_path(:document => @document), { class:'button', role:'button' }
 
 - if @linkedcategories.exists?
 
   .grid-row
-
     .column-one-third
       %h3.heading-medium
         Is in these categories:

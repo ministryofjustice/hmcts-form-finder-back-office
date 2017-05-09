@@ -19,7 +19,7 @@
         = @document.code
       %span.attributes
         = @document.language.english_name
-        format
+        = @document.file_format
       .title
         = @document.title
 
@@ -35,7 +35,7 @@
           = hidden_field_tag 'document_title', params[:document_title]
           = label_tag :'search_field', 'Enter the category name', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
-          = submit_tag "Search", :name => nil, role:"button", class:"button"
+          = submit_tag 'Search', :name => nil, role:'button', class:'button'
       - if @categories.empty?
         -#%p.no-result-message No categories where found for this search
         %p
@@ -54,7 +54,7 @@
         = @document.code
       %span.attributes
         = @document.language.english_name
-        format
+        = @document.file_format
       .title
         = @document.title
       %hr
@@ -69,17 +69,17 @@
         returned the following results:
 
       %ul.list
-        - @categories.each do | doc_attachment |
+        - @categories.each do |item|
           %li
             .item
-              = doc_attachment.english_name
-              - if doc_attachment.welsh_name != nil
+              = item.english_name
+              - if item.welsh_name != nil
                 %br
                 Welsh:
-                = doc_attachment.welsh_name
+                = item.welsh_name
             .action
 
-              = link_to "Assign", link_document_categories_connect_path(:related_category => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), class:"button", role:"button"
+              = link_to 'Assign', link_document_categories_connect_path(:related_category => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), class:'button', role:'button'
 
 
 - if @linkedcategories.exists?
@@ -102,15 +102,15 @@
       - if @linkedcategories.exists?
 
         %ul.list
-          - @linkedcategories.each do | doc_attachment |
+          - @linkedcategories.each do |item|
             %li
               .item
-                = doc_attachment.category.english_name
-                - if doc_attachment.category.welsh_name != nil
+                = item.category.english_name
+                - if item.category.welsh_name != nil
                   %br
                   Welsh:
-                = doc_attachment.category.welsh_name
+                = item.category.welsh_name
               .action
 
-                = link_to "Remove", link_document_categories_unconnect_path(:related_category => doc_attachment.id, :document => params[:document], :linksearch => params[:linksearch]), class:"button-warning", role:"button"
+                = link_to "Remove", link_document_categories_unconnect_path(:related_category => item.id, :document => params[:document], :linksearch => params[:linksearch]), class:'button-warning', role:'button'
 
