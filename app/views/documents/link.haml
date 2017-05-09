@@ -5,7 +5,6 @@
 
 - if @documents.count == 0
 
-
   .grid-row
     .column-full
       %h2.heading-large Step 3 of 4
@@ -19,7 +18,7 @@
         = @document.code
       %span.attributes
         = @document.language.english_name
-        format
+        = @document.file_format
       .title
         = @document.title
 
@@ -46,7 +45,6 @@
 
   .grid-row
     .column-full
-
       %h2.heading-large Step 4 of 4
 
   .grid-row
@@ -57,7 +55,7 @@
         = @document.code
       %span.attributes
         = @document.language.english_name
-        format
+        = @document.file_format
       .title
         = @document.title
 
@@ -72,21 +70,20 @@
         %i "#{params[:linksearch]}"
         returned the following results:
       %ul.list
-        - @documents.each do | doc_attachment   |
+        - @documents.each do |item|
           %li
             .item
               %span.reference
-                = doc_attachment.code
+                = item.code
               %span.attributes
-                = doc_attachment.language.english_name
-                format
+                = item.language.english_name
+                = item.file_format
               .title
-                = doc_attachment.title
+                = item.title
             .action
-              = link_to "Link", link_documents_connect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button", role:"button"}
+              = link_to 'Link', link_documents_connect_path(:related_document => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:'button', role:'button'}
 
 - if @linkeddocuments.exists?
-
 
   .grid-row
     .column-full
@@ -104,18 +101,15 @@
     .column-two-thirds
 
       %ul.list
-        - @linkeddocuments.each do | doc_attachment   |
+        - @linkeddocuments.each do |item|
           %li
             .item
               %span.reference
-                = doc_attachment.code
+                = item.code
               %span.attributes
-                = doc_attachment.language.english_name
-                format
+                = item.language.english_name
+                = item.file_format
               .title
-                = doc_attachment.title
+                = item.title
             .action
-              = link_to "Remove", link_documents_unconnect_path(:related_document => doc_attachment.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:"button-warning", role:"button"}
-
-
-   
+              = link_to 'Remove', link_documents_unconnect_path(:related_document => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:'button-warning', role:'button'}
