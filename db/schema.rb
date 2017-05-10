@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170508085359) do
     t.integer  "creator_id"
     t.boolean  "inactive",                default: false
     t.string   "original_url"
-    t.string   "file_format"
+    t.string   "file_format",                             null: false
   end
 
   create_table "languages", force: :cascade do |t|
