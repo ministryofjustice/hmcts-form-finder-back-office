@@ -2,20 +2,22 @@
 #
 # Table name: documents
 #
-#  id                      :integer          not null, primary key
-#  code                    :string
-#  title                   :string
-#  doc_attachment_type_id  :integer          not null
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  attachment_file_name    :string
-#  attachment_content_type :string
-#  attachment_file_size    :integer
-#  attachment_updated_at   :datetime
-#  published_date          :date
-#  language_id             :integer
-#  original_id             :integer
-#  creator_id              :integer
+#  id                       :integer    not null, primary key
+#  code                     :string
+#  title                    :string
+#  doc_attachment_type_id   :integer    not null
+#  created_at               :datetime   not null
+#  updated_at               :datetime   not null
+#  attachment_file_name     :string
+#  attachment_content_type  :string
+#  attachment_file_size     :integer
+#  attachment_updated_at    :datetime
+#  published_date           :date
+#  language_id              :integer
+#  original_id              :integer
+#  creator_id               :integer
+#  original_url             :string
+#  file_format              :string
 #
 
 require 'rails_helper'
@@ -33,6 +35,14 @@ RSpec.describe Document, type: :model do
   end
   describe 'Saving file' do
     it {should have_attached_file(:attachment)}
+  end
+  describe 'Rename and save' do
+    it 'Has correct extension type ' do
+      language = create :language
+      document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id)
+      document.save!
+      expect(document.file_format).to eq('PDF')
+    end
   end
   it 'documents search works with a query' do
     document = create :document
