@@ -2,20 +2,22 @@
 #
 # Table name: documents
 #
-#  id                      :integer          not null, primary key
-#  code                    :string
-#  title                   :string
-#  doc_attachment_type_id  :integer          not null
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
-#  attachment_file_name    :string
-#  attachment_content_type :string
-#  attachment_file_size    :integer
-#  attachment_updated_at   :datetime
-#  published_date          :date
-#  language_id             :integer
-#  original_id             :integer
-#  creator_id              :integer
+#  id                       :integer    not null, primary key
+#  code                     :string
+#  title                    :string
+#  doc_attachment_type_id   :integer    not null
+#  created_at               :datetime   not null
+#  updated_at               :datetime   not null
+#  attachment_file_name     :string
+#  attachment_content_type  :string
+#  attachment_file_size     :integer
+#  attachment_updated_at    :datetime
+#  published_date           :date
+#  language_id              :integer
+#  original_id              :integer
+#  creator_id               :integer
+#  original_url             :string
+#  file_format              :string
 #
 
 require 'rails_helper'
