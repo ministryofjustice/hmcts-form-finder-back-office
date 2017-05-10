@@ -17,6 +17,7 @@
 #  original_id              :integer
 #  creator_id               :integer
 #  original_url             :string
+#  file_format              :string
 #
 
 class Document < ActiveRecord::Base
