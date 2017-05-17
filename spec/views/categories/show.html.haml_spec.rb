@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "categories/show", type: :view do
   before(:each) do
-    @category = assign(:category, Category.create!(
-      :english_name => "English Name",
-      :welsh_name => "Welsh Name"
-    ))
+    @category = assign(:category,
+                       Category.create!(
+                         :english_name => "English Name",
+                         :welsh_name => "Welsh Name"
+                       )
+                      )
   end
 
   it "renders attributes in <p>" do

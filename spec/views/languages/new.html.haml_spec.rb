@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'languages/new', type: :view do
   before(:each) do
-    assign(:language, Language.new(
-      :english_name => 'MyString',
-      :welsh_name => 'MyString',
-      :code => 'MyString'
-    ))
+    assign(:language,
+           Language.new(
+             :english_name => 'MyString',
+             :welsh_name => 'MyString',
+             :code => 'MyString'
+           )
+          )
   end
 
   it 'renders new language form' do

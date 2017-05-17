@@ -2,11 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'languages/edit', type: :view do
   before(:each) do
-    @language = assign(:language, Language.create!(
-      :english_name => 'MyString',
-      :welsh_name => 'MyString',
-      :code => 'MyString'
-    ))
+    @language = assign(:language,
+                       Language.create!(
+                         :english_name => 'MyString',
+                         :welsh_name => 'MyString',
+                         :code => 'MyString'
+                       )
+                      )
   end
 
   it 'renders the edit language form' do
