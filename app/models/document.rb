@@ -48,7 +48,7 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :attachment
 
   validates_attachment_content_type :attachment,
-                                    content_type: %w(application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document text/plain),
+                                    content_type: %w[application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document text/plain],
                                     size: { in: 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
