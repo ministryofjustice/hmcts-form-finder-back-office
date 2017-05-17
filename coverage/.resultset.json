@@ -4261,8 +4261,6 @@
       "/Users/danielpenny/hmcts-form-finder-back-office/app/services/deployment.rb": [
         1,
         1,
-        4,
-        null,
         null,
         1,
         4,
@@ -4277,9 +4275,11 @@
         null,
         null,
         1,
+        4,
+        null,
         null
       ]
     },
-    "timestamp": 1495028740
+    "timestamp": 1495029670
   }
 }
