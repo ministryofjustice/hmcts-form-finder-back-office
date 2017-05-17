@@ -17,6 +17,7 @@
 #  original_id              :integer
 #  creator_id               :integer
 #  original_url             :string
+#  file_format              :string
 #
 
 class Document < ActiveRecord::Base
@@ -42,7 +43,7 @@ class Document < ActiveRecord::Base
 
   has_attached_file :attachment
 
-  before_save :rename_file
+  before_save :format_filename_and_type
 
   validates_attachment_presence :attachment
 
@@ -68,10 +69,10 @@ class Document < ActiveRecord::Base
   scope :language_other, -> { where.not(language_id: [8,25]) }
   # TODO: Refactor non-human-readable where clause
 
-  def rename_file
+  def format_filename_and_type
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    attachment.instance_write(attachment_file_name.gsub(/\.#{extension}$/, ''),
-                              "#{self.code}-#{self.language.english_name}.#{extension}")
+    attachment.instance_write(:file_name, ("#{self.code.gsub(/\s+/, "-")}-#{self.language.code}.#{extension}").downcase!)
+    self.file_format = extension.upcase!
   end
 
   def all_related

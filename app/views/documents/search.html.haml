@@ -7,7 +7,6 @@
 
   .grid-row
     .column-full
-
       %h2.heading-large Step 1 of 4
 
   .grid-row
@@ -38,15 +37,15 @@
         %i "#{params[:search]}"
         returned the following results:
       %ul.list
-        - @documents.each do | doc_attachment |
+        - @documents.each do |item|
           %li
             .item
               %span.reference
-                = doc_attachment.code
+                = item.code
               %span.attributes
-                = doc_attachment.language.english_name
-                format
+                = item.language.english_name
+                = item.file_format
               .title
-                = doc_attachment.title
+                = item.title
             .action
-              = link_to "Select", link_documents_link_path( :document => doc_attachment.id, :document_title => doc_attachment.title ), class: "button-secondary", role: "button"
+              = link_to 'Select', link_documents_link_path( :document => item.id, :document_title => item.title ), class: 'button-secondary', role: 'button'
