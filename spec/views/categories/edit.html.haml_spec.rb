@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'categories/edit', type: :view do
   before(:each) do
-    @category = assign(:category, Category.create!(
-      :english_name => 'MyString',
-      :welsh_name => 'MyString'
-    ))
+    @category = assign(:category,
+                       Category.create!(
+                         :english_name => 'MyString',
+                         :welsh_name => 'MyString'
+                       )
+                      )
   end
 
   it 'renders the edit category form' do
