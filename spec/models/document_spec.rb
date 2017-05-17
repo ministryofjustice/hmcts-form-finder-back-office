@@ -39,7 +39,7 @@ RSpec.describe Document, type: :model do
   describe 'Rename and save' do
     it 'Has correct extension type ' do
       language = create :language
-      document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id)
+      document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id)
       document.save!
       expect(document.file_format).to eq('PDF')
     end
@@ -51,7 +51,7 @@ RSpec.describe Document, type: :model do
   end
   it 'documents search is case insensitive' do
     language = create :language
-    document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', :attachment => File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
+    document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
     @documents = Document.search('TEST')
     expect(@documents).to include(document)
   end

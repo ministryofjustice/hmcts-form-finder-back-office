@@ -30,7 +30,7 @@ class Document < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
-  has_many :categories, :through => :document_categories
+  has_many :categories, through: :document_categories
 
   has_and_belongs_to_many :related_documents,
                           class_name: 'Document',
@@ -49,7 +49,7 @@ class Document < ActiveRecord::Base
 
   validates_attachment_content_type :attachment,
                                     content_type: %w(application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document text/plain),
-                                    size: { :in => 0..10.megabytes }
+                                    size: { in: 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
   validates :code, presence: true

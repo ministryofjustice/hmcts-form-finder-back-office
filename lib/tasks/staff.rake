@@ -6,7 +6,7 @@ namespace :staff do
   end
 
   desc 'Creates sample users'
-  task :sample_users => :environment do
+  task sample_users: :environment do
     load File.join(Rails.root, 'lib', 'demo_data', 'demo_seeds.rb')
   end
 end

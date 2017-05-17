@@ -4,8 +4,8 @@ RSpec.describe 'categories/edit', type: :view do
   before(:each) do
     @category = assign(:category,
                        Category.create!(
-                         :english_name => 'MyString',
-                         :welsh_name => 'MyString'
+                         english_name: 'MyString',
+                         welsh_name: 'MyString'
                        )
                       )
   end

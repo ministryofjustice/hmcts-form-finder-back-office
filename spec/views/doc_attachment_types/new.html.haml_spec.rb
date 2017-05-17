@@ -4,8 +4,8 @@ RSpec.describe 'doc_attachment_types/new', type: :view do
   before(:each) do
     assign(:doc_attachment_type,
            DocAttachmentType.new(
-             :english_name => 'MyString',
-             :welsh_name => 'MyString'
+             english_name: 'MyString',
+             welsh_name: 'MyString'
            )
           )
   end

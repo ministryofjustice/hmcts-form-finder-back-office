@@ -27,7 +27,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # This should return the minimal set of attributes required to create a valid
     # DocumentCategory. As you add validations to DocumentCategory, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) {{:document => document, :category => category}}
+    let(:valid_attributes) {{document: document, category: category}}
 
     let(:invalid_attributes) {{document_id: nil, category_id: nil, sort_order: nil}}
 
