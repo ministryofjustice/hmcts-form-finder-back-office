@@ -57,7 +57,7 @@ class Document < ActiveRecord::Base
   validates :language_id, presence: true
 
   def active
-   Document.where('inactive = ?', 'False')
+    Document.where('inactive = ?', 'False')
   end
 
   scope :leaflets, -> { where('doc_attachment_type_id != ?', '1') }
@@ -94,14 +94,14 @@ class Document < ActiveRecord::Base
   end
 
   def self.searchdocument(search)
-      document_ids = DocumentCategory.where('category_id = ? ',search).pluck(:document_id)
-      Document.where(id: document_ids)
+    document_ids = DocumentCategory.where('category_id = ? ',search).pluck(:document_id)
+    Document.where(id: document_ids)
   end
 
   def self.searchdocs(search,searchcode)
-      document_ids = DocumentCategory.where('category_id = ?' ,search).pluck(:document_id)
-      ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
-      document_ids = document_ids + ids
-      Document.where(id: document_ids)
+    document_ids = DocumentCategory.where('category_id = ?' ,search).pluck(:document_id)
+    ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
+    document_ids = document_ids + ids
+    Document.where(id: document_ids)
   end
 end

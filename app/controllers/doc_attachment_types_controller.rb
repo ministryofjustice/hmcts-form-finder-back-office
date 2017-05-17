@@ -65,13 +65,13 @@ class DocAttachmentTypesController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_doc_attachment_type
-      @doc_attachment_type = DocAttachmentType.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_doc_attachment_type
+    @doc_attachment_type = DocAttachmentType.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def doc_attachment_type_params
-      params.require(:doc_attachment_type).permit(:english_name, :welsh_name, :inactive)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def doc_attachment_type_params
+    params.require(:doc_attachment_type).permit(:english_name, :welsh_name, :inactive)
+  end
 end

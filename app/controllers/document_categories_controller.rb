@@ -111,39 +111,39 @@ class DocumentCategoriesController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document_category
-      @document_category = DocumentCategory.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_document_category
+    @document_category = DocumentCategory.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def document_category_params
-      params.require(:document_category).permit(:document_id, :category_id, :sort_order)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def document_category_params
+    params.require(:document_category).permit(:document_id, :category_id, :sort_order)
+  end
 
-    def prelink
-      @cate=[]
-      if params[:linksearch].present?
-        @categories = Category.search(params[:linksearch]).order('created_at DESC')
-      else
-        @categories = []
-      end
-      if params[:linksearch].present?
-        @documents = Document.search(params[:linksearch]).order('created_at DESC')
-      else
-        @documents = []
-      end
-      @parent_document = Document.find(params[:document])
+  def prelink
+    @cate=[]
+    if params[:linksearch].present?
+      @categories = Category.search(params[:linksearch]).order('created_at DESC')
+    else
+      @categories = []
     end
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order('created_at DESC')
+    else
+      @documents = []
+    end
+    @parent_document = Document.find(params[:document])
+  end
 
-    def postlink
-      @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-      @linkedcategories.each do |linkedcategory|
-        @cate=@cate.push(linkedcategory.category)
-      end
-      @categories=@categories-@cate
-      @document=@parent_document
-      @linkeddocuments=@parent_document.all_related
-      render 'documents/details'
+  def postlink
+    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories.each do |linkedcategory|
+      @cate=@cate.push(linkedcategory.category)
     end
+    @categories=@categories-@cate
+    @document=@parent_document
+    @linkeddocuments=@parent_document.all_related
+    render 'documents/details'
+  end
 end
