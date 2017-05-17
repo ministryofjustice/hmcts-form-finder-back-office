@@ -6,7 +6,7 @@ module HostEnv
   end
 
   def is_staging?
-   ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-staging.tacticalproductshmcts.dsd.io/
+    ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-staging.tacticalproductshmcts.dsd.io/
   end
 
   def is_dev?

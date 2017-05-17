@@ -3,17 +3,17 @@ require 'rails_helper'
 RSpec.describe 'languages/index', type: :view do
   before(:each) do
     assign(:languages, [
-      Language.create!(
-        english_name: 'English Name',
-        welsh_name: 'Welsh Name',
-        code: 'Code'
-      ),
-      Language.create!(
-        english_name: 'English Name',
-        welsh_name: 'Welsh Name',
-        code: 'Code'
-      )
-    ])
+             Language.create!(
+               english_name: 'English Name',
+               welsh_name: 'Welsh Name',
+               code: 'Code'
+             ),
+             Language.create!(
+               english_name: 'English Name',
+               welsh_name: 'Welsh Name',
+               code: 'Code'
+             )
+           ])
   end
 
   it 'renders a list of languages' do
