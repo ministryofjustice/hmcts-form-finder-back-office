@@ -21,7 +21,7 @@ class Category < ActiveRecord::Base
   has_many :documents, through: :document_categories
 
   validates :english_name, presence: true, unless: :welsh_name
-  validate :has_a_name
+  validate :a_name?
   validate :only_inactive_if_not_used
 
   def the_collection
