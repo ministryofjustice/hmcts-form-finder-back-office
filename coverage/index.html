@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-17T11:25:30+01:00">2017-05-17T11:25:30+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-17T12:52:34+01:00">2017-05-17T12:52:34+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -453,7 +453,7 @@
       <tr>
         <td class="strong"><a href="#7443a79b47aeb962cae7d768913a90535a9a58db" class="src_link" title="lib/validators.rb">lib/validators.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>27</td>
+        <td>25</td>
         <td>15</td>
         <td>15</td>
         <td>0</td>
@@ -12097,61 +12097,61 @@
         <li class="covered" data-hits="199" data-linenumber="4">
           <span class="hits">199</span>
           
-          <code class="ruby">      if nil_or_empty(english_name) &amp;&amp; nil_or_empty(welsh_name)</code>
+          <code class="ruby">      return unless nil_or_empty(english_name) &amp;&amp; nil_or_empty(welsh_name)</code>
         </li>
       
         <li class="covered" data-hits="18" data-linenumber="5">
           <span class="hits">18</span>
           
-          <code class="ruby">        errors[:base] &lt;&lt; &quot;Must have a name&quot;</code>
+          <code class="ruby">      errors[:base] &lt;&lt; &quot;Must have a name&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
           <code class="ruby">    def only_inactive_if_not_used</code>
         </li>
       
-        <li class="covered" data-hits="199" data-linenumber="10">
+        <li class="covered" data-hits="199" data-linenumber="9">
           <span class="hits">199</span>
           
-          <code class="ruby">      if inactive &amp;&amp; self.the_collection.where(self.the_attribute =&gt; id).count &gt; 0</code>
+          <code class="ruby">      return unless inactive &amp;&amp; self.the_collection.where(self.the_attribute =&gt; id).count &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="11">
+        <li class="covered" data-hits="3" data-linenumber="10">
           <span class="hits">3</span>
           
-          <code class="ruby">        errors[:base] &lt;&lt; self.the_error</code>
+          <code class="ruby">      errors[:base] &lt;&lt; self.the_error</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">    private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -12163,76 +12163,64 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    private</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
           <code class="ruby">    def nil_or_empty(x)</code>
         </li>
       
-        <li class="covered" data-hits="223" data-linenumber="18">
+        <li class="covered" data-hits="223" data-linenumber="16">
           <span class="hits">223</span>
           
           <code class="ruby">      if x.nil?</code>
         </li>
       
-        <li class="covered" data-hits="34" data-linenumber="19">
+        <li class="covered" data-hits="34" data-linenumber="17">
           <span class="hits">34</span>
           
           <code class="ruby">        true</code>
         </li>
       
-        <li class="covered" data-hits="189" data-linenumber="20">
+        <li class="covered" data-hits="189" data-linenumber="18">
           <span class="hits">189</span>
           
           <code class="ruby">      elsif x.empty?</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="21">
+        <li class="covered" data-hits="8" data-linenumber="19">
           <span class="hits">8</span>
           
           <code class="ruby">        true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="181" data-linenumber="23">
+        <li class="covered" data-hits="181" data-linenumber="21">
           <span class="hits">181</span>
           
           <code class="ruby">        false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
