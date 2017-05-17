@@ -4,9 +4,9 @@ RSpec.describe "languages/show", type: :view do
   before(:each) do
     @language = assign(:language,
                        Language.create!(
-                         :english_name => "English Name",
-                         :welsh_name => "Welsh Name",
-                         :code => "Code"
+                         english_name: "English Name",
+                         welsh_name: "Welsh Name",
+                         code: "Code"
                        )
                       )
   end

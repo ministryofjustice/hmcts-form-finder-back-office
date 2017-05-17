@@ -38,11 +38,11 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     if @document.destroy
-      redirect_to documents_path , :notice => 'Your form has been succcessfully deleted.'
+      redirect_to documents_path , notice: 'Your form has been succcessfully deleted.'
     else
       flash[:error] = 'Form can not be deleted'
 
-      render :action => 'index'
+      render action: 'index'
     end
   end
 

@@ -4,8 +4,8 @@ RSpec.describe 'categories/new', type: :view do
   before(:each) do
     assign(:category,
            Category.new(
-             :english_name => 'MyString',
-             :welsh_name => 'MyString'
+             english_name: 'MyString',
+             welsh_name: 'MyString'
            )
           )
   end

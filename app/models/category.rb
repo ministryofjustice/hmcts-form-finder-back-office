@@ -18,7 +18,7 @@ class Category < ActiveRecord::Base
   include Validators::ValueCheck
 
   has_paper_trail
-  has_many :documents, :through => :document_categories
+  has_many :documents, through: :document_categories
 
   validates :english_name, presence: true, unless: :welsh_name
   validate :has_a_name
