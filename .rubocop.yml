@@ -765,70 +765,70 @@ Style/MultilineTernaryOperator:
                  Avoid multi-line ?: (the ternary operator);
                  use if/unless instead.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-multiline-ternary'
-  Enabled: false
+  Enabled: true
 
 Style/NegatedIf:
   Description: >-
                  Favor unless over if for negative conditions
                  (or control flow or).
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#unless-for-negatives'
-  Enabled: false
+  Enabled: true
 
 Style/NegatedWhile:
   Description: 'Favor until over while for negative conditions.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#until-for-negatives'
-  Enabled: false
+  Enabled: true
 
 Style/NestedTernaryOperator:
   Description: 'Use one expression per branch in a ternary operator.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-ternary'
-  Enabled: false
+  Enabled: true
 
 Style/Next:
   Description: 'Use `next` to skip iteration instead of a condition at the end.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals'
-  Enabled: false
+  Enabled: true
 
 Style/NilComparison:
   Description: 'Prefer x.nil? to x == nil.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
-  Enabled: false
+  Enabled: true
 
 Style/NonNilCheck:
   Description: 'Checks for redundant nil checks.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-non-nil-checks'
-  Enabled: false
+  Enabled: true
 
 Style/Not:
   Description: 'Use ! instead of not.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#bang-not-not'
-  Enabled: false
+  Enabled: true
 
 Style/NumericLiterals:
   Description: >-
                  Add underscores to large numeric literals to improve their
                  readability.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#underscores-in-numerics'
-  Enabled: false
+  Enabled: true
 
 Style/OneLineConditional:
   Description: >-
                  Favor the ternary operator(?:) over
                  if/then/else/end constructs.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#ternary-operator'
-  Enabled: false
+  Enabled: true
 
 Style/OpMethod:
   Description: 'When defining binary operators, name the argument other.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#other-arg'
-  Enabled: false
+  Enabled: true
 
 Style/OptionalArguments:
   Description: >-
                  Checks for optional arguments that do not appear at the end
                  of the argument list
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#optional-arguments'
-  Enabled: false
+  Enabled: true
 
 Style/ParallelAssignment:
   Description: >-
@@ -844,21 +844,21 @@ Style/ParenthesesAroundCondition:
                  Don't use parentheses around the condition of an
                  if/unless/while.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-parens-if'
-  Enabled: false
+  Enabled: true
 
 Style/PercentLiteralDelimiters:
   Description: 'Use `%`-literal delimiters consistently'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-literal-braces'
-  Enabled: false
+  Enabled: true
 
 Style/PercentQLiterals:
   Description: 'Checks if uses of %Q/%q match the configured preference.'
-  Enabled: false
+  Enabled: true
 
 Style/PerlBackrefs:
   Description: 'Avoid Perl-style regex back references.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-perl-regexp-last-matchers'
-  Enabled: false
+  Enabled: true
 
 Style/PredicateName:
   Description: 'Check the names of predicate methods.'
@@ -868,7 +868,7 @@ Style/PredicateName:
 Style/Proc:
   Description: 'Use proc instead of Proc.new.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#proc'
-  Enabled: false
+  Enabled: true
 
 Style/RaiseArgs:
   Description: 'Checks the arguments passed to raise/fail.'

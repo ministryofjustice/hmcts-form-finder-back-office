@@ -25,7 +25,7 @@ RSpec.describe PingController, type: :controller do
     describe 'renders correct json' do
       let(:json) { JSON.parse(response.body) }
       let(:keys) do
-        %w(build_date commit_id build_tag)
+        %w[build_date commit_id build_tag]
       end
 
       it 'has ping.json schema defined keys' do
