@@ -71,7 +71,7 @@ class Document < ActiveRecord::Base
 
   def format_filename_and_type
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    attachment.instance_write(:file_name, ("#{code.gsub(/\s+/, "-")}-#{language.code}.#{extension}").downcase!)
+    attachment.instance_write(:file_name, ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!)
     self.file_format = extension.upcase!
   end
 

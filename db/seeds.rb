@@ -100,7 +100,7 @@ csv.each do |row|
   parent_doc.related_documents << related_doc
 end
 
-puts "There are now records in related_documents table"
+puts 'There are now records in related_documents table'
 
 # #Court forms
 # csv_text = File.read(Rails.root.join('lib', 'seeds', 'e_court_forms_cleaned.csv'))

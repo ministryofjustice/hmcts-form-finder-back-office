@@ -3,7 +3,7 @@ module HealthCheck
 
     def accessible?
       begin
-        result = execute_simple_select_on_database.to_a == [{ "result" => "1" }]
+        result = execute_simple_select_on_database.to_a == [{ 'result' => '1' }]
       rescue => e
         log_unknown_error(e)
         result = false

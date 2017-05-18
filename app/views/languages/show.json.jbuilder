@@ -1,1 +1,1 @@
-json.partial! "languages/language", language: @language
+json.partial! 'languages/language', language: @language

@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-18T09:54:59+01:00">2017-05-18T09:54:59+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-18T10:37:09+01:00">2017-05-18T10:37:09+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1873,7 +1873,7 @@
         <li class="covered" data-hits="2" data-linenumber="7">
           <span class="hits">2</span>
           
-          <code class="ruby">      @documents = Document.search(params[:search]).order(&quot;created_at DESC&quot;)</code>
+          <code class="ruby">      @documents = Document.search(params[:search]).order(&#39;created_at DESC&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -4801,31 +4801,31 @@
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    @english_documents = @documents.forms.language_english.active.order(&quot;code ASC&quot;)</code>
+          <code class="ruby">    @english_documents = @documents.forms.language_english.active.order(&#39;code ASC&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">    @english_leaflets = @documents.leaflets.language_english.active.order(&quot;code ASC&quot;)</code>
+          <code class="ruby">    @english_leaflets = @documents.leaflets.language_english.active.order(&#39;code ASC&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="22">
           
           
-          <code class="ruby">    @other_documents = @documents.language_other.active.order(&quot;code ASC&quot;)</code>
+          <code class="ruby">    @other_documents = @documents.language_other.active.order(&#39;code ASC&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">    @welsh_documents = @documents.forms.language_welsh.active.order(&quot;code ASC&quot;)</code>
+          <code class="ruby">    @welsh_documents = @documents.forms.language_welsh.active.order(&#39;code ASC&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">    @welsh_leaflets = @documents.leaflets.language_welsh.active.order(&quot;code ASC&quot;)</code>
+          <code class="ruby">    @welsh_leaflets = @documents.leaflets.language_welsh.active.order(&#39;code ASC&#39;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
@@ -5101,7 +5101,7 @@
         <li class="covered" data-hits="6" data-linenumber="34">
           <span class="hits">6</span>
           
-          <code class="ruby">        format.html { redirect_to @user, notice: &quot;This user account was successfully created&quot; }</code>
+          <code class="ruby">        format.html { redirect_to @user, notice: &#39;This user account was successfully created&#39; }</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="35">
@@ -6355,7 +6355,7 @@
         <li class="covered" data-hits="59" data-linenumber="74">
           <span class="hits">59</span>
           
-          <code class="ruby">    attachment.instance_write(:file_name, (&quot;#{code.gsub(/\s+/, &quot;-&quot;)}-#{language.code}.#{extension}&quot;).downcase!)</code>
+          <code class="ruby">    attachment.instance_write(:file_name, (&quot;#{code.gsub(/\s+/, &#39;-&#39;)}-#{language.code}.#{extension}&quot;).downcase!)</code>
         </li>
       
         <li class="covered" data-hits="59" data-linenumber="75">
@@ -7153,7 +7153,7 @@
         <li class="missed" data-hits="0" data-linenumber="6">
           
           
-          <code class="ruby">        result = execute_simple_select_on_database.to_a == [{ &quot;result&quot; =&gt; &quot;1&quot; }]</code>
+          <code class="ruby">        result = execute_simple_select_on_database.to_a == [{ &#39;result&#39; =&gt; &#39;1&#39; }]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -8377,7 +8377,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;rails&quot;</code>
+          <code class="ruby">require &#39;rails&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -8389,43 +8389,43 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;active_model/railtie&quot;</code>
+          <code class="ruby">require &#39;active_model/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;active_job/railtie&quot;</code>
+          <code class="ruby">require &#39;active_job/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;active_record/railtie&quot;</code>
+          <code class="ruby">require &#39;active_record/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;action_controller/railtie&quot;</code>
+          <code class="ruby">require &#39;action_controller/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;action_mailer/railtie&quot;</code>
+          <code class="ruby">require &#39;action_mailer/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;action_view/railtie&quot;</code>
+          <code class="ruby">require &#39;action_view/railtie&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">require &quot;sprockets/railtie&quot;</code>
+          <code class="ruby">require &#39;sprockets/railtie&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -12103,7 +12103,7 @@
         <li class="covered" data-hits="18" data-linenumber="5">
           <span class="hits">18</span>
           
-          <code class="ruby">      errors[:base] &lt;&lt; &quot;Must have a name&quot;</code>
+          <code class="ruby">      errors[:base] &lt;&lt; &#39;Must have a name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -14449,7 +14449,7 @@
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">  context &quot;Internal User&quot; do</code>
+          <code class="ruby">  context &#39;Internal User&#39; do</code>
         </li>
       
         <li class="covered" data-hits="16" data-linenumber="23">
@@ -14551,7 +14551,7 @@
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;GET #index&quot; do</code>
+          <code class="ruby">    describe &#39;GET #index&#39; do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="40">
@@ -14563,7 +14563,7 @@
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;assigns all document_categories as @document_categories&quot; do</code>
+          <code class="ruby">      it &#39;assigns all document_categories as @document_categories&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="42">
@@ -14671,7 +14671,7 @@
         <li class="covered" data-hits="1" data-linenumber="59">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;GET #new&quot; do</code>
+          <code class="ruby">    describe &#39;GET #new&#39; do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="60">
@@ -14683,7 +14683,7 @@
         <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;assigns a new document_category as @document_category&quot; do</code>
+          <code class="ruby">      it &#39;assigns a new document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
@@ -14725,7 +14725,7 @@
         <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;GET #edit&quot; do</code>
+          <code class="ruby">    describe &#39;GET #edit&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="69">
@@ -14749,7 +14749,7 @@
         <li class="covered" data-hits="1" data-linenumber="72">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;assigns the requested document_category as @document_category&quot; do</code>
+          <code class="ruby">      it &#39;assigns the requested document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="73">
@@ -14791,13 +14791,13 @@
         <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;POST #create&quot; do</code>
+          <code class="ruby">    describe &#39;POST #create&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="80">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;with valid params&quot; do</code>
+          <code class="ruby">      context &#39;with valid params&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="81">
@@ -14821,7 +14821,7 @@
         <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;creates a new DocumentCategory&quot; do</code>
+          <code class="ruby">        it &#39;creates a new DocumentCategory&#39; do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
@@ -14875,7 +14875,7 @@
         <li class="covered" data-hits="1" data-linenumber="93">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;assigns a newly created document_category as @document_category&quot; do</code>
+          <code class="ruby">        it &#39;assigns a newly created document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="94">
@@ -14911,7 +14911,7 @@
         <li class="covered" data-hits="1" data-linenumber="99">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;redirects to the created document_category&quot; do</code>
+          <code class="ruby">        it &#39;redirects to the created document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="100">
@@ -14947,7 +14947,7 @@
         <li class="covered" data-hits="1" data-linenumber="105">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;with invalid params&quot; do</code>
+          <code class="ruby">      context &#39;with invalid params&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="106">
@@ -14971,7 +14971,7 @@
         <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;assigns a newly created but unsaved document_category as @document_category&quot; do</code>
+          <code class="ruby">        it &#39;assigns a newly created but unsaved document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="110">
@@ -15031,7 +15031,7 @@
         <li class="covered" data-hits="1" data-linenumber="119">
           <span class="hits">1</span>
           
-          <code class="ruby">          expect(response).to render_template(&quot;new&quot;)</code>
+          <code class="ruby">          expect(response).to render_template(&#39;new&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="120">
@@ -15061,13 +15061,13 @@
         <li class="covered" data-hits="1" data-linenumber="124">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;PUT #update&quot; do</code>
+          <code class="ruby">    describe &#39;PUT #update&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="125">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;with valid params&quot; do</code>
+          <code class="ruby">      context &#39;with valid params&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="126">
@@ -15103,7 +15103,7 @@
         <li class="covered" data-hits="1" data-linenumber="131">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;updates the requested document_category&quot; do</code>
+          <code class="ruby">        it &#39;updates the requested document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="132">
@@ -15163,7 +15163,7 @@
         <li class="covered" data-hits="1" data-linenumber="141">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;assigns the requested document_category as @document_category&quot; do</code>
+          <code class="ruby">        it &#39;assigns the requested document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="142">
@@ -15199,7 +15199,7 @@
         <li class="covered" data-hits="1" data-linenumber="147">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;redirects to the document_category&quot; do</code>
+          <code class="ruby">        it &#39;redirects to the document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="148">
@@ -15241,7 +15241,7 @@
         <li class="covered" data-hits="1" data-linenumber="154">
           <span class="hits">1</span>
           
-          <code class="ruby">      context &quot;with invalid params&quot; do</code>
+          <code class="ruby">      context &#39;with invalid params&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="155">
@@ -15265,7 +15265,7 @@
         <li class="covered" data-hits="1" data-linenumber="158">
           <span class="hits">1</span>
           
-          <code class="ruby">        it &quot;assigns the document_category as @document_category&quot; do</code>
+          <code class="ruby">        it &#39;assigns the document_category as @document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="159">
@@ -15337,7 +15337,7 @@
         <li class="covered" data-hits="1" data-linenumber="170">
           <span class="hits">1</span>
           
-          <code class="ruby">          expect(response).to render_template(&quot;edit&quot;)</code>
+          <code class="ruby">          expect(response).to render_template(&#39;edit&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="171">
@@ -15367,7 +15367,7 @@
         <li class="covered" data-hits="1" data-linenumber="175">
           <span class="hits">1</span>
           
-          <code class="ruby">    describe &quot;DELETE #destroy&quot; do</code>
+          <code class="ruby">    describe &#39;DELETE #destroy&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="176">
@@ -15391,7 +15391,7 @@
         <li class="covered" data-hits="1" data-linenumber="179">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;destroys the requested document_category&quot; do</code>
+          <code class="ruby">      it &#39;destroys the requested document_category&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="180">
@@ -15451,7 +15451,7 @@
         <li class="covered" data-hits="1" data-linenumber="189">
           <span class="hits">1</span>
           
-          <code class="ruby">      it &quot;redirects to the document_categories list&quot; do</code>
+          <code class="ruby">      it &#39;redirects to the document_categories list&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="190">
@@ -18859,13 +18859,13 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">    english_name &quot;MyString&quot;</code>
+          <code class="ruby">    english_name &#39;MyString&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    welsh_name &quot;MyString&quot;</code>
+          <code class="ruby">    welsh_name &#39;MyString&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -18919,13 +18919,13 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">    code &quot;DOC code&quot;</code>
+          <code class="ruby">    code &#39;DOC code&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    title &quot;DOC&quot;</code>
+          <code class="ruby">    title &#39;DOC&#39;</code>
         </li>
       
         <li class="covered" data-hits="46" data-linenumber="6">
@@ -18943,7 +18943,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">    attachment_file_name &quot;Bob&quot;</code>
+          <code class="ruby">    attachment_file_name &#39;Bob&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -19207,19 +19207,19 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    english_name &quot;MyString&quot;</code>
+          <code class="ruby">    english_name &#39;MyString&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    welsh_name &quot;MyString&quot;</code>
+          <code class="ruby">    welsh_name &#39;MyString&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">    code &quot;MyString&quot;</code>
+          <code class="ruby">    code &#39;MyString&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -19435,7 +19435,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">feature &quot;Signing in&quot; do</code>
+          <code class="ruby">feature &#39;Signing in&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -19465,7 +19465,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  scenario &quot;Signing in with correct credentials&quot; do</code>
+          <code class="ruby">  scenario &#39;Signing in with correct credentials&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
@@ -19477,7 +19477,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    within(&quot;#new_user&quot;) do</code>
+          <code class="ruby">    within(&#39;#new_user&#39;) do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
@@ -19525,7 +19525,7 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  scenario &quot;Signing in using invalid email&quot; do</code>
+          <code class="ruby">  scenario &#39;Signing in using invalid email&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
@@ -19537,7 +19537,7 @@
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">    within(&quot;#new_user&quot;) do</code>
+          <code class="ruby">    within(&#39;#new_user&#39;) do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
@@ -19585,7 +19585,7 @@
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">  scenario &quot;Signing in using invalid password&quot; do</code>
+          <code class="ruby">  scenario &#39;Signing in using invalid password&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="29">
@@ -19597,7 +19597,7 @@
         <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
-          <code class="ruby">    within(&quot;#new_user&quot;) do</code>
+          <code class="ruby">    within(&#39;#new_user&#39;) do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="31">
@@ -20329,13 +20329,13 @@
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;has a valid factory&quot; do</code>
+          <code class="ruby">  it &#39;has a valid factory&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(Category.create(english_name: &quot;George&quot;, welsh_name: &quot;David&quot;)).to be_valid</code>
+          <code class="ruby">    expect(Category.create(english_name: &#39;George&#39;, welsh_name: &#39;David&#39;)).to be_valid</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
@@ -20347,13 +20347,13 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;can have an English name if there is no Welsh name&quot; do</code>
+          <code class="ruby">  it &#39;can have an English name if there is no Welsh name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(Category.create(english_name: &quot;George&quot;)).to be_valid</code>
+          <code class="ruby">    expect(Category.create(english_name: &#39;George&#39;)).to be_valid</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -20365,13 +20365,13 @@
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;can have a Welsh name if there is no Welsh name&quot; do</code>
+          <code class="ruby">  it &#39;can have a Welsh name if there is no Welsh name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(Category.create(welsh_name: &quot;David&quot;)).to be_valid</code>
+          <code class="ruby">    expect(Category.create(welsh_name: &#39;David&#39;)).to be_valid</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -20383,7 +20383,7 @@
         <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;must have a name&quot; do</code>
+          <code class="ruby">  it &#39;must have a name&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="25">
@@ -20401,7 +20401,7 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;categories search works with a query&quot; do</code>
+          <code class="ruby">  it &#39;categories search works with a query&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="28">
@@ -20431,13 +20431,13 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;categories search is case insensitive&quot; do</code>
+          <code class="ruby">  it &#39;categories search is case insensitive&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">    category = Category.create(english_name: &quot;Case SEnsitive test&quot;, welsh_name: &quot;David&quot;)</code>
+          <code class="ruby">    category = Category.create(english_name: &#39;Case SEnsitive test&#39;, welsh_name: &#39;David&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
@@ -22687,19 +22687,19 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;DocAttachmentTypes&quot;, type: :request do</code>
+          <code class="ruby">RSpec.describe &#39;DocAttachmentTypes&#39;, type: :request do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;GET /doc_attachment_types&quot; do</code>
+          <code class="ruby">  describe &#39;GET /doc_attachment_types&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;works! (now write some real specs)&quot; do</code>
+          <code class="ruby">    it &#39;works! (now write some real specs)&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -22765,19 +22765,19 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;Languages&quot;, type: :request do</code>
+          <code class="ruby">RSpec.describe &#39;Languages&#39;, type: :request do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;GET /languages&quot; do</code>
+          <code class="ruby">  describe &#39;GET /languages&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;works! (now write some real specs)&quot; do</code>
+          <code class="ruby">    it &#39;works! (now write some real specs)&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -22843,19 +22843,19 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;Users&quot;, type: :request do</code>
+          <code class="ruby">RSpec.describe &#39;Users&#39;, type: :request do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &quot;GET /users&quot; do</code>
+          <code class="ruby">  describe &#39;GET /users&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;works! (now write some real specs)&quot; do</code>
+          <code class="ruby">    it &#39;works! (now write some real specs)&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -24001,7 +24001,7 @@
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">        &quot;DB message 1&quot;, &quot;DB Message 2&quot;</code>
+          <code class="ruby">        &#39;DB message 1&#39;, &#39;DB Message 2&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
@@ -24301,19 +24301,19 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;form[action=?][method=?]&quot;, category_path(@category), &quot;post&quot; do</code>
+          <code class="ruby">    assert_select &#39;form[action=?][method=?]&#39;, category_path(@category), &#39;post&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_select &quot;input#category_english_name[name=?]&quot;, &quot;category[english_name]&quot;</code>
+          <code class="ruby">      assert_select &#39;input#category_english_name[name=?]&#39;, &#39;category[english_name]&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">      assert_select &quot;input#category_welsh_name[name=?]&quot;, &quot;category[welsh_name]&quot;</code>
+          <code class="ruby">      assert_select &#39;input#category_welsh_name[name=?]&#39;, &#39;category[welsh_name]&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -24361,7 +24361,7 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;categories/index&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;categories/index&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
@@ -24385,13 +24385,13 @@
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">               english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">               welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -24409,13 +24409,13 @@
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">               english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">               welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -24445,7 +24445,7 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders a list of categories&quot; do</code>
+          <code class="ruby">  it &#39;renders a list of categories&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
@@ -24457,13 +24457,13 @@
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;tr&gt;td&quot;, text: &quot;English Name&quot;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;English Name&#39;.to_s, count: 2</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;tr&gt;td&quot;, text: &quot;Welsh Name&quot;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Welsh Name&#39;.to_s, count: 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -24655,7 +24655,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;categories/show&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;categories/show&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -24679,13 +24679,13 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">                         english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">                         english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">                         welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">                         welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -24715,7 +24715,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders attributes in &lt;p&gt;&quot; do</code>
+          <code class="ruby">  it &#39;renders attributes in &lt;p&gt;&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -24925,7 +24925,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;doc_attachment_types/index&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;doc_attachment_types/index&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -24949,13 +24949,13 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">               english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">               welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -24973,13 +24973,13 @@
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">               english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">               welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -25009,7 +25009,7 @@
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders a list of doc_attachment_types&quot; do</code>
+          <code class="ruby">  it &#39;renders a list of doc_attachment_types&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
@@ -25021,13 +25021,13 @@
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;tr&gt;td&quot;, text: &quot;English Name&quot;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;English Name&#39;.to_s, count: 2</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &quot;tr&gt;td&quot;, text: &quot;Welsh Name&quot;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Welsh Name&#39;.to_s, count: 2</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -25219,7 +25219,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;doc_attachment_types/show&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;doc_attachment_types/show&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -25243,13 +25243,13 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">                                    english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">                                    english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">                                    welsh_name: &quot;Welsh Name&quot;</code>
+          <code class="ruby">                                    welsh_name: &#39;Welsh Name&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -25279,7 +25279,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders attributes in &lt;p&gt;&quot; do</code>
+          <code class="ruby">  it &#39;renders attributes in &lt;p&gt;&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -25345,7 +25345,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;document_categories/edit&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;document_categories/edit&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="4">
@@ -25405,7 +25405,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders the edit document_category form&quot; do</code>
+          <code class="ruby">  it &#39;renders the edit document_category form&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -25513,7 +25513,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;document_categories/index&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;document_categories/index&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="4">
@@ -25591,7 +25591,7 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders a list of document_categories&quot; do</code>
+          <code class="ruby">  it &#39;renders a list of document_categories&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
@@ -25837,7 +25837,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;document_categories/show&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;document_categories/show&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="4">
@@ -25897,7 +25897,7 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders attributes in &lt;p&gt;&quot; do</code>
+          <code class="ruby">  it &#39;renders attributes in &lt;p&gt;&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
@@ -26449,7 +26449,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;languages/show&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;languages/show&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -26473,19 +26473,19 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">                         english_name: &quot;English Name&quot;,</code>
+          <code class="ruby">                         english_name: &#39;English Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">                         welsh_name: &quot;Welsh Name&quot;,</code>
+          <code class="ruby">                         welsh_name: &#39;Welsh Name&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">                         code: &quot;Code&quot;</code>
+          <code class="ruby">                         code: &#39;Code&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -26515,7 +26515,7 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;renders attributes in &lt;p&gt;&quot; do</code>
+          <code class="ruby">  it &#39;renders attributes in &lt;p&gt;&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
@@ -26587,7 +26587,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">RSpec.describe &quot;search/index&quot;, type: :view do</code>
+          <code class="ruby">RSpec.describe &#39;search/index&#39;, type: :view do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="4">
@@ -26605,7 +26605,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(rendered).to include(&quot;finder&quot;)</code>
+          <code class="ruby">    expect(rendered).to include(&#39;finder&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
