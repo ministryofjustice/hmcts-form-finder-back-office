@@ -22,7 +22,7 @@ class DocumentsController < ApplicationController
   def destroy
     @document = Document.find(params[:id])
     if @document.destroy
-      redirect_to documents_path , :notice => 'Your form has been succcessfully deleted.'
+      redirect_to documents_path, notice: 'Your form has been succcessfully deleted.'
     else
       flash[:error] = 'Form can not be deleted'
       render :action => 'index'
@@ -43,8 +43,8 @@ class DocumentsController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linkeddocuments=@document.all_related
-    @documents=[]
+    @linkeddocuments = @document.all_related
+    @documents = []
     render 'documents/link'
   end
 
@@ -56,10 +56,10 @@ class DocumentsController < ApplicationController
       @documents = []
     end
     @parent_document = Document.find(params[:document])
-    @linkeddocuments=@parent_document.all_related
-    @documents=@documents - [@parent_document]
-    @documents=@documents - @linkeddocuments
-    @document=@parent_document
+    @linkeddocuments = @parent_document.all_related
+    @documents = @documents - [@parent_document]
+    @documents = @documents - @linkeddocuments
+    @document = @parent_document
     render 'documents/link'
     # TODO: Refactor Collection subtraction logic.
   end

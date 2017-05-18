@@ -3,7 +3,7 @@ module HealthCheck
 
     def accessible?
       begin
-        result = execute_simple_select_on_database.to_a == [{"result"=>"1"}]
+        result = execute_simple_select_on_database.to_a == [{ 'result' => '1' }]
       rescue => e
         log_unknown_error(e)
         result = false
@@ -29,15 +29,15 @@ module HealthCheck
     end
 
     def log_error
-      @errors = [ 
-        "Database Error: could not connect to #{config.database} " + 
-        "on #{config.host} using #{config.adapter}" 
+      @errors = [
+        "Database Error: could not connect to #{config.database} " \
+        "on #{config.host} using #{config.adapter}"
       ]
     end
 
     def config
       OpenStruct.new(Rails.configuration.database_configuration[Rails.env])
     end
-    
+
   end
 end
