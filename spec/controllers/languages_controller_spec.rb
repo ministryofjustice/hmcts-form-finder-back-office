@@ -76,19 +76,19 @@ RSpec.describe LanguagesController, type: :controller do
             post :create, language: valid_attributes, session: valid_session
           end.to change(Language, :count).by(1)
         end
-  
+
         it 'assigns a newly created language as @language' do
           post :create, language: valid_attributes, session: valid_session
           expect(assigns(:language)).to be_a(Language)
           expect(assigns(:language)).to be_persisted
         end
-  
+
         it 'redirects to the created language' do
           post :create, language: valid_attributes, session: valid_session
           expect(response).to redirect_to(Language.last)
         end
       end
-  
+
       context 'with invalid params' do
         before do
           sign_in authorised
@@ -97,7 +97,7 @@ RSpec.describe LanguagesController, type: :controller do
           post :create, language: invalid_attributes, session: valid_session
           expect(assigns(:language)).to be_a_new(Language)
         end
-  
+
         it "re-renders the 'new' template" do
           post :create, language: invalid_attributes, session: valid_session
           expect(response).to render_template('new')
@@ -109,27 +109,27 @@ RSpec.describe LanguagesController, type: :controller do
       before { sign_in authorised }
       context 'with valid params' do
         let(:new_attributes) { { english_name: 'Braun', welsh_name: 'Hansen' } }
-  
+
         it 'updates the requested language' do
           language = Language.create! valid_attributes
           put :update, id: language.to_param, language: new_attributes, session: valid_session
           language.reload
           expect(language.english_name).to eq('Braun')
         end
-  
+
         it 'assigns the requested language as @language' do
           language = Language.create! valid_attributes
           put :update, id: language.to_param, language: valid_attributes, session: valid_session
           expect(assigns(:language)).to eq(language)
         end
-  
+
         it 'redirects to the language' do
           language = Language.create! valid_attributes
           put :update, id: language.to_param, language: valid_attributes, session: valid_session
           expect(response).to redirect_to(language)
         end
       end
-  
+
       context 'with invalid params' do
         before { sign_in authorised }
         it 'assigns the language as @language' do
@@ -137,7 +137,7 @@ RSpec.describe LanguagesController, type: :controller do
           put :update, { id: language.to_param, language: invalid_attributes }, session: valid_session
           expect(assigns(:language)).to eq(language)
         end
-  
+
         it "re-renders the 'edit' template" do
           language = Language.create! valid_attributes
           put :update, id: language.to_param, language: invalid_attributes, session: valid_session
@@ -154,7 +154,7 @@ RSpec.describe LanguagesController, type: :controller do
           delete :destroy, id: language.to_param, session: valid_session
         end.to change(Language, :count).by(-1)
       end
-  
+
       it 'redirects to the languages list' do
         language = Language.create! valid_attributes
         delete :destroy, id: language.to_param, session: valid_session

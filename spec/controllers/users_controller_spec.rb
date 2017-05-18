@@ -80,12 +80,12 @@ RSpec.describe UsersController, type: :controller do
             post :create, user: attributes_for(:user), session: valid_session
           end.to change(User, :count).by(1)
         end
-  
+
         it 'assigns a newly created user as @user' do
           post :create, user: valid_attributes, session: valid_session
           expect(assigns(:user)).to be_a(User)
         end
-  
+
         it 'redirects to the created user' do
           post :create, user: valid_attributes, session: valid_session
           expect(response).to redirect_to(User.last)
@@ -99,27 +99,27 @@ RSpec.describe UsersController, type: :controller do
           sign_in authorised
         end
         let(:new_attributes) { attributes_for(:user) }
-  
+
         it 'updates the requested user' do
           user = User.create! valid_attributes
           put :update, id: user.to_param, user: new_attributes, session: valid_session
           user.reload
           expect(assigns(:user)).to eq(user)
         end
-  
+
         it 'assigns the requested user as @user' do
           user = User.create! valid_attributes
           put :update, id: user.to_param, user: valid_attributes, session: valid_session
           expect(assigns(:user)).to eq(user)
         end
-  
+
         it 'redirects to the user' do
           user = User.create! valid_attributes
           put :update, id: user.to_param, user: valid_attributes, session: valid_session
           expect(response).to redirect_to(user)
         end
       end
-  
+
       context 'with invalid params' do
         before do
           sign_in authorised
@@ -129,7 +129,7 @@ RSpec.describe UsersController, type: :controller do
           put :update, { id: user.to_param, user: invalid_attributes }, session: valid_session
           expect(assigns(:user)).to eq(user)
         end
-  
+
         it "re-renders the 'edit' template" do
           user = User.create! valid_attributes
           put :update, id: user.to_param, user: invalid_attributes, session: valid_session
@@ -146,7 +146,7 @@ RSpec.describe UsersController, type: :controller do
           delete :destroy, id: user.to_param, session: valid_session
         end.to change(User, :count).by(-1)
       end
-  
+
       it 'redirects to the users list' do
         user = User.create! valid_attributes
         delete :destroy, id: user.to_param, session: valid_session

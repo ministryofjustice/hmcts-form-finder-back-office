@@ -11,5 +11,3 @@ RSpec.describe 'search/index', type: :view do
     expect(rendered).to include('ffurflenni')
   end
 end
-
-
