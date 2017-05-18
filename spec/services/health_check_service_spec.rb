@@ -14,13 +14,13 @@ describe HealthCheckService do
       expect_any_instance_of(HealthCheck::Database).to receive(:available?).and_return(false)
       expect_any_instance_of(HealthCheck::Database).to receive(:accessible?).and_return(false)
       expect_any_instance_of(HealthCheck::Database).to receive(:error_messages).and_return([
-        'DB message 1', 'DB Message 2'
-      ])
+                                                                                             'DB message 1', 'DB Message 2'
+                                                                                           ])
 
       result = HealthCheckService.new.report
       expect(result.status).to eq '500'
       expect(result.messages.sort).to eq([
-        "DB message 1", "DB Message 2"
+        'DB message 1', 'DB Message 2'
       ].sort)
     end
   end

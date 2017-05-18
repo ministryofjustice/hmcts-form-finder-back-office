@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "This user account was successfully created" }
+        format.html { redirect_to @user, notice: 'This user account was successfully created' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     admin_user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        sign_in(:user, @user, bypass: true) if admin_user==@user
+        sign_in(:user, @user, bypass: true) if admin_user == @user
         format.html { redirect_to @user, notice: "This user's details were successfully updated" }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -68,14 +68,14 @@ class UsersController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :inactive)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :inactive)
+  end
 
 end

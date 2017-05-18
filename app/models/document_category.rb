@@ -17,7 +17,7 @@ class DocumentCategory < ActiveRecord::Base
   belongs_to :category
 
   def all_related
-    DocumentCategory.where("document_categories.document_id =  #{self.id}")
+    DocumentCategory.where("document_categories.document_id =  #{id}")
   end
 
 end

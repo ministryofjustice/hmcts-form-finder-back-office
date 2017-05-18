@@ -4,7 +4,7 @@ feature 'Admin user should be able to search for documents' do
   let!(:user) { create :user }
 
   background do
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
   end
 
   it 'documents search works with a query' do
