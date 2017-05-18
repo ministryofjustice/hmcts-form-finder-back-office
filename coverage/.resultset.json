@@ -1982,11 +1982,6 @@
         1,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/health_check_controller.rb": [
@@ -2367,7 +2362,6 @@
         1,
         1,
         1,
-        null,
         null,
         null
       ],
@@ -4144,8 +4138,6 @@
         1,
         1,
         null,
-        null,
-        null,
         null
       ],
       "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/edit.html.haml_spec.rb": [
@@ -4280,6 +4272,6 @@
         null
       ]
     },
-    "timestamp": 1495101554
+    "timestamp": 1495102448
   }
 }
