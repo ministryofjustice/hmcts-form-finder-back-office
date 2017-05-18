@@ -21,5 +21,5 @@ guard :rspec, cmd: 'bundle exec rspec -fd' do
 end
 
 guard :rubocop, all_on_start: false, cli: %w[--format clang --rails] do
-  watch(%r{.*\.rb$})
+  watch(/.*\.rb$/)
 end

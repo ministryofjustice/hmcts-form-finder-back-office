@@ -4,7 +4,7 @@ class CreateDocAttachments < ActiveRecord::Migration
       t.string :code
       t.string :title
       t.string :category
-      t.integer :doc_attachment_type_id, null:false
+      t.integer :doc_attachment_type_id, null: false
 
       t.timestamps null: false
     end
