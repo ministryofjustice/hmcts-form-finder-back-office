@@ -85,6 +85,10 @@ class Document < ActiveRecord::Base
     AND  related_documents.linked_document_id =  #{self.id})")
   end
 
+  def reference_with_attributes
+    "#{code} (#{language.english_name} #{file_format})"
+  end
+
   def self.search(search)
     where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
   end
