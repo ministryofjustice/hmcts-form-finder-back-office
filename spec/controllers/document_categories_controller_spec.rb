@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe DocumentCategoriesController, type: :controller do
-  context "Internal User" do
+  context 'Internal User' do
     let(:authorised) { create(:user) }
     let(:document) { create(:document) }
     let(:category) { create(:category) }
@@ -36,9 +36,9 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # DocumentCategoriesController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
-    describe "GET #index" do
+    describe 'GET #index' do
       before { sign_in authorised }
-      it "assigns all document_categories as @document_categories" do
+      it 'assigns all document_categories as @document_categories' do
         document_category = DocumentCategory.create! valid_attributes
         get :index, params: {}, session: valid_session
         expect(assigns(:document_categories)).to eq([document_category])
@@ -56,32 +56,32 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     #   end
     # end
 
-    describe "GET #new" do
+    describe 'GET #new' do
       before { sign_in authorised }
-      it "assigns a new document_category as @document_category" do
+      it 'assigns a new document_category as @document_category' do
         document_category = DocumentCategory.create! valid_attributes
         get :new, params: { id: document_category.to_param }, session: valid_session
         expect(assigns(:document_category)).to be_a_new(DocumentCategory)
       end
     end
 
-    describe "GET #edit" do
+    describe 'GET #edit' do
       before do
         sign_in authorised
       end
-      it "assigns the requested document_category as @document_category" do
+      it 'assigns the requested document_category as @document_category' do
         document_category = DocumentCategory.create! valid_attributes
         get :edit, id: document_category.to_param, session: valid_session
         expect(assigns(:document_category)).to eq(document_category)
       end
     end
 
-    describe "POST #create" do
-      context "with valid params" do
+    describe 'POST #create' do
+      context 'with valid params' do
         before do
           sign_in authorised
         end
-        it "creates a new DocumentCategory" do
+        it 'creates a new DocumentCategory' do
           # expect {
           #   post :create, document_category: attributes_for(:document_category), session: valid_session
           # }.to change(DocumentCategory, :count).by(1)
@@ -90,23 +90,23 @@ RSpec.describe DocumentCategoriesController, type: :controller do
           end.to change(DocumentCategory, :count).by(1)
         end
 
-        it "assigns a newly created document_category as @document_category" do
+        it 'assigns a newly created document_category as @document_category' do
           post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
           expect(assigns(:document_category)).to be_a(DocumentCategory)
           expect(assigns(:document_category)).to be_persisted
         end
 
-        it "redirects to the created document_category" do
+        it 'redirects to the created document_category' do
           post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
           expect(response).to redirect_to(DocumentCategory.last)
         end
       end
 
-      context "with invalid params" do
+      context 'with invalid params' do
         before do
           sign_in authorised
         end
-        it "assigns a newly created but unsaved document_category as @document_category" do
+        it 'assigns a newly created but unsaved document_category as @document_category' do
           post :create, document_category: invalid_attributes, session: valid_session
           expect(assigns(:document_category)).to be_a_new(DocumentCategory)
         end
@@ -116,19 +116,19 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         end
         it "re-renders the 'new' template" do
           post :create, document_category: invalid_attributes, session: valid_session
-          expect(response).to render_template("new")
+          expect(response).to render_template('new')
         end
       end
     end
 
-    describe "PUT #update" do
-      context "with valid params" do
+    describe 'PUT #update' do
+      context 'with valid params' do
         let(:new_attributes) { attributes_for(:document_category) }
 
         before do
           sign_in authorised
         end
-        it "updates the requested document_category" do
+        it 'updates the requested document_category' do
           document_category = DocumentCategory.create! valid_attributes
           put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
           document_category.reload
@@ -138,24 +138,24 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         before do
           sign_in authorised
         end
-        it "assigns the requested document_category as @document_category" do
+        it 'assigns the requested document_category as @document_category' do
           document_category = DocumentCategory.create! valid_attributes
           put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
           expect(assigns(:document_category)).to eq(document_category)
         end
 
-        it "redirects to the document_category" do
+        it 'redirects to the document_category' do
           document_category = DocumentCategory.create! valid_attributes
           put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
           expect(response).to redirect_to(document_category)
         end
       end
 
-      context "with invalid params" do
+      context 'with invalid params' do
         before do
           sign_in authorised
         end
-        it "assigns the document_category as @document_category" do
+        it 'assigns the document_category as @document_category' do
           document_category = DocumentCategory.create! valid_attributes
           put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
           expect(assigns(:document_category)).to eq(document_category)
@@ -167,16 +167,16 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         it "re-renders the 'edit' template" do
           document_category = DocumentCategory.create! valid_attributes
           put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
-          expect(response).to render_template("edit")
+          expect(response).to render_template('edit')
         end
       end
     end
 
-    describe "DELETE #destroy" do
+    describe 'DELETE #destroy' do
       before do
         sign_in authorised
       end
-      it "destroys the requested document_category" do
+      it 'destroys the requested document_category' do
         document_category = DocumentCategory.create! valid_attributes
         expect do
           delete :destroy, { id: document_category.to_param }, session: valid_session
@@ -186,7 +186,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       before do
         sign_in authorised
       end
-      it "redirects to the document_categories list" do
+      it 'redirects to the document_categories list' do
         document_category = DocumentCategory.create! valid_attributes
         delete :destroy, { id: document_category.to_param }, session: valid_session
         expect(response).to redirect_to(document_categories_url)

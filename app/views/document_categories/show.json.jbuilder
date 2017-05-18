@@ -1,1 +1,1 @@
-json.partial! "document_categories/document_category", document_category: @document_category
+json.partial! 'document_categories/document_category', document_category: @document_category

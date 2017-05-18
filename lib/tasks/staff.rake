@@ -1,5 +1,5 @@
 namespace :staff do
-  desc "FormFinder Task: Delete all dummy docs after dropping the DB"
+  desc 'FormFinder Task: Delete all dummy docs after dropping the DB'
   task :delete_docs do
     FileUtils.rm_rf('./public/assets/dev/images/')
     FileUtils.rm_rf('./public/assets/test/images/')
