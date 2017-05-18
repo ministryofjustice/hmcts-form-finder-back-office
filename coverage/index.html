@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-17T16:03:05+01:00">2017-05-17T16:03:05+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-18T09:42:29+01:00">2017-05-18T09:42:29+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -6355,7 +6355,7 @@
         <li class="covered" data-hits="59" data-linenumber="74">
           <span class="hits">59</span>
           
-          <code class="ruby">    attachment.instance_write(:file_name, (&quot;#{self.code.gsub(/\s+/, &quot;-&quot;)}-#{self.language.code}.#{extension}&quot;).downcase!)</code>
+          <code class="ruby">    attachment.instance_write(:file_name, (&quot;#{code.gsub(/\s+/, &quot;-&quot;)}-#{language.code}.#{extension}&quot;).downcase!)</code>
         </li>
       
         <li class="covered" data-hits="59" data-linenumber="75">
@@ -6397,7 +6397,7 @@
         <li class="never" data-hits="" data-linenumber="81">
           
           
-          <code class="ruby">    AND  related_documents.document_id =  #{self.id}</code>
+          <code class="ruby">    AND  related_documents.document_id =  #{id}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
@@ -6421,7 +6421,7 @@
         <li class="never" data-hits="" data-linenumber="85">
           
           
-          <code class="ruby">    AND  related_documents.linked_document_id =  #{self.id})&quot;)</code>
+          <code class="ruby">    AND  related_documents.linked_document_id =  #{id})&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="86">
@@ -6691,7 +6691,7 @@
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    DocumentCategory.where(&quot;document_categories.document_id =  #{self.id}&quot;)</code>
+          <code class="ruby">    DocumentCategory.where(&quot;document_categories.document_id =  #{id}&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -12127,13 +12127,13 @@
         <li class="covered" data-hits="199" data-linenumber="9">
           <span class="hits">199</span>
           
-          <code class="ruby">      return unless inactive &amp;&amp; self.the_collection.where(self.the_attribute =&gt; id).count &gt; 0</code>
+          <code class="ruby">      return unless inactive &amp;&amp; the_collection.where(the_attribute =&gt; id).count &gt; 0</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="10">
           <span class="hits">3</span>
           
-          <code class="ruby">      errors[:base] &lt;&lt; self.the_error</code>
+          <code class="ruby">      errors[:base] &lt;&lt; the_error</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
