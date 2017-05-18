@@ -10,12 +10,12 @@ RSpec.describe DocumentsController, type: :controller do
 
     it 'should be redirected to sign in if trying to access list of submitted documents' do
       get :index
-      expect( response ).to redirect_to('http://test.host/users/sign_in')
+      expect(response).to redirect_to('http://test.host/users/sign_in')
     end
 
     it 'should be redirected to sign in if trying to access the new submitted documents page' do
       get :new
-      expect( response ).to redirect_to('http://test.host/users/sign_in')
+      expect(response).to redirect_to('http://test.host/users/sign_in')
     end
   end
 
@@ -27,12 +27,12 @@ RSpec.describe DocumentsController, type: :controller do
 
     it 'should display list of submitted documents' do
       get :index
-      expect( response ).to render_template( :index )
+      expect(response).to render_template(:index)
     end
 
     it 'should display new submitted documents' do
       get :new
-      expect( response ).to render_template( :new )
+      expect(response).to render_template(:new)
     end
   end
 end

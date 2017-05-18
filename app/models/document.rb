@@ -30,7 +30,7 @@ class Document < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
-  has_many :categories, :through => :document_categories
+  has_many :categories, through: :document_categories
 
   has_and_belongs_to_many :related_documents,
                           class_name: 'Document',
@@ -49,7 +49,7 @@ class Document < ActiveRecord::Base
 
   validates_attachment_content_type :attachment,
                                     content_type: %w(application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.oasis.opendocument.spreadsheet application/vnd.oasis.opendocument.text text/plain),
-                                    size: { :in => 0..10.megabytes }
+                                    size: { in: 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
   validates :code, presence: true
@@ -57,7 +57,7 @@ class Document < ActiveRecord::Base
   validates :language_id, presence: true
 
   def active
-   Document.where('inactive = ?', 'False')
+    Document.where('inactive = ?', 'False')
   end
 
   scope :leaflets, -> { where('doc_attachment_type_id != ?', '1') }
@@ -66,23 +66,23 @@ class Document < ActiveRecord::Base
   scope :language_english, -> { where(language_id: '8') }
   scope :language_bilingual, -> { where(language_id: '26') }
   scope :language_welsh, -> { where(language_id: '25') }
-  scope :language_other, -> { where.not(language_id: [8,25]) }
+  scope :language_other, -> { where.not(language_id: [8, 25]) }
   # TODO: Refactor non-human-readable where clause
 
   def format_filename_and_type
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    attachment.instance_write(:file_name, ("#{self.code.gsub(/\s+/, "-")}-#{self.language.code}.#{extension}").downcase!)
+    attachment.instance_write(:file_name, ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!)
     self.file_format = extension.upcase!
   end
 
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
-    AND  related_documents.document_id =  #{self.id}
+    AND  related_documents.document_id =  #{id}
       UNION
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
-    AND  related_documents.linked_document_id =  #{self.id})")
+    AND  related_documents.linked_document_id =  #{id})")
   end
 
   def reference_with_attributes
@@ -90,22 +90,22 @@ class Document < ActiveRecord::Base
   end
 
   def self.search(search)
-    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
   def self.searchcategory(search)
-    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
   def self.searchdocument(search)
-      document_ids = DocumentCategory.where('category_id = ? ',search).pluck(:document_id)
-      Document.where(id: document_ids)
+    document_ids = DocumentCategory.where('category_id = ? ', search).pluck(:document_id)
+    Document.where(id: document_ids)
   end
 
-  def self.searchdocs(search,searchcode)
-      document_ids = DocumentCategory.where('category_id = ?' ,search).pluck(:document_id)
-      ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
-      document_ids = document_ids + ids
-      Document.where(id: document_ids)
+  def self.searchdocs(search, searchcode)
+    document_ids = DocumentCategory.where('category_id = ?', search).pluck(:document_id)
+    ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%", "%#{searchcode.downcase}%").pluck(:id)
+    document_ids = document_ids + ids
+    Document.where(id: document_ids)
   end
 end
