@@ -6,8 +6,8 @@ module Validators
     end
 
     def only_inactive_if_not_used
-      return unless inactive && self.the_collection.where(self.the_attribute => id).count > 0
-      errors[:base] << self.the_error
+      return unless inactive && the_collection.where(the_attribute => id).count > 0
+      errors[:base] << the_error
     end
 
     private

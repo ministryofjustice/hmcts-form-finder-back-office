@@ -71,18 +71,18 @@ class Document < ActiveRecord::Base
 
   def format_filename_and_type
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    attachment.instance_write(:file_name, ("#{self.code.gsub(/\s+/, "-")}-#{self.language.code}.#{extension}").downcase!)
+    attachment.instance_write(:file_name, ("#{code.gsub(/\s+/, "-")}-#{language.code}.#{extension}").downcase!)
     self.file_format = extension.upcase!
   end
 
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
-    AND  related_documents.document_id =  #{self.id}
+    AND  related_documents.document_id =  #{id}
       UNION
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
-    AND  related_documents.linked_document_id =  #{self.id})")
+    AND  related_documents.linked_document_id =  #{id})")
   end
 
   def self.search(search)

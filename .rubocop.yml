@@ -873,27 +873,27 @@ Style/Proc:
 Style/RaiseArgs:
   Description: 'Checks the arguments passed to raise/fail.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#exception-class-messages'
-  Enabled: false
+  Enabled: true
 
 Style/RedundantBegin:
   Description: "Don't use begin blocks when they are not needed."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#begin-implicit'
-  Enabled: false
+  Enabled: true
 
 Style/RedundantException:
   Description: "Checks for an obsolete RuntimeException argument in raise/fail."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-explicit-runtimeerror'
-  Enabled: false
+  Enabled: true
 
 Style/RedundantReturn:
   Description: "Don't use return where it's not required."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-explicit-return'
-  Enabled: false
+  Enabled: true
 
 Style/RedundantSelf:
   Description: "Don't use self where it's not needed."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-self-unless-required'
-  Enabled: false
+  Enabled: true
 
 Style/RegexpLiteral:
   Description: 'Use / or %r around regular expressions.'
