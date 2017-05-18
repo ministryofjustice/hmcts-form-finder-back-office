@@ -1,15 +1,15 @@
 module HostEnv
-  extend self
+  module_function
 
-  def is_live?
+  def live?
     ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-prod.tacticalproductshmcts.dsd.io/
   end
 
-  def is_staging?
-   ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-staging.tacticalproductshmcts.dsd.io/
+  def staging?
+    ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-staging.tacticalproductshmcts.dsd.io/
   end
 
-  def is_dev?
+  def dev?
     ENV['SENDING_HOST'] =~ /hmctsformfinderbackoffice-dev.tacticalproductshmcts.dsd.io/
   end
 end

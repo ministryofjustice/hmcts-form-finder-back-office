@@ -11,7 +11,7 @@ require 'byebug'
 
 # Categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'categories.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = Category.new
   t.id = row['id']
@@ -24,7 +24,7 @@ puts "There are now #{Category.count} rows in the categories table"
 
 # DocumentAttachmentType
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'doc_attachment_types.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = DocAttachmentType.new
   t.id = row['id']
@@ -37,7 +37,7 @@ puts "There are now #{DocAttachmentType.count} rows in the Document Attachment T
 
 # Languages
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'languages.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = Language.new
   t.id = row['id']
@@ -51,7 +51,7 @@ puts "There are now #{Language.count} rows in the languages table"
 
 # Documents
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'documents.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = Document.new
   t.code = row['code']
@@ -75,7 +75,7 @@ puts "There are now #{Document.count} rows in the Documents table"
 
 # Document_categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'document_categories.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = DocumentCategory.new
   t.id = row['id']
@@ -89,18 +89,18 @@ puts "There are now #{DocumentCategory.count} rows in the Document_categories ta
 
 # Document_categories
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'related_document.csv'))
-csv = CSV.parse(csv_text, :headers => true)
+csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
   t = Document.new
   y = Document.new
   t.id = row['document_id']
-  parent_doc=Document.find(t.id)
+  parent_doc = Document.find(t.id)
   y.id = row['linked_document_id']
-  related_doc=Document.find(y.id)
+  related_doc = Document.find(y.id)
   parent_doc.related_documents << related_doc
 end
 
-puts "There are now records in related_documents table"
+puts 'There are now records in related_documents table'
 
 # #Court forms
 # csv_text = File.read(Rails.root.join('lib', 'seeds', 'e_court_forms_cleaned.csv'))

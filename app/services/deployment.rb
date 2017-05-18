@@ -1,4 +1,6 @@
 module Deployment
+  module_function
+
   def info
     { build_date: build_date, commit_id: commit_id, build_tag: build_tag }
   end
@@ -14,6 +16,4 @@ module Deployment
   def build_tag
     ENV['APP_BUILD_TAG'] || 'unknown'
   end
-
-  extend self
 end
