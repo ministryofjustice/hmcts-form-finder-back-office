@@ -21,15 +21,15 @@ require 'rails_helper'
 RSpec.describe DocumentCategoriesController, type: :controller do
   context "Internal User" do
     let(:authorised) { create(:user) }
-    let(:document) { create(:document)}
-    let(:category) { create(:category)}
+    let(:document) { create(:document) }
+    let(:category) { create(:category) }
 
     # This should return the minimal set of attributes required to create a valid
     # DocumentCategory. As you add validations to DocumentCategory, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) {{document: document, category: category}}
+    let(:valid_attributes) { { document: document, category: category } }
 
-    let(:invalid_attributes) {{document_id: nil, category_id: nil, sort_order: nil}}
+    let(:invalid_attributes) { { document_id: nil, category_id: nil, sort_order: nil } }
 
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in
@@ -37,7 +37,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     let(:valid_session) { {} }
 
     describe "GET #index" do
-      before {sign_in authorised}
+      before { sign_in authorised }
       it "assigns all document_categories as @document_categories" do
         document_category = DocumentCategory.create! valid_attributes
         get :index, params: {}, session: valid_session
@@ -57,10 +57,10 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # end
 
     describe "GET #new" do
-      before {sign_in authorised}
+      before { sign_in authorised }
       it "assigns a new document_category as @document_category" do
         document_category = DocumentCategory.create! valid_attributes
-        get :new, params: {id: document_category.to_param}, session: valid_session
+        get :new, params: { id: document_category.to_param }, session: valid_session
         expect(assigns(:document_category)).to be_a_new(DocumentCategory)
       end
     end
@@ -107,7 +107,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
           sign_in authorised
         end
         it "assigns a newly created but unsaved document_category as @document_category" do
-          post :create,document_category: invalid_attributes, session: valid_session
+          post :create, document_category: invalid_attributes, session: valid_session
           expect(assigns(:document_category)).to be_a_new(DocumentCategory)
         end
 
@@ -123,14 +123,14 @@ RSpec.describe DocumentCategoriesController, type: :controller do
 
     describe "PUT #update" do
       context "with valid params" do
-        let(:new_attributes) {attributes_for(:document_category)}
+        let(:new_attributes) { attributes_for(:document_category) }
 
         before do
           sign_in authorised
         end
         it "updates the requested document_category" do
           document_category = DocumentCategory.create! valid_attributes
-          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session
+          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
           document_category.reload
           # TO DO Flesh this out
         end
@@ -140,13 +140,13 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         end
         it "assigns the requested document_category as @document_category" do
           document_category = DocumentCategory.create! valid_attributes
-          put :update, {id: document_category.to_param, document_category: valid_attributes}, session: valid_session
+          put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
           expect(assigns(:document_category)).to eq(document_category)
         end
 
         it "redirects to the document_category" do
           document_category = DocumentCategory.create! valid_attributes
-          put :update, {id: document_category.to_param, document_category: valid_attributes}, session: valid_session
+          put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
           expect(response).to redirect_to(document_category)
         end
       end
@@ -157,7 +157,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         end
         it "assigns the document_category as @document_category" do
           document_category = DocumentCategory.create! valid_attributes
-          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session
+          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
           expect(assigns(:document_category)).to eq(document_category)
         end
 
@@ -166,7 +166,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
         end
         it "re-renders the 'edit' template" do
           document_category = DocumentCategory.create! valid_attributes
-          put :update, {id: document_category.to_param, document_category: invalid_attributes}, session: valid_session
+          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
           expect(response).to render_template("edit")
         end
       end
@@ -179,7 +179,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       it "destroys the requested document_category" do
         document_category = DocumentCategory.create! valid_attributes
         expect do
-          delete :destroy, {id: document_category.to_param}, session: valid_session
+          delete :destroy, { id: document_category.to_param }, session: valid_session
         end.to change(DocumentCategory, :count).by(-1)
       end
 
@@ -188,7 +188,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       end
       it "redirects to the document_categories list" do
         document_category = DocumentCategory.create! valid_attributes
-        delete :destroy, {id: document_category.to_param}, session: valid_session
+        delete :destroy, { id: document_category.to_param }, session: valid_session
         expect(response).to redirect_to(document_categories_url)
       end
     end

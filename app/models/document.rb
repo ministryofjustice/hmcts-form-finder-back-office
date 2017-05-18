@@ -66,7 +66,7 @@ class Document < ActiveRecord::Base
   scope :language_english, -> { where(language_id: '8') }
   scope :language_bilingual, -> { where(language_id: '26') }
   scope :language_welsh, -> { where(language_id: '25') }
-  scope :language_other, -> { where.not(language_id: [8,25]) }
+  scope :language_other, -> { where.not(language_id: [8, 25]) }
   # TODO: Refactor non-human-readable where clause
 
   def format_filename_and_type
@@ -86,21 +86,21 @@ class Document < ActiveRecord::Base
   end
 
   def self.search(search)
-    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
   def self.searchcategory(search)
-    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%")
+    where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
 
   def self.searchdocument(search)
-    document_ids = DocumentCategory.where('category_id = ? ',search).pluck(:document_id)
+    document_ids = DocumentCategory.where('category_id = ? ', search).pluck(:document_id)
     Document.where(id: document_ids)
   end
 
-  def self.searchdocs(search,searchcode)
-    document_ids = DocumentCategory.where('category_id = ?' ,search).pluck(:document_id)
-    ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%","%#{searchcode.downcase}%").pluck(:id)
+  def self.searchdocs(search, searchcode)
+    document_ids = DocumentCategory.where('category_id = ?', search).pluck(:document_id)
+    ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%", "%#{searchcode.downcase}%").pluck(:id)
     document_ids = document_ids + ids
     Document.where(id: document_ids)
   end

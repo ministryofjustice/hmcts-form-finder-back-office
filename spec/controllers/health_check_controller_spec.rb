@@ -15,7 +15,7 @@ describe HealthCheckController, type: :controller do
 
     it 'should return 500 if unsuccessful' do
       service = double HealthCheckService
-      report = HealthCheckService::HealthCheckReport.new('500', ['Error message 1', 'Error message 2'] )
+      report = HealthCheckService::HealthCheckReport.new('500', ['Error message 1', 'Error message 2'])
       expect(HealthCheckService).to receive(:new).and_return(service)
       expect(service).to receive(:report).and_return(report)
 

@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     admin_user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        sign_in(:user, @user, bypass: true) if admin_user==@user
+        sign_in(:user, @user, bypass: true) if admin_user == @user
         format.html { redirect_to @user, notice: "This user's details were successfully updated" }
         format.json { render :show, status: :ok, location: @user }
       else

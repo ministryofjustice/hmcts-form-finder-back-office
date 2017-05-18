@@ -94,9 +94,9 @@ csv.each do |row|
   t = Document.new
   y = Document.new
   t.id = row['document_id']
-  parent_doc=Document.find(t.id)
+  parent_doc = Document.find(t.id)
   y.id = row['linked_document_id']
-  related_doc=Document.find(y.id)
+  related_doc = Document.find(y.id)
   parent_doc.related_documents << related_doc
 end
 

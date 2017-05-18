@@ -68,8 +68,8 @@ class DocumentCategoriesController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-    @categories=[]
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+    @categories = []
     render 'document_categories/link'
   end
 
@@ -82,9 +82,9 @@ class DocumentCategoriesController < ApplicationController
   def connect
     prelink
     @category = Category.find(params[:related_category])
-    @documentcategory=DocumentCategory.new
-    @documentcategory.category_id=params[:related_category]
-    @documentcategory.document_id=params[:document]
+    @documentcategory = DocumentCategory.new
+    @documentcategory.category_id = params[:related_category]
+    @documentcategory.document_id = params[:document]
     @documentcategory.save
     postlink
   end
@@ -99,12 +99,12 @@ class DocumentCategoriesController < ApplicationController
       @categories = []
     end
     @parent_document = Document.find(params[:document])
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
     @linkedcategories.each do |linkedcategory|
-      @cate=@cate.push(linkedcategory.category)
+      @cate = @cate.push(linkedcategory.category)
     end
-    @categories=@categories-@cate
-    @document=@parent_document
+    @categories = @categories - @cate
+    @document = @parent_document
     render 'document_categories/link'
     # TODO: Refactor Collection subtraction logic.
   end
@@ -122,7 +122,7 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def prelink
-    @cate=[]
+    @cate = []
     if params[:linksearch].present?
       @categories = Category.search(params[:linksearch]).order('created_at DESC')
     else
@@ -137,13 +137,13 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def postlink
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
     @linkedcategories.each do |linkedcategory|
-      @cate=@cate.push(linkedcategory.category)
+      @cate = @cate.push(linkedcategory.category)
     end
-    @categories=@categories-@cate
-    @document=@parent_document
-    @linkeddocuments=@parent_document.all_related
+    @categories = @categories - @cate
+    @document = @parent_document
+    @linkeddocuments = @parent_document.all_related
     render 'documents/details'
   end
 end
