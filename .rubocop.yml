@@ -3,6 +3,14 @@ AllCops:
   Exclude:
     - db/schema.rb # Because it's generated.
 
+# Just a preference to use %w[] over %w()
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
+    '%W': '[]'
+    '%': '{}'
+    
 #################### Lint ################################
 
 Lint/AmbiguousOperator:
@@ -914,7 +922,7 @@ Style/SelfAssignment:
                  Checks for places where self-assignment shorthand should have
                  been used.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#self-assignment'
-  Enabled: false      #TODO The offenses this picks up will be refactored - a card has already been raised for this
+  Enabled: false
 
 Style/Semicolon:
   Description: "Don't use semicolons to terminate expressions."
