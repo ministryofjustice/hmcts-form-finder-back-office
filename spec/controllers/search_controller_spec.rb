@@ -71,4 +71,3 @@ RSpec.describe SearchController, type: :controller do
     expect(@documents).to be_empty
   end
 end
-

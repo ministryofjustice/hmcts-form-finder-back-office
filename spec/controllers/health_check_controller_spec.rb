@@ -25,8 +25,3 @@ describe HealthCheckController, type: :controller do
     end
   end
 end
-
-
-
-
-

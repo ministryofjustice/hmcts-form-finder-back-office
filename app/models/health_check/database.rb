@@ -29,15 +29,15 @@ module HealthCheck
     end
 
     def log_error
-      @errors = [ 
+      @errors = [
         "Database Error: could not connect to #{config.database} " \
-        "on #{config.host} using #{config.adapter}" 
+        "on #{config.host} using #{config.adapter}"
       ]
     end
 
     def config
       OpenStruct.new(Rails.configuration.database_configuration[Rails.env])
     end
-    
+
   end
 end
