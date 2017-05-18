@@ -1061,15 +1061,15 @@ Style/StringLiteralsInInterpolation:
 Style/StructInheritance:
   Description: 'Checks for inheritance from Struct.new.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-extend-struct-new'
-  Enabled: false
+  Enabled: true
 
 Style/SymbolLiteral:
   Description: 'Use plain symbols instead of string symbols when possible.'
-  Enabled: false
+  Enabled: true
 
 Style/SymbolProc:
   Description: 'Use symbols as procs instead of blocks when possible.'
-  Enabled: false
+  Enabled: true
 
 Style/Tab:
   Description: 'No hard tabs.'
