@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'healthcheck'        => 'health_check#index'
 
   scope '(:locale)', locale: /en|cy/ do
+    get 'edit_selected_document' => 'documents#edit_selected_document'
+
     get 'search'             => 'search#index'
     get 'search/search'      => 'search#search'
     get 'search/results'     => 'search#results'
@@ -19,10 +21,9 @@ Rails.application.routes.draw do
     end
 
     resources :document_categories
-
     resources :categories
-
     resources :documents
+
     get 'link/documents/list'       => 'documents#search'
     get 'link/documents/search'     => 'documents#search'
     get 'link/documents/filter'     => 'documents#filter'
