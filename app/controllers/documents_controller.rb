@@ -4,12 +4,10 @@ class DocumentsController < ApplicationController
   before_action :authenticate_user!, :set_user
   before_action :set_paper_trail_whodunnit
 
-  def index
-    @documents = Document.all
-  end
-
-  def new
-    @document = Document.new
+  def connect
+    preconnect
+    @parent_document.related_documents << @document
+    postconnect
   end
 
   def create
@@ -21,13 +19,13 @@ class DocumentsController < ApplicationController
     end
   end
 
-  def update
+  def destroy
     @document = Document.find(params[:id])
-    if @document.update(params_with_user)
-      render 'documents/confirmation'
+    if @document.destroy
+      redirect_to documents_path, notice: 'Your form has been succcessfully deleted.'
     else
-      flash[:error] = 'Form can not be updated'
-      render action: 'edit'
+      flash[:error] = 'Form can not be deleted'
+      render action: 'index'
     end
   end
 
@@ -35,23 +33,11 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
-  def destroy
-    @document = Document.find(params[:id])
-    if @document.destroy
-      redirect_to documents_path, notice: 'Your form has been succcessfully deleted.'
-    else
-      flash[:error] = 'Form can not be deleted'
-
-      render action: 'index'
-    end
+  def edit_selected_document
+    redirect_to edit_document_path(params[:selected_document])
   end
 
-  def show
-    @document = Document.find(params[:id])
-    @linkeddocuments = @document.all_related
-  end
-
-  def list
+  def index
     @documents = Document.all
   end
 
@@ -60,18 +46,6 @@ class DocumentsController < ApplicationController
     @linkeddocuments = @document.all_related
     @documents = []
     render 'documents/link'
-  end
-
-  def connect
-    preconnect
-    @parent_document.related_documents << @document
-    postconnect
-  end
-
-  def unconnect
-    preconnect
-    (@parent_document.related_documents).delete(@document)
-    postconnect
   end
 
   def links
@@ -90,6 +64,35 @@ class DocumentsController < ApplicationController
     # TODO: Refactor Collection subtraction logic.
   end
 
+  def list
+    @documents = Document.all
+  end
+
+  def new
+    @document = Document.new
+  end
+
+  def show
+    @document = Document.find(params[:id])
+    @linkeddocuments = @document.all_related
+  end
+
+  def unconnect
+    preconnect
+    (@parent_document.related_documents).delete(@document)
+    postconnect
+  end
+
+  def update
+    @document = Document.find(params[:id])
+    if @document.update(params_with_user)
+      render 'documents/confirmation'
+    else
+      flash[:error] = 'Form can not be updated'
+      render action: 'edit'
+    end
+  end
+
   private
 
   def doc_attachment_params
@@ -103,6 +106,17 @@ class DocumentsController < ApplicationController
     form_params
   end
 
+  def postconnect
+    @linkeddocuments = @parent_document.all_related
+    @documents = @documents - [@parent_document]
+    @documents = @documents - @linkeddocuments
+    @document = @parent_document
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+
+    render 'documents/details'
+    # TODO: Refactor Collection subtraction logic.
+  end
+
   def preconnect
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order('created_at DESC')
@@ -113,13 +127,4 @@ class DocumentsController < ApplicationController
     @parent_document = Document.find(params[:document])
   end
 
-  def postconnect
-    @linkeddocuments = @parent_document.all_related
-    @documents = @documents - [@parent_document]
-    @documents = @documents - @linkeddocuments
-    @document = @parent_document
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
-    render 'documents/details'
-    # TODO: Refactor Collection subtraction logic.
-  end
 end

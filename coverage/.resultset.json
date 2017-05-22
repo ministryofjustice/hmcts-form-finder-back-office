@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/support/controller_helpers.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/support/controller_helpers.rb": [
         1,
         1,
         2,
@@ -15,7 +15,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/application_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/application_controller_spec.rb": [
         1,
         null,
         1,
@@ -34,7 +34,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/rails_helper.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -45,6 +45,11 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -108,14 +113,14 @@
         null,
         3
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/environment.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/application.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/application.rb": [
         1,
         1,
         null,
@@ -158,12 +163,12 @@
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/boot.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/lib/settings.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/lib/settings.rb": [
         1,
         1,
         null,
@@ -190,7 +195,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/environments/test.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/environments/test.rb": [
         1,
         null,
         null,
@@ -242,7 +247,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/assets.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -256,7 +261,7 @@
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/backtrace_silencers.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -265,12 +270,12 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/cookies_serializer.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/devise.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/devise.rb": [
         null,
         null,
         1,
@@ -540,13 +545,13 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/filter_parameter_logging.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/host_env.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/host_env.rb": [
         1,
         1,
         null,
@@ -563,7 +568,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/inflections.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -581,22 +586,22 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/mime_types.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/paper_trail.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/paper_trail.rb": [
         1,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/session_store.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/initializers/wrap_parameters.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -612,7 +617,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/categories.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/categories.rb": [
         null,
         null,
         null,
@@ -631,7 +636,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/doc_attachment_types.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/doc_attachment_types.rb": [
         null,
         null,
         null,
@@ -650,7 +655,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/document.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/document.rb": [
         1,
         1,
         1,
@@ -662,7 +667,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/document_categories.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/document_categories.rb": [
         null,
         null,
         null,
@@ -685,7 +690,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/languages.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/languages.rb": [
         null,
         null,
         null,
@@ -706,7 +711,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/factories/user.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/factories/user.rb": [
         null,
         null,
         null,
@@ -733,32 +738,34 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/config/routes.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/config/routes.rb": [
         1,
         1,
         1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
         null,
         1,
         null,
         1,
         null,
         1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
@@ -832,7 +839,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/user.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/user.rb": [
         null,
         null,
         null,
@@ -866,7 +873,7 @@
         1,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/soft_deletion.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/soft_deletion.rb": [
         1,
         1,
         1,
@@ -889,7 +896,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/support/default_locale.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/support/default_locale.rb": [
         1,
         1,
         1,
@@ -900,7 +907,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/application_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -937,7 +944,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/categories_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/categories_controller_spec.rb": [
         1,
         null,
         1,
@@ -1080,7 +1087,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/categories_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/categories_controller.rb": [
         1,
         1,
         1,
@@ -1165,7 +1172,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/doc_attachment_types_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/doc_attachment_types_controller_spec.rb": [
         1,
         null,
         null,
@@ -1346,7 +1353,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/doc_attachment_types_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/doc_attachment_types_controller.rb": [
         1,
         1,
         1,
@@ -1425,7 +1432,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/document_categories_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/document_categories_controller_spec.rb": [
         1,
         null,
         null,
@@ -1623,7 +1630,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/document_categories_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/document_categories_controller.rb": [
         1,
         1,
         null,
@@ -1774,7 +1781,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/concerns/search.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/concerns/search.rb": [
         1,
         1,
         null,
@@ -1788,7 +1795,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/documents_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/documents_controller_spec.rb": [
         1,
         1,
         null,
@@ -1828,67 +1835,82 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/documents_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/documents_controller.rb": [
         1,
         1,
         null,
         1,
         1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
         null,
         1,
         3,
         null,
         null,
         1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
         2,
         null,
         null,
         1,
-        1,
-        1,
-        1,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
         0,
         0,
         null,
@@ -1904,18 +1926,6 @@
         0,
         0,
         null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         null,
@@ -1937,25 +1947,26 @@
         1,
         0,
         0,
-        null,
+        0,
+        0,
+        0,
         0,
         null,
-        0,
-        0,
         null,
         null,
         1,
         0,
         0,
+        null,
         0,
-        0,
+        null,
         0,
         0,
         null,
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/health_check_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/health_check_controller_spec.rb": [
         1,
         null,
         1,
@@ -1984,7 +1995,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/health_check_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/health_check_controller.rb": [
         1,
         1,
         null,
@@ -2001,7 +2012,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/languages_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/languages_controller_spec.rb": [
         1,
         null,
         null,
@@ -2168,7 +2179,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/languages_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/languages_controller.rb": [
         1,
         1,
         1,
@@ -2237,7 +2248,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/ping_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/ping_controller_spec.rb": [
         1,
         null,
         1,
@@ -2279,7 +2290,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/ping_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/ping_controller.rb": [
         1,
         1,
         null,
@@ -2290,7 +2301,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/search_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/search_controller_spec.rb": [
         1,
         null,
         1,
@@ -2365,7 +2376,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/search_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/search_controller.rb": [
         1,
         1,
         null,
@@ -2400,7 +2411,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/controllers/users_controller_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         null,
@@ -2559,7 +2570,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/controllers/users_controller.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -2642,7 +2653,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/features/1_sign_in/sign_in_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/features/1_sign_in/sign_in_spec.rb": [
         1,
         null,
         1,
@@ -2681,7 +2692,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/features/2_user_uploads_documents/upload_documents_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/features/2_user_uploads_documents/upload_documents_spec.rb": [
         1,
         null,
         1,
@@ -2715,7 +2726,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/features/3_search/search_for_category_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/features/3_search/search_for_category_spec.rb": [
         1,
         null,
         1,
@@ -2734,7 +2745,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/features/3_search/search_for_document_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/features/3_search/search_for_document_spec.rb": [
         1,
         null,
         1,
@@ -2754,7 +2765,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/lib/settings_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/lib/settings_spec.rb": [
         1,
         null,
         1,
@@ -2774,7 +2785,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/category_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/category_spec.rb": [
         null,
         null,
         null,
@@ -2813,7 +2824,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/category.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/category.rb": [
         null,
         null,
         null,
@@ -2858,7 +2869,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/lib/validators.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/lib/validators.rb": [
         1,
         1,
         1,
@@ -2885,7 +2896,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/doc_attachment_type_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/doc_attachment_type_spec.rb": [
         null,
         null,
         null,
@@ -2936,7 +2947,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/doc_attachment_type.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/doc_attachment_type.rb": [
         null,
         null,
         null,
@@ -2974,7 +2985,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/document_category_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/document_category_spec.rb": [
         null,
         null,
         null,
@@ -3020,7 +3031,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/document_category.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/document_category.rb": [
         null,
         null,
         null,
@@ -3045,7 +3056,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/document_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/document_spec.rb": [
         null,
         null,
         null,
@@ -3105,7 +3116,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/document.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/document.rb": [
         null,
         null,
         null,
@@ -3191,6 +3202,10 @@
         null,
         null,
         null,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         1,
@@ -3214,7 +3229,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/language_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/language_spec.rb": [
         null,
         null,
         null,
@@ -3269,7 +3284,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/language.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/language.rb": [
         null,
         null,
         null,
@@ -3311,7 +3326,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/related_documents_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/related_documents_spec.rb": [
         1,
         null,
         1,
@@ -3351,7 +3366,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/models/user_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/models/user_spec.rb": [
         null,
         null,
         null,
@@ -3383,7 +3398,7 @@
         2,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/requests/doc_attachment_types_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/requests/doc_attachment_types_spec.rb": [
         1,
         null,
         1,
@@ -3395,7 +3410,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/requests/languages_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/requests/languages_spec.rb": [
         1,
         null,
         1,
@@ -3407,7 +3422,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/requests/users_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/requests/users_spec.rb": [
         1,
         null,
         1,
@@ -3419,46 +3434,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/routing/doc_attachment_types_routing_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/routing/document_categories_routing_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/routing/doc_attachment_types_routing_spec.rb": [
         1,
         null,
         1,
@@ -3497,7 +3473,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/routing/languages_routing_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/routing/document_categories_routing_spec.rb": [
         1,
         null,
         1,
@@ -3536,7 +3512,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/routing/users_routing_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/routing/languages_routing_spec.rb": [
         1,
         null,
         1,
@@ -3575,7 +3551,46 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/services/health_check_service_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/routing/users_routing_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/services/health_check_service_spec.rb": [
         1,
         1,
         1,
@@ -3604,7 +3619,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/services/health_check_service.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/services/health_check_service.rb": [
         1,
         1,
         null,
@@ -3639,14 +3654,14 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/health_check.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/health_check.rb": [
         1,
         null,
         null,
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/health_check/database.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/health_check/database.rb": [
         1,
         1,
         null,
@@ -3691,7 +3706,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/models/health_check/component.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/models/health_check/component.rb": [
         1,
         1,
         null,
@@ -3747,7 +3762,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/categories/edit.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/categories/edit.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3770,7 +3785,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/categories/index.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/categories/index.html.haml_spec.rb": [
         1,
         1,
         1,
@@ -3793,7 +3808,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/categories/new.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/categories/new.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3816,7 +3831,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/categories/show.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/categories/show.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3836,54 +3851,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/doc_attachment_types/edit.html.haml_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/doc_attachment_types/index.html.haml_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/doc_attachment_types/new.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/doc_attachment_types/edit.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3906,7 +3874,54 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/doc_attachment_types/show.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/doc_attachment_types/index.html.haml_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/doc_attachment_types/new.html.haml_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/doc_attachment_types/show.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3926,7 +3941,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/document_categories/edit.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/document_categories/edit.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3953,7 +3968,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/document_categories/index.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/document_categories/index.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -3978,7 +3993,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/document_categories/new.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/document_categories/new.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4005,7 +4020,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/document_categories/show.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/document_categories/show.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4026,7 +4041,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/languages/edit.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/languages/edit.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4051,7 +4066,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/languages/index.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/languages/index.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4078,7 +4093,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/languages/new.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/languages/new.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4103,7 +4118,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/languages/show.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/languages/show.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4125,7 +4140,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/search/index.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/search/index.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4140,65 +4155,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/edit.html.haml_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/index.html.haml_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/new.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/users/edit.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4225,7 +4182,65 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/spec/views/users/show.html.haml_spec.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/users/index.html.haml_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/users/new.html.haml_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/spec/views/users/show.html.haml_spec.rb": [
         1,
         null,
         1,
@@ -4250,7 +4265,7 @@
         null,
         null
       ],
-      "/Users/danielpenny/hmcts-form-finder-back-office/app/services/deployment.rb": [
+      "/Users/nickpreddy/Desktop/Workbench/hmcts-form-finder-back-office/app/services/deployment.rb": [
         1,
         1,
         null,
@@ -4272,7 +4287,6 @@
         null
       ]
     },
-    "timestamp": 1495105366
-
+    "timestamp": 1495199327
   }
 }
