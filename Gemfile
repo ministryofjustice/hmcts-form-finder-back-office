@@ -35,9 +35,11 @@ group :development, :test do
   gem 'guard-livereload', '>= 2.5.2'
   gem 'guard-rspec'
   gem 'guard-rubocop'
+  gem 'launchy'
+  gem 'selenium-webdriver', '~> 3.4'
+  gem 'site_prism', '~> 2.9'
   gem 'rb-readline'
   gem 'rspec-rails', '~> 3.0'
-  gem 'launchy'
 end
 
 group :development do
