@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-19T11:51:51+01:00">2017-05-19T11:51:51+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-19T12:06:21+01:00">2017-05-19T12:06:21+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -3481,7 +3481,7 @@
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">      render :action =&gt; &#39;index&#39;</code>
+          <code class="ruby">      render action: &#39;index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
@@ -3775,7 +3775,7 @@
         <li class="missed" data-hits="0" data-linenumber="77">
           
           
-          <code class="ruby">    @linkeddocuments=@document.all_related</code>
+          <code class="ruby">    @linkeddocuments = @document.all_related</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
@@ -3835,7 +3835,7 @@
         <li class="missed" data-hits="0" data-linenumber="87">
           
           
-          <code class="ruby">    @document= Document.find(params[:id])</code>
+          <code class="ruby">    @document = Document.find(params[:id])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="88">
@@ -3973,31 +3973,31 @@
         <li class="missed" data-hits="0" data-linenumber="110">
           
           
-          <code class="ruby">    @linkeddocuments=@parent_document.all_related</code>
+          <code class="ruby">    @linkeddocuments = @parent_document.all_related</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="111">
           
           
-          <code class="ruby">    @documents=@documents - [@parent_document]</code>
+          <code class="ruby">    @documents = @documents - [@parent_document]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="112">
           
           
-          <code class="ruby">    @documents=@documents-@linkeddocuments</code>
+          <code class="ruby">    @documents = @documents-@linkeddocuments</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="113">
           
           
-          <code class="ruby">    @document=@parent_document</code>
+          <code class="ruby">    @document = @parent_document</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="114">
           
           
-          <code class="ruby">    @linkedcategories=DocumentCategory.where(&quot;document_id=#{params[:document]}&quot;)</code>
+          <code class="ruby">    @linkedcategories = DocumentCategory.where(&quot;document_id = #{params[:document]}&quot;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="115">
