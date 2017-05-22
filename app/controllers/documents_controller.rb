@@ -109,9 +109,9 @@ class DocumentsController < ApplicationController
   def postconnect
     @linkeddocuments = @parent_document.all_related
     @documents = @documents - [@parent_document]
-    @documents = @documents-@linkeddocuments
+    @documents = @documents - @linkeddocuments
     @document = @parent_document
-    @linkedcategories = DocumentCategory.where("document_id = #{params[:document]}")
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
     render 'documents/details'
     # TODO: Refactor Collection subtraction logic.
   end
