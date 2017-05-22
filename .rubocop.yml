@@ -349,7 +349,7 @@ Rails/FindEach:
 
 Rails/HasAndBelongsToMany:
   Description: 'Prefer has_many :through to has_and_belongs_to_many.'
-  Enabled: false
+  Enabled: false # Followed 'rails guide' advice instead http://guides.rubyonrails.org/association_basics.html#choosing-between-has-many-through-and-has-and-belongs-to-many
 
 Rails/Output:
   Description: 'Checks for calls to puts, print, etc.'
@@ -922,7 +922,7 @@ Style/SelfAssignment:
                  Checks for places where self-assignment shorthand should have
                  been used.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#self-assignment'
-  Enabled: false
+  Enabled: false # Card for amending code where these offenses take place is already in Jira TPFF-121
 
 Style/Semicolon:
   Description: "Don't use semicolons to terminate expressions."
