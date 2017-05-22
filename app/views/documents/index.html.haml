@@ -4,43 +4,30 @@
 = render partial: 'layouts/header', locals: {page_heading: 'Documents'}
 
 .grid-row
-  .column-full
+  .column-two-thirds
 
-    = link_to "Add a document", new_document_path, {class: "button", role: 'button'}
+    = link_to 'Add document', new_document_path, {class:'button', role:'button'}
 
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = "Your submission history"
-        %colgroup
-          %col
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = "Code"
-            %th{scope:'col'}
-              = "Title"
-            %th{scope:'col'}
-              = "Publish date"
-            %th{scope:'col'}
-              = "Inactive"
-            %th
-        %tbody
-          - @documents.each do |item|
-            %tr
-              %td
-                = item.code
-              %td
-                = item.title
-              %td
-                = l item.published_date if item.published_date.present?
-              %td
-                = item.inactive ? 'Yes' : 'No'
-              %td
-                = link_to item.file_format , item.attachment.url
-              %td
-                = link_to 'Edit', edit_document_path(item.id), {class: 'button-secondary', role: 'button'}
+    %h2.heading-medium.bold Edit document
+
+    = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
+      .form-group
+        -#= label_tag :selected_document, 'Select the document to edit', class:'form-label'
+        -#.form-hint
+        -#  Enter the documents reference/number
+        -#  %br
+        -#  For example, 'ex107'.
+        -#.autocomplete-wrapper
+        -#  = collection_select(:selected_document, params[:id], Document.all, :id, :reference_with_attributes, {}, {:class=>'form-control'})
+        -#= submit_tag 'Edit', role:'button', class:'button'
+
+        = label_tag :document_list, 'Select the document to edit', class:'form-label'
+        .form-hint
+          Enter the documents reference/number
+          %br
+          For example, 'ex107'.
+        .autocomplete-wrapper
+          = collection_select(:selected_document, params[:id], Document.all, :id, :reference_with_attributes, {}, {:id=>'document_list', :class=>'form-control'})
+        = submit_tag 'Edit', role:'button', class:'button'
+
+    .column-one-third

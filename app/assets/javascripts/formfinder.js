@@ -22,6 +22,25 @@ $(document).ready(function () {
 
     // Details/summary polyfill
     // See /javascripts/vendor/details.polyfill.js
+
+    // Accessible auto complete setup
+    var selectEl = document.querySelector('#document_list')
+    var queryStringParameters = window.location.search
+    var previouslySubmitted = queryStringParameters.length > 0
+
+    accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        defaultValue: '',
+        minLength: 2,
+        selectElement: selectEl
+    })
+
+    if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl.classList.remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document.querySelector('.submitted__select-document').innerHTML = params.get('selected_document[]')
+    }
 })
 
 $(window).load(function () {
