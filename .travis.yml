@@ -1,4 +1,5 @@
-language: ruby
+after_success:
+  - bundle exec codeclimate-test-reporterlanguage: ruby
 sudo: false
 cache: bundler
 addons:
