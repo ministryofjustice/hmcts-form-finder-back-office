@@ -68,8 +68,8 @@ class DocumentCategoriesController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-    @categories=[]
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+    @categories = []
     render 'document_categories/link'
   end
 
@@ -82,9 +82,9 @@ class DocumentCategoriesController < ApplicationController
   def connect
     prelink
     @category = Category.find(params[:related_category])
-    @documentcategory=DocumentCategory.new
-    @documentcategory.category_id=params[:related_category]
-    @documentcategory.document_id=params[:document]
+    @documentcategory = DocumentCategory.new
+    @documentcategory.category_id = params[:related_category]
+    @documentcategory.document_id = params[:document]
     @documentcategory.save
     postlink
   end
@@ -99,51 +99,51 @@ class DocumentCategoriesController < ApplicationController
       @categories = []
     end
     @parent_document = Document.find(params[:document])
-    @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
     @linkedcategories.each do |linkedcategory|
-      @cate=@cate.push(linkedcategory.category)
+      @cate = @cate.push(linkedcategory.category)
     end
-    @categories=@categories-@cate
-    @document=@parent_document
+    @categories = @categories - @cate
+    @document = @parent_document
     render 'document_categories/link'
     # TODO: Refactor Collection subtraction logic.
   end
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_document_category
-      @document_category = DocumentCategory.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_document_category
+    @document_category = DocumentCategory.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def document_category_params
-      params.require(:document_category).permit(:document_id, :category_id, :sort_order)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def document_category_params
+    params.require(:document_category).permit(:document_id, :category_id, :sort_order)
+  end
 
-    def prelink
-      @cate=[]
-      if params[:linksearch].present?
-        @categories = Category.search(params[:linksearch]).order('created_at DESC')
-      else
-        @categories = []
-      end
-      if params[:linksearch].present?
-        @documents = Document.search(params[:linksearch]).order('created_at DESC')
-      else
-        @documents = []
-      end
-      @parent_document = Document.find(params[:document])
+  def prelink
+    @cate = []
+    if params[:linksearch].present?
+      @categories = Category.search(params[:linksearch]).order('created_at DESC')
+    else
+      @categories = []
     end
+    if params[:linksearch].present?
+      @documents = Document.search(params[:linksearch]).order('created_at DESC')
+    else
+      @documents = []
+    end
+    @parent_document = Document.find(params[:document])
+  end
 
-    def postlink
-      @linkedcategories=DocumentCategory.where("document_id=#{params[:document]}")
-      @linkedcategories.each do |linkedcategory|
-        @cate=@cate.push(linkedcategory.category)
-      end
-      @categories=@categories-@cate
-      @document=@parent_document
-      @linkeddocuments=@parent_document.all_related
-      render 'documents/details'
+  def postlink
+    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+    @linkedcategories.each do |linkedcategory|
+      @cate = @cate.push(linkedcategory.category)
     end
+    @categories = @categories - @cate
+    @document = @parent_document
+    @linkeddocuments = @parent_document.all_related
+    render 'documents/details'
+  end
 end

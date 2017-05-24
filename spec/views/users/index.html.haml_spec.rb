@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.describe 'users/index', type: :view do
   before(:each) do
     assign(:users, [
-      User.create!(
-        :first_name => 'First Name',
-        :last_name => 'Last Name',
-        :email => 'Email0@email.com',
-        :password => 'Encrypted Password'
-      ),
-      User.create!(
-        :first_name => 'First Name',
-        :last_name => 'Last Name',
-        :email => 'Email10@email.com',
-        :password => 'Encrypted Password'
-      )
-    ])
+             User.create!(
+               first_name: 'First Name',
+               last_name: 'Last Name',
+               email: 'Email0@email.com',
+               password: 'Encrypted Password'
+             ),
+             User.create!(
+               first_name: 'First Name',
+               last_name: 'Last Name',
+               email: 'Email10@email.com',
+               password: 'Encrypted Password'
+             )
+           ])
   end
 
   it 'renders a list of users' do

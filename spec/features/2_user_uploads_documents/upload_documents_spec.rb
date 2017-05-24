@@ -6,12 +6,12 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
   let!(:type) { create :doc_attachment_type }
 
   background do
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
   end
 
   scenario 'from the home page upload and process 1 form' do
     visit documents_path
-    click_link 'Add a document'
+    click_link 'Add document'
 
     within('#new_document') do
       fill_in 'Code', with: Faker::Lorem.characters(8)

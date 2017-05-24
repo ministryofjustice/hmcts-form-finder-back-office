@@ -18,4 +18,5 @@
 //= require govuk/shim-links-with-button-role
 //= require govuk/show-hide-content
 //= require details.polyfill
+//= require accessible-autocomplete.min
 //= require_tree .
