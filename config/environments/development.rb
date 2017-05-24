@@ -41,14 +41,14 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.paperclip_defaults = {
-      url: ':s3_domain_url',
-      path: ':filename',
-      storage: :s3,
-      s3_credentials: {
-          bucket: ENV.fetch('DEV_FORM_FINDER_S3_BUCKET'),
-          access_key_id: ENV.fetch('DEV_FORM_FINDER_S3_ACCESS_KEY'),
-          secret_access_key: ENV.fetch('DEV_FORM_FINDER_S3_SECRET_KEY'),
-          s3_region: ENV.fetch('DEV_FORM_FINDER_S3_REGION'),
-      }
+    url: ':s3_domain_url',
+    path: ':filename',
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('DEV_FORM_FINDER_S3_BUCKET'),
+      access_key_id: ENV.fetch('DEV_FORM_FINDER_S3_ACCESS_KEY'),
+      secret_access_key: ENV.fetch('DEV_FORM_FINDER_S3_SECRET_KEY'),
+      s3_region: ENV.fetch('DEV_FORM_FINDER_S3_REGION')
+    }
   }
 end

@@ -20,8 +20,8 @@ class HealthCheckService
     errors.empty? ? HealthCheckReport.ok : HealthCheckReport.fail(errors)
   end
 
-  HealthCheckReport = 
-    Struct.new(:status, :messages) do 
+  HealthCheckReport =
+    Struct.new(:status, :messages) do
       def self.ok
         new('200', 'All Components OK')
       end
