@@ -375,6 +375,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver (~> 3.4)
   shoulda-matchers (~> 3.1.1)
+  simplecov
   site_prism (~> 2.9)
   susy (~> 2.2, >= 2.2.12)
   turbolinks
@@ -385,4 +386,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.14.3
+   1.14.6
