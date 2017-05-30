@@ -7,23 +7,23 @@
     = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
 
     %p
-      First name:
+      = t('helpers.label.user.first_name')+':'
       = @user.first_name
 
     %p
-      Last name:
+      = t('helpers.label.user.last_name')+':'
       = @user.last_name
 
     %p
-      Email:
+      = t('helpers.label.user.email')+':'
       = @user.email
 
     %p
-      Inactive:
+      = t('label.inactive')+':'
       = @user.inactive ? 'Yes' : 'No'
 
 .grid-row
   .column-one-half
-    = link_to 'Edit', edit_user_path(@user), class:'button-secondary', role:'button'
+    = link_to t('links.edit'), edit_user_path(@user), class: 'button-secondary', role: 'button'
   .column-one-half
-    = link_to 'Continue', users_path, class: 'button button-left-spacing', role:'button'
+    = link_to t('links.continue'), users_path, class: 'button button-left-spacing', role: 'button'

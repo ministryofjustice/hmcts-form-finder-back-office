@@ -11,8 +11,6 @@
   = f.password_field :password, autocomplete: "off"
 
   .actions
-    = f.submit "Sign in", class: 'button'
-
-
+    = f.submit I18n.t('links.sign.in'), class: 'button'
 
 = render "devise/shared/links"

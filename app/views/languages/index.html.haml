@@ -6,7 +6,7 @@
 
     = render partial: 'layouts/header', locals: {page_heading: 'Document languages'}
 
-    = link_to 'Add a language', new_language_path, {class:"button", role:"button"}
+    = link_to t('links.language.new'), new_language_path, class: 'button', role: 'button'
 
     .table-container.container
       %table.report
@@ -22,16 +22,16 @@
         %thead
           %tr
             %th{scope:'col'}
-              = "English name"
+              = t('helpers.label.language.english_name')
             %th{scope:'col'}
-              = "Welsh name"
+              = t('helpers.label.language.welsh_name')
             %th{scope:'col'}
-              = "Code"
+              = t('helpers.label.language.code')
             %th{scope:'col'}
-              = "Inactive"
+              = t('label.inactive')
             %th
         %tbody
-          - @languages.each do |language|
+          - @languages.each do | language |
             %tr
               %td
                 = language.english_name
@@ -42,4 +42,4 @@
               %td
                 = language.inactive ? 'Yes' : 'No'
               %td
-                = link_to "Edit", edit_language_path(language), class:"button-secondary", role:"button"
+                = link_to t('links.edit'), edit_language_path(language), class: 'button-secondary', role: 'button'

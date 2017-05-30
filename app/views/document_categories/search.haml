@@ -43,7 +43,7 @@
         returned the following results:
 
       %ul.list
-        - @documents.each do |item|
+        - @documents.each do | item |
           %li
             .item
               %span.reference
@@ -54,4 +54,4 @@
               .title
                 = item.title
             .action
-              = link_to "Select", link_document_categories_link_path( :document => item.id, :document_title => item.title ), {class:"button-secondary", role:"button"}
+              = link_to t('links.select'), link_document_categories_link_path( document: item.id, document_title: item.title ), class: 'button-secondary', role: 'button'

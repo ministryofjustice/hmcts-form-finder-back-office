@@ -1,16 +1,16 @@
-%nav{ id:'admin-navigation' }
+%nav{ id: 'admin-navigation' }
   %ul
     %li
-      = link_to "Categories", categories_url
+      = link_to t('links.navigation.categories'), categories_url
     %li
-      = link_to "Assign categories", link_document_categories_search_url
+      = link_to t('links.navigation.assign_categories'), link_document_categories_search_url
     %li
-      = link_to "Documents", documents_url
+      = link_to t('links.navigation.documents'), documents_url
     %li
-      = link_to "Link documents", link_documents_search_url
+      = link_to t('links.navigation.link_documents'), link_documents_search_url
     %li
-      = link_to "Languages", languages_url
+      = link_to t('links.navigation.languages'), languages_url
     %li
-      = link_to "Types", doc_attachment_types_url
+      = link_to t('links.navigation.types'), doc_attachment_types_url
     %li
-      = link_to "Users", users_url
+      = link_to t('links.navigation.users'), users_url
