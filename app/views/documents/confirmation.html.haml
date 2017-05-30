@@ -1,23 +1,23 @@
 - content_for :page_title do
-  = "Confirmation your documents have been submitted to HMCTS Form finder"
+  = 'Confirmation your documents have been submitted to HMCTS Form finder'
 
 .grid-row
   .column-full
     .confirmation-header
 
       %h1.page-title.bold-large
-        %object{:type => 'image/svg+xml', :data => image_path('icons/tick-white.svg'), :class => "confirmation-tick"}
-        = "Successfully submitted"
+        %object{ type: 'image/svg+xml', data: image_path('icons/tick-white.svg'), class: 'confirmation-tick' }
+        = 'Successfully submitted'
 
       .normal
         = @document.attachment_file_name
 
       .bold-medium
-        = "To be published on"
+        = 'To be published on'
 
       .bold-large
         = l @document.published_date
 
     .button-holder
-      = link_to "Upload more documents", new_document_path, {class: 'button', role: 'button'}
-      = link_to "Assign Categories to this Document", link_document_categories_link_path(:document => @document.id ), {class: 'button-secondary button-left-spacing', role: 'button'}
+      = link_to t('links.document.upload'), new_document_path, class: 'button', role: 'button'
+      = link_to t('links.category.assign'), link_document_categories_link_path( document: @document.id ), class: 'button-secondary button-left-spacing', role: 'button'
