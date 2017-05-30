@@ -6,7 +6,7 @@
 
     = render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
 
-    = link_to 'Add a category', new_category_path, {class:"button", role:"button"}
+    = link_to t('links.category.new'), new_category_path, class: 'button', role: 'button'
 
     .table-container.container
       %table.report
@@ -21,14 +21,14 @@
         %thead
           %tr
             %th{scope:'col'}
-              = "English name"
+              = t('helpers.label.category.english_name')
             %th{scope:'col'}
-              = "Welsh name"
+              = t('helpers.label.category.welsh_name')
             %th{scope:'col'}
-              = "Inactive"
+              = t('label.inactive')
             %th
         %tbody
-          - @categories.each do |category|
+          - @categories.each do | category |
             %tr
               %td
                 = category.english_name
@@ -37,4 +37,4 @@
               %td
                 = category.inactive ? 'Yes' : 'No'
               %td
-                = link_to 'Edit', edit_category_path(category), {class:"button-secondary", role:"button"}
+                = link_to t('links.edit'), edit_category_path(category), class: 'button-secondary', role: 'button'

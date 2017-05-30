@@ -16,10 +16,10 @@
         %td= document_category.document.title
         %td= document_category.category.english_name
         %td= document_category.sort_order
-        %td= link_to 'Show', document_category
-        %td= link_to 'Edit', edit_document_category_path(document_category)
-        %td= link_to 'Destroy', document_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to t('links.show'), document_category
+        %td= link_to t('links.edit'), edit_document_category_path(document_category)
+        %td= link_to t('links.remove'), document_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Document category', new_document_category_path
+= link_to t('links.add_category'), new_document_category_path

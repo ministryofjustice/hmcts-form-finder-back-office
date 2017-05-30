@@ -1,7 +1,7 @@
-= form_for @document, multipart: true do |f|
+= form_for @document, multipart: true do | f |
 
   .form-group
-    = f.label :attachment, "Choose a file to upload"
+    = f.label :attachment, 'Choose a file to upload'
     = f.file_field :attachment
 
   = f.text_field :code
@@ -10,20 +10,20 @@
 
   .form-group
     %fieldset
-      %legend What type of document is this?
-      = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: "block-label selection-button-radio"){b.radio_button + b.text} end
+      %legend
+        = t('document_type')
+      = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
 
   .form-group
-    = f.label :language_id, 'language', class: 'form-label'
-    = collection_select :document, :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: "form-control" }
+    = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
 
   .form-group
-    = f.gov_uk_date_field :published_date, legend_text: "When should this document be published?", placeholders: true
+    = f.gov_uk_date_field :published_date, legend_text: 'When should this document be published?', placeholders: true
 
   .form-group
-    %label.block-label.selection-button-checkbox{ for: "document_inactive" }
-      Inactive
+    %label.block-label.selection-button-checkbox{ for: 'document_inactive' }
       = f.check_box(:inactive, {}, true)
+      = t('label.inactive')
 
-  = f.submit "Submit document", { class: "button", role: "button" }
-  = link_to "Cancel", root_path, { class: "button-warning button-left-spacing", role: "button" }
+  = f.submit class: 'button', role: 'button'
+  = link_to t('links.cancel'), root_path, class: 'button-warning button-left-spacing', role: 'button'

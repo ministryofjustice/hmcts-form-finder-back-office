@@ -14,7 +14,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
     click_link 'Add document'
 
     within('#new_document') do
-      fill_in 'Code', with: Faker::Lorem.characters(8)
+      fill_in 'Reference/number', with: Faker::Lorem.characters(8)
       fill_in 'Title', with: Faker::Lorem.characters(8)
       # select type.english_name, from: 'Type'
       choose type.english_name
@@ -24,7 +24,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
       fill_in 'Month', with: Time.zone.now.month
       fill_in 'Year', with: Time.zone.now.year
 
-      click_button 'Submit document'
+      click_button 'Add'
     end
 
     expect(page).to have_content 'Successfully submitted'
