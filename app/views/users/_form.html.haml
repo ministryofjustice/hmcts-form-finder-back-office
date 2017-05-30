@@ -22,7 +22,7 @@
       = f.password_field :password_confirmation
       .form-group
         %label.block-label.selection-button-checkbox{ for: "user_inactive" }
-          Inactive
           = f.check_box(:inactive, {}, true)
+          = t('label.inactive')
 
-      = f.submit 'Save', class:"button", role:"button"
+      = f.submit class: 'button', role: 'button'

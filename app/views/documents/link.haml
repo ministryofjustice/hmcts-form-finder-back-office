@@ -35,7 +35,7 @@
           = hidden_field_tag 'document_title', params[:document_title]
           = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
-          = submit_tag "Search", :name => nil, role:"button", class:"button"
+          = submit_tag 'Search', :name => nil, role: 'button', class: 'button'
 
       - if @documents.empty?
         -#%p.no-result-message No result found to display
@@ -70,7 +70,7 @@
         %i "#{params[:linksearch]}"
         returned the following results:
       %ul.list
-        - @documents.each do |item|
+        - @documents.each do | item |
           %li
             .item
               %span.reference
@@ -81,7 +81,7 @@
               .title
                 = item.title
             .action
-              = link_to 'Link', link_documents_connect_path(:related_document => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:'button', role:'button'}
+              = link_to t('links.link'), link_documents_connect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - if @linkeddocuments.exists?
 
@@ -101,7 +101,7 @@
     .column-two-thirds
 
       %ul.list
-        - @linkeddocuments.each do |item|
+        - @linkeddocuments.each do | item |
           %li
             .item
               %span.reference
@@ -112,4 +112,4 @@
               .title
                 = item.title
             .action
-              = link_to 'Remove', link_documents_unconnect_path(:related_document => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), {class:'button-warning', role:'button'}
+              = link_to t('links.remove'), link_documents_unconnect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'

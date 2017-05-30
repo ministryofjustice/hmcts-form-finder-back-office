@@ -1,15 +1,12 @@
-.grid-row
-  .column-full
+- if @language.errors.any?
 
-    - if @language.errors.any?
-
-      .error-summary{role: 'group', 'aria-labelledby': 'error-summary-add-language', tabindex: '-1'}
-        %h1#error-summary-add-language.heading-medium.error-summary-heading
-          = "#{pluralize(@language.errors.count, "error")} prevented this language from being added:"
-        %p
-        %ul.error-summary-list
-          - @language.errors.full_messages.each do |msg|
-            %li= msg
+  .error-summary{role: 'group', 'aria-labelledby': 'error-summary-add-language', tabindex: '-1'}
+    %h1#error-summary-add-language.heading-medium.error-summary-heading
+      = "#{pluralize(@language.errors.count, "error")} prevented this language from being added:"
+    %p
+    %ul.error-summary-list
+      - @language.errors.full_messages.each do |msg|
+        %li= msg
 
 .grid-row
   .column-two-thirds
@@ -20,7 +17,9 @@
       = f.text_field :code
       .form-group
         %label.block-label.selection-button-checkbox{ for: "language_inactive" }
-          Inactive
           = f.check_box(:inactive, {}, true)
+          = t('label.inactive')
 
-      = f.submit 'Save', {class:"button", role:"button"}
+      = f.submit class: 'button', role: 'button'
+
+  .column-one-third

@@ -20,25 +20,123 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 cy:
-  date:
-    formats:
-      default: "%d/%m/%Y"
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M"
-  search_page_title: "Ffurflenni a thaflenni"
+
+  about_hmcts: "Ynglŷn Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
+  available_types: "Mathau ar gael"
+  clear: "Clirio"
+  close: "Cau"
+  crown_copyright: "Hawlfraint y Goron"
+  document_type: "Pa fath o ddogfen yw hwn?"
+  form_number: "Rhif ffurflen/Rhif taflen"
+  form_title: "Teitl ffurflen/Teitl tafle"
+  publish_when: "Pryd y dylid ddogfen hon ei chyhoeddi?"
+  privacy: "Eich preifatrwydd"
+  search_by: "Chwilio am lys gydag enw'r stryd neu'r cod post"
   search_for_forms_and_leaflets: "Chwilio am ffurflenni a thaflenni"
+  search_page_title: "Ffurflenni a thaflenni"
+  search_result_heading: "Chwilio canlyniad ar gyfer:"
+  search: "Chwilio"
   step1_para1: "Mae'r gwasanaeth hwn yn rhoi rhestr o'r holl ffurflenni a thaflenni a ddarperir gan WLlEM i'r cyhoedd. Mae'r rhestr yn tyfu ac ychwanegir rhagor o ffurflenni a thaflenni ati'n rheolaidd."
   step1_para2: "Os gwyddoch rif y ffurflen neu'r daflen yr hoffech ddod o hyd iddi, rhowch y rhif yn y blwch testun rhydd isod"
   step1_para3: "Fel arall, os nad ydych yn gwybod beth yw rhif y ffurflen, rhowch deitl (neu allweddair) neu dewiswch gategori o'r rhestr ddisgyn 'math o waith' sy'n rhestru'r holl ffurflenni sydd ar gael yn ôl math y busnes"
-  search_by: "Chwilio am lys gydag enw'r stryd neu'r cod post"
-  form_number: "Rhif ffurflen/Rhif taflen"
-  form_title: "Teitl ffurflen/Teitl tafle"
-  available_types: "Mathau ar gael"
-  close: "Cau"
-  clear: "Clirio"
-  search: "Chwilio"
-  about_hmcts: ""
-  privacy: ""
-  crown_copyright: ""
-  search_result_heading: "Chwilio canlyniad ar gyfer:"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+
+  headings:
+    categories:
+      add: "Ychwanegu categori"
+
+  helpers:
+    label:
+      category:
+        english_name: "enw Saesneg"
+        welsh_name: "enw Cymraeg"
+      doc_attachment_type:
+        english_name: "enw Saesneg"
+        welsh_name: "enw Cymraeg"
+      document:
+        code: "Cyfeirnod/Rhif"
+        title: "Teitl"
+        language_id: "iaith"
+      language:
+        english_name: "enw Saesneg"
+        welsh_name: "enw Cymraeg"
+        code: "cod iaith Tair llythyren"
+      user:
+        first_name: "Enw cyntaf"
+        last_name: "Cyfenw"
+        email: "Cyfeiriad ebost"
+        password: "cyfrinair"
+        password_confirmation: "cadarnhau cyfrinair"
+
+    submit:
+      category:
+        create: "atodi"
+        update: "Diweddariad"
+      doc_attachment_type:
+        create: "atodi"
+        update: "Diweddariad"
+      document:
+        create: "atodi"
+        update: "Diweddariad"
+      language:
+        create: "atodi"
+        update: "Diweddariad"
+      user:
+        create: "atodi"
+        update: "Diweddariad"
+      edit: "golygu"
+
+  label:
+    inactive: "anweithgar"
+
+  links:
+    account:
+      change_password: "Newid fy nghyfrinair"
+      confirm: "Cadarnhau fy nghyfrif"
+      forgot_password: "Wedi anghofio eich cyfrinair?"
+      unlock: "Datgloi fy nghyfrif"
+      no_confirmation_instructions: "Ddim wedi derbyn cyfarwyddiadau cadarnhad?"
+      no_unlock_instructions: "Ddim wedi derbyn cyfarwyddiadau datglo?"
+    assign: "aseinio"
+    back: "Yn ôl"
+    cancel: "Diddymu"
+    category:
+      new: "Ychwanegu categori"
+      assign: "Neilltuo categorïau i ddogfen"
+    continue: "parhau"
+    document:
+      new: "Ychwanegu ddogfen"
+      upload: "Llwytho mwy o ddogfennau"
+    edit: "golygu"
+    feedback: "adborth"
+    navigation:
+      assign_categories: "neilltuo categorïau"
+      categories: "categorïau"
+      documents: "dogfennau"
+      languages: "ieithoedd"
+      link_documents: "dogfennau Cyswllt"
+      types: "mathau"
+      users: "defnyddwyr"
+    language:
+      new: "Ychwanegu iaith"
+    link: "Cyswllt"
+    remove: "Dileu"
+    report_fault: "adrodd am nam yma."
+    select: "dewiswch"
+    sign:
+      in: "Mewngofnodi"
+      out: "Allgofnodi"
+      up: "Cofrestru"
+      with: "Mewngofnodi gyda"
+    show: "Dangos"
+    type:
+      new: "Ychwanegu math"
+    user:
+      new: "Creu Defnyddiwr newydd"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"

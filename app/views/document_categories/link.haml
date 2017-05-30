@@ -79,8 +79,7 @@
                 = item.welsh_name
             .action
 
-              = link_to 'Assign', link_document_categories_connect_path(:related_category => item.id, :document => params[:document], :document_title => params[:document_title], :linksearch => params[:linksearch]), class:'button', role:'button'
-
+              = link_to t('links.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - if @linkedcategories.exists?
 
@@ -102,7 +101,7 @@
       - if @linkedcategories.exists?
 
         %ul.list
-          - @linkedcategories.each do |item|
+          - @linkedcategories.each do | item |
             %li
               .item
                 = item.category.english_name
@@ -112,5 +111,5 @@
                 = item.category.welsh_name
               .action
 
-                = link_to "Remove", link_document_categories_unconnect_path(:related_category => item.id, :document => params[:document], :linksearch => params[:linksearch]), class:'button-warning', role:'button'
+                = link_to t('links.remove'), link_document_categories_unconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
 

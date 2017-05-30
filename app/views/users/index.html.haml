@@ -6,7 +6,7 @@
 
     = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
 
-    = link_to 'Create a new User', new_user_path, class: 'button'
+    = link_to t('links.user.new'), new_user_path, class: 'button'
 
     .table-container.container
       %table.report
@@ -22,16 +22,16 @@
         %thead
           %tr
             %th{scope:'col'}
-              = "First name"
+              = t('helpers.label.user.first_name')
             %th{scope:'col'}
-              = "Last name"
+              = t('helpers.label.user.last_name')
             %th{scope:'col'}
-              = "Email"
+              = t('helpers.label.user.email')
             %th{scope:'col'}
-              = "Inactive"
+              = t('label.inactive')
             %th
         %tbody
-          - @users.each do |user|
+          - @users.each do | user |
             %tr
               %td
                 = user.first_name
@@ -42,4 +42,4 @@
               %td
                 = user.inactive ? 'Yes' : 'No'
               %td
-                = link_to "Edit", edit_user_path(user), {class:"button-secondary", role:"button"}
+                = link_to t('links.edit'), edit_user_path(user), {class:"button-secondary", role:"button"}

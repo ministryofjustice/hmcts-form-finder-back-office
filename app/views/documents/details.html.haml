@@ -28,7 +28,7 @@
     .column-two-thirds
       %hr
       %ul.list
-        - @linkeddocuments.each do |item|
+        - @linkeddocuments.each do | item |
           %li
             %span.reference
               = item.code
@@ -38,7 +38,7 @@
             %br
               = item.title
 
-      = link_to 'Link to another document', link_documents_link_path(:document => @document), { class:'button', role:'button' }
+      = link_to t('links.document.upload'), link_documents_link_path(document: @document),  class: 'button', role: 'button'
 
 - if @linkedcategories.exists?
 
@@ -50,8 +50,8 @@
     .column-two-thirds
       %hr
       %ul.list
-        - @linkedcategories.each do |category|
+        - @linkedcategories.each do | category |
           %li
             = category.category.english_name
 
-      = link_to 'Assign to another category', link_document_categories_link_path(:document => @document), { class:'button', role:'button' }
+      = link_to t('links.category.assign'), link_document_categories_link_path(document: @document), class: 'button', role: 'button'

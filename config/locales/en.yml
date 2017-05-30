@@ -20,25 +20,123 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  date:
-    formats:
-      default: "%d/%m/%Y"
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M"
-  search_page_title: "Courts and tribunal form finder"
+
+  about_hmcts: "About Her Majesty's Court and Tribunals Service"
+  available_types: "Available types"
+  clear: "Clear"
+  close: "Close"
+  crown_copyright: "Crown Copyright"
+  document_type: "What type of document is this?"
+  form_number: "Form/leaflet number"
+  form_title: "Form/leaflet title"
+  publish_when: "When should this document be published?"
+  privacy: "Privacy"
+  search_by: "Search by"
   search_for_forms_and_leaflets: "Search for forms and leaflets"
+  search_page_title: "Courts and tribunal form finder"
+  search_result_heading: "Search result for:"
+  search: "Search"
   step1_para1: "Find court and tribunal forms and leaflets, including divorce, probate, deed poll, money claim, help with fees and social security tribunal forms."
   step1_para2: "If you know the number of the form/leaflet you wish to locate please enter it in the free text box below."
   step1_para3: "Alternatively, if you do not know the form number enter a title (or keyword) or choose a category from the work type drop down list which lists the forms available by business type."
-  search_by: "Search by"
-  form_number: "Form/leaflet number"
-  form_title: "Form/leaflet title"
-  available_types: "Available types"
-  close: "Close"
-  clear: "Clear"
-  search: "Search"
-  about_hmcts: "About Her Majesty's Court and Tribunals Service"
-  privacy: "Privacy"
-  crown_copyright: "Crown Copyright"
-  search_result_heading: "Search result for:"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+
+  headings:
+    categories:
+      add: "Add a category"
+
+  helpers:
+    label:
+      category:
+        english_name: "English name"
+        welsh_name: "Welsh name"
+      doc_attachment_type:
+        english_name: "English name"
+        welsh_name: "Welsh name"
+      document:
+        code: "Reference/number"
+        title: "Title"
+        language_id: "Language"
+      language:
+        english_name: "English name"
+        welsh_name: "Welsh name"
+        code: "Three letter language code"
+      user:
+        first_name: "First name"
+        last_name: "Surname"
+        email: "Email address"
+        password: "Password"
+        password_confirmation: "Confirm password"
+
+    submit:
+      category:
+        create: "Add"
+        update: "Update"
+      doc_attachment_type:
+        create: "Add"
+        update: "Update"
+      document:
+        create: "Add"
+        update: "Update"
+      language:
+        create: "Add"
+        update: "Update"
+      user:
+        create: "Add"
+        update: "Update"
+      edit: "Edit"
+
+  label:
+    inactive: "Inactive"
+
+  links:
+    account:
+      change_password: "Change my password"
+      confirm: "Confirm my account"
+      forgot_password: "Forgot your password?"
+      unlock: "Unlock my account"
+      no_confirmation_instructions: "Didn't receive confirmation instructions?"
+      no_unlock_instructions: "Didn't receive unlock instructions?"
+    assign: "Assign"
+    back: "Back"
+    cancel: "Cancel"
+    category:
+      new: "Add category"
+      assign: "Assign categories to document"
+    continue: "Continue"
+    document:
+      new: "Add document"
+      upload: "Upload more documents"
+    edit: "Edit"
+    feedback: "feedback"
+    navigation:
+      assign_categories: "Assign categories"
+      categories: "Categories"
+      documents: "Documents"
+      languages: "Languages"
+      link_documents: "Link documents"
+      types: "Types"
+      users: "Users"
+    language:
+      new: "Add language"
+    link: "Link"
+    remove: "Remove"
+    report_fault: "report a fault here."
+    select: "Select"
+    sign:
+      in: "Sign in"
+      out: "Sign out"
+      up: "Sign up"
+      with: "Sign in with"
+    show: "Show"
+    type:
+      new: "Add type"
+    user:
+      new: "Create a new User"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
