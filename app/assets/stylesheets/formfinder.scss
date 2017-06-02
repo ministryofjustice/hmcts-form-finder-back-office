@@ -1,12 +1,29 @@
+//I dont understand the need for
+// breaking up the css based on colors and
+// then other defs make it harder to follow
+
 // === Colour definitions ================
 
-#admin-navigation ul { border-bottom-color: $border-colour; }
-#admin-navigation ul li.active { background-color: $grey-2; }
-#admin-navigation ul li a { color: $text-colour; }
-#admin-navigation ul li a:hover { background-color: $grey-3; }
+// I understand that there is likely to be only
+// one nav on the page but in terms of css why not use
+// a class as its less specific and keeps your css specificity
+// score down.
+// if you look in app/views/shared/_nav_bar.haml I removed the id
+// of nav and moved it to ul as a class
 
+// eg. ul.admin-navigation
+
+.admin-navigation { border-bottom-color: $border-colour; }
+// looking at app/views/shared/_nav_bar.haml i cant see where
+// this class would be used so it could potentially be removed
+.admin-navigation .active { background-color: $grey-2; }
+.admin-navigation a { color: $text-colour; }
+.admin-navigation a:hover { background-color: $grey-3; }
+
+// Should this not be in /stylesheets/moj/_buttons.scss?
 .button-warning { @include button($red); }
 
+//Where is .list used?
 .list li:nth-child(even),
 .un-assigned li:nth-child(even) {
   background-color: $highlight-colour;
@@ -71,6 +88,41 @@
   width: 20em;
 }
 
+
+// Why are the next four media queries separated?
+// They could just be a single media query. DRY and clean
+
+/* Instead of hard coding px min/max widths why not use
+   GOVUK Frontend Toolkits media mixins where you can say
+   mobile tablet,desktop and even target specific IE versions
+
+https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_conditionals.scss
+
+// Media query helpers. These make producing IE layouts
+// super easy.
+
+// The base css you write should be for mobile. You can
+// then add desktop styles on top.
+//
+// Usage:
+//
+//   div.columns {
+//     border: 1px solid;
+//
+//     @include media(desktop){
+//       width: 30%;
+//       float: left;
+//     }
+//     @include ie-lte(8) {
+//       something to fix visual bugs in old IE
+//     }
+//     @include ie(6) {
+//       padding: 0;
+//     }
+//   }
+
+
+*/
 @media (min-width: 641px) {
   .action {
     display: inline-block;
@@ -156,6 +208,8 @@ body {
 }
 
 form {
+  // if you are overwriting GOVUK styling then why not
+  // place it in stylesheets/moj/_govuk_overrides.scss?
   .form-group {
     .form-hint {
       margin-bottom: 5px;
@@ -167,6 +221,8 @@ form {
   }
 }
 
+// if you are overwriting buttons styling then why not
+// place it in stylesheets/moj/_buttons.scss?
 @media screen and (max-width: 640px) {
   .button-left-spacing {
     margin-left: 0;
@@ -182,6 +238,8 @@ form {
   }
 }
 
+// if you are overwriting GOVUK styling then why not
+// place it in stylesheets/moj/_govuk_overrides.scss?
 @media (min-width: 641px) {
   input#search_field.form-control {
     display: block;
