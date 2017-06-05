@@ -15,3 +15,6 @@
 /.idea
 set_env.sh
 logfile
+
+.coverage
+coverage/*
