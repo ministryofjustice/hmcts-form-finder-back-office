@@ -1,24 +1,27 @@
 - content_for :page_title do
   = "Document management for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Documents'}
+.grid-row
+  .column-full
+    = render partial: 'layouts/header', locals: { page_heading: t('document.heading') }
 
 .grid-row
   .column-two-thirds
 
-    = link_to t('links.document.new'), new_document_path, class: 'button', role: 'button'
+    = link_to t('document.add'), new_document_path, class: 'button', role: 'button'
 
-    %h2.heading-medium.bold Edit document
+    %h2.heading-medium.bold
+      = t('document.edit')
 
     = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
       .form-group
-        = label_tag :document_list, 'Select the document to edit', class:'form-label'
+        = label_tag :document_list, t('document.select_document'), class:'form-label'
         .form-hint
-          Enter the documents reference/number
+          = t('document.enter_reference')
           %br
-          For example, 'ex107'.
+          = t('document.example_reference')
         .autocomplete-wrapper
-          = collection_select(:selected_document, params[:id], Document.all, :id, :reference_with_attributes, {}, {:id=>'document_list', :class=>'form-control'})
-        = submit_tag t('helpers.submit.edit'), role: 'button', class: 'button'
+          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { :id => 'document_list', :class => 'form-control' } )
+        = submit_tag t('action.edit'), role: 'button', class: 'button'
 
     .column-one-third

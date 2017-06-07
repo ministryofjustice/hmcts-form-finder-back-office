@@ -4,28 +4,41 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'Document languages'}
-
-    - if @language.english_name.present?
-      %p
-        = t('helpers.label.language.english_name')+':'
-        = @language.english_name
-
-    - if @language.welsh_name.present?
-      %p
-        = t('helpers.label.language.welsh_name')+':'
-        = @language.welsh_name
-
-    %p
-      = t('helpers.label.language.code')+':'
-      = @language.code
-
-    %p
-      = t('label.inactive')+':'
-      = @language.inactive ? 'Yes' : 'No'
+    = render partial: 'layouts/header', locals: { page_heading: t('language.summary') }
 
 .grid-row
-  .column-one-half
-    = link_to t('links.edit'), edit_language_path(@language), class: 'button-secondary', role: 'button'
-  .column-one-half
-    = link_to t('links.continue'), languages_path, class: 'button button-left-spacing', role: 'button'
+  .column-two-thirds
+
+    .summary
+
+      - if @language.english_name.present?
+        .grid-row
+          .column-one-third
+            = t('helpers.label.language.english_name')+':'
+          .column-two-thirds
+            = @language.english_name
+
+      - if @language.welsh_name.present?
+        .grid-row
+          .column-one-third
+            = t('helpers.label.language.welsh_name')+':'
+          .column-two-thirds
+            = @language.welsh_name
+
+      .grid-row
+        .column-one-third
+          = t('helpers.label.language.code')+':'
+        .column-two-thirds
+          = @language.code
+
+      .grid-row
+        .column-one-third
+          = t('label.inactive')+':'
+        .column-two-thirds
+          = @language.inactive ? 'Yes' : 'No'
+
+    .button-holder
+      = link_to t('action.edit'), edit_language_path(@language), class: 'button-secondary', role: 'button'
+      = link_to t('action.done'), languages_path, class: 'button button-left-spacing', role: 'button'
+
+  .column-one-third

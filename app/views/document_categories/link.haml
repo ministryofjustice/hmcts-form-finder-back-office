@@ -79,7 +79,7 @@
                 = item.welsh_name
             .action
 
-              = link_to t('links.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
+              = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - if @linkedcategories.exists?
 

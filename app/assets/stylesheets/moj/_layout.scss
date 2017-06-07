@@ -12,7 +12,16 @@ body {
 #page {
   @extend %site-width-container;
 }
+
 .body-content {
   @include span(6 of 12);
   @include first;
+}
+
+.main {
+  @include grid-column( 2/3 );
+}
+
+.sidebar {
+  @include grid-column( 1/3 );
 }
