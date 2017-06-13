@@ -20,17 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 cy:
+  # Template ========
 
   about_hmcts: "Ynglŷn Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
-  available_types: "Mathau ar gael"
+  crown_copyright: "Hawlfraint y Goron"
+  privacy: "Eich preifatrwydd"
+
+  # Public pages ========
+
   clear: "Clirio"
   close: "Cau"
-  crown_copyright: "Hawlfraint y Goron"
-  document_type: "Pa fath o ddogfen yw hwn?"
   form_number: "Rhif ffurflen/Rhif taflen"
   form_title: "Teitl ffurflen/Teitl tafle"
-  publish_when: "Pryd y dylid ddogfen hon ei chyhoeddi?"
-  privacy: "Eich preifatrwydd"
   search_by: "Chwilio am lys gydag enw'r stryd neu'r cod post"
   search_for_forms_and_leaflets: "Chwilio am ffurflenni a thaflenni"
   search_page_title: "Ffurflenni a thaflenni"
@@ -40,13 +41,54 @@ cy:
   step1_para2: "Os gwyddoch rif y ffurflen neu'r daflen yr hoffech ddod o hyd iddi, rhowch y rhif yn y blwch testun rhydd isod"
   step1_para3: "Fel arall, os nad ydych yn gwybod beth yw rhif y ffurflen, rhowch deitl (neu allweddair) neu dewiswch gategori o'r rhestr ddisgyn 'math o waith' sy'n rhestru'r holl ffurflenni sydd ar gael yn ôl math y busnes"
 
+  # Admin interface pages ========
+
+  application_name: "Ffurflen darganfyddwr"
+
+  action:
+    assign: "aseinio"
+    back: "Yn ôl"
+    cancel: "Diddymu"
+    continue: "parhau"
+    done: "Done"
+    edit: "golygu"
+    link: "Cyswllt"
+    remove: "Dileu"
+    select: "dewiswch"
+    show: "Dangos"
+
+  category:
+    add: "Ychwanegu categori"
+    assign: "neilltuo categorïau"
+    available: "categorïau ar gael"
+    create_success: "Categori grëwyd yn llwyddiannus."
+    delete_success: "Categori ddileu'n llwyddiannus."
+    edit: "categori golygu"
+    heading: "categorïau"
+    summary: "crynodeb categori"
+    update_success: "Categori ddiweddaru'n llwyddiannus."
+
   date:
     formats:
       default: "%d/%m/%Y"
 
-  headings:
-    categories:
-      add: "Ychwanegu categori"
+  department: "Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
+  department_initials: "HMCTS"
+
+  document:
+    add: "Ychwanegu ddogfen"
+    choose_another_file: "Dewiswch ffeil gwahanol i lwytho"
+    choose_file: "Dewiswch ffeil i'w lwytho"
+    current_file: "ddogfen cyfredol"
+    edit: "dogfen golygu"
+    enter_reference: "Nodwch y dogfennau cyfeirio / rhif"
+    example_reference: "Er enghraifft, 'ex107'"
+    heading: "dogfennau"
+    link: "dogfennau Cyswllt"
+    publication_date: "dyddiad cyhoeddi Set"
+    publish_on: "I'w gyhoeddi"
+    select_document: "Dewiswch y ddogfen i olygu"
+    upload: "Llwytho mwy o ddogfennau"
 
   helpers:
     label:
@@ -63,7 +105,7 @@ cy:
       language:
         english_name: "enw Saesneg"
         welsh_name: "enw Cymraeg"
-        code: "cod iaith Tair llythyren"
+        code: "cod iaith"
       user:
         first_name: "Enw cyntaf"
         last_name: "Cyfenw"
@@ -73,70 +115,75 @@ cy:
 
     submit:
       category:
-        create: "atodi"
-        update: "Diweddariad"
+        create: "Cyflwyno"
+        update: "Cadw"
       doc_attachment_type:
-        create: "atodi"
-        update: "Diweddariad"
+        create: "Cyflwyno"
+        update: "Cadw"
       document:
-        create: "atodi"
-        update: "Diweddariad"
+        create: "Cyflwyno"
+        update: "Cadw"
       language:
-        create: "atodi"
-        update: "Diweddariad"
+        create: "Cyflwyno"
+        update: "Cadw"
       user:
-        create: "atodi"
-        update: "Diweddariad"
-      edit: "golygu"
+        create: "Cyflwyno"
+        update: "Cadw"
 
   label:
     inactive: "anweithgar"
+    type: "math o ddogfen"
 
-  links:
-    account:
-      change_password: "Newid fy nghyfrinair"
-      confirm: "Cadarnhau fy nghyfrif"
-      forgot_password: "Wedi anghofio eich cyfrinair?"
-      unlock: "Datgloi fy nghyfrif"
-      no_confirmation_instructions: "Ddim wedi derbyn cyfarwyddiadau cadarnhad?"
-      no_unlock_instructions: "Ddim wedi derbyn cyfarwyddiadau datglo?"
-    assign: "aseinio"
-    back: "Yn ôl"
-    cancel: "Diddymu"
-    category:
-      new: "Ychwanegu categori"
-      assign: "Neilltuo categorïau i ddogfen"
-    continue: "parhau"
-    document:
-      new: "Ychwanegu ddogfen"
-      upload: "Llwytho mwy o ddogfennau"
-    edit: "golygu"
+  language:
+    add: "Ychwanegu iaith"
+    available: "ieithoedd sydd ar gael"
+    create_success: "Iaith a grëwyd yn llwyddiannus."
+    delete_success: "Iaith ddileu'n llwyddiannus."
+    edit: "golygu iaith"
+    heading: "ieithoedd"
+    summary: "crynodeb iaith"
+    update_success: "Iaith ddiweddaru'n llwyddiannus."
+
+  link:
     feedback: "adborth"
-    navigation:
-      assign_categories: "neilltuo categorïau"
-      categories: "categorïau"
-      documents: "dogfennau"
-      languages: "ieithoedd"
-      link_documents: "dogfennau Cyswllt"
-      types: "mathau"
-      users: "defnyddwyr"
-    language:
-      new: "Ychwanegu iaith"
-    link: "Cyswllt"
-    remove: "Dileu"
     report_fault: "adrodd am nam yma."
-    select: "dewiswch"
-    sign:
-      in: "Mewngofnodi"
-      out: "Allgofnodi"
-      up: "Cofrestru"
-      with: "Mewngofnodi gyda"
-    show: "Dangos"
-    type:
-      new: "Ychwanegu math"
-    user:
-      new: "Creu Defnyddiwr newydd"
+
+  notice:
+    success: "gyflwynwyd yn llwyddiannus"
+
+  sign:
+    in: "Mewngofnodi"
+    out: "Allgofnodi"
+    up: "Cofrestru"
+    with: "Mewngofnodi gyda"
 
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+
+  type:
+    add: "Ychwanegu math"
+    available: "mathau sydd ar gael"
+    create_success: "Teipiwch greu yn llwyddiannus."
+    delete_success: "Teipiwch ddileu'n llwyddiannus."
+    edit: "math golygu"
+    heading: "mathau o ddogfen"
+    summary: "crynodeb math"
+    update_success: "Teipiwch ddiweddaru'n llwyddiannus."
+
+  user:
+    add: "Ychwanegu defnyddiwr"
+    available: "defnyddwyr presennol"
+    change_password: "Newid fy nghyfrinair"
+    confirm: "Cadarnhau fy nghyfrif"
+    create_success: "Defnyddiwr grëwyd yn llwyddiannus."
+    delete_success: "Defnyddiwr ddileu'n llwyddiannus."
+    edit: "defnyddiwr golygu"
+    forgot_password: "Wedi anghofio eich cyfrinair?"
+    heading: "cyfrifon defnyddwyr"
+    name: "enw"
+    no_confirmation_instructions: "Ddim wedi derbyn cyfarwyddiadau cadarnhad?"
+    no_unlock_instructions: "Ddim wedi derbyn cyfarwyddiadau datglo?"
+    summary: "crynodeb defnyddiwr"
+    unlock: "Datgloi fy nghyfrif"
+    update_success: "Defnyddiwr ddiweddaru'n llwyddiannus."

@@ -4,16 +4,16 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'Document types'}
+    = render partial: 'layouts/header', locals: { page_heading: t('type.heading') }
 
-    = link_to t('links.type.new'), new_doc_attachment_type_path, class: 'button', role: 'button'
+    = link_to t('type.add'), new_doc_attachment_type_path, class: 'button', role: 'button'
 
     .table-container.container
       %table.report
         %caption
           %span.table-caption
             = @doc_attachment_types.size
-            types current available
+            = t('type.available')
         %colgroup
           %col
           %col
@@ -37,4 +37,4 @@
               %td
                 = doc_attachment_type.inactive ? 'Yes' : 'No'
               %td
-                = link_to t('links.edit'), edit_doc_attachment_type_path(doc_attachment_type), class: 'button-secondary', role: 'button'
+                = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)

@@ -28,40 +28,20 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: 'This category was successfully created' }
-        format.json { render :show, status: :created, location: @category }
-      else
-        format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
+    apply_category_change('add')
   end
 
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'This category was successfully updated' }
-        format.json { render :show, status: :ok, location: @category }
-      else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
+    apply_category_change('edit')
   end
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
     @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'This category was successfully deleted' }
-      format.json { head :no_content }
-    end
+    apply_category_change('delete')
   end
 
   private
@@ -78,6 +58,27 @@ class CategoriesController < ApplicationController
 
   def update_params
     params.permit(:id, :english_name, :welsh_name, :inactive)
+  end
+
+  def apply_category_change(action)
+    respond_to do |format|
+      case action
+      when 'add'
+        if @category.save
+          format.html { redirect_to @category, notice: t('category.create_success') }
+        else
+          format.html { render :new }
+        end
+      when 'edit'
+        if @category.update(category_params)
+          format.html { redirect_to @category, notice: t('category.update_success') }
+        else
+          format.html { render :edit }
+        end
+      else
+        format.html { redirect_to categories_url, notice: t('category.delete_success') }
+      end
+    end
   end
 
 end

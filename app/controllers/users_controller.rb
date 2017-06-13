@@ -31,11 +31,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'This user account was successfully created' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to @user, notice: t('user.create_success') }
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,11 +45,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         sign_in(:user, @user, bypass: true) if admin_user == @user
-        format.html { redirect_to @user, notice: "This user's details were successfully updated" }
-        format.json { render :show, status: :ok, location: @user }
+        format.html { redirect_to @user, notice: t('user.update_success') }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,8 +57,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "This user's account was successfully deleted" }
-      format.json { head :no_content }
+      format.html { redirect_to users_url, notice: t('user.delete_success') }
     end
   end
 

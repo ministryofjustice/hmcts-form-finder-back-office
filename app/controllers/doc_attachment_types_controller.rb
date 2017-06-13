@@ -30,11 +30,9 @@ class DocAttachmentTypesController < ApplicationController
 
     respond_to do |format|
       if @doc_attachment_type.save
-        format.html { redirect_to @doc_attachment_type, notice: 'This document type was successfully created' }
-        format.json { render :show, status: :created, location: @doc_attachment_type }
+        format.html { redirect_to @doc_attachment_type, notice: t('type.create_success') }
       else
         format.html { render :new }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,11 +42,9 @@ class DocAttachmentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @doc_attachment_type.update(doc_attachment_type_params)
-        format.html { redirect_to @doc_attachment_type, notice: 'This document type was successfully updated' }
-        format.json { render :show, status: :ok, location: @doc_attachment_type }
+        format.html { redirect_to @doc_attachment_type, notice: t('type.update_success') }
       else
         format.html { render :edit }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,8 +54,7 @@ class DocAttachmentTypesController < ApplicationController
   def destroy
     @doc_attachment_type.destroy
     respond_to do |format|
-      format.html { redirect_to doc_attachment_types_url, notice: 'This document type was successfully deleted' }
-      format.json { head :no_content }
+      format.html { redirect_to doc_attachment_types_url, notice: t('type.delete_success') }
     end
   end
 
