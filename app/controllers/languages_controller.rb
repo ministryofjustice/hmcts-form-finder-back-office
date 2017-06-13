@@ -19,18 +19,18 @@ class LanguagesController < ApplicationController
 
   def create
     @language = Language.new(language_params)
-    apply_change("add")
+    apply_change('add')
   end
 
   def update
-    apply_change("edit")
+    apply_change('edit')
   end
 
   # DELETE /languages/1
   # DELETE /languages/1.json
   def destroy
     @language.destroy
-    apply_change("delete")
+    apply_change('delete')
   end
 
   private
@@ -48,13 +48,13 @@ class LanguagesController < ApplicationController
   def apply_change(action)
     respond_to do |format|
       case action
-      when "add"
+      when 'add'
         if @language.save
           format.html { redirect_to @language, notice: t('language.create_success') }
         else
           format.html { render :new }
         end
-      when "edit"
+      when 'edit'
         if @language.update(language_params)
           format.html { redirect_to @language, notice: t('language.update_success') }
         else
