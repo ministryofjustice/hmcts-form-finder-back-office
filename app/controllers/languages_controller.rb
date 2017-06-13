@@ -19,18 +19,18 @@ class LanguagesController < ApplicationController
 
   def create
     @language = Language.new(language_params)
-    apply_change('add')
+    apply_language_change('add')
   end
 
   def update
-    apply_change('edit')
+    apply_language_change('edit')
   end
 
   # DELETE /languages/1
   # DELETE /languages/1.json
   def destroy
     @language.destroy
-    apply_change('delete')
+    apply_language_change('delete')
   end
 
   private
@@ -45,7 +45,7 @@ class LanguagesController < ApplicationController
     params.require(:language).permit(:english_name, :welsh_name, :code, :inactive)
   end
 
-  def apply_change(action)
+  def apply_language_change(action)
     respond_to do |format|
       case action
       when 'add'
