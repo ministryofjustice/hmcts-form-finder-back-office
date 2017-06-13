@@ -34,10 +34,8 @@ class DocumentCategoriesController < ApplicationController
     respond_to do |format|
       if @document_category.save
         format.html { redirect_to @document_category, notice: 'Document category was successfully created.' }
-        format.json { render :show, status: :created, location: @document_category }
       else
         format.html { render :new }
-        format.json { render json: @document_category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,10 +46,8 @@ class DocumentCategoriesController < ApplicationController
     respond_to do |format|
       if @document_category.update(document_category_params)
         format.html { redirect_to @document_category, notice: 'Document category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document_category }
       else
         format.html { render :edit }
-        format.json { render json: @document_category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,7 +58,6 @@ class DocumentCategoriesController < ApplicationController
     @document_category.destroy
     respond_to do |format|
       format.html { redirect_to document_categories_url, notice: 'Document category was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

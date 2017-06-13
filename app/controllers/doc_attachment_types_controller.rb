@@ -31,10 +31,8 @@ class DocAttachmentTypesController < ApplicationController
     respond_to do |format|
       if @doc_attachment_type.save
         format.html { redirect_to @doc_attachment_type, notice: t('type.create_success') }
-        format.json { render :show, status: :created, location: @doc_attachment_type }
       else
         format.html { render :new }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,10 +43,8 @@ class DocAttachmentTypesController < ApplicationController
     respond_to do |format|
       if @doc_attachment_type.update(doc_attachment_type_params)
         format.html { redirect_to @doc_attachment_type, notice: t('type.update_success') }
-        format.json { render :show, status: :ok, location: @doc_attachment_type }
       else
         format.html { render :edit }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +55,6 @@ class DocAttachmentTypesController < ApplicationController
     @doc_attachment_type.destroy
     respond_to do |format|
       format.html { redirect_to doc_attachment_types_url, notice: t('type.delete_success') }
-      format.json { head :no_content }
     end
   end
 

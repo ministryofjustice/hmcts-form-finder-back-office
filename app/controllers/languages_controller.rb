@@ -23,10 +23,8 @@ class LanguagesController < ApplicationController
     respond_to do |format|
       if @language.save
         format.html { redirect_to @language, notice: t('language.create_success') }
-        format.json { render :show, status: :created, location: @language }
       else
         format.html { render :new }
-        format.json { render json: @language.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -35,10 +33,8 @@ class LanguagesController < ApplicationController
     respond_to do |format|
       if @language.update(language_params)
         format.html { redirect_to @language, notice: t('language.update_success') }
-        format.json { render :show, status: :ok, location: @language }
       else
         format.html { render :edit }
-        format.json { render json: @language.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -49,7 +45,6 @@ class LanguagesController < ApplicationController
     @language.destroy
     respond_to do |format|
       format.html { redirect_to languages_url, notice: t('language.delete_success') }
-      format.json { head :no_content }
     end
   end
 
