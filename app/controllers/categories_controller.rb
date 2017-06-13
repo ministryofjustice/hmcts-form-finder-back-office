@@ -63,20 +63,20 @@ class CategoriesController < ApplicationController
   def apply_category_change(action)
     respond_to do |format|
       case action
-        when 'add'
-          if @category.save
-            format.html { redirect_to @category, notice: t('category.create_success') }
-          else
-            format.html { render :new }
-          end
-        when 'edit'
-          if @category.update(category_params)
-            format.html { redirect_to @category, notice: t('category.update_success') }
-          else
-            format.html { render :edit }
-          end
+      when 'add'
+        if @category.save
+          format.html { redirect_to @category, notice: t('category.create_success') }
         else
-          format.html { redirect_to categories_url, notice: t('category.delete_success') }
+          format.html { render :new }
+        end
+      when 'edit'
+        if @category.update(category_params)
+          format.html { redirect_to @category, notice: t('category.update_success') }
+        else
+          format.html { render :edit }
+        end
+      else
+        format.html { redirect_to categories_url, notice: t('category.delete_success') }
       end
     end
   end
