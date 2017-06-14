@@ -70,19 +70,14 @@ class Document < ActiveRecord::Base
   # TODO: Refactor non-human-readable where clause
 
   def format_filename_and_type
-
     # Get the file extension minus the leading '.'
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
-
     # Build new filename in [reference]-[language].[extension] format.
     filename = ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!
-
     # Set DB file_format value
     self.file_format = extension
-
     # Write the file
     attachment.instance_write(:file_name, filename)
-
   end
 
   def all_related
