@@ -6,64 +6,40 @@ class DocumentCategoriesController < ApplicationController
 
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /document_categories
-  # GET /document_categories.json
   def index
     @document_categories = DocumentCategory.all
   end
 
-  # GET /document_categories/1
-  # GET /document_categories/1.json
   def show
   end
 
-  # GET /document_categories/new
   def new
     @document_category = DocumentCategory.new
   end
 
-  # GET /document_categories/1/edit
   def edit
   end
 
-  # POST /document_categories
-  # POST /document_categories.json
   def create
     @document_category = DocumentCategory.new(document_category_params)
-
-    respond_to do |format|
-      if @document_category.save
-        format.html { redirect_to @document_category, notice: 'Document category was successfully created.' }
-        format.json { render :show, status: :created, location: @document_category }
-      else
-        format.html { render :new }
-        format.json { render json: @document_category.errors, status: :unprocessable_entity }
-      end
+    if @document_category.save
+      redirect_to @document_category, notice: 'Document category was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /document_categories/1
-  # PATCH/PUT /document_categories/1.json
   def update
-    respond_to do |format|
-      if @document_category.update(document_category_params)
-        format.html { redirect_to @document_category, notice: 'Document category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document_category }
-      else
-        format.html { render :edit }
-        format.json { render json: @document_category.errors, status: :unprocessable_entity }
-      end
+    if @document_category.update(document_category_params)
+      redirect_to @document_category, notice: 'Document category was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /document_categories/1
-  # DELETE /document_categories/1.json
   def destroy
     @document_category.destroy
-    respond_to do |format|
-      format.html { redirect_to document_categories_url, notice: 'Document category was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to document_categories_url, notice: 'Document category was successfully destroyed.'
   end
 
   def link

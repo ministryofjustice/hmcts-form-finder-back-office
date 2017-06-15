@@ -81,7 +81,7 @@
               .title
                 = item.title
             .action
-              = link_to t('links.link'), link_documents_connect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
+              = link_to t('action.link'), link_documents_connect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - if @linkeddocuments.exists?
 

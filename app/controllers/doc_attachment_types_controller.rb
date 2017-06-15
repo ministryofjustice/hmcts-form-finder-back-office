@@ -3,64 +3,40 @@ class DocAttachmentTypesController < ApplicationController
   before_action :set_paper_trail_whodunnit
   before_action :set_doc_attachment_type, only: [:show, :edit, :update, :destroy]
 
-  # GET /doc_attachment_types
-  # GET /doc_attachment_types.json
   def index
     @doc_attachment_types = DocAttachmentType.all
   end
 
-  # GET /doc_attachment_types/1
-  # GET /doc_attachment_types/1.json
   def show
   end
 
-  # GET /doc_attachment_types/new
   def new
     @doc_attachment_type = DocAttachmentType.new
   end
 
-  # GET /doc_attachment_types/1/edit
   def edit
   end
 
-  # POST /doc_attachment_types
-  # POST /doc_attachment_types.json
   def create
     @doc_attachment_type = DocAttachmentType.new(doc_attachment_type_params)
-
-    respond_to do |format|
-      if @doc_attachment_type.save
-        format.html { redirect_to @doc_attachment_type, notice: 'This document type was successfully created' }
-        format.json { render :show, status: :created, location: @doc_attachment_type }
-      else
-        format.html { render :new }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
-      end
+    if @doc_attachment_type.save
+      redirect_to @doc_attachment_type, notice: t('type.create_success')
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /doc_attachment_types/1
-  # PATCH/PUT /doc_attachment_types/1.json
   def update
-    respond_to do |format|
-      if @doc_attachment_type.update(doc_attachment_type_params)
-        format.html { redirect_to @doc_attachment_type, notice: 'This document type was successfully updated' }
-        format.json { render :show, status: :ok, location: @doc_attachment_type }
-      else
-        format.html { render :edit }
-        format.json { render json: @doc_attachment_type.errors, status: :unprocessable_entity }
-      end
+    if @doc_attachment_type.update(doc_attachment_type_params)
+      redirect_to @doc_attachment_type, notice: t('type.update_success')
+    else
+      render :edit
     end
   end
 
-  # DELETE /doc_attachment_types/1
-  # DELETE /doc_attachment_types/1.json
   def destroy
     @doc_attachment_type.destroy
-    respond_to do |format|
-      format.html { redirect_to doc_attachment_types_url, notice: 'This document type was successfully deleted' }
-      format.json { head :no_content }
-    end
+    redirect_to doc_attachment_types_url, notice: t('type.delete_success')
   end
 
   private

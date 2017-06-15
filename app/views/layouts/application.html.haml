@@ -19,8 +19,10 @@
   .header-proposition
     .content
       %a#proposition-name{:href => root_path}
-        %abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
-        = "Form finder"
+        -#%abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
+        %abbr{ title: t('department') }
+          =t('department_initials')
+        = t('application_name')
       = render partial:  'shared/loginout'
 
 = content_for :content do

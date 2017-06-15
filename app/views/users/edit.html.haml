@@ -4,9 +4,6 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
-
-    %h2.heading-medium
-      Edit a user
+    = render partial: 'layouts/header', locals: { page_heading: t('user.edit') }
 
 = render 'form'
