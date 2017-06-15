@@ -15,26 +15,26 @@
     </div>
     <div id="wrapper" style="display:none;">
 
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-30T11:06:52+01:00">2017-05-30T11:06:52+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-06-15T15:23:06+01:00">2017-06-15T15:23:06+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">91.97%</span></span>
+    (<span class="covered_percent"><span class="green">92.02%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.41
+         2.62
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>101</b> files in total.
-    <b>1856</b> relevant lines. 
-    <span class="green"><b>1707</b> lines covered</span> and
+    <b>1866</b> relevant lines. 
+    <span class="green"><b>1717</b> lines covered</span> and
     <span class="red"><b>149</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -185,12 +185,12 @@
       
       <tr>
         <td class="strong"><a href="#fdc440922f80372b5bdf14e4e2b535b892a8923f" class="src_link" title="app/models/document.rb">app/models/document.rb</a></td>
-        <td class="green strong">95.56 %</td>
-        <td>107</td>
-        <td>45</td>
-        <td>43</td>
-        <td>2</td>
-        <td>5.0</td
+        <td class="green strong">94.23 %</td>
+        <td>122</td>
+        <td>52</td>
+        <td>49</td>
+        <td>3</td>
+        <td>12.2</td>
       </tr>
       
       <tr>
@@ -460,7 +460,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>70.7</td>
+        <td>71.0</td>
       </tr>
       
       <tr>
@@ -706,9 +706,9 @@
       <tr>
         <td class="strong"><a href="#1b994c6799e8d04d522957a9d2165368c48d1d4b" class="src_link" title="spec/models/document_spec.rb">spec/models/document_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>58</td>
-        <td>27</td>
-        <td>27</td>
+        <td>64</td>
+        <td>32</td>
+        <td>32</td>
         <td>0</td>
         <td>1.3</td>
       </tr>
@@ -5936,10 +5936,10 @@
         <div class="source_table" id="fdc440922f80372b5bdf14e4e2b535b892a8923f">
   <div class="header">
     <h3>app/models/document.rb</h3>
-    <h4><span class="green">93.62 %</span> covered</h4>
+    <h4><span class="green">94.23 %</span> covered</h4>
     <div>
-      <b>47</b> relevant lines. 
-      <span class="green"><b>44</b> lines covered</span> and
+      <b>52</b> relevant lines. 
+      <span class="green"><b>49</b> lines covered</span> and
       <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
@@ -6289,325 +6289,453 @@
           <code class="ruby">  validates :language_id, presence: true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  after_create :populate_original_id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="59">
+        <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
           <code class="ruby">  def active</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="60">
+        <li class="missed" data-hits="0" data-linenumber="61">
           
           
           <code class="ruby">    Document.where(&#39;inactive = ?&#39;, &#39;False&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="63">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  scope :leaflets, -&gt; { where(&#39;doc_attachment_type_id != ?&#39;, &#39;1&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :forms, -&gt; { where(doc_attachment_type_id: &#39;1&#39;) }</code>
+          <code class="ruby">  scope :leaflets, -&gt; { where(&#39;doc_attachment_type_id != ?&#39;, &#39;1&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :document, -&gt; { where(doc_attachment_type_id: &#39;1&#39;) }</code>
+          <code class="ruby">  scope :forms, -&gt; { where(doc_attachment_type_id: &#39;1&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :language_english, -&gt; { where(language_id: &#39;8&#39;) }</code>
+          <code class="ruby">  scope :document, -&gt; { where(doc_attachment_type_id: &#39;1&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :language_bilingual, -&gt; { where(language_id: &#39;26&#39;) }</code>
+          <code class="ruby">  scope :language_english, -&gt; { where(language_id: &#39;8&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :language_welsh, -&gt; { where(language_id: &#39;25&#39;) }</code>
+          <code class="ruby">  scope :language_bilingual, -&gt; { where(language_id: &#39;26&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="69">
           <span class="hits">1</span>
           
-          <code class="ruby">  scope :language_other, -&gt; { where.not(language_id: [8, 25]) }</code>
+          <code class="ruby">  scope :language_welsh, -&gt; { where(language_id: &#39;25&#39;) }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # TODO: Refactor non-human-readable where clause</code>
+          <code class="ruby">  scope :language_other, -&gt; { where.not(language_id: [8, 25]) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
           
           
+          <code class="ruby">  # TODO: Refactor non-human-readable where clause</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="73">
           <span class="hits">1</span>
           
           <code class="ruby">  def format_filename_and_type</code>
         </li>
       
-        <li class="covered" data-hits="59" data-linenumber="73">
-          <span class="hits">59</span>
+        <li class="never" data-hits="" data-linenumber="74">
           
-          <code class="ruby">    extension = File.extname(attachment_file_name).gsub(/^\.+/, &#39;&#39;)</code>
+          
+          <code class="ruby">    # Get the file extension minus the leading &#39;.&#39;</code>
         </li>
       
-        <li class="covered" data-hits="59" data-linenumber="74">
-          <span class="hits">59</span>
+        <li class="covered" data-hits="117" data-linenumber="75">
+          <span class="hits">117</span>
           
-          <code class="ruby">    attachment.instance_write(:file_name, (&quot;#{code.gsub(/\s+/, &#39;-&#39;)}-#{language.code}.#{extension}&quot;).downcase!)</code>
-        </li>
-      
-        <li class="covered" data-hits="59" data-linenumber="75">
-          <span class="hits">59</span>
-          
-          <code class="ruby">    self.file_format = extension.upcase!</code>
+          <code class="ruby">    extension = File.extname(attachment_file_name).gsub(/^\.+/, &#39;&#39;).upcase!</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="76">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    # Build new filename in [reference]-[language].[extension] format.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="covered" data-hits="117" data-linenumber="77">
+          <span class="hits">117</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">    filename = (&quot;#{code.gsub(/\s+/, &#39;-&#39;)}-#{language.code}.#{extension}&quot;).downcase!</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="78">
           
-          <code class="ruby">  def all_related</code>
+          
+          <code class="ruby">    # Set DB file_format value</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="79">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="117" data-linenumber="79">
+          <span class="hits">117</span>
           
-          <code class="ruby">    Document.where(&quot;id IN (SELECT DISTINCT documents.id FROM documents, related_documents</code>
+          <code class="ruby">    self.file_format = extension</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
+          <code class="ruby">    # Write the file</code>
+        </li>
+      
+        <li class="covered" data-hits="117" data-linenumber="81">
+          <span class="hits">117</span>
+          <code class="ruby">    self.file_format = extension.upcase!</code>
+        </li>
+      
+
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="84">
+
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def all_related</code>
+        </li>
+      
+
+        <li class="covered" data-hits="3" data-linenumber="85">
+
+          <span class="hits">3</span>
+          
+          <code class="ruby">    Document.where(&quot;id IN (SELECT DISTINCT documents.id FROM documents, related_documents</code>
+        </li>
+      
+
+        <li class="never" data-hits="" data-linenumber="86">
+
+          
+          
           <code class="ruby">    WHERE documents.id = related_documents.linked_document_id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+
+        <li class="never" data-hits="" data-linenumber="87">
+
           
           
           <code class="ruby">    AND  related_documents.document_id =  #{id}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+
+        <li class="never" data-hits="" data-linenumber="88">
+
           
           
           <code class="ruby">      UNION</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="83">
+
+        <li class="never" data-hits="" data-linenumber="89">
+
           
           
           <code class="ruby">    SELECT DISTINCT documents.id FROM documents, related_documents</code>
         </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
+     
+        <li class="never" data-hits="" data-linenumber="90">
+
           
           
           <code class="ruby">    WHERE documents.id = related_documents.document_id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="91">
+
           
           
           <code class="ruby">    AND  related_documents.linked_document_id =  #{id})&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="never" data-hits="" data-linenumber="92">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+
+        <li class="never" data-hits="" data-linenumber="93">
+
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="88">
+
+        <li class="covered" data-hits="1" data-linenumber="94">
+
           <span class="hits">1</span>
           
           <code class="ruby">  def reference_with_attributes</code>
         </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="89">
+
+        <li class="missed" data-hits="0" data-linenumber="95">
+
           
           
           <code class="ruby">    &quot;#{code} (#{language.english_name} #{file_format})&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+
+        <li class="never" data-hits="" data-linenumber="96">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+
+        <li class="never" data-hits="" data-linenumber="97">
+
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="92">
+
+        <li class="covered" data-hits="1" data-linenumber="98">
+
           <span class="hits">1</span>
           
           <code class="ruby">  def self.search(search)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="93">
+
+        <li class="covered" data-hits="6" data-linenumber="99">
+
           <span class="hits">6</span>
           
           <code class="ruby">    where(&#39;lower(code) LIKE ? or lower(title) LIKE ?&#39;, &quot;%#{search.downcase}%&quot;, &quot;%#{search.downcase}%&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+
+        <li class="never" data-hits="" data-linenumber="100">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+
+        <li class="never" data-hits="" data-linenumber="101">
+
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
+
+        <li class="covered" data-hits="1" data-linenumber="102">
+
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchcategory(search)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="97">
+
+        <li class="missed" data-hits="0" data-linenumber="103">
+
           
           
           <code class="ruby">    where(&#39;lower(code) LIKE ? or lower(title) LIKE ?&#39;, &quot;%#{search.downcase}%&quot;, &quot;%#{search.downcase}%&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="104">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="99">
+
+        <li class="never" data-hits="" data-linenumber="105">
+
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="100">
+
+        <li class="covered" data-hits="1" data-linenumber="106">
+
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchdocument(search)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="101">
+
+        <li class="covered" data-hits="2" data-linenumber="107">
+
           <span class="hits">2</span>
           
           <code class="ruby">    document_ids = DocumentCategory.where(&#39;category_id = ? &#39;, search).pluck(:document_id)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="102">
+
+        <li class="covered" data-hits="2" data-linenumber="108">
+
           <span class="hits">2</span>
           
           <code class="ruby">    Document.where(id: document_ids)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+
+        <li class="never" data-hits="" data-linenumber="109">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+
+        <li class="never" data-hits="" data-linenumber="110">
+
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="105">
+
+        <li class="covered" data-hits="1" data-linenumber="111">
+
           <span class="hits">1</span>
           
           <code class="ruby">  def self.searchdocs(search, searchcode)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="106">
+
+        <li class="covered" data-hits="1" data-linenumber="112">
+
           <span class="hits">1</span>
           
           <code class="ruby">    document_ids = DocumentCategory.where(&#39;category_id = ?&#39;, search).pluck(:document_id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+
+        <li class="covered" data-hits="1" data-linenumber="113">
+
           <span class="hits">1</span>
           
           <code class="ruby">    ids = Document.where(&#39;lower(code) LIKE ? or lower(title) LIKE ?&#39;, &quot;%#{searchcode.downcase}%&quot;, &quot;%#{searchcode.downcase}%&quot;).pluck(:id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="108">
+
+        <li class="covered" data-hits="1" data-linenumber="114">
+
           <span class="hits">1</span>
           
           <code class="ruby">    document_ids = document_ids + ids</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="109">
+
+        <li class="covered" data-hits="1" data-linenumber="115">
+
           <span class="hits">1</span>
           
           <code class="ruby">    Document.where(id: document_ids)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="116">
+
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+
+        <li class="never" data-hits="" data-linenumber="117">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="118">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def populate_original_id</code>
+        </li>
+      
+        <li class="covered" data-hits="56" data-linenumber="119">
+          <span class="hits">56</span>
+          
+          <code class="ruby">    self.original_id = id</code>
+        </li>
+      
+        <li class="covered" data-hits="56" data-linenumber="120">
+          <span class="hits">56</span>
+          
+          <code class="ruby">    save</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="121">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="122">
+
           
           
           <code class="ruby">end</code>
@@ -12157,8 +12285,8 @@
           <code class="ruby">    def a_name?</code>
         </li>
       
-        <li class="covered" data-hits="199" data-linenumber="4">
-          <span class="hits">199</span>
+        <li class="covered" data-hits="200" data-linenumber="4">
+          <span class="hits">200</span>
           
           <code class="ruby">      return unless nil_or_empty(english_name) &amp;&amp; nil_or_empty(welsh_name)</code>
         </li>
@@ -12187,8 +12315,8 @@
           <code class="ruby">    def only_inactive_if_not_used</code>
         </li>
       
-        <li class="covered" data-hits="199" data-linenumber="9">
-          <span class="hits">199</span>
+        <li class="covered" data-hits="200" data-linenumber="9">
+          <span class="hits">200</span>
           
           <code class="ruby">      return unless inactive &amp;&amp; the_collection.where(the_attribute =&gt; id).count &gt; 0</code>
         </li>
@@ -12229,8 +12357,8 @@
           <code class="ruby">    def nil_or_empty(x)</code>
         </li>
       
-        <li class="covered" data-hits="223" data-linenumber="16">
-          <span class="hits">223</span>
+        <li class="covered" data-hits="224" data-linenumber="16">
+          <span class="hits">224</span>
           
           <code class="ruby">      if x.nil?</code>
         </li>
@@ -12241,8 +12369,8 @@
           <code class="ruby">        true</code>
         </li>
       
-        <li class="covered" data-hits="189" data-linenumber="18">
-          <span class="hits">189</span>
+        <li class="covered" data-hits="190" data-linenumber="18">
+          <span class="hits">190</span>
           
           <code class="ruby">      elsif x.empty?</code>
         </li>
@@ -12259,8 +12387,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="181" data-linenumber="21">
-          <span class="hits">181</span>
+        <li class="covered" data-hits="182" data-linenumber="21">
+          <span class="hits">182</span>
           
           <code class="ruby">        false</code>
         </li>
@@ -21094,8 +21222,8 @@
     <h3>spec/models/document_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>27</b> relevant lines. 
-      <span class="green"><b>27</b> lines covered</span> and
+      <b>32</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -21373,64 +21501,64 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="46">
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    it &#39;Has correct Original ID &#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &#39;documents search works with a query&#39; do</code>
+          <code class="ruby">      language = create :language</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
-          <code class="ruby">    document = create :document</code>
+          <code class="ruby">      document = Document.create(doc_attachment_type_id: 1, code: &#39;PDF test &#39;, title: &#39;DOC&#39;, attachment: File.new(&quot;#{Rails.root}/spec/support/fixtures/Blank.pdf&quot;), attachment_file_name: &#39;Blank.pdf&#39;, language_id: language.id)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
-          <code class="ruby">    @documents = Document.search(document.title)</code>
+          <code class="ruby">      document.save!</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(@documents).to include(document)</code>
+          <code class="ruby">      expect(document.id).to eq(document.original_id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="52">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="52">
           
-          <code class="ruby">  it &#39;documents search is case insensitive&#39; do</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="53">
           <span class="hits">1</span>
           
-          <code class="ruby">    language = create :language</code>
+          <code class="ruby">  it &#39;documents search works with a query&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
-          <code class="ruby">    document = Document.create(doc_attachment_type_id: 1, code: &#39;case insensitive test 555&#39;, title: &#39;DOC&#39;, attachment: File.new(&quot;#{Rails.root}/spec/support/fixtures/Blank.docx&quot;), attachment_file_name: &#39;Bob&#39;, language_id: language.id)</code>
+          <code class="ruby">    document = create :document</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">    @documents = Document.search(&#39;TEST&#39;)</code>
+          <code class="ruby">    @documents = Document.search(document.title)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="56">
@@ -21445,7 +21573,43 @@
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &#39;documents search is case insensitive&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="59">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    language = create :language</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    document = Document.create(doc_attachment_type_id: 1, code: &#39;case insensitive test 555&#39;, title: &#39;DOC&#39;, attachment: File.new(&quot;#{Rails.root}/spec/support/fixtures/Blank.docx&quot;), attachment_file_name: &#39;Bob&#39;, language_id: language.id)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @documents = Document.search(&#39;TEST&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(@documents).to include(document)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">end</code>

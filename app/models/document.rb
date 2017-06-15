@@ -55,6 +55,7 @@ class Document < ActiveRecord::Base
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+  after_create :populate_original_id
 
   def active
     Document.where('inactive = ?', 'False')
@@ -112,5 +113,10 @@ class Document < ActiveRecord::Base
     ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%", "%#{searchcode.downcase}%").pluck(:id)
     document_ids = document_ids + ids
     Document.where(id: document_ids)
+  end
+
+  def populate_original_id
+    self.original_id = id
+    save
   end
 end
