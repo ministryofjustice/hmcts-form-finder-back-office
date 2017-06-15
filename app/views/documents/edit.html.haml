@@ -1,14 +1,8 @@
 - content_for :page_title do
   = "Edit a document in HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
-
 .grid-row
-  .column-two-thirds
+  .column-full
+    = render partial: 'layouts/header', locals: { page_heading: t('document.edit') }
 
-    %h2.heading-medium
-      Edit a document
-
-    = render 'updateform'
-
-  .column-one-third
+= render 'updateform'

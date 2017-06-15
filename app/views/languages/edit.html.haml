@@ -4,9 +4,6 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'Document languages'}
-
-    %h2.heading-medium
-      Edit a language
+    = render partial: 'layouts/header', locals: { page_heading: t('language.edit') }
 
 = render 'form'
