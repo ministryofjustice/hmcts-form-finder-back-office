@@ -1,29 +1,37 @@
-= form_for @document, multipart: true do | f |
+.grid-row
+  .column-two-thirds
 
-  .form-group
-    = f.label :attachment, 'Choose a file to upload'
-    = f.file_field :attachment
+    = form_for @document, multipart: true do | f |
 
-  = f.text_field :code
+      .form-group
+        = f.label :attachment, t('document.choose_file')
+        = f.file_field :attachment
 
-  = f.text_field :title
+      .form-group
+        = f.text_field :code
 
-  .form-group
-    %fieldset
-      %legend
-        = t('document_type')
-      = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
+      .form-group
+        = f.text_field :title
 
-  .form-group
-    = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
+      .form-group
+        %fieldset
+          %legend
+            = t('label.type')
+          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do | b | b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
 
-  .form-group
-    = f.gov_uk_date_field :published_date, legend_text: 'When should this document be published?', placeholders: true
+      .form-group
+        = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
 
-  .form-group
-    %label.block-label.selection-button-checkbox{ for: 'document_inactive' }
-      = f.check_box(:inactive, {}, true)
-      = t('label.inactive')
+      .form-group
+        = f.gov_uk_date_field :published_date, legend_text: t('document.publication_date'), placeholders: true
 
-  = f.submit class: 'button', role: 'button'
-  = link_to t('links.cancel'), root_path, class: 'button-warning button-left-spacing', role: 'button'
+      .form-group
+        %label.block-label.selection-button-checkbox{ for: 'document_inactive' }
+          = f.check_box(:inactive, {}, true)
+          = t('label.inactive')
+
+      .button-holder
+        = f.submit class: 'button', role: 'button'
+        = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+
+  .column-one-third

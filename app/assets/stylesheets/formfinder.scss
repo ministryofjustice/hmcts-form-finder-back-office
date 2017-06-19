@@ -71,6 +71,14 @@
   width: 20em;
 }
 
+.summary {
+  margin-bottom: 15px;
+
+  .column-one-third {
+    font-weight: bold;
+  }
+}
+
 @media (min-width: 641px) {
   .action {
     display: inline-block;

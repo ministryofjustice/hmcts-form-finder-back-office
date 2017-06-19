@@ -1,10 +1,9 @@
 - content_for :page_title do
   = "Your submitted documents for HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Document management'}
-
 .grid-row
   .column-full
+    = render partial: 'layouts/header', locals: {page_heading: 'Document management'}
 
     = form_tag url_for(:controller => 'documents', :action => 'search'), :method => 'get' do
       = text_field_tag :search, params[:search], :id => 'search_field'
@@ -39,6 +38,6 @@
               %td
                 = l item.published_date if item.published_date.present?
               %td
-                = link_to t('links.select'), link_documents_link_path( document: item.id, document_title: item.title ), class: 'button-secondary', role: 'button'
+                = link_to t('action.select'), link_documents_link_path( document: item.id, document_title: item.title ), class: 'button-secondary', role: 'button'
           -if @documents.empty?
             %p No result found to display

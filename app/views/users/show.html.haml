@@ -4,26 +4,39 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'User accounts'}
-
-    %p
-      = t('helpers.label.user.first_name')+':'
-      = @user.first_name
-
-    %p
-      = t('helpers.label.user.last_name')+':'
-      = @user.last_name
-
-    %p
-      = t('helpers.label.user.email')+':'
-      = @user.email
-
-    %p
-      = t('label.inactive')+':'
-      = @user.inactive ? 'Yes' : 'No'
+    = render partial: 'layouts/header', locals: { page_heading: t('user.summary') }
 
 .grid-row
-  .column-one-half
-    = link_to t('links.edit'), edit_user_path(@user), class: 'button-secondary', role: 'button'
-  .column-one-half
-    = link_to t('links.continue'), users_path, class: 'button button-left-spacing', role: 'button'
+  .column-two-thirds
+
+    .summary
+
+      .grid-row
+        .column-one-third
+          = t('helpers.label.user.first_name')+':'
+        .column-two-thirds
+          = @user.first_name
+
+      .grid-row
+        .column-one-third
+          = t('helpers.label.user.last_name')+':'
+        .column-two-thirds
+          = @user.last_name
+
+      .grid-row
+        .column-one-third
+          = t('helpers.label.user.email')+':'
+        .column-two-thirds
+          = @user.email
+
+      .grid-row
+        .column-one-third
+          = t('label.inactive')+':'
+        .column-two-thirds
+          = @user.inactive ? 'Yes' : 'No'
+
+    .button-holder
+      = link_to t('action.edit'), edit_user_path(@user), class: 'button-secondary', role: 'button'
+      = link_to t('action.done'), users_path, class: 'button button-left-spacing', role: 'button'
+
+  .column-one-third

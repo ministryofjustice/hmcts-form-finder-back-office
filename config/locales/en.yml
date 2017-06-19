@@ -20,17 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  # Template ========
 
   about_hmcts: "About Her Majesty's Court and Tribunals Service"
-  available_types: "Available types"
+  crown_copyright: "Crown Copyright"
+  privacy: "Privacy"
+
+  # Public pages ========
+
   clear: "Clear"
   close: "Close"
-  crown_copyright: "Crown Copyright"
-  document_type: "What type of document is this?"
   form_number: "Form/leaflet number"
   form_title: "Form/leaflet title"
-  publish_when: "When should this document be published?"
-  privacy: "Privacy"
   search_by: "Search by"
   search_for_forms_and_leaflets: "Search for forms and leaflets"
   search_page_title: "Courts and tribunal form finder"
@@ -40,13 +41,54 @@ en:
   step1_para2: "If you know the number of the form/leaflet you wish to locate please enter it in the free text box below."
   step1_para3: "Alternatively, if you do not know the form number enter a title (or keyword) or choose a category from the work type drop down list which lists the forms available by business type."
 
+  # Admin interface pages ========
+
+  application_name: "Form Finder"
+
+  action:
+    assign: "Assign"
+    back: "Back"
+    cancel: "Cancel"
+    continue: "continue"
+    done: "Done"
+    edit: "Edit"
+    link: "Link"
+    remove: "Remove"
+    select: "Select"
+    show: "Show"
+
+  category:
+    add: "Add category"
+    assign: "Assign categories"
+    available: "categories available"
+    create_success: "Category successfully created."
+    delete_success: "Category successfully deleted."
+    edit: "Edit category"
+    heading: "Categories"
+    summary: "Category summary"
+    update_success: "Category successfully updated."
+
   date:
     formats:
       default: "%d/%m/%Y"
 
-  headings:
-    categories:
-      add: "Add a category"
+  department: "Her Majesty's Courts and Tribunals Service"
+  department_initials: "HMCTS"
+
+  document:
+    add: "Add document"
+    choose_another_file: "Choose different file to upload"
+    choose_file: "Choose file to upload"
+    current_file: "Current document "
+    edit: "Edit document"
+    enter_reference: "Enter the documents reference/number"
+    example_reference: "For example, 'ex107'."
+    heading: "Documents"
+    link: "Link documents"
+    publication_date: "Set publication date"
+    publish_on: "To be published"
+    select_document: "Select the document to edit"
+    upload: "Upload more documents"
 
   helpers:
     label:
@@ -63,7 +105,7 @@ en:
       language:
         english_name: "English name"
         welsh_name: "Welsh name"
-        code: "Three letter language code"
+        code: "Language code"
       user:
         first_name: "First name"
         last_name: "Surname"
@@ -73,70 +115,75 @@ en:
 
     submit:
       category:
-        create: "Add"
-        update: "Update"
+        create: "Submit"
+        update: "Save"
       doc_attachment_type:
-        create: "Add"
-        update: "Update"
+        create: "Submit"
+        update: "Save"
       document:
-        create: "Add"
-        update: "Update"
+        create: "Submit"
+        update: "Save"
       language:
-        create: "Add"
-        update: "Update"
+        create: "Submit"
+        update: "Save"
       user:
-        create: "Add"
-        update: "Update"
-      edit: "Edit"
+        create: "Submit"
+        update: "Save"
 
   label:
     inactive: "Inactive"
+    type: "Document type"
 
-  links:
-    account:
-      change_password: "Change my password"
-      confirm: "Confirm my account"
-      forgot_password: "Forgot your password?"
-      unlock: "Unlock my account"
-      no_confirmation_instructions: "Didn't receive confirmation instructions?"
-      no_unlock_instructions: "Didn't receive unlock instructions?"
-    assign: "Assign"
-    back: "Back"
-    cancel: "Cancel"
-    category:
-      new: "Add category"
-      assign: "Assign categories to document"
-    continue: "Continue"
-    document:
-      new: "Add document"
-      upload: "Upload more documents"
-    edit: "Edit"
+  language:
+    add: "Add language"
+    available: "languages available"
+    create_success: "Language successfully created."
+    delete_success: "Language successfully deleted."
+    edit: "Edit language"
+    heading: "Languages"
+    summary: "Language summary"
+    update_success: "Language successfully updated."
+
+  link:
     feedback: "feedback"
-    navigation:
-      assign_categories: "Assign categories"
-      categories: "Categories"
-      documents: "Documents"
-      languages: "Languages"
-      link_documents: "Link documents"
-      types: "Types"
-      users: "Users"
-    language:
-      new: "Add language"
-    link: "Link"
-    remove: "Remove"
     report_fault: "report a fault here."
-    select: "Select"
-    sign:
-      in: "Sign in"
-      out: "Sign out"
-      up: "Sign up"
-      with: "Sign in with"
-    show: "Show"
-    type:
-      new: "Add type"
-    user:
-      new: "Create a new User"
+
+  notice:
+    success: "Successfully submitted"
+
+  sign:
+    in: "Sign in"
+    out: "Sign out"
+    up: "Sign up"
+    with: "Sign in with"
 
   time:
     formats:
       default: "%d/%m/%Y %H:%M"
+
+  type:
+    add: "Add type"
+    available: "types available"
+    create_success: "Type successfully created."
+    delete_success: "Type successfully deleted."
+    edit: "Edit type"
+    heading: "Document types"
+    summary: "Type summary"
+    update_success: "Type successfully updated."
+
+  user:
+    add: "Add user"
+    available: "Current Users"
+    change_password: "Change my password"
+    confirm: "Confirm my account"
+    create_success: "User successfully created."
+    delete_success: "User successfully deleted."
+    edit: "Edit user"
+    forgot_password: "Forgot your password?"
+    heading: "User accounts"
+    name: "Name"
+    no_confirmation_instructions: "Didn't receive confirmation instructions?"
+    no_unlock_instructions: "Didn't receive unlock instructions?"
+    summary: "User summary"
+    unlock: "Unlock my account"
+    update_success: "User successfully updated."

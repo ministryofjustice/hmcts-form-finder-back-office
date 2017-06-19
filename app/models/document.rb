@@ -48,13 +48,14 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :attachment
 
   validates_attachment_content_type :attachment,
-                                    content_type: %w(application/zip application/pdf application/vnd.ms-excel application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document application/vnd.oasis.opendocument.spreadsheet application/vnd.oasis.opendocument.text text/plain),
+                                    content_type: %w(application/zip application/pdf application/msword application/excel application/vnd.ms-excel application/vnd.oasis.opendocument.text application/vnd.oasis.opendocument.spreadsheet application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.openxmlformats-officedocument.wordprocessingml.document),
                                     size: { in: 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+  after_create :populate_original_id
 
   def active
     Document.where('inactive = ?', 'False')
@@ -70,9 +71,14 @@ class Document < ActiveRecord::Base
   # TODO: Refactor non-human-readable where clause
 
   def format_filename_and_type
-    extension = File.extname(attachment_file_name).gsub(/^\.+/, '')
-    attachment.instance_write(:file_name, ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!)
-    self.file_format = extension.upcase!
+    # Get the file extension minus the leading '.'
+    extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+    # Build new filename in [reference]-[language].[extension] format.
+    filename = ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!
+    # Set DB file_format value
+    self.file_format = extension
+    # Write the file
+    attachment.instance_write(:file_name, filename)
   end
 
   def all_related
@@ -107,5 +113,10 @@ class Document < ActiveRecord::Base
     ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%", "%#{searchcode.downcase}%").pluck(:id)
     document_ids = document_ids + ids
     Document.where(id: document_ids)
+  end
+
+  def populate_original_id
+    self.original_id = id
+    save
   end
 end

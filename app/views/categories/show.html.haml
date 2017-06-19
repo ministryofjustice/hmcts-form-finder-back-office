@@ -4,24 +4,37 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
-
-    - if @category.english_name.present?
-      %p
-        = t('helpers.label.category.english_name')+':'
-        = @category.english_name
-
-    - if @category.welsh_name.present?
-      %p
-        = t('helpers.label.category.welsh_name')+':'
-        = @category.welsh_name
-
-    %p
-      = t('label.inactive')+':'
-      = @category.inactive ? 'Yes' : 'No'
+    = render partial: 'layouts/header', locals: { page_heading: t('category.summary') }
 
 .grid-row
-  .column-one-half
-    = link_to t('links.edit'), edit_category_path(@category), class: 'button-secondary', role: 'button'
-  .column-one-half
-    = link_to t('links.continue'), categories_path, class: 'button button-left-spacing', role:'button'
+  .column-two-thirds
+
+    .summary
+
+      - if @category.english_name.present?
+
+        .grid-row
+          .column-one-third
+            = t('helpers.label.category.english_name')+':'
+          .column-two-thirds
+            = @category.english_name
+
+      - if @category.welsh_name.present?
+
+        .grid-row
+          .column-one-third
+            = t('helpers.label.category.welsh_name')+':'
+          .column-two-thirds
+            = @category.welsh_name
+
+      .grid-row
+        .column-one-third
+          = t('label.inactive')+':'
+        .column-two-thirds
+          = @category.inactive ? 'Yes' : 'No'
+
+    .button-holder
+      = link_to t('action.edit'), edit_category_path(@category), class: 'button-secondary', role: 'button'
+      = link_to t('action.done'), categories_path, class: 'button button-left-spacing', role:'button'
+
+  .column-one-third

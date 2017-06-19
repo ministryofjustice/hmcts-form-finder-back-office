@@ -3,10 +3,6 @@
 
 .grid-row
   .column-full
-
-    = render partial: 'layouts/header', locals: {page_heading: 'Document categories'}
-
-    %h2.heading-medium
-      = t('headings.categories.add')
+    = render partial: 'layouts/header', locals: { page_heading: t('category.add') }
 
 = render 'form'

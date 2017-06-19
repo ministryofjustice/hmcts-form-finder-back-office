@@ -1,13 +1,13 @@
 header.main-header {
   @include container;
   margin-bottom:$gutter;
+
   h1{
     @include span(8 of 12);
     @include first;
     @include heading-48;
     font-weight: 700;
   }
-
 }
 
 .confirmation-header {
@@ -28,12 +28,10 @@ header.main-header {
   }
 }
 
-
 .confirmation-tick {
   width: 36px;
   height: 36px;
 }
-
 
 .table-caption {
   @include bold-24;
@@ -45,14 +43,15 @@ header.main-header {
   @include span(8 of 12);
   @include first;
   float: none;
+
   h1{
     margin-top: 0;
     margin-bottom: 0;
   }
+
 }
 
 .notice-summary{
   @extend .error-summary;
   border-color: $button-colour;
-
 }

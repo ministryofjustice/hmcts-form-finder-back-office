@@ -1,25 +1,31 @@
 .grid-row
-  .column-full
+  .column-two-thirds
 
     - if @category.errors.any?
 
-      .error-summary{role: 'group', 'aria-labelledby': 'error-summary-add-category', tabindex: '-1'}
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-category', tabindex: '-1' }
         %h1#error-summary-add-category.heading-medium.error-summary-heading
-          = "#{pluralize(@category.errors.count, "error")} prevented this category from being added:"
+          = "#{ pluralize(@category.errors.count, "error") } prevented this category from being added:"
         %p
         %ul.error-summary-list
-          - @category.errors.full_messages.each do |msg|
+          - @category.errors.full_messages.each do | msg |
             %li= msg
 
-.grid-row
-  .column-two-thirds
+    = form_for @category do | f |
 
-    = form_for @category do |f|
-      = f.text_field :english_name
-      = f.text_field :welsh_name
+      .form-group
+        = f.text_field :english_name
+
+      .form-group
+        = f.text_field :welsh_name
+
       .form-group
         %label.block-label.selection-button-checkbox{ for: 'category_inactive' }
           = f.check_box(:inactive, {}, true)
           = t('label.inactive')
 
-      = f.submit class: 'button', role: 'button'
+      .button-holder
+        = f.submit class: 'button', role: 'button'
+        = link_to t('action.cancel'), categories_path, class: 'button-secondary button-left-spacing', role: 'button'
+
+  .column-one-third

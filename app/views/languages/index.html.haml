@@ -4,16 +4,16 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: {page_heading: 'Document languages'}
+    = render partial: 'layouts/header', locals: { page_heading: t('language.heading') }
 
-    = link_to t('links.language.new'), new_language_path, class: 'button', role: 'button'
+    = link_to t('language.add'), new_language_path, class: 'button', role: 'button'
 
     .table-container.container
       %table.report
         %caption
           %span.table-caption
             = @languages.size
-            languages currently available
+            = t('language.available')
         %colgroup
           %col
           %col
@@ -42,4 +42,4 @@
               %td
                 = language.inactive ? 'Yes' : 'No'
               %td
-                = link_to t('links.edit'), edit_language_path(language), class: 'button-secondary', role: 'button'
+                = link_to t('action.edit'), edit_language_path(language)
