@@ -43,7 +43,7 @@ class DocumentsController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linkeddocuments = @document.all_related
+    @linked_documents = @document.all_related
     @documents = []
     render 'documents/link'
   end
@@ -56,9 +56,9 @@ class DocumentsController < ApplicationController
       @documents = []
     end
     @parent_document = Document.find(params[:document])
-    @linkeddocuments = @parent_document.all_related
+    @linked_documents = @parent_document.all_related
     @documents = @documents - [@parent_document]
-    @documents = @documents - @linkeddocuments
+    @documents = @documents - @linked_documents
     @document = @parent_document
     render 'documents/link'
     # TODO: Refactor Collection subtraction logic.
@@ -74,7 +74,7 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    @linkeddocuments = @document.all_related
+    @linked_documents = @document.all_related
   end
 
   def unconnect
@@ -107,9 +107,9 @@ class DocumentsController < ApplicationController
   end
 
   def postconnect
-    @linkeddocuments = @parent_document.all_related
+    @linked_documents = @parent_document.all_related
     @documents = @documents - [@parent_document]
-    @documents = @documents - @linkeddocuments
+    @documents = @documents - @linked_documents
     @document = @parent_document
     @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
 

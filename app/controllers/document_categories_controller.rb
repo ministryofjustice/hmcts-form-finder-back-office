@@ -119,7 +119,7 @@ class DocumentCategoriesController < ApplicationController
     end
     @categories = @categories - @cate
     @document = @parent_document
-    @linkeddocuments = @parent_document.all_related
+    @linked_documents = @parent_document.all_related
     render 'documents/details'
   end
 end

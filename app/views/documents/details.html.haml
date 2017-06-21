@@ -20,7 +20,7 @@
       %br
         = @document.title
 
-- if @linkeddocuments.exists?
+- if @linked_documents.exists?
 
   .grid-row
     .column-one-third
@@ -30,7 +30,7 @@
     .column-two-thirds
       %hr
       %ul.list
-        - @linkeddocuments.each do | item |
+        - @linked_documents.each do | item |
           %li
             %span.reference
               = item.code
