@@ -44,7 +44,7 @@ class DocumentCategoriesController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
     @categories = []
     render 'document_categories/link'
   end
@@ -75,8 +75,8 @@ class DocumentCategoriesController < ApplicationController
       @categories = []
     end
     @parent_document = Document.find(params[:document])
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
-    @linkedcategories.each do |linkedcategory|
+    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @linked_categories.each do |linkedcategory|
       @cate = @cate.push(linkedcategory.category)
     end
     @categories = @categories - @cate
@@ -113,8 +113,8 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def postlink
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
-    @linkedcategories.each do |linkedcategory|
+    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @linked_categories.each do |linkedcategory|
       @cate = @cate.push(linkedcategory.category)
     end
     @categories = @categories - @cate

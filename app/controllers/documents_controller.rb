@@ -5,9 +5,9 @@ class DocumentsController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   def connect
-    preconnect
+    pre_connect
     @parent_document.related_documents << @document
-    postconnect
+    post_connect
   end
 
   def create
@@ -78,9 +78,9 @@ class DocumentsController < ApplicationController
   end
 
   def unconnect
-    preconnect
+    pre_connect
     (@parent_document.related_documents).delete(@document)
-    postconnect
+    post_connect
   end
 
   def update
@@ -106,18 +106,18 @@ class DocumentsController < ApplicationController
     form_params
   end
 
-  def postconnect
+  def post_connect
     @linked_documents = @parent_document.all_related
     @documents = @documents - [@parent_document]
     @documents = @documents - @linked_documents
     @document = @parent_document
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
+    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
 
     render 'documents/details'
     # TODO: Refactor Collection subtraction logic.
   end
 
-  def preconnect
+  def pre_connect
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order('created_at DESC')
     else
