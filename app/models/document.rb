@@ -91,6 +91,16 @@ class Document < ActiveRecord::Base
     AND  related_documents.linked_document_id =  #{id})")
   end
 
+  def all_unrelated
+    Document.where("id <> #{id} and id not IN (SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.linked_document_id
+    AND  related_documents.document_id =  #{id}
+      UNION
+    SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.document_id
+    AND  related_documents.linked_document_id =  #{id}) ")
+  end
+
   def reference_with_attributes
     "#{code} (#{language.english_name} #{file_format})"
   end
