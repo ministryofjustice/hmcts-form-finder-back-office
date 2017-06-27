@@ -49,16 +49,15 @@ class DocumentsController < ApplicationController
   end
 
   def links
+    @document = Document.find(params[:document])
     @documents = []
     if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order('created_at DESC')
+      @documents = @document.all_unrelated.search(params[:linksearch]).order('created_at DESC')
     else
-      @documents = []
+      @documents = @document.all_unrelated
     end
-    @parent_document = Document.find(params[:document])
-    @linked_documents = @parent_document.all_related
-    @document = @parent_document
-    @documents = @document.all_unrelated
+    @linked_documents = @document.all_related
+
     render 'documents/link'
   end
 
