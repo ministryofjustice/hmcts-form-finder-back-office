@@ -5,13 +5,13 @@
 
       .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-language', tabindex: '-1' }
         %h1#error-summary-add-language.heading-medium.error-summary-heading
-          = "#{pluralize(@language.errors.count, "error")} prevented this language from being added:"
+          = t('error_count', count: @language.errors.count ) + t('language.submit_error')
 
         %ul.error-summary-list
-          - @language.errors.full_messages.each do | msg |
+          - @language.errors.full_messages.each do |msg|
             %li= msg
 
-    = form_for @language do | f |
+    = form_for @language do |f|
 
       .form-group
         = f.text_field :english_name

@@ -32,10 +32,6 @@ class Category < ActiveRecord::Base
     :category_id
   end
 
-  def the_error
-    "Can't make a Category inactive when it is still in use. Please remove all the documents from the category."
-  end
-
   def self.search(search)
     where('lower(english_name) LIKE ? or lower(welsh_name) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end

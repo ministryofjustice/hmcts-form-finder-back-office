@@ -5,13 +5,13 @@
 
       .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-category', tabindex: '-1' }
         %h1#error-summary-add-category.heading-medium.error-summary-heading
-          = "#{ pluralize(@category.errors.count, "error") } prevented this category from being added:"
-        %p
+          = t('error_count', count: @category.errors.count ) + t('category.submit_error')
+
         %ul.error-summary-list
-          - @category.errors.full_messages.each do | msg |
+          - @category.errors.full_messages.each do |msg|
             %li= msg
 
-    = form_for @category do | f |
+    = form_for @category do |f|
 
       .form-group
         = f.text_field :english_name

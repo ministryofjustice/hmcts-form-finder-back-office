@@ -1,7 +1,7 @@
 .grid-row
   .column-two-thirds
 
-    = form_for @document, multipart: true do | f |
+    = form_for @document, multipart: true do |f|
 
       .form-group
         %p
@@ -22,7 +22,7 @@
         %fieldset
           %legend
             = t('label.type')
-          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do | b | b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
+          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
 
       .form-group
         = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }

@@ -5,13 +5,13 @@
 
       .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-user-form', tabindex: '-1' }
         %h1#error-summary-user-form.heading-medium.error-summary-heading
-          = "#{pluralize(@user.errors.count, "error")} prevented these details from being saved:"
-        %p
+          = t('error_count', count: @user.errors.count ) + t('user.submit_error')
+
         %ul.error-summary-list
-          - @user.errors.full_messages.each do | msg |
+          - @user.errors.full_messages.each do |msg|
             %li= msg
 
-    = form_for @user do | f |
+    = form_for @user do |f|
 
       .form-group
         = f.text_field :first_name
@@ -38,4 +38,3 @@
         = link_to t('action.cancel'), users_path, class: 'button-secondary button-left-spacing', role: 'button'
 
   .column-one-third
-
