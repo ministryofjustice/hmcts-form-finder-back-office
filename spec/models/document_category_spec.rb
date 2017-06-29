@@ -41,4 +41,34 @@ RSpec.describe DocumentCategory, type: :model do
 
     expect(category.save).to be_falsey
   end
+  it 'Can link a document to a category' do
+    document = create :document
+    category = create :category
+    document_category = create :document_category
+    document_category.document = document
+    document_category.category = category
+
+    document.save!
+    category.save!
+    expect(document_category.save).to be_truthy
+  end
+  it 'Can return linked categories' do
+    document = create :document
+    category = create :category
+    document_category = create :document_category
+    document_category.document = document
+    document_category.category = category
+
+    document.save!
+    category.save!
+    document_category.save!
+
+    category2 = create :category
+    document_category2 = create :document_category
+    document_category2.document = document
+    document_category2.category = category2
+    document_category2.save!
+
+    expect(document.categories.count).to eq(2)
+  end
 end

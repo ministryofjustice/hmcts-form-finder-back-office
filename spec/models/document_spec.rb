@@ -61,4 +61,19 @@ RSpec.describe Document, type: :model do
     @documents = Document.search('TEST')
     expect(@documents).to include(document)
   end
+  describe 'Can list' do
+    it 'unrelated categories' do
+      document = create :document
+      category = create :category
+      document_category = DocumentCategory.create(document: document, category: category)
+
+      document.save!
+      category.save!
+      document_category.save!
+
+      category2 = create :category
+      category2.save!
+      expect(document.unrelated_categories.count).to eq(1)
+    end
+  end
 end

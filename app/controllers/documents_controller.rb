@@ -107,7 +107,7 @@ class DocumentsController < ApplicationController
     @document = @parent_document
     @documents = @document.all_unrelated
     @linked_documents = @parent_document.all_related
-    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @document_categories = @document.document_categories
     render 'documents/details'
   end
 

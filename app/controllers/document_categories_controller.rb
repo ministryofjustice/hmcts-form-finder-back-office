@@ -44,7 +44,7 @@ class DocumentCategoriesController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @document_categories = DocumentCategory.where("document_id=#{params[:document]}")
     @categories = []
     render 'document_categories/link'
   end
@@ -75,12 +75,14 @@ class DocumentCategoriesController < ApplicationController
       @categories = []
     end
     @parent_document = Document.find(params[:document])
-    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
-    @linked_categories.each do |linkedcategory|
-      @cate = @cate.push(linkedcategory.category)
-    end
-    @categories = @categories - @cate
+    # @document_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    # @document_categories.each do |linkedcategory|
+    #   @cate = @cate.push(linkedcategory.category)
+    # end
+    # @categories = @categories - @cate
     @document = @parent_document
+    @document_categories = @document.document_categories
+    @categories = @document.unrelated_categories
     render 'document_categories/link'
     # TODO: Refactor Collection subtraction logic.
   end
@@ -113,8 +115,8 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def postlink
-    @linked_categories = DocumentCategory.where("document_id=#{params[:document]}")
-    @linked_categories.each do |linkedcategory|
+    @document_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @document_categories.each do |linkedcategory|
       @cate = @cate.push(linkedcategory.category)
     end
     @categories = @categories - @cate
