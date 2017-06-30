@@ -127,13 +127,10 @@ cy:
     choose_file: "Dewiswch ffeil i'w lwytho"
     current_file: "ddogfen cyfredol"
     edit: "dogfen golygu"
-    enter_reference: "Nodwch y dogfennau cyfeirio / rhif"
-    example_reference: "Er enghraifft, 'ex107'"
     heading: "dogfennau"
     link: "dogfennau Cyswllt"
     publication_date: "dyddiad cyhoeddi Set"
     publish_on: "I'w gyhoeddi"
-    select_document: "Dewiswch y ddogfen i olygu"
     submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
     upload: "Llwytho mwy o ddogfennau"
 
@@ -174,6 +171,7 @@ cy:
   label:
     inactive: "anweithgar"
     type: "math o ddogfen"
+    date: "dyddiad"
 
   language:
     add: "Ychwanegu iaith"

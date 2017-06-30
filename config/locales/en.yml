@@ -112,13 +112,10 @@ en:
     choose_file: "Choose file to upload"
     current_file: "Current document "
     edit: "Edit document"
-    enter_reference: "Enter the documents reference/number"
-    example_reference: "For example, 'ex107'."
     heading: "Documents"
     link: "Link documents"
     publication_date: "Set publication date"
     publish_on: "To be published"
-    select_document: "Select the document to edit"
     submit_error: " prevented this document from being submitted:"
     upload: "Upload more documents"
 
@@ -159,6 +156,7 @@ en:
   label:
     inactive: "Inactive"
     type: "Document type"
+    date: "Date"
 
   language:
     add: "Add language"
