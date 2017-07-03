@@ -29,8 +29,4 @@ class DocAttachmentType < ActiveRecord::Base
     :doc_attachment_type_id
   end
 
-  def the_error
-    "Can't make a Type inactive when it is still in use. Please remove all the documents from the type."
-  end
-
 end

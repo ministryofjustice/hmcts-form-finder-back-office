@@ -33,8 +33,4 @@ class Language < ActiveRecord::Base
     :language_id
   end
 
-  def the_error
-    "Can't make a Language inactive when it is still in use. Please remove all the documents from the language."
-  end
-
 end

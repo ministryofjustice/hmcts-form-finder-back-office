@@ -20,6 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  # Set defaults ========
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
   # Template ========
 
   about_hmcts: "About Her Majesty's Court and Tribunals Service"
@@ -57,6 +67,29 @@ en:
     select: "Select"
     show: "Show"
 
+  activerecord:
+    attributes:
+      document:
+        attachment: ""
+      user:
+        email: "Email address" # Override label 'email'
+        last_name: "Surname" # Override label 'Last name'
+        password_confirmation: "Confirmation password" # Override label 'Password confirmation'
+      language:
+        code: "Language code"
+    errors:
+      messages:
+        blank: "cannot be blank" # Set default message for blank fields
+        item_in_use: "This can’t be made inactive until all documents associated with it are made inactive first."
+        no_name: "An English and/or Welsh name must be supplied"
+      models:
+        document:
+          attributes:
+            attachment:
+              blank: "A file must be chosen to upload"
+            doc_attachment_type_id:
+              blank: "A document type must be chosen"
+
   category:
     add: "Add category"
     assign: "Assign categories"
@@ -65,14 +98,12 @@ en:
     delete_success: "Category successfully deleted."
     edit: "Edit category"
     heading: "Categories"
+    submit_error: " prevented this category from being submitted:"
     summary: "Category summary"
     update_success: "Category successfully updated."
 
-  date:
-    formats:
-      default: "%d/%m/%Y"
-
   department: "Her Majesty's Courts and Tribunals Service"
+
   department_initials: "HMCTS"
 
   document:
@@ -81,30 +112,35 @@ en:
     choose_file: "Choose file to upload"
     current_file: "Current document "
     edit: "Edit document"
-    enter_reference: "Enter the documents reference/number"
-    example_reference: "For example, 'ex107'."
     heading: "Documents"
     link: "Link documents"
     publication_date: "Set publication date"
     publish_on: "To be published"
-    select_document: "Select the document to edit"
+    submit_error: " prevented this document from being submitted:"
     upload: "Upload more documents"
+
+  error_count:
+    one: "1 error"
+    other: "%{count} errors"
+
+  error_message:
+    no_code: "Reference can't be blank"
 
   helpers:
     label:
+      names: &name_labels
+        english_name: "English name"
+        welsh_name: "Welsh name"
       category:
-        english_name: "English name"
-        welsh_name: "Welsh name"
+        <<: *name_labels
       doc_attachment_type:
-        english_name: "English name"
-        welsh_name: "Welsh name"
+        <<: *name_labels
       document:
         code: "Reference/number"
         title: "Title"
         language_id: "Language"
       language:
-        english_name: "English name"
-        welsh_name: "Welsh name"
+        <<: *name_labels
         code: "Language code"
       user:
         first_name: "First name"
@@ -114,25 +150,13 @@ en:
         password_confirmation: "Confirm password"
 
     submit:
-      category:
-        create: "Submit"
-        update: "Save"
-      doc_attachment_type:
-        create: "Submit"
-        update: "Save"
-      document:
-        create: "Submit"
-        update: "Save"
-      language:
-        create: "Submit"
-        update: "Save"
-      user:
-        create: "Submit"
-        update: "Save"
+      create: "Submit"
+      update: "Save"
 
   label:
     inactive: "Inactive"
     type: "Document type"
+    date: "Date"
 
   language:
     add: "Add language"
@@ -141,6 +165,7 @@ en:
     delete_success: "Language successfully deleted."
     edit: "Edit language"
     heading: "Languages"
+    submit_error: " prevented this language from being submitted:"
     summary: "Language summary"
     update_success: "Language successfully updated."
 
@@ -157,10 +182,6 @@ en:
     up: "Sign up"
     with: "Sign in with"
 
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M"
-
   type:
     add: "Add type"
     available: "types available"
@@ -168,6 +189,7 @@ en:
     delete_success: "Type successfully deleted."
     edit: "Edit type"
     heading: "Document types"
+    submit_error: " prevented this type from being submitted:"
     summary: "Type summary"
     update_success: "Type successfully updated."
 
@@ -184,6 +206,7 @@ en:
     name: "Name"
     no_confirmation_instructions: "Didn't receive confirmation instructions?"
     no_unlock_instructions: "Didn't receive unlock instructions?"
+    submit_error: " prevented this user from being submitted:"
     summary: "User summary"
     unlock: "Unlock my account"
     update_success: "User successfully updated."

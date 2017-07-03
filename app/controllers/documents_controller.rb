@@ -38,7 +38,7 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.all
+    @documents = Document.where('published_date >= ?', Date.today.beginning_of_day).order(published_date: :asc)
   end
 
   def link
