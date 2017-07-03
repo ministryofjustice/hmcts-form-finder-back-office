@@ -83,7 +83,7 @@
             .action
               = link_to t('action.link'), link_documents_connect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
-- if @linkeddocuments.exists?
+- unless @linked_documents.nil?
 
   .grid-row
     .column-full
@@ -101,7 +101,7 @@
     .column-two-thirds
 
       %ul.list
-        - @linkeddocuments.each do | item |
+        - @linked_documents.each do | item |
           %li
             .item
               %span.reference
