@@ -154,6 +154,7 @@ cy:
         code: "Cyfeirnod/Rhif"
         title: "Teitl"
         language_id: "iaith"
+        summary: "Crynodeb"
       language:
         <<: *name_labels
         code: "cod iaith"
@@ -163,6 +164,10 @@ cy:
         email: "Cyfeiriad ebost"
         password: "cyfrinair"
         password_confirmation: "cadarnhau cyfrinair"
+
+    hint:
+      document:
+        summary: "Max 140 o gymeriadau"
 
     submit:
       create: "Cyflwyno"

@@ -47,6 +47,12 @@
   border-bottom-width: 1px;
 }
 
+.me-character-counter { margin-top: 5px }
+.me-character-counter_invalid {
+  color: #b10e1e;
+  font-weight: 700
+}
+
 .no-result-message {
   border-style: solid;
   border-width: 2px;
@@ -174,6 +180,8 @@ form {
     }
   }
 }
+
+textarea { resize: none }
 
 @media screen and (max-width: 640px) {
   .button-left-spacing {
