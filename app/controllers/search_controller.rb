@@ -27,7 +27,7 @@ class SearchController < ApplicationController
 
   def show
     @document = Document.find(params[:document])
-    @linkeddocuments = @document.all_related.active
+    @linked_documents = @document.all_related.active
     render 'search/show'
   end
 end
