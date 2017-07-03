@@ -59,7 +59,7 @@ csv.each do |row|
   t.attachment_file_name = row['attachment_file_name']
   t.attachment_content_type = row['attachment_content_type']
   t.attachment_file_size = row['attachment_file_size']
-  t.content_date = row['content_date']
+  t.document_version = row['document_version']
   t.language_id = row['language_id']
   t.doc_attachment_type_id = row['doc_attachment_type_id']
   t.inactive = row['inactive']

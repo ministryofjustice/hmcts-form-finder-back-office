@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170508085359) do
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
-    t.string   "content_date"
+    t.string   "document_version"
     t.date     "published_date"
     t.integer  "language_id"
     t.integer  "original_id"
