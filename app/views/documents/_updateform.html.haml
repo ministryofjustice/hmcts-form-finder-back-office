@@ -19,6 +19,9 @@
         = f.text_field :title
 
       .form-group
+        = f.text_area :summary, { class: 'form-control-2-3 counter', rows: '4', 'data-max-chars': '140' }
+
+      .form-group
         %fieldset
           %legend
             = t('label.type')

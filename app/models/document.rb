@@ -18,6 +18,7 @@
 #  creator_id               :integer
 #  original_url             :string
 #  file_format              :string
+#  summary                  :string(140)
 #
 
 class Document < ActiveRecord::Base
@@ -56,6 +57,9 @@ class Document < ActiveRecord::Base
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+
+  validates_length_of :summary, maximum: 140
+
   after_create :populate_original_id
 
   def active

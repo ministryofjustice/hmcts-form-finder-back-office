@@ -139,6 +139,7 @@ en:
         code: "Reference/number"
         title: "Title"
         language_id: "Language"
+        summary: "Summary"
       language:
         <<: *name_labels
         code: "Language code"
@@ -148,6 +149,10 @@ en:
         email: "Email address"
         password: "Password"
         password_confirmation: "Confirm password"
+
+    hint:
+      document:
+        summary: "Max 140 characters"
 
     submit:
       create: "Submit"

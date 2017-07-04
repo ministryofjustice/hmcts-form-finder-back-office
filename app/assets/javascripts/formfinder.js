@@ -3,6 +3,7 @@
 /* global GOVUK */
 
 $(document).ready(function () {
+
     // Turn off jQuery animation
     jQuery.fx.off = true
 
@@ -23,6 +24,18 @@ $(document).ready(function () {
     // Details/summary polyfill
     // See /javascripts/vendor/details.polyfill.js
 
+
+    // Summary character counter setup
+    $('.counter').characterCounter({
+        postCountMessage: "characters left",
+        postCountMessageSingular: "character left",
+        zeroRemainingMessage: "No characters left",
+        overrunPreCountMessage: "Please remove",
+        overrunPostCountMessage: "characters",
+        overrunPostCountMessageSingular: "character",
+        positiveOverruns: true
+    });
+
     // Accessible auto complete setup
     var selectEl = document.querySelector('#document_list')
     var queryStringParameters = window.location.search
@@ -33,7 +46,7 @@ $(document).ready(function () {
         defaultValue: '',
         minLength: 2,
         selectElement: selectEl
-    })
+    });
 
     if (previouslySubmitted) {
         var submittedEl = document.querySelector('.submitted')
@@ -41,6 +54,7 @@ $(document).ready(function () {
         var params = new URLSearchParams(document.location.search.split('?')[1])
         document.querySelector('.submitted__select-document').innerHTML = params.get('selected_document[]')
     }
+
 })
 
 $(window).load(function () {
