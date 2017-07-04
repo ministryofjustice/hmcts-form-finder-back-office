@@ -19,4 +19,5 @@
 //= require govuk/show-hide-content
 //= require details.polyfill
 //= require accessible-autocomplete.min
+//= require jquery.charactercounter
 //= require_tree .

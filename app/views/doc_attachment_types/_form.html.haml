@@ -5,13 +5,13 @@
 
       .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-type', tabindex: '-1' }
         %h1#error-summary-add-type.heading-medium.error-summary-heading
-          = "#{pluralize(@doc_attachment_type.errors.count, "error")} prevented this type from being added:"
-        %p
+          = t('error_count', count: @doc_attachment_type.errors.count ) + t('type.submit_error')
+
         %ul.error-summary-list
-          - @doc_attachment_type.errors.full_messages.each do | msg |
+          - @doc_attachment_type.errors.full_messages.each do |msg|
             %li= msg
 
-    = form_for @doc_attachment_type do | f |
+    = form_for @doc_attachment_type do |f|
 
       .form-group
         = f.text_field :english_name

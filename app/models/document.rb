@@ -18,6 +18,7 @@
 #  creator_id               :integer
 #  original_url             :string
 #  file_format              :string
+#  summary                  :string(140)
 #
 
 class Document < ActiveRecord::Base
@@ -30,6 +31,7 @@ class Document < ActiveRecord::Base
   belongs_to :doc_attachment_type
   belongs_to :language
   belongs_to :creator, foreign_key: 'creator_id', class_name: 'User'
+  has_many :document_categories
   has_many :categories, through: :document_categories
 
   has_and_belongs_to_many :related_documents,
@@ -55,6 +57,9 @@ class Document < ActiveRecord::Base
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+
+  validates_length_of :summary, maximum: 140
+
   after_create :populate_original_id
 
   def active
@@ -89,6 +94,22 @@ class Document < ActiveRecord::Base
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
     AND  related_documents.linked_document_id =  #{id})")
+  end
+
+  def all_unrelated
+    Document.where("id <> #{id} and id not IN (SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.linked_document_id
+    AND  related_documents.document_id =  #{id}
+      UNION
+    SELECT DISTINCT documents.id FROM documents, related_documents
+    WHERE documents.id = related_documents.document_id
+    AND  related_documents.linked_document_id =  #{id}) ")
+  end
+
+  def unrelated_categories
+    Category.where("id NOT IN (SELECT DISTINCT categories.id FROM categories, document_categories
+    WHERE categories.id = document_categories.category_id
+    AND document_categories.document_id = #{id})")
   end
 
   def reference_with_attributes

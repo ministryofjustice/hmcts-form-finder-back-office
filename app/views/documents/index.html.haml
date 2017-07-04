@@ -8,20 +8,51 @@
 .grid-row
   .column-two-thirds
 
+    %h2.heading-medium
+      =t('document.add')
+
     = link_to t('document.add'), new_document_path, class: 'button', role: 'button'
 
-    %h2.heading-medium.bold
+
+    %h2.heading-medium
       = t('document.edit')
 
     = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
       .form-group
-        = label_tag :document_list, t('document.select_document'), class:'form-label'
-        .form-hint
-          = t('document.enter_reference')
-          %br
-          = t('document.example_reference')
-        .autocomplete-wrapper
+        .autocomplete_select
           = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { :id => 'document_list', :class => 'form-control' } )
-        = submit_tag t('action.edit'), role: 'button', class: 'button'
+        = submit_tag t('document.edit'), role: 'button', class: 'button'
 
-    .column-one-third
+  .column-one-third
+
+- if @documents.size > 0
+
+  .grid-row
+    .column-full
+
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption.font-medium
+              = t('document.publish_on')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('label.date')
+              %th{scope:'col'}
+                = t('helpers.label.document.code')
+              %th{scope:'col'}
+                = t('helpers.label.document.title')
+          %tbody
+            - @documents.each do |document|
+              %tr
+                %td.font-xsmall
+                  = document.published_date.strftime('%d/%m/%Y')
+                %td.font-xsmall
+                  = document.code
+                %td.font-xsmall
+                  = link_to document.title, edit_document_path(document)

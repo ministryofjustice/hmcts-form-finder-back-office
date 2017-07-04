@@ -35,7 +35,7 @@
   font-size: smaller;
 }
 
-.autocomplete__wrapper { margin-bottom: 5px }
+.autocomplete_select { margin-bottom: 15px }
 
 .item { display: block; }
 
@@ -45,6 +45,12 @@
 .un-assigned li:nth-child(even) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
+}
+
+.me-character-counter { margin-top: 5px }
+.me-character-counter_invalid {
+  color: #b10e1e;
+  font-weight: 700
 }
 
 .no-result-message {
@@ -174,6 +180,8 @@ form {
     }
   }
 }
+
+textarea { resize: none }
 
 @media screen and (max-width: 640px) {
   .button-left-spacing {

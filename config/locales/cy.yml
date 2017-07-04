@@ -20,6 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 cy:
+  # Set defaults ========
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+
+  errors:
+    # error message format is %{attribute} %{message} by default.
+    # As welsh sentence structure is different, %{attribute} has to be removed
+    format: "%{message}"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
   # Template ========
 
   about_hmcts: "Ynglŷn Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
@@ -57,6 +72,39 @@ cy:
     select: "dewiswch"
     show: "Dangos"
 
+  activerecord:
+    errors:
+      messages:
+        item_in_use: "Ni all hyn gael ei wneud yn segur nes bod yr holl ddogfennau sy'n gysylltiedig ag ef yn cael eu gwneud anweithgar cyntaf"
+        no_name: "Rhaid i enw Saesneg a / neu Gymraeg yn cael eu cyflenwi"
+      models:
+        document:
+          attributes:
+            attachment:
+              blank: "Rhaid i ffeil yn cael ei ddewis i lwytho"
+            code:
+                blank: "Ni all Cyfeirnod / rhif fod yn wag"
+            doc_attachment_type_id:
+              blank: "Rhaid i math o ddogfen yn cael eu dewis"
+            title:
+                blank: "Ni all teitl fod yn wag"
+        language:
+          attributes:
+            code:
+              blank: "Ni all cod iaith fod yn wag"
+        user:
+          attributes:
+            first_name:
+              blank: "Ni all Enw cyntaf fod yn wag"
+            last_name:
+              blank: "Ni all Cyfenw yn wag"
+            email:
+              blank: "Ni all Cyfeiriad e-bost fod yn wag"
+            password:
+              blank: "Ni all cyfrinair fod yn wag"
+            password_confirmation:
+              blank: "Ni all cadarnhad Cyfrinair fod yn wag"
+
   category:
     add: "Ychwanegu categori"
     assign: "neilltuo categorïau"
@@ -65,14 +113,12 @@ cy:
     delete_success: "Categori ddileu'n llwyddiannus."
     edit: "categori golygu"
     heading: "categorïau"
+    submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
     summary: "crynodeb categori"
     update_success: "Categori ddiweddaru'n llwyddiannus."
 
-  date:
-    formats:
-      default: "%d/%m/%Y"
-
   department: "Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
+
   department_initials: "HMCTS"
 
   document:
@@ -81,30 +127,36 @@ cy:
     choose_file: "Dewiswch ffeil i'w lwytho"
     current_file: "ddogfen cyfredol"
     edit: "dogfen golygu"
-    enter_reference: "Nodwch y dogfennau cyfeirio / rhif"
-    example_reference: "Er enghraifft, 'ex107'"
     heading: "dogfennau"
     link: "dogfennau Cyswllt"
     publication_date: "dyddiad cyhoeddi Set"
     publish_on: "I'w gyhoeddi"
-    select_document: "Dewiswch y ddogfen i olygu"
+    submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
     upload: "Llwytho mwy o ddogfennau"
+
+  error_count:
+    one: "1 gwall yn"
+    other: "%{count} gwallau"
+
+  error_message:
+    no_code: "Ni all fod yn cyfeirio yn wag"
 
   helpers:
     label:
+      names: &name_labels
+        english_name: "enw Saesneg"
+        welsh_name: "enw Cymraeg"
       category:
-        english_name: "enw Saesneg"
-        welsh_name: "enw Cymraeg"
+        <<: *name_labels
       doc_attachment_type:
-        english_name: "enw Saesneg"
-        welsh_name: "enw Cymraeg"
+        <<: *name_labels
       document:
         code: "Cyfeirnod/Rhif"
         title: "Teitl"
         language_id: "iaith"
+        summary: "Crynodeb"
       language:
-        english_name: "enw Saesneg"
-        welsh_name: "enw Cymraeg"
+        <<: *name_labels
         code: "cod iaith"
       user:
         first_name: "Enw cyntaf"
@@ -113,26 +165,18 @@ cy:
         password: "cyfrinair"
         password_confirmation: "cadarnhau cyfrinair"
 
-    submit:
-      category:
-        create: "Cyflwyno"
-        update: "Cadw"
-      doc_attachment_type:
-        create: "Cyflwyno"
-        update: "Cadw"
+    hint:
       document:
-        create: "Cyflwyno"
-        update: "Cadw"
-      language:
-        create: "Cyflwyno"
-        update: "Cadw"
-      user:
-        create: "Cyflwyno"
-        update: "Cadw"
+        summary: "Max 140 o gymeriadau"
+
+    submit:
+      create: "Cyflwyno"
+      update: "Cadw"
 
   label:
     inactive: "anweithgar"
     type: "math o ddogfen"
+    date: "dyddiad"
 
   language:
     add: "Ychwanegu iaith"
@@ -141,6 +185,7 @@ cy:
     delete_success: "Iaith ddileu'n llwyddiannus."
     edit: "golygu iaith"
     heading: "ieithoedd"
+    submit_error: " atal yr iaith hon rhag cael ei gyflwyno:"
     summary: "crynodeb iaith"
     update_success: "Iaith ddiweddaru'n llwyddiannus."
 
@@ -157,16 +202,13 @@ cy:
     up: "Cofrestru"
     with: "Mewngofnodi gyda"
 
-  time:
-    formats:
-      default: "%d/%m/%Y %H:%M"
-
   type:
     add: "Ychwanegu math"
     available: "mathau sydd ar gael"
     create_success: "Teipiwch greu yn llwyddiannus."
     delete_success: "Teipiwch ddileu'n llwyddiannus."
     edit: "math golygu"
+    submit_error: " atal y math hwn rhag cael ei gyflwyno:"
     heading: "mathau o ddogfen"
     summary: "crynodeb math"
     update_success: "Teipiwch ddiweddaru'n llwyddiannus."
@@ -184,6 +226,7 @@ cy:
     name: "enw"
     no_confirmation_instructions: "Ddim wedi derbyn cyfarwyddiadau cadarnhad?"
     no_unlock_instructions: "Ddim wedi derbyn cyfarwyddiadau datglo?"
+    submit_error: " atal y defnyddiwr hwn rhag cael ei gyflwyno:"
     summary: "crynodeb defnyddiwr"
     unlock: "Datgloi fy nghyfrif"
     update_success: "Defnyddiwr ddiweddaru'n llwyddiannus."

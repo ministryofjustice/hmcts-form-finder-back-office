@@ -1,7 +1,17 @@
 .grid-row
   .column-two-thirds
 
-    = form_for @document, multipart: true do | f |
+    - if @document.errors.any?
+
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-document', tabindex: '-1' }
+        %h1#error-summary-add-document.heading-medium.error-summary-heading
+          = t('error_count', count: @document.errors.count ) + t('document.submit_error')
+
+        %ul.error-summary-list
+          - @document.errors.full_messages.each do |msg|
+            %li= msg
+
+    = form_for @document, multipart: true do |f|
 
       .form-group
         = f.label :attachment, t('document.choose_file')
@@ -14,10 +24,13 @@
         = f.text_field :title
 
       .form-group
+        = f.text_area :summary, { class: 'form-control-2-3 counter', rows: '4', 'data-max-chars': '140' }
+
+      .form-group
         %fieldset
           %legend
             = t('label.type')
-          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do | b | b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
+          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
 
       .form-group
         = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }

@@ -19,13 +19,13 @@
         Download:
         = link_to @document.attachment_file_name, @document.attachment.url
 .grid-row
-  - if @linkeddocuments.exists?
+  - if @linked_documents.exists?
     .column-one-third
       %h2.bold-medium
         Associated leaflets:
     .column-two-thirds
       %ul.list
-        - @linkeddocuments.each do | document |
+        - @linked_documents.each do | document |
           Title:
           = document.title
           %p

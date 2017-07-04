@@ -81,7 +81,7 @@
 
               = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
-- if @linkedcategories.exists?
+- unless @document_categories.nil?
 
   .grid-row
     .column-full
@@ -98,10 +98,10 @@
           format
         is already assigned to these categories:
     .column-two-thirds
-      - if @linkedcategories.exists?
+      - if @document_categories.exists?
 
         %ul.list
-          - @linkedcategories.each do | item |
+          - @document_categories.each do | item |
             %li
               .item
                 = item.category.english_name

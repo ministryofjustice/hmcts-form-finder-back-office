@@ -5,9 +5,9 @@ class DocumentsController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   def connect
-    preconnect
+    pre_connect
     @parent_document.related_documents << @document
-    postconnect
+    post_connect
   end
 
   def create
@@ -38,30 +38,27 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.all
+    @documents = Document.where('published_date >= ?', Date.today.beginning_of_day).order(published_date: :asc)
   end
 
   def link
     @document = Document.find(params[:document])
-    @linkeddocuments = @document.all_related
+    @linked_documents = @document.all_related
     @documents = []
     render 'documents/link'
   end
 
   def links
+    @document = Document.find(params[:document])
     @documents = []
     if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order('created_at DESC')
+      @documents = @document.all_unrelated.search(params[:linksearch]).order('created_at DESC')
     else
-      @documents = []
+      @documents = @document.all_unrelated
     end
-    @parent_document = Document.find(params[:document])
-    @linkeddocuments = @parent_document.all_related
-    @documents = @documents - [@parent_document]
-    @documents = @documents - @linkeddocuments
-    @document = @parent_document
+    @linked_documents = @document.all_related
+
     render 'documents/link'
-    # TODO: Refactor Collection subtraction logic.
   end
 
   def list
@@ -74,13 +71,13 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    @linkeddocuments = @document.all_related
+    @linked_documents = @document.all_related
   end
 
   def unconnect
-    preconnect
+    pre_connect
     (@parent_document.related_documents).delete(@document)
-    postconnect
+    post_connect
   end
 
   def update
@@ -97,7 +94,7 @@ class DocumentsController < ApplicationController
 
   def doc_attachment_params
     params.require(:document)
-        .permit(:attachment, :code, :title, :doc_attachment_type_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :language_id, :inactive)
+        .permit(:attachment, :code, :doc_attachment_type_id, :inactive, :language_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :summary, :title)
   end
 
   def params_with_user
@@ -106,18 +103,15 @@ class DocumentsController < ApplicationController
     form_params
   end
 
-  def postconnect
-    @linkeddocuments = @parent_document.all_related
-    @documents = @documents - [@parent_document]
-    @documents = @documents - @linkeddocuments
+  def post_connect
     @document = @parent_document
-    @linkedcategories = DocumentCategory.where("document_id=#{params[:document]}")
-
+    @documents = @document.all_unrelated
+    @linked_documents = @parent_document.all_related
+    @document_categories = @document.document_categories
     render 'documents/details'
-    # TODO: Refactor Collection subtraction logic.
   end
 
-  def preconnect
+  def pre_connect
     if params[:linksearch].present?
       @documents = Document.search(params[:linksearch]).order('created_at DESC')
     else
