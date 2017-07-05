@@ -59,7 +59,8 @@ csv.each do |row|
   t.attachment_file_name = row['attachment_file_name']
   t.attachment_content_type = row['attachment_content_type']
   t.attachment_file_size = row['attachment_file_size']
-  t.document_version = row['document_version']
+  t.content_date_month = row['document_version'].split('/')[0].strip
+  t.content_date_year = row['document_version'].split('/')[1].strip
   t.language_id = row['language_id']
   t.doc_attachment_type_id = row['doc_attachment_type_id']
   t.inactive = row['inactive']
