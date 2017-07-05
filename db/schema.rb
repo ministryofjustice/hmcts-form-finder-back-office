@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629145911) do
+ActiveRecord::Schema.define(version: 20170705110242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170629145911) do
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
-    t.string   "document_version"
+    t.string   "content_date_month",      limit: 2
     t.date     "published_date"
     t.integer  "language_id"
     t.integer  "original_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170629145911) do
     t.string   "original_url"
     t.string   "file_format"
     t.string   "summary",                 limit: 140
+    t.string   "content_date_year",       limit: 4
   end
 
   create_table "languages", force: :cascade do |t|
