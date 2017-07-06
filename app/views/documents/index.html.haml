@@ -13,7 +13,6 @@
 
     = link_to t('document.add'), new_document_path, class: 'button', role: 'button'
 
-
     %h2.heading-medium
       = t('document.edit')
 
@@ -21,20 +20,19 @@
       .form-group
         .autocomplete_select
           = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { :id => 'document_list', :class => 'form-control' } )
-        = submit_tag t('document.edit'), role: 'button', class: 'button'
+        = submit_tag t('document.edit'), role: 'button', class: 'button-secondary'
+
+    %h2.heading-medium
+      = t('document.publish_on')
 
   .column-one-third
 
-- if @documents.size > 0
+.grid-row
+  .column-full
 
-  .grid-row
-    .column-full
-
+    - if @documents.size > 0
       .table-container.container
         %table.report
-          %caption
-            %span.table-caption.font-medium
-              = t('document.publish_on')
           %colgroup
             %col
             %col
@@ -56,3 +54,7 @@
                   = document.code
                 %td.font-xsmall
                   = link_to document.title, edit_document_path(document)
+
+    - else
+      %p
+        = t('notice.nothing_queued')
