@@ -34,7 +34,12 @@ class DocumentsController < ApplicationController
   end
 
   def edit_selected_document
-    redirect_to edit_document_path(params[:selected_document])
+    @document_id = params[:selected_document]
+    if @document_id == ['']
+      redirect_to documents_path
+    else
+      redirect_to edit_document_path(@document_id)
+    end
   end
 
   def index

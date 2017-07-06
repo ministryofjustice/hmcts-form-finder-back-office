@@ -180,6 +180,7 @@ en:
 
   notice:
     success: "Successfully submitted"
+    nothing_queued: "No documents are currently queued for publication."
 
   sign:
     in: "Sign in"
