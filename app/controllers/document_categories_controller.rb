@@ -44,7 +44,7 @@ class DocumentCategoriesController < ApplicationController
 
   def link
     @document = Document.find(params[:document])
-    @document_categories = DocumentCategory.where("document_id=#{params[:document]}")
+    @document_categories = DocumentCategory.where('document_id = ?', params[:document])
     @categories = @document.unrelated_categories
     render 'document_categories/link'
   end
