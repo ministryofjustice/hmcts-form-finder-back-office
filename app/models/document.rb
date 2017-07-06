@@ -58,7 +58,7 @@ class Document < ActiveRecord::Base
   validates :title, presence: true
   validates :language_id, presence: true
 
-  validates_length_of :summary, maximum: 140
+  validates :summary, length: { maximum: 250 }
 
   after_create :populate_original_id
 
