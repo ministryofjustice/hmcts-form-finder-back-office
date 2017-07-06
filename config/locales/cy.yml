@@ -195,6 +195,7 @@ cy:
 
   notice:
     success: "gyflwynwyd yn llwyddiannus"
+    nothing_queued: "Dim dogfennau yn cael eu ciwio ar hyn o bryd ar gyfer eu cyhoeddi."
 
   sign:
     in: "Mewngofnodi"
