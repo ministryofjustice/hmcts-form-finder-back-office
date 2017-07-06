@@ -44,7 +44,7 @@ class DocumentsController < ApplicationController
   def link
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
-    @documents = []
+    @documents = @document.all_unrelated
     render 'documents/link'
   end
 
