@@ -43,13 +43,13 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.where('published_date >= ?', Date.today.beginning_of_day).order(published_date: :asc)
+    @documents = Document.where('published_date >= ?', Time.zone.today.beginning_of_day).order(published_date: :asc)
   end
 
   def link
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
-    @documents = []
+    @documents = @document.all_unrelated
     render 'documents/link'
   end
 
