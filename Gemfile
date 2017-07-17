@@ -5,11 +5,21 @@ gem 'aws-sdk', '< 2.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~>4.1.0'
 gem 'factory_girl_rails', '~> 4.7'
+
 gem 'gov_uk_date_fields', '>= 1.0.7'
-gem 'govuk_elements_form_builder', git: 'https://github.com/ministryofjustice/govuk_elements_form_builder.git'
-gem 'govuk_elements_rails',   '>= 1.2.0'
-gem 'govuk_frontend_toolkit', '>= 4.12.0'
-gem 'govuk_template',         '~> 0.17.2'
+
+# gem 'govuk_elements_form_builder', '>=1.0.0'
+gem 'govuk_elements_form_builder', '>= 1.0.0'
+
+# gem 'govuk_elements_rails', '>= 1.2.0'
+gem 'govuk_elements_rails', '>= 3.0.2'
+
+# gem 'govuk_frontend_toolkit', '>= 4.12.0'
+gem 'govuk_frontend_toolkit', '>= 6.0.0'
+
+# gem 'govuk_template', '~> 0.17.2'
+gem 'govuk_template', '~> 0.22.2'
+
 gem 'haml-rails', '~> 0.9.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

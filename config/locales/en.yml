@@ -32,187 +32,191 @@ en:
 
   # Template ========
 
-  about_hmcts: "About Her Majesty's Court and Tribunals Service"
-  crown_copyright: "Crown Copyright"
-  privacy: "Privacy"
+  about_hmcts: About Her Majesty's Court and Tribunals Service
+  crown_copyright: Crown Copyright
+  privacy: Privacy
 
   # Public pages ========
 
-  clear: "Clear"
-  close: "Close"
-  form_number: "Form/leaflet number"
-  form_title: "Form/leaflet title"
-  search_by: "Search by"
-  search_for_forms_and_leaflets: "Search for forms and leaflets"
-  search_page_title: "Courts and tribunal form finder"
+  clear: Clear
+  close: Close
+  form_number: Form/leaflet number
+  form_title: Form/leaflet title
+  search_by: Search by
+  search_for_forms_and_leaflets: Search for forms and leaflets
+  search_page_title: Courts and tribunal form finder
   search_result_heading: "Search result for:"
-  search: "Search"
-  step1_para1: "Find court and tribunal forms and leaflets, including divorce, probate, deed poll, money claim, help with fees and social security tribunal forms."
-  step1_para2: "If you know the number of the form/leaflet you wish to locate please enter it in the free text box below."
-  step1_para3: "Alternatively, if you do not know the form number enter a title (or keyword) or choose a category from the work type drop down list which lists the forms available by business type."
+  search: Search
+  step1_para1: Find court and tribunal forms and leaflets, including divorce, probate, deed poll, money claim, help with fees and social security tribunal forms.
+  step1_para2: If you know the number of the form/leaflet you wish to locate please enter it in the free text box below.
+  step1_para3: Alternatively, if you do not know the form number enter a title (or keyword) or choose a category from the work type drop down list which lists the forms available by business type.
 
   # Admin interface pages ========
 
-  application_name: "Form Finder"
+  application_name: Form Finder
 
   action:
-    assign: "Assign"
-    back: "Back"
-    cancel: "Cancel"
-    continue: "continue"
-    done: "Done"
-    edit: "Edit"
-    link: "Link"
-    remove: "Remove"
-    select: "Select"
-    show: "Show"
+    assign: Assign
+    back: Back
+    cancel: Cancel
+    continue: continue
+    done: Done
+    edit: Edit
+    link: Link
+    remove: Remove
+    select: Select
+    show: Show
 
   activerecord:
     attributes:
       document:
         attachment: ""
       user:
-        email: "Email address" # Override label 'email'
-        last_name: "Surname" # Override label 'Last name'
-        password_confirmation: "Confirmation password" # Override label 'Password confirmation'
+        email: Email address
+        last_name: Surname
+        password_confirmation: Confirmation password
       language:
-        code: "Language code"
+        code: Language code
     errors:
       messages:
-        blank: "cannot be blank" # Set default message for blank fields
-        item_in_use: "This can’t be made inactive until all documents associated with it are made inactive first."
-        no_name: "An English and/or Welsh name must be supplied"
+        blank: cannot be blank
+        item_in_use: This can’t be made inactive until all documents associated with it are made inactive first.
+        no_name: An English and/or Welsh name must be supplied
       models:
         document:
           attributes:
             attachment:
-              blank: "A file must be chosen to upload"
+              blank: A file must be chosen to upload
             doc_attachment_type_id:
-              blank: "A document type must be chosen"
+              blank: A document type must be chosen
 
   category:
-    add: "Add category"
-    assign: "Assign categories"
-    available: "categories available"
-    create_success: "Category successfully created."
-    delete_success: "Category successfully deleted."
-    edit: "Edit category"
-    heading: "Categories"
+    add: Add category
+    assign: Assign categories
+    available: categories available
+    create_success: Category successfully created.
+    delete_success: Category successfully deleted.
+    edit: Edit category
+    heading: Categories
     submit_error: " prevented this category from being submitted:"
-    summary: "Category summary"
-    update_success: "Category successfully updated."
+    summary: Category summary
+    update_success: Category successfully updated.
 
-  department: "Her Majesty's Courts and Tribunals Service"
+  department: Her Majesty's Courts and Tribunals Service
 
-  department_initials: "HMCTS"
+  department_initials: HMCTS
 
   document:
-    add: "Add document"
-    choose_another_file: "Choose different file to upload"
-    choose_file: "Choose file to upload"
+    add: Add document
+    choose_another_file: Choose different file to upload
+    choose_file: Choose file to upload
     current_file: "Current document "
-    edit: "Edit document"
-    heading: "Documents"
-    link: "Link documents"
-    publication_date: "Set publication date"
-    publish_on: "To be published"
+    edit: Edit document
+    heading: Documents
+    link: Link documents
+    publication_date: Set publication date
+    publish_on: To be published
     submit_error: " prevented this document from being submitted:"
-    upload: "Upload more documents"
+    upload: Upload more documents
 
   error_count:
-    one: "1 error"
+    one: 1 error
     other: "%{count} errors"
 
   error_message:
-    no_code: "Reference can't be blank"
+    no_code: Reference can't be blank
 
   helpers:
+    fieldset:
+      document:
+        doc_attachment_type_id: Document type
+
     label:
       names: &name_labels
-        english_name: "English name"
-        welsh_name: "Welsh name"
+        english_name: English name
+        welsh_name: Welsh name
       category:
         <<: *name_labels
       doc_attachment_type:
         <<: *name_labels
       document:
-        code: "Reference/number"
-        title: "Title"
-        language_id: "Language"
-        summary: "Summary"
+        code: Reference/number
+        title: Title
+        language_id: Language
+        summary: Summary
       language:
         <<: *name_labels
-        code: "Language code"
+        code: Language code
       user:
-        first_name: "First name"
-        last_name: "Surname"
-        email: "Email address"
-        password: "Password"
-        password_confirmation: "Confirm password"
+        first_name: First name
+        last_name: Surname
+        email: Email address
+        password: Password
+        password_confirmation: Confirm password
 
     hint:
       document:
-        summary: "Max 140 characters"
+        summary: Max 250 characters
 
     submit:
-      create: "Submit"
-      update: "Save"
+      create: Submit
+      update: Save
 
   label:
-    inactive: "Inactive"
-    type: "Document type"
-    date: "Date"
+    inactive: Inactive
+    type: Document type
+    date: Date
 
   language:
-    add: "Add language"
-    available: "languages available"
-    create_success: "Language successfully created."
-    delete_success: "Language successfully deleted."
-    edit: "Edit language"
-    heading: "Languages"
+    add: Add language
+    available: languages available
+    create_success: Language successfully created.
+    delete_success: Language successfully deleted.
+    edit: Edit language
+    heading: Languages
     submit_error: " prevented this language from being submitted:"
-    summary: "Language summary"
-    update_success: "Language successfully updated."
+    summary: Language summary
+    update_success: Language successfully updated.
 
   link:
-    feedback: "feedback"
-    report_fault: "report a fault here."
+    feedback: feedback
+    report_fault: report a fault here.
 
   notice:
-    success: "Successfully submitted"
-    nothing_queued: "No documents are currently queued for publication."
+    success: Successfully submitted
+    nothing_queued: No documents are currently queued for publication.
 
   sign:
-    in: "Sign in"
-    out: "Sign out"
-    up: "Sign up"
-    with: "Sign in with"
+    in: Sign in
+    out: Sign out
+    up: Sign up
+    with: Sign in with
 
   type:
-    add: "Add type"
-    available: "types available"
-    create_success: "Type successfully created."
-    delete_success: "Type successfully deleted."
-    edit: "Edit type"
-    heading: "Document types"
+    add: Add type
+    available: types available
+    create_success: Type successfully created.
+    delete_success: Type successfully deleted.
+    edit: Edit type
+    heading: Document types
     submit_error: " prevented this type from being submitted:"
-    summary: "Type summary"
-    update_success: "Type successfully updated."
+    summary: Type summary
+    update_success: Type successfully updated.
 
   user:
-    add: "Add user"
-    available: "Current Users"
-    change_password: "Change my password"
-    confirm: "Confirm my account"
-    create_success: "User successfully created."
-    delete_success: "User successfully deleted."
-    edit: "Edit user"
-    forgot_password: "Forgot your password?"
-    heading: "User accounts"
-    name: "Name"
-    no_confirmation_instructions: "Didn't receive confirmation instructions?"
-    no_unlock_instructions: "Didn't receive unlock instructions?"
+    add: Add user
+    available: Current Users
+    change_password: Change my password
+    confirm: Confirm my account
+    create_success: User successfully created.
+    delete_success: User successfully deleted.
+    edit: Edit user
+    forgot_password: Forgot your password?
+    heading: User accounts
+    name: Name
+    no_confirmation_instructions: Didn't receive confirmation instructions?
+    no_unlock_instructions: Didn't receive unlock instructions?
     submit_error: " prevented this user from being submitted:"
-    summary: "User summary"
-    unlock: "Unlock my account"
-    update_success: "User successfully updated."
+    summary: User summary
+    unlock: Unlock my account
+    update_success: User successfully updated.

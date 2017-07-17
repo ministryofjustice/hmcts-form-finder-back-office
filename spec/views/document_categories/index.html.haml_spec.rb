@@ -18,6 +18,5 @@ RSpec.describe 'document_categories/index', type: :view do
     # assert_select "tr>td", :text => nil.to_s, :count => 2
     # assert_select "tr>td", :text => nil.to_s, :count => 2
     # assert_select "td", :text => 2.to_s, :count => 2
-    # TODO Flesh out this test
   end
 end

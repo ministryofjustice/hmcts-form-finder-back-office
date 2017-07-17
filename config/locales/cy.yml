@@ -37,197 +37,201 @@ cy:
 
   # Template ========
 
-  about_hmcts: "Ynglŷn Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
-  crown_copyright: "Hawlfraint y Goron"
-  privacy: "Eich preifatrwydd"
+  about_hmcts: Ynglŷn Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi
+  crown_copyright: Hawlfraint y Goron
+  privacy: Eich preifatrwydd
 
   # Public pages ========
 
-  clear: "Clirio"
-  close: "Cau"
-  form_number: "Rhif ffurflen/Rhif taflen"
-  form_title: "Teitl ffurflen/Teitl tafle"
-  search_by: "Chwilio am lys gydag enw'r stryd neu'r cod post"
-  search_for_forms_and_leaflets: "Chwilio am ffurflenni a thaflenni"
-  search_page_title: "Ffurflenni a thaflenni"
+  clear: Clirio
+  close: Cau
+  form_number: Rhif ffurflen/Rhif taflen
+  form_title: Teitl ffurflen/Teitl tafle
+  search_by: Chwilio am lys gydag enw'r stryd neu'r cod post
+  search_for_forms_and_leaflets: Chwilio am ffurflenni a thaflenni
+  search_page_title: Ffurflenni a thaflenni
   search_result_heading: "Chwilio canlyniad ar gyfer:"
-  search: "Chwilio"
-  step1_para1: "Mae'r gwasanaeth hwn yn rhoi rhestr o'r holl ffurflenni a thaflenni a ddarperir gan WLlEM i'r cyhoedd. Mae'r rhestr yn tyfu ac ychwanegir rhagor o ffurflenni a thaflenni ati'n rheolaidd."
-  step1_para2: "Os gwyddoch rif y ffurflen neu'r daflen yr hoffech ddod o hyd iddi, rhowch y rhif yn y blwch testun rhydd isod"
-  step1_para3: "Fel arall, os nad ydych yn gwybod beth yw rhif y ffurflen, rhowch deitl (neu allweddair) neu dewiswch gategori o'r rhestr ddisgyn 'math o waith' sy'n rhestru'r holl ffurflenni sydd ar gael yn ôl math y busnes"
+  search: Chwilio
+  step1_para1: Mae'r gwasanaeth hwn yn rhoi rhestr o'r holl ffurflenni a thaflenni a ddarperir gan WLlEM i'r cyhoedd. Mae'r rhestr yn tyfu ac ychwanegir rhagor o ffurflenni a thaflenni ati'n rheolaidd.
+  step1_para2: Os gwyddoch rif y ffurflen neu'r daflen yr hoffech ddod o hyd iddi, rhowch y rhif yn y blwch testun rhydd isod
+  step1_para3: Fel arall, os nad ydych yn gwybod beth yw rhif y ffurflen, rhowch deitl (neu allweddair) neu dewiswch gategori o'r rhestr ddisgyn 'math o waith' sy'n rhestru'r holl ffurflenni sydd ar gael yn ôl math y busnes"
 
   # Admin interface pages ========
 
-  application_name: "Ffurflen darganfyddwr"
+  application_name: Ffurflen darganfyddwr
 
   action:
-    assign: "aseinio"
-    back: "Yn ôl"
-    cancel: "Diddymu"
-    continue: "parhau"
-    done: "Done"
-    edit: "golygu"
-    link: "Cyswllt"
-    remove: "Dileu"
-    select: "dewiswch"
-    show: "Dangos"
+    assign: aseinio
+    back: Yn ôl
+    cancel: Diddymu
+    continue: parhau
+    done: Done
+    edit: golygu
+    link: Cyswllt
+    remove: Dileu
+    select: dewiswch
+    show: Dangos
 
   activerecord:
     errors:
       messages:
-        item_in_use: "Ni all hyn gael ei wneud yn segur nes bod yr holl ddogfennau sy'n gysylltiedig ag ef yn cael eu gwneud anweithgar cyntaf"
-        no_name: "Rhaid i enw Saesneg a / neu Gymraeg yn cael eu cyflenwi"
+        item_in_use: Ni all hyn gael ei wneud yn segur nes bod yr holl ddogfennau sy'n gysylltiedig ag ef yn cael eu gwneud anweithgar cyntaf
+        no_name: Rhaid i enw Saesneg a / neu Gymraeg yn cael eu cyflenwi
       models:
         document:
           attributes:
             attachment:
-              blank: "Rhaid i ffeil yn cael ei ddewis i lwytho"
+              blank: Rhaid i ffeil yn cael ei ddewis i lwytho
             code:
-                blank: "Ni all Cyfeirnod / rhif fod yn wag"
+                blank: Ni all Cyfeirnod / rhif fod yn wag
             doc_attachment_type_id:
-              blank: "Rhaid i math o ddogfen yn cael eu dewis"
+              blank: Rhaid i math o ddogfen yn cael eu dewis
             title:
-                blank: "Ni all teitl fod yn wag"
+                blank: Ni all teitl fod yn wag
         language:
           attributes:
             code:
-              blank: "Ni all cod iaith fod yn wag"
+              blank: Ni all cod iaith fod yn wag
         user:
           attributes:
             first_name:
-              blank: "Ni all Enw cyntaf fod yn wag"
+              blank: Ni all Enw cyntaf fod yn wag
             last_name:
-              blank: "Ni all Cyfenw yn wag"
+              blank: Ni all Cyfenw yn wag
             email:
-              blank: "Ni all Cyfeiriad e-bost fod yn wag"
+              blank: Ni all Cyfeiriad e-bost fod yn wag
             password:
-              blank: "Ni all cyfrinair fod yn wag"
+              blank: Ni all cyfrinair fod yn wag
             password_confirmation:
-              blank: "Ni all cadarnhad Cyfrinair fod yn wag"
+              blank: Ni all cadarnhad Cyfrinair fod yn wag
 
   category:
-    add: "Ychwanegu categori"
-    assign: "neilltuo categorïau"
-    available: "categorïau ar gael"
-    create_success: "Categori grëwyd yn llwyddiannus."
-    delete_success: "Categori ddileu'n llwyddiannus."
-    edit: "categori golygu"
-    heading: "categorïau"
+    add: Ychwanegu categori
+    assign: neilltuo categorïau
+    available: categorïau ar gael
+    create_success: Categori grëwyd yn llwyddiannus.
+    delete_success: Categori ddileu'n llwyddiannus.
+    edit: categori golygu
+    heading: categorïau
     submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
-    summary: "crynodeb categori"
-    update_success: "Categori ddiweddaru'n llwyddiannus."
+    summary: crynodeb categori
+    update_success: Categori ddiweddaru'n llwyddiannus.
 
-  department: "Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi"
+  department: Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi
 
-  department_initials: "HMCTS"
+  department_initials: HMCTS
 
   document:
-    add: "Ychwanegu ddogfen"
-    choose_another_file: "Dewiswch ffeil gwahanol i lwytho"
-    choose_file: "Dewiswch ffeil i'w lwytho"
-    current_file: "ddogfen cyfredol"
-    edit: "dogfen golygu"
-    heading: "dogfennau"
-    link: "dogfennau Cyswllt"
-    publication_date: "dyddiad cyhoeddi Set"
-    publish_on: "I'w gyhoeddi"
+    add: Ychwanegu ddogfen
+    choose_another_file: Dewiswch ffeil gwahanol i lwytho
+    choose_file: Dewiswch ffeil i'w lwytho
+    current_file: ddogfen cyfredol
+    edit: dogfen golygu
+    heading: dogfennau
+    link: dogfennau Cyswllt
+    publication_date: dyddiad cyhoeddi Set
+    publish_on: I'w gyhoeddi
     submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
-    upload: "Llwytho mwy o ddogfennau"
+    upload: Llwytho mwy o ddogfennau
 
   error_count:
-    one: "1 gwall yn"
+    one: 1 gwall yn
     other: "%{count} gwallau"
 
   error_message:
-    no_code: "Ni all fod yn cyfeirio yn wag"
+    no_code: Ni all fod yn cyfeirio yn wag
 
   helpers:
+    fieldset:
+      document:
+        doc_attachment_type_id: math o ddogfen
+
     label:
       names: &name_labels
-        english_name: "enw Saesneg"
-        welsh_name: "enw Cymraeg"
+        english_name: enw Saesneg
+        welsh_name: enw Cymraeg
       category:
         <<: *name_labels
       doc_attachment_type:
         <<: *name_labels
       document:
-        code: "Cyfeirnod/Rhif"
-        title: "Teitl"
-        language_id: "iaith"
-        summary: "Crynodeb"
+        code: Cyfeirnod/Rhif
+        title: Teitl
+        language_id: iaith
+        summary: Crynodeb
       language:
         <<: *name_labels
-        code: "cod iaith"
+        code: cod iaith
       user:
-        first_name: "Enw cyntaf"
-        last_name: "Cyfenw"
-        email: "Cyfeiriad ebost"
-        password: "cyfrinair"
-        password_confirmation: "cadarnhau cyfrinair"
+        first_name: Enw cyntaf
+        last_name: Cyfenw
+        email: Cyfeiriad ebost
+        password: cyfrinair
+        password_confirmation: cadarnhau cyfrinair
 
     hint:
       document:
-        summary: "Max 140 o gymeriadau"
+        summary: Max 250 cymeriadau
 
     submit:
-      create: "Cyflwyno"
-      update: "Cadw"
+      create: Cyflwyno
+      update: Cadw
 
   label:
-    inactive: "anweithgar"
-    type: "math o ddogfen"
-    date: "dyddiad"
+    inactive: anweithgar
+    type: math o ddogfen
+    date: dyddiad
 
   language:
-    add: "Ychwanegu iaith"
-    available: "ieithoedd sydd ar gael"
-    create_success: "Iaith a grëwyd yn llwyddiannus."
-    delete_success: "Iaith ddileu'n llwyddiannus."
-    edit: "golygu iaith"
-    heading: "ieithoedd"
+    add: Ychwanegu iaith
+    available: ieithoedd sydd ar gael
+    create_success: Iaith a grëwyd yn llwyddiannus.
+    delete_success: Iaith ddileu'n llwyddiannus.
+    edit: golygu iaith
+    heading: ieithoedd
     submit_error: " atal yr iaith hon rhag cael ei gyflwyno:"
-    summary: "crynodeb iaith"
-    update_success: "Iaith ddiweddaru'n llwyddiannus."
+    summary: crynodeb iaith
+    update_success: Iaith ddiweddaru'n llwyddiannus.
 
   link:
-    feedback: "adborth"
-    report_fault: "adrodd am nam yma."
+    feedback: adborth
+    report_fault: adrodd am nam yma.
 
   notice:
-    success: "gyflwynwyd yn llwyddiannus"
-    nothing_queued: "Dim dogfennau yn cael eu ciwio ar hyn o bryd ar gyfer eu cyhoeddi."
+    success: gyflwynwyd yn llwyddiannus
+    nothing_queued: Dim dogfennau yn cael eu ciwio ar hyn o bryd ar gyfer eu cyhoeddi.
 
   sign:
-    in: "Mewngofnodi"
-    out: "Allgofnodi"
-    up: "Cofrestru"
-    with: "Mewngofnodi gyda"
+    in: Mewngofnodi
+    out: Allgofnodi
+    up: Cofrestru
+    with: Mewngofnodi gyda
 
   type:
-    add: "Ychwanegu math"
-    available: "mathau sydd ar gael"
-    create_success: "Teipiwch greu yn llwyddiannus."
-    delete_success: "Teipiwch ddileu'n llwyddiannus."
-    edit: "math golygu"
+    add: Ychwanegu math
+    available: mathau sydd ar gael
+    create_success: Teipiwch greu yn llwyddiannus.
+    delete_success: Teipiwch ddileu'n llwyddiannus.
+    edit: math golygu
     submit_error: " atal y math hwn rhag cael ei gyflwyno:"
-    heading: "mathau o ddogfen"
-    summary: "crynodeb math"
-    update_success: "Teipiwch ddiweddaru'n llwyddiannus."
+    heading: mathau o ddogfen
+    summary: crynodeb math
+    update_success: Teipiwch ddiweddaru'n llwyddiannus.
 
   user:
-    add: "Ychwanegu defnyddiwr"
-    available: "defnyddwyr presennol"
-    change_password: "Newid fy nghyfrinair"
-    confirm: "Cadarnhau fy nghyfrif"
-    create_success: "Defnyddiwr grëwyd yn llwyddiannus."
-    delete_success: "Defnyddiwr ddileu'n llwyddiannus."
-    edit: "defnyddiwr golygu"
-    forgot_password: "Wedi anghofio eich cyfrinair?"
-    heading: "cyfrifon defnyddwyr"
-    name: "enw"
-    no_confirmation_instructions: "Ddim wedi derbyn cyfarwyddiadau cadarnhad?"
-    no_unlock_instructions: "Ddim wedi derbyn cyfarwyddiadau datglo?"
+    add: Ychwanegu defnyddiwr
+    available: defnyddwyr presennol
+    change_password: Newid fy nghyfrinair
+    confirm: Cadarnhau fy nghyfrif
+    create_success: Defnyddiwr grëwyd yn llwyddiannus.
+    delete_success: Defnyddiwr ddileu'n llwyddiannus.
+    edit: defnyddiwr golygu
+    forgot_password: Wedi anghofio eich cyfrinair?
+    heading: cyfrifon defnyddwyr
+    name: enw
+    no_confirmation_instructions: Ddim wedi derbyn cyfarwyddiadau cadarnhad?
+    no_unlock_instructions: Ddim wedi derbyn cyfarwyddiadau datglo?
     submit_error: " atal y defnyddiwr hwn rhag cael ei gyflwyno:"
-    summary: "crynodeb defnyddiwr"
-    unlock: "Datgloi fy nghyfrif"
-    update_success: "Defnyddiwr ddiweddaru'n llwyddiannus."
+    summary: crynodeb defnyddiwr
+    unlock: Datgloi fy nghyfrif
+    update_success: Defnyddiwr ddiweddaru'n llwyddiannus.
