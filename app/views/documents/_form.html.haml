@@ -24,15 +24,18 @@
       = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
 
       .form-group
-        = f.gov_uk_date_field :published_date, legend_text: t('document.publication_date'), placeholders: true
+        = f.gov_uk_date_field :content_date, { legend_text: t('document.content_date'), form_hint_text: t('document.content_date-hint') }
+
+      %hr
+
+      .form-group
+        = f.gov_uk_date_field :published_date, { legend_text: t('document.publication_date'), form_hint_text: t('document.published_date-hint')  }
 
       .form-group
         .multiple-choice
           = f.check_box(:inactive, {}, true)
           = f.label :inactive, t('label.inactive')
 
-      .button-holder
-        = f.submit class: 'button', role: 'button'
-        = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+      = f.submit class: 'button', role: 'button'
 
   .column-one-third

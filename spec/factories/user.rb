@@ -1,4 +1,7 @@
-
+# == Schema Information
+#
+# Table name: users
+#
 # t.string   "first_name"
 # t.string   "last_name"
 # t.datetime "created_at",                          null: false
@@ -13,6 +16,7 @@
 # t.datetime "last_sign_in_at"
 # t.inet     "current_sign_in_ip"
 # t.inet     "last_sign_in_ip"
+#
 
 FactoryGirl.define do
   factory :user do

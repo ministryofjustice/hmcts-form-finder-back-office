@@ -14,7 +14,7 @@ RSpec.describe SearchController, type: :controller do
   end
   it 'Public search is case insensitive' do
     language = create :language
-    document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
+    document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
     @documents = Document.search('TEST')
     expect(@documents).to include(document)
   end
@@ -22,8 +22,8 @@ RSpec.describe SearchController, type: :controller do
     language = create :language
     category1 = create :category
     category2 = Category.create(english_name: 'Case SEnsitive test', welsh_name: 'David')
-    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
-    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
+    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
+    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = category1.id
     @documentcategory.document_id = document1.id
@@ -39,8 +39,8 @@ RSpec.describe SearchController, type: :controller do
     language = create :language
     category1 = create :category
     category2 = Category.create(english_name: 'Case SEnsitive test', welsh_name: 'David')
-    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
-    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
+    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
+    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = category1.id
     @documentcategory.document_id = document1.id
@@ -57,8 +57,8 @@ RSpec.describe SearchController, type: :controller do
     category1 = create :category
     category2 = Category.create(english_name: 'Case SEnsitive test', welsh_name: 'David')
     category3 = Category.create(english_name: 'null result', welsh_name: 'null result')
-    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
-    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id)
+    document1 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
+    document2 = Document.create(doc_attachment_type_id: 2, code: 'case insensitive test2 222', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = category1.id
     @documentcategory.document_id = document1.id

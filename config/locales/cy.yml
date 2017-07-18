@@ -83,11 +83,15 @@ cy:
             attachment:
               blank: Rhaid i ffeil yn cael ei ddewis i lwytho
             code:
-                blank: Ni all Cyfeirnod / rhif fod yn wag
+              blank: Ni all Cyfeirnod / rhif fod yn wag
             doc_attachment_type_id:
               blank: Rhaid i math o ddogfen yn cael eu dewis
             title:
-                blank: Ni all teitl fod yn wag
+              blank: Ni all teitl fod yn wag
+            content_date:
+              blank: Ni all hyd yn fersiwn y ddogfen fod yn wag
+            published_date:
+              blank: Ni all Dyddiad Cyhoeddi fod yn wag
         language:
           attributes:
             code:
@@ -125,11 +129,14 @@ cy:
     add: Ychwanegu ddogfen
     choose_another_file: Dewiswch ffeil gwahanol i lwytho
     choose_file: Dewiswch ffeil i'w lwytho
+    content_date: fersiwn Document
+    content_date-hint: Mae hyn yn dangos fel "Dyddiad addasu yn" ar y safle cyhoeddus
     current_file: ddogfen cyfredol
     edit: dogfen golygu
     heading: dogfennau
     link: dogfennau Cyswllt
     publication_date: dyddiad cyhoeddi Set
+    published_date-hint: "Er enghraifft, 31 3 1980"
     publish_on: I'w gyhoeddi
     submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
     upload: Llwytho mwy o ddogfennau
@@ -145,7 +152,6 @@ cy:
     fieldset:
       document:
         doc_attachment_type_id: math o ddogfen
-
     label:
       names: &name_labels
         english_name: enw Saesneg
@@ -168,7 +174,6 @@ cy:
         email: Cyfeiriad ebost
         password: cyfrinair
         password_confirmation: cadarnhau cyfrinair
-
     hint:
       document:
         summary: Max 250 cymeriadau
