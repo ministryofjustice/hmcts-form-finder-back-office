@@ -5,6 +5,8 @@ form {
   }
 }
 
+hr { clear: both; }
+
 textarea {
   resize: none;
 }
@@ -22,6 +24,10 @@ textarea {
 
 .autocomplete_select {
   margin-bottom: 10px;
+}
+
+.error-summary-list {
+  margin-top: 10px;
 }
 
 .item {
