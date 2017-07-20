@@ -32,7 +32,6 @@
       .search-wrapper
         = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
           = hidden_field_tag 'document', params[:document]
-          = hidden_field_tag 'document_title', params[:document_title]
           = label_tag :'search_field', 'Enter the category name', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
           = submit_tag 'Search', :name => nil, role:'button', class:'button'
@@ -79,7 +78,7 @@
                 = item.welsh_name
             .action
 
-              = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
+              = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - unless @document_categories.nil?
 
