@@ -11,14 +11,15 @@
 #  attachment_file_name     :string
 #  attachment_content_type  :string
 #  attachment_file_size     :integer
-#  attachment_updated_at    :datetime
+#  content_date             :date
 #  published_date           :date
 #  language_id              :integer
 #  original_id              :integer
 #  creator_id               :integer
+#  inactive                 :boolean
 #  original_url             :string
 #  file_format              :string
-#  summary                  :string(140)
+#  summary                  :string(250)
 #
 
 class Document < ActiveRecord::Base
@@ -41,7 +42,7 @@ class Document < ActiveRecord::Base
                           association_foreign_key: :linked_document_id,
                           uniq: true
 
-  acts_as_gov_uk_date :published_date
+  acts_as_gov_uk_date :content_date, :published_date
 
   has_attached_file :attachment
 
@@ -57,8 +58,10 @@ class Document < ActiveRecord::Base
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+  validates :content_date, presence: true
+  validates :published_date, presence: true
 
-  validates_length_of :summary, maximum: 140
+  validates_length_of :summary, maximum: 250
 
   after_create :populate_original_id
 

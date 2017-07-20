@@ -34,17 +34,22 @@ class DocumentsController < ApplicationController
   end
 
   def edit_selected_document
-    redirect_to edit_document_path(params[:selected_document])
+    @document_id = params[:selected_document]
+    if @document_id == ['']
+      redirect_to documents_path
+    else
+      redirect_to edit_document_path(@document_id)
+    end
   end
 
   def index
-    @documents = Document.where('published_date >= ?', Date.today.beginning_of_day).order(published_date: :asc)
+    @documents = Document.where('published_date >= ?', Time.zone.today.beginning_of_day).order(published_date: :asc)
   end
 
   def link
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
-    @documents = []
+    @documents = @document.all_unrelated
     render 'documents/link'
   end
 
@@ -94,7 +99,7 @@ class DocumentsController < ApplicationController
 
   def doc_attachment_params
     params.require(:document)
-        .permit(:attachment, :code, :doc_attachment_type_id, :inactive, :language_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :summary, :title)
+        .permit(:attachment, :code, :content_date_dd, :content_date_mm, :content_date_yyyy, :doc_attachment_type_id, :inactive, :language_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :summary, :title)
   end
 
   def params_with_user
