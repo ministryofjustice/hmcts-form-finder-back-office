@@ -83,6 +83,7 @@ class Document < ActiveRecord::Base
     # Set DB file_format value
     self.file_format = extension
     # Write the file
+    attachment.destroy
     attachment.instance_write(:file_name, filename)
   end
 

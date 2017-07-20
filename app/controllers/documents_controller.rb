@@ -83,6 +83,7 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
+      @document.attachment.reprocess!
       render 'documents/confirmation'
     else
       flash[:error] = 'Form can not be updated'
