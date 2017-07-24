@@ -34,7 +34,7 @@
       .form-group
         .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = f.label :inactive, t('label.inactive')
+          = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
       = f.submit class: 'button', role: 'button'
 

@@ -14,18 +14,14 @@
     = form_for @language do |f|
 
       .form-group
-        = f.text_field :english_name
+      = f.text_field :english_name
+      = f.text_field :welsh_name
+      = f.text_field :code, { class: 'three-characters' }
 
       .form-group
-        = f.text_field :welsh_name
-
-      .form-group
-        = f.text_field :code
-
-      .form-group
-        %label.block-label.selection-button-checkbox{ for: "language_inactive" }
+        .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = t('label.inactive')
+          = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
       .button-holder
         = f.submit class: 'button', role: 'button'
