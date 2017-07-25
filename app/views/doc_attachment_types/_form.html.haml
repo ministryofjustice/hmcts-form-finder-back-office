@@ -12,17 +12,13 @@
             %li= msg
 
     = form_for @doc_attachment_type do |f|
+      = f.text_field :english_name
+      = f.text_field :welsh_name
 
       .form-group
-        = f.text_field :english_name
-
-      .form-group
-        = f.text_field :welsh_name
-
-      .form-group
-        %label.block-label.selection-button-checkbox{ for: 'type_inactive' }
+        .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = t('label.inactive')
+          = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
       .button-holder
         = f.submit class: 'button', role: 'button'
