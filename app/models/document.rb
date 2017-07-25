@@ -81,10 +81,20 @@ class Document < ActiveRecord::Base
   def format_filename_and_type
     # Get the file extension minus the leading '.'
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+
+    # Sanitize Reference/number data input by user or seed file.
+    # - Allow only alphanumeric characters, apostrophes or ellipses.  Replace all others with whitespace.
+    # - strip any leading, trailing whitespaces.
+    # - Remove any consecutive whitespaces (squeeze).
+    # - replace all whitespaces with hyphens.
+    reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
+
     # Build new filename in [reference]-[language].[extension] format.
-    filename = ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!
+    filename = ("#{reference}-#{language.code}.#{extension}").downcase!
+
     # Set DB file_format value
     self.file_format = extension
+
     # Write the file
     attachment.instance_write(:file_name, filename)
   end
