@@ -89,8 +89,9 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
-     # render 'documents/confirmation'
-      render 'document_categories/link'
+     render 'documents/confirmation'
+     #  render 'document_categories/link'
+     #  redirect_to link/document_categories/link_path(@document.id)
     else
       flash[:error] = 'Form can not be updated'
       render action: 'edit'

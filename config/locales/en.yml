@@ -99,6 +99,7 @@ en:
   category:
     add: Add category
     assign: Assign categories
+    assigned: "This document is already assigned to these categories:"
     available: categories available
     create_success: Category successfully created.
     delete_success: Category successfully deleted.

@@ -5,10 +5,11 @@
   .column-full
     = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
 
-- if @categories.nil? || @categories.count == 0
-
 .grid-row
   .column-two-thirds
+
+    %h2.heading-large
+      = t('category.assign')
 
     %h3.heading-small
       = t('document.selected')
@@ -24,30 +25,20 @@
       %br
       = @document.title
 
-    - if @document_categories.exists?
+    -#- if @categories.nil? || @categories.count == 0
 
-  .grid-row
-    .column-one-third
-      %h3.heading-medium Find the category to assign to this document
-    .column-two-thirds
-      .search-wrapper
-        = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
-          = hidden_field_tag 'document', params[:document]
-          = label_tag :'search_field', 'Enter the category name', class:'form-label'
-          = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
-          = submit_tag 'Search', :name => nil, role:'button', class:'button'
-        -#%p.no-result-message No categories where found for this search
-        %p
+    %h3.heading-small
+      = t('category.assigned')
 
-      .grid-row
-        - @document_categories.each do |item|
-          .column-two-thirds
-            - if locale == :cy
-              = item.category.welsh_name
-            - else
-              = item.category.english_name
-          .column-one-third
-            = link_to t('action.remove'), link_document_categories_disconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
+    .grid-row
+      - @document_categories.each do |item|
+        .column-two-thirds
+          - if locale == :cy
+            = item.category.welsh_name
+          - else
+            = item.category.english_name
+        .column-one-third
+          = link_to t('action.remove'), link_document_categories_disconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
 
     %h3.heading-small
       = t('category.select')
@@ -62,57 +53,56 @@
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
-    -#= link_to t('action.continue'), link_document_categories_connect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
-    -#= link_to t('action.select'), link_document_categories_link_path( document: item.id ), class: 'button-secondary', role: 'button'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      -#- if @document_category.errors.any?
-      -#  #error_explanation
-      -#    %h2= "#{pluralize(@document_category.errors.count, "error")} prohibited this document_category from being saved:"
-      -#    %ul
-      -#      - @document_category.errors.full_messages.each do |msg|
-      -#        %li= msg
-
-
-
-      -#.field
-      -#  = f.select :document_id, Document.all.collect { |p| [ p.title, p.id ] }
-      -#
-      -#.field
-      -#  = f.select :category_id, Category.all.collect { |p| [ p.english_name, p.id ] },{:multiple => true}
-      -#
-      -#.field
-      -#  = f.number_field :sort_order
-      -#
-      -#.actions
-      -#  = f.submit 'Save'
+        -#.search-wrapper
+        -#  = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
+        -#    = hidden_field_tag 'document', params[:document]
+        -#    = label_tag :'search_field', 'Enter the category name', class:'form-label'
+        -#    = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
+        -#    = submit_tag 'Search', :name => nil, role:'button', class:'button'
+        -#  -#%p.no-result-message No categories where found for this search
+        -#  %p
 
   .column-one-third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-#- if @document_category.errors.any?
+-#  #error_explanation
+-#    %h2= "#{pluralize(@document_category.errors.count, "error")} prohibited this document_category from being saved:"
+-#    %ul
+-#      - @document_category.errors.full_messages.each do |msg|
+-#        %li= msg
+
+
+
+-#.field
+-#  = f.select :document_id, Document.all.collect { |p| [ p.title, p.id ] }
+-#
+-#.field
+-#  = f.select :category_id, Category.all.collect { |p| [ p.english_name, p.id ] },{:multiple => true}
+-#
+-#.field
+-#  = f.number_field :sort_order
+-#
+-#.actions
+-#  = f.submit 'Save'
+
+
 
 
 
