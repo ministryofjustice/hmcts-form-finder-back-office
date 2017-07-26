@@ -13,7 +13,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params_with_user)
     if @document.save
-      render 'documents/confirmation'
+#      render 'documents/confirmation'
+      render 'document_categories/link'
     else
       render action: 'new'
     end
@@ -88,7 +89,8 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
-      render 'documents/confirmation'
+     # render 'documents/confirmation'
+      render 'document_categories/link'
     else
       flash[:error] = 'Form can not be updated'
       render action: 'edit'

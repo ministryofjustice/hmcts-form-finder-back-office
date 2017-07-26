@@ -3,7 +3,7 @@
 
 = render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
 
-- if @categories.count == 0
+- if @categories.nil? || @categories.count == 0
 
   .grid-row
     .column-full
@@ -35,7 +35,6 @@
           = label_tag :'search_field', 'Enter the category name', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
           = submit_tag 'Search', :name => nil, role:'button', class:'button'
-      - if @categories.empty?
         -#%p.no-result-message No categories where found for this search
         %p
 
