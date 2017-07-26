@@ -31,7 +31,7 @@
       = t('category.assigned')
 
     .grid-row
-      - @document_categories.each do |item|
+      - @document.document_categories.each do |item|
         .column-two-thirds
           - if locale == :cy
             = item.category.welsh_name
@@ -49,7 +49,7 @@
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
-          = collection_select( :selected_category, params[:id], @categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+          = collection_select( :selected_category, params[:id], @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
