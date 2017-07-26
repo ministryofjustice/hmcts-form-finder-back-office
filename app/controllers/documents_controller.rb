@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
     @documents = @document.all_unrelated
-    render 'documents/link'
+    # render 'documents/link'
   end
 
   def links
@@ -80,7 +80,7 @@ class DocumentsController < ApplicationController
     @linked_documents = @document.all_related
   end
 
-  def unconnect
+  def disconnect
     pre_connect
     (@parent_document.related_documents).delete(@document)
     post_connect

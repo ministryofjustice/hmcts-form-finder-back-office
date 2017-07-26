@@ -30,14 +30,14 @@ Rails.application.routes.draw do
     get 'link/documents/link'       => 'documents#link'
     get 'link/documents/connect'    => 'documents#connect'
     get 'link/documents/links'      => 'documents#links'
-    get 'link/documents/unconnect'  => 'documents#unconnect'
+    get 'link/documents/disconnect'  => 'documents#disconnect'
     get 'link/documents/details'    => 'documents#details'
 
     root to: redirect('/users/sign_in')
 
     get 'link/document_categories/search'    => 'document_categories#search'
     get 'link/document_categories/link'      => 'document_categories#link'
-    get 'link/document_categories/unconnect' => 'document_categories#unconnect'
+    get 'link/document_categories/disconnect' => 'document_categories#disconnect'
     get 'link/document_categories/connect'   => 'document_categories#connect'
     get 'link/document_categories/links'     => 'document_categories#links'
   end

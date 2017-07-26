@@ -1,29 +1,30 @@
 - content_for :page_title do
-  = "Assign Category for HMCTS Form finder"
+  = "Assign category to a document in HMCTS Form finder"
 
-= render partial: 'layouts/header', locals: {page_heading: 'Assign categories'}
+.grid-row
+  .column-full
+    = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
 
 - if @categories.nil? || @categories.count == 0
 
-  .grid-row
-    .column-full
+.grid-row
+  .column-two-thirds
 
-      %h2.heading-large Step 3 of 4
+    %h3.heading-small
+      = t('document.selected')
 
-  .grid-row
-    .column-one-third
-      %h3.heading-medium The document
-
-    .column-two-thirds
-      %span.reference
-        = @document.code
+    %p
+      = @document.code
       %span.attributes
-        = @document.language.english_name
+        - if locale == :cy
+          = @document.language.welsh_name
+        - else
+          = @document.language.english_name
         = @document.file_format
-      .title
-        = @document.title
+      %br
+      = @document.title
 
-      %hr
+    - if @document_categories.exists?
 
   .grid-row
     .column-one-third
@@ -38,76 +39,190 @@
         -#%p.no-result-message No categories where found for this search
         %p
 
-- else
+      .grid-row
+        - @document_categories.each do |item|
+          .column-two-thirds
+            - if locale == :cy
+              = item.category.welsh_name
+            - else
+              = item.category.english_name
+          .column-one-third
+            = link_to t('action.remove'), link_document_categories_disconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
 
-  .grid-row
-    .column-full
-      %h2.heading-large Step 4 of 4
+    %h3.heading-small
+      = t('category.select')
 
-  .grid-row
-    .column-one-third
-      %h3.heading-medium The document
-    .column-two-thirds
-      %span.reference
-        = @document.code
-      %span.attributes
-        = @document.language.english_name
-        = @document.file_format
-      .title
-        = @document.title
-      %hr
+    = form_tag url_for(:controller => 'document_categories', :action => 'link'), :method => 'get', class:'', role:'search' do
 
-  .grid-row
-    .column-one-third
-      %h3.heading-medium Choose a category
-    .column-two-thirds
-      %p
-        Your searched for
-        %i "#{params[:linksearch]}"
-        returned the following results:
+      = hidden_field_tag 'document', params[:id]
 
-      %ul.list
-        - @categories.each do |item|
-          %li
-            .item
-              = item.english_name
-              - if item.welsh_name != nil
-                %br
-                Welsh:
-                = item.welsh_name
-            .action
+      .grid-row.form-group
+        .column-two-thirds.autocomplete_select
+          = collection_select( :selected_category, params[:id], @categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+        .column-one-third
+          = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
-              = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
+    -#= link_to t('action.continue'), link_document_categories_connect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
+    -#= link_to t('action.select'), link_document_categories_link_path( document: item.id ), class: 'button-secondary', role: 'button'
 
-- unless @document_categories.nil?
 
-  .grid-row
-    .column-full
 
-      %hr
 
-  .grid-row
-    .column-one-third
-      %h3.heading-medium
-        The
-        = @document.code
-        %span.attributes
-          = @document.language.english_name
-          format
-        is already assigned to these categories:
-    .column-two-thirds
-      - if @document_categories.exists?
 
-        %ul.list
-          - @document_categories.each do | item |
-            %li
-              .item
-                = item.category.english_name
-                - if item.category.welsh_name != nil
-                  %br
-                  Welsh:
-                = item.category.welsh_name
-              .action
 
-                = link_to t('links.remove'), link_document_categories_unconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      -#- if @document_category.errors.any?
+      -#  #error_explanation
+      -#    %h2= "#{pluralize(@document_category.errors.count, "error")} prohibited this document_category from being saved:"
+      -#    %ul
+      -#      - @document_category.errors.full_messages.each do |msg|
+      -#        %li= msg
+
+
+
+      -#.field
+      -#  = f.select :document_id, Document.all.collect { |p| [ p.title, p.id ] }
+      -#
+      -#.field
+      -#  = f.select :category_id, Category.all.collect { |p| [ p.english_name, p.id ] },{:multiple => true}
+      -#
+      -#.field
+      -#  = f.number_field :sort_order
+      -#
+      -#.actions
+      -#  = f.submit 'Save'
+
+  .column-one-third
+
+
+
+
+-#- if @categories.count == 0
+-#
+-#  .grid-row
+-#    .column-full
+-#
+-#      %h2.heading-large Step 3 of 4
+-#
+-#  .grid-row
+-#    .column-one-third
+-#      %h3.heading-medium The document
+-#
+-#    .column-two-thirds
+-#      %span.reference
+-#        = @document.code
+-#      %span.attributes
+-#        = @document.language.english_name
+-#        = @document.file_format
+-#      .title
+-#        = @document.title
+-#
+-#      %hr
+-#
+-#  .grid-row
+-#    .column-one-third
+-#      %h3.heading-medium Find the category to assign to this document
+-#    .column-two-thirds
+-#      .search-wrapper
+-#        = form_tag url_for(:controller => 'document_categories', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
+-#          = hidden_field_tag 'document', params[:document]
+-#          = label_tag :'search_field', 'Enter the category name', class:'form-label'
+-#          = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
+-#          = submit_tag 'Search', :name => nil, role:'button', class:'button'
+-#      - if @categories.empty?
+-#        -#%p.no-result-message No categories where found for this search
+-#        %p
+-#
+-#- else
+-#
+-#  .grid-row
+-#    .column-full
+-#      %h2.heading-large Step 4 of 4
+-#
+-#  .grid-row
+-#    .column-one-third
+-#      %h3.heading-medium The document
+-#    .column-two-thirds
+-#      %span.reference
+-#        = @document.code
+-#      %span.attributes
+-#        = @document.language.english_name
+-#        = @document.file_format
+-#      .title
+-#        = @document.title
+-#      %hr
+-#
+-#  .grid-row
+-#    .column-one-third
+-#      %h3.heading-medium Choose a category
+-#    .column-two-thirds
+-#      %p
+-#        Your searched for
+-#        %i "#{params[:linksearch]}"
+-#        returned the following results:
+-#
+-#      %ul.list
+-#        - @categories.each do |item|
+-#          %li
+-#            .item
+-#              = item.english_name
+-#              - if item.welsh_name != nil
+-#                %br
+-#                Welsh:
+-#                = item.welsh_name
+-#            .action
+-#
+-#              = link_to t('action.assign'), link_document_categories_connect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
+-#
+-#- unless @document_categories.nil?
+-#
+-#  .grid-row
+-#    .column-full
+-#
+-#      %hr
+-#
+-#  .grid-row
+-#    .column-one-third
+-#      %h3.heading-medium
+-#        The
+-#        = @document.code
+-#        %span.attributes
+-#          = @document.language.english_name
+-#          format
+-#        is already assigned to these categories:
+-#    .column-two-thirds
+-#      - if @document_categories.exists?
+-#
+-#        %ul.list
+-#          - @document_categories.each do | item |
+-#            %li
+-#              .item
+-#                = item.category.english_name
+-#                - if item.category.welsh_name != nil
+-#                  %br
+-#                  Welsh:
+-#                = item.category.welsh_name
+-#              .action
+-#
+-#                = link_to t('links.remove'), link_document_categories_disconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
+-#

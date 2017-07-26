@@ -111,4 +111,4 @@
               .title
                 = item.title
             .action
-              = link_to t('links.remove'), link_documents_unconnect_path( related_document: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
+              = link_to t('links.remove'), link_documents_disconnect_path( related_document: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'

@@ -19,7 +19,7 @@
     = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
       .form-group
         .autocomplete_select
-          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { :id => 'document_list', :class => 'form-control' } )
+          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { class: 'form-control auto-suggest-list' } )
         = submit_tag t('document.edit'), role: 'button', class: 'button-secondary'
 
     %h2.heading-medium
