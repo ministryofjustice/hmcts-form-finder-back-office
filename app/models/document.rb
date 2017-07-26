@@ -11,14 +11,15 @@
 #  attachment_file_name     :string
 #  attachment_content_type  :string
 #  attachment_file_size     :integer
-#  attachment_updated_at    :datetime
+#  content_date             :date
 #  published_date           :date
 #  language_id              :integer
 #  original_id              :integer
 #  creator_id               :integer
+#  inactive                 :boolean
 #  original_url             :string
 #  file_format              :string
-#  summary                  :string(140)
+#  summary                  :string(250)
 #
 
 class Document < ActiveRecord::Base
@@ -41,7 +42,7 @@ class Document < ActiveRecord::Base
                           association_foreign_key: :linked_document_id,
                           uniq: true
 
-  acts_as_gov_uk_date :published_date
+  acts_as_gov_uk_date :content_date, :published_date
 
   has_attached_file :attachment
 
@@ -57,8 +58,10 @@ class Document < ActiveRecord::Base
   validates :code, presence: true
   validates :title, presence: true
   validates :language_id, presence: true
+  validates :content_date, presence: true
+  validates :published_date, presence: true
 
-  validates_length_of :summary, maximum: 140
+  validates_length_of :summary, maximum: 250
 
   after_create :populate_original_id
 
@@ -78,10 +81,20 @@ class Document < ActiveRecord::Base
   def format_filename_and_type
     # Get the file extension minus the leading '.'
     extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+
+    # Sanitize Reference/number data input by user or seed file.
+    # - Allow only alphanumeric characters, apostrophes or ellipses.  Replace all others with whitespace.
+    # - strip any leading, trailing whitespaces.
+    # - Remove any consecutive whitespaces (squeeze).
+    # - replace all whitespaces with hyphens.
+    reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
+
     # Build new filename in [reference]-[language].[extension] format.
-    filename = ("#{code.gsub(/\s+/, '-')}-#{language.code}.#{extension}").downcase!
+    filename = ("#{reference}-#{language.code}.#{extension}").downcase!
+
     # Set DB file_format value
     self.file_format = extension
+
     # Write the file
     attachment.instance_write(:file_name, filename)
   end

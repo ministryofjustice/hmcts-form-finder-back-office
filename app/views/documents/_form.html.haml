@@ -17,34 +17,25 @@
         = f.label :attachment, t('document.choose_file')
         = f.file_field :attachment
 
-      .form-group
-        = f.text_field :code
+      = f.text_field :code
+      = f.text_field :title
+      = f.text_area :summary, { class: 'form-control-2-3 counter', rows: '6', 'data-max-chars': '250' }
+      = f.radio_button_fieldset :doc_attachment_type_id, choices: DocAttachmentType.all, value_method: :id, text_method: :english_name
+      = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
 
       .form-group
-        = f.text_field :title
+        = f.gov_uk_date_field :content_date, { legend_text: t('document.content_date'), form_hint_text: t('document.content_date-hint') }
+
+      %hr
 
       .form-group
-        = f.text_area :summary, { class: 'form-control-2-3 counter', rows: '4', 'data-max-chars': '140' }
+        = f.gov_uk_date_field :published_date, { legend_text: t('document.publication_date'), form_hint_text: t('document.published_date-hint')  }
 
       .form-group
-        %fieldset
-          %legend
-            = t('label.type')
-          = f.collection_radio_buttons(:doc_attachment_type_id, DocAttachmentType.all, :id, :english_name) do |b| b.label(class: 'block-label selection-button-radio'){b.radio_button + b.text} end
-
-      .form-group
-        = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
-
-      .form-group
-        = f.gov_uk_date_field :published_date, legend_text: t('document.publication_date'), placeholders: true
-
-      .form-group
-        %label.block-label.selection-button-checkbox{ for: 'document_inactive' }
+        .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = t('label.inactive')
+          = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
-      .button-holder
-        = f.submit class: 'button', role: 'button'
-        = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+      = f.submit class: 'button', role: 'button'
 
   .column-one-third

@@ -12,7 +12,6 @@ RSpec.describe 'document_categories/new', type: :view do
 
   it 'renders new document_category form' do
     render
-    # TODO: Flesh out this test
     # assert_select 'form[action=?][method=?]', document_categories_path, 'post' do
     #
     #   assert_select 'input#document_category_document_id[name=?]', 'document_category[document_id]'

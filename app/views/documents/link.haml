@@ -32,7 +32,6 @@
       .search-wrapper
         = form_tag url_for(:controller => 'documents', :action => 'links'), :method => 'get', id:'search', class:'search-box', role:'search' do
           = hidden_field_tag 'document', params[:document]
-          = hidden_field_tag 'document_title', params[:document_title]
           = label_tag :'search_field', 'Enter the document title or reference/number', class:'form-label'
           = text_field_tag :linksearch, params[:linksearch], :id => 'search_field', class:'form-control'
           = submit_tag 'Search', :name => nil, role: 'button', class: 'button'
@@ -81,7 +80,7 @@
               .title
                 = item.title
             .action
-              = link_to t('action.link'), link_documents_connect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button', role: 'button'
+              = link_to t('action.link'), link_documents_connect_path( related_document: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button', role: 'button'
 
 - unless @linked_documents.nil?
 
@@ -112,4 +111,4 @@
               .title
                 = item.title
             .action
-              = link_to t('links.remove'), link_documents_unconnect_path( related_document: item.id, document: params[:document], document_title: params[:document_title], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
+              = link_to t('links.remove'), link_documents_unconnect_path( related_document: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'

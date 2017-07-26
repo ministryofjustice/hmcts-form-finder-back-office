@@ -12,26 +12,16 @@
             %li= msg
 
     = form_for @user do |f|
+      = f.text_field :first_name
+      = f.text_field :last_name
+      = f.text_field :email
+      = f.password_field :password
+      = f.password_field :password_confirmation
 
       .form-group
-        = f.text_field :first_name
-
-      .form-group
-        = f.text_field :last_name
-
-      .form-group
-        = f.text_field :email
-
-      .form-group
-        = f.password_field :password
-
-      .form-group
-        = f.password_field :password_confirmation
-
-      .form-group
-        %label.block-label.selection-button-checkbox{ for: "user_inactive" }
+        .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = t('label.inactive')
+          = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
       .button-holder
         = f.submit class: 'button', role: 'button'
