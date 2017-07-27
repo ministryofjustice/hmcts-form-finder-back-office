@@ -43,13 +43,13 @@
     %h3.heading-small
       = t('category.select')
 
-    = form_tag url_for(:controller => 'document_categories', :action => 'link'), :method => 'get', class:'', role:'search' do
+    = form_tag url_for(:controller => 'document_categories', :action => 'connect'), :method => 'get', class:'', role:'search' do
 
       = hidden_field_tag 'document', params[:id]
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
-          = collection_select( :selected_category, params[:id], @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+          = collection_select( :selected_category, :category_id, @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 

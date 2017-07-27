@@ -6,8 +6,9 @@ class DocumentCategoriesController < ApplicationController
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
 
   def connect
-    prelink
-    @category = Category.find(params[:selected_category])
+    # prelink
+    @category = params[:category_id]
+    # @category = Category.find(params[:selected_category])
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = params[:selected_category]
     @documentcategory.document_id = params[:document]
@@ -46,15 +47,19 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def links
-    @categories = []
-    @cate = []
+    # @categories = []
+    # @cate = []
     @document = Document.find(params[:document])
     @document_categories = @document.document_categories
-    if params[:linksearch].present?
-      @categories = @document.unrelated_categories.search(params[:linksearch]).order('created_at DESC')
-    else
-      @categories = @document.unrelated_categories
-    end
+    # if params[:linksearch].present?
+    #   @categories = @document.unrelated_categories.search(params[:linksearch]).order('created_at DESC')
+    # else
+    #   @categories = @document.unrelated_categories
+    # end
+    @categories = @document.unrelated_categories
+
+
+
     render 'document_categories/link'
   end
 
