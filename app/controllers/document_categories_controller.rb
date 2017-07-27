@@ -7,8 +7,8 @@ class DocumentCategoriesController < ApplicationController
 
   def connect
     # prelink
-    @category = params[:category_id]
-    # @category = Category.find(params[:selected_category])
+    # @category = params[:category_id]
+    @category = Category.find(params[:selected_category])
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = params[:selected_category]
     @documentcategory.document_id = params[:document]
