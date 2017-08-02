@@ -5,13 +5,13 @@ class DocumentCategoriesController < ApplicationController
   before_action :set_paper_trail_whodunnit
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
 
-  def connect
+  def assigns
     # prelink
     # @category = params[:category_id]
     @category = Category.find(params[:selected_category])
     @documentcategory = DocumentCategory.new
     @documentcategory.category_id = params[:selected_category]
-    @documentcategory.document_id = params[:document]
+    @documentcategory.document_id = params[:id]
     @documentcategory.save
     postlink
   end
@@ -30,8 +30,8 @@ class DocumentCategoriesController < ApplicationController
     redirect_to document_categories_url, notice: 'Document category was successfully destroyed.'
   end
 
-  def disconnect
-    prelink
+  def unassign
+    #prelink
     DocumentCategory.destroy(params[:related_category])
     postlink
   end
@@ -40,8 +40,8 @@ class DocumentCategoriesController < ApplicationController
     @document_categories = DocumentCategory.all
   end
 
-  def link
-    @document = Document.find(params[:document])
+  def assign
+    @document = Document.find(params[:id])
     @document_categories = DocumentCategory.where('document_id = ?', params[:document])
     @categories = @document.unrelated_categories
   end
@@ -60,7 +60,7 @@ class DocumentCategoriesController < ApplicationController
 
 
 
-    render 'document_categories/link'
+    render 'document_categories/assign'
   end
 
   def new
@@ -82,11 +82,11 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def postlink
-    @document = Document.find(params[:document])
+    @document = Document.find(params[:id])
     @document_categories = @document.document_categories
     @categories = @document.unrelated_categories
     @linked_documents = @document.all_related
-    render 'document_categories/link'
+    render 'document_categories/assign'
   end
 
   def prelink
@@ -101,7 +101,7 @@ class DocumentCategoriesController < ApplicationController
     else
       @documents = []
     end
-    @parent_document = Document.find(params[:document])
+    @parent_document = Document.find(params[:id])
   end
 
   # Use callbacks to share common setup or constraints between actions.

@@ -38,14 +38,14 @@
           - else
             = item.category.english_name
         .column-one-third
-          = link_to t('action.remove'), link_document_categories_disconnect_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
+          = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, id: params[:id], linksearch: params[:linksearch])
 
     %h3.heading-small
       = t('category.select')
 
-    = form_tag url_for(:controller => 'document_categories', :action => 'connect'), :method => 'get', class:'', role:'search' do
+    = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', class:'', role:'search' do
 
-      = hidden_field_tag 'document', params[:id]
+      = hidden_field_tag 'id', params[:id]
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
@@ -64,6 +64,7 @@
         -#  %p
 
   .column-one-third
+    = link_to t('Next'), link_documents_link_path(document: params[:id])
 
 
 
