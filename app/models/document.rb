@@ -60,6 +60,7 @@ class Document < ActiveRecord::Base
   validates :language_id, presence: true
   validates :content_date, presence: true
   validates :published_date, presence: true
+  validates :attachment_file_name, uniqueness: true
 
   validates_length_of :summary, maximum: 250
 
@@ -78,10 +79,13 @@ class Document < ActiveRecord::Base
   scope :language_other, -> { where.not(language_id: [8, 25]) }
   # TODO: Refactor non-human-readable where clause
 
-  def format_filename_and_type
-    # Get the file extension minus the leading '.'
-    extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+  attr_accessor :overwrite_file
 
+  def extension
+    File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+  end
+
+  def filename
     # Sanitize Reference/number data input by user or seed file.
     # - Allow only alphanumeric characters, apostrophes or ellipses.  Replace all others with whitespace.
     # - strip any leading, trailing whitespaces.
@@ -90,8 +94,10 @@ class Document < ActiveRecord::Base
     reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
 
     # Build new filename in [reference]-[language].[extension] format.
-    filename = ("#{reference}-#{language.code}.#{extension}").downcase!
+    ("#{reference}-#{language.code}.#{extension}").downcase!
+  end
 
+  def format_filename_and_type
     # Set DB file_format value
     self.file_format = extension
 
