@@ -32,12 +32,8 @@ Rails.application.routes.draw do
     get 'link/documents/list'       =>  'documents#search'
     get 'link/documents/search'     =>  'documents#search'
 
-    get 'assign/document_categories/assign'   =>  'document_categories#assign'
     get 'assign/document_categories/assigns'  =>  'document_categories#assigns'
-    get 'assign/document_categories/links'    =>  'document_categories#links'
     get 'assign/document_categories/unassign' =>  'document_categories#unassign'
-
-    get 'link/document_categories/search'     =>  'document_categories#search'
 
     root to: redirect('/users/sign_in')
   end
