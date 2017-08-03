@@ -35,6 +35,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
       click_button 'Submit'
     end
 
-    expect(page).to have_content 'Successfully submitted'
+    expect(page).to have_content 'Add document'
+    expect(page).to have_content 'Assign categories'
   end
 end

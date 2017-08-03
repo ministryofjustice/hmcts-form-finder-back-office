@@ -13,7 +13,6 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params_with_user)
     if @document.save
-#      render 'documents/confirmation'
       render 'document_categories/assign'
     else
       render action: 'new'
@@ -51,7 +50,6 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
     @documents = @document.all_unrelated
-    # render 'documents/assign'
   end
 
   def links
@@ -63,7 +61,6 @@ class DocumentsController < ApplicationController
       @documents = @document.all_unrelated
     end
     @linked_documents = @document.all_related
-
     render 'documents/link'
   end
 
@@ -89,9 +86,7 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
-     # render 'documents/confirmation'
-     render 'document_categories/assign'
-     #  redirect_to assign/document_categories/link_path(@document.id)
+      render 'document_categories/assign'
     else
       flash[:error] = 'Form can not be updated'
       render action: 'edit'

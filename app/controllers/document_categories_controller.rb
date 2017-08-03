@@ -31,7 +31,7 @@ class DocumentCategoriesController < ApplicationController
   end
 
   def unassign
-    #prelink
+    # prelink
     DocumentCategory.destroy(params[:related_category])
     postlink
   end
@@ -57,9 +57,6 @@ class DocumentCategoriesController < ApplicationController
     #   @categories = @document.unrelated_categories
     # end
     @categories = @document.unrelated_categories
-
-
-
     render 'document_categories/assign'
   end
 
@@ -76,6 +73,7 @@ class DocumentCategoriesController < ApplicationController
   end
 
   private
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def document_category_params
     params.require(:document_category).permit(:document_id, :category_id, :sort_order)
