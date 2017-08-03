@@ -112,3 +112,5 @@
                 = item.title
             .action
               = link_to t('links.remove'), link_documents_disconnect_path( related_document: item.id, document: params[:document], linksearch: params[:linksearch]), class: 'button-warning', role: 'button'
+.column-one-third
+  = link_to t('Next'), link_documents_summary_path(document: params[:document])

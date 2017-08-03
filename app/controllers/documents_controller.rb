@@ -98,6 +98,13 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def summary
+    @document = Document.find(params[:document])
+    @documents = @document.all_unrelated
+    @linked_documents = @document.all_related
+    @document_categories = @document.document_categories
+    render 'documents/details'
+  end
   private
 
   def doc_attachment_params
@@ -116,8 +123,10 @@ class DocumentsController < ApplicationController
     @documents = @document.all_unrelated
     @linked_documents = @parent_document.all_related
     @document_categories = @document.document_categories
-    render 'documents/details'
+    render 'documents/link'
   end
+
+
 
   def pre_connect
     if params[:linksearch].present?

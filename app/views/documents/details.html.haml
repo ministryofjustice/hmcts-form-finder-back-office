@@ -40,7 +40,7 @@
             %br
               = item.title
 
-      = link_to t('document.upload'), link_documents_link_path(document: @document),  class: 'button', role: 'button'
+      = link_to t('Link more documents'), link_documents_link_path(document: @document.id),  class: 'button', role: 'button'
 
 - if @document_categories.exists?
 
@@ -56,4 +56,4 @@
           %li
             = category.category.english_name
 
-      = link_to t('category.assign'), link_document_categories_link_path(document: @document), class: 'button', role: 'button'
+      = link_to t('category.assign'), assign_document_categories_assign_path(id: @document.id), class: 'button', role: 'button'

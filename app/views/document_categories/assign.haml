@@ -45,7 +45,7 @@
 
     = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', class:'', role:'search' do
 
-      = hidden_field_tag 'id', params[:id]
+      = hidden_field_tag 'document', @document.id
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select

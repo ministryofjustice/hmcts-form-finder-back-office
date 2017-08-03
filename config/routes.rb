@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get 'link/documents/connect'    => 'documents#connect'
     get 'link/documents/links'      => 'documents#links'
     get 'link/documents/disconnect'  => 'documents#disconnect'
+    get 'link/documents/summary'    => 'documents#summary'
     get 'link/documents/details'    => 'documents#details'
 
     root to: redirect('/users/sign_in')
