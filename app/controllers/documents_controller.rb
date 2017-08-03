@@ -15,6 +15,7 @@ class DocumentsController < ApplicationController
     if @document.save
       render 'documents/confirmation'
     else
+      @document.overwrite_file = params[:overwrite_file]
       render action: 'new'
     end
   end

@@ -36,6 +36,12 @@
           = f.check_box(:inactive, {}, true)
           = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
-      = f.submit class: 'button', role: 'button'
+      - if @document.errors.any?
+        = hidden_field_tag 'overwrite_file', true
+        = f.submit class: 'button', role: 'button'
+        Here
+      - else
+        = f.submit class: 'button', role: 'button'
+
 
   .column-one-third
