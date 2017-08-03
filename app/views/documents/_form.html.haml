@@ -36,7 +36,7 @@
           = f.check_box(:inactive, {}, true)
           = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
-      - if @document.errors.any?
+      - if @document.errors[:document] == ["already exists, are you sure you want to overwrite it?"]
         = hidden_field_tag 'overwrite_file', true
         = f.submit class: 'button', role: 'button'
         Here
