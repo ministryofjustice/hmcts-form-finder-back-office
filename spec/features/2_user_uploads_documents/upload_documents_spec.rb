@@ -18,7 +18,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
       fill_in 'Title', with: Faker::Lorem.characters(8)
       # select type.english_name, from: 'Type'
       choose type.english_name
-      attach_file 'Choose file to upload', Rails.root.join('spec/support/fixtures/Blank.docx')
+      attach_file 'Choose document', Rails.root.join('spec/support/fixtures/Blank.docx')
 
       fill_in 'document_published_date_dd', with: Time.zone.now.day
       fill_in 'document_published_date_mm', with: Time.zone.now.month
@@ -35,6 +35,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
       click_button 'Submit'
     end
 
-    expect(page).to have_content 'Successfully submitted'
+    expect(page).to have_content 'Add document'
+    expect(page).to have_content 'Assign categories'
   end
 end

@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params_with_user)
     if @document.save
-      render 'documents/confirmation'
+      render 'document_categories/index'
     else
       render action: 'new'
     end
@@ -50,7 +50,6 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
     @documents = @document.all_unrelated
-    render 'documents/link'
   end
 
   def links
@@ -62,7 +61,6 @@ class DocumentsController < ApplicationController
       @documents = @document.all_unrelated
     end
     @linked_documents = @document.all_related
-
     render 'documents/link'
   end
 
@@ -79,7 +77,7 @@ class DocumentsController < ApplicationController
     @linked_documents = @document.all_related
   end
 
-  def unconnect
+  def disconnect
     pre_connect
     (@parent_document.related_documents).delete(@document)
     post_connect
@@ -88,7 +86,7 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
-      render 'documents/confirmation'
+      render 'document_categories/index'
     else
       flash[:error] = 'Form can not be updated'
       render action: 'edit'

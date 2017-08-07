@@ -61,6 +61,7 @@ cy:
   application_name: Ffurflen darganfyddwr
 
   action:
+    add_another: Ychwanegu un arall
     assign: aseinio
     back: Yn ôl
     cancel: Diddymu
@@ -68,7 +69,7 @@ cy:
     done: Done
     edit: golygu
     link: Cyswllt
-    remove: Dileu
+    remove: Tynnwch hyn
     select: dewiswch
     show: Dangos
 
@@ -112,11 +113,14 @@ cy:
   category:
     add: Ychwanegu categori
     assign: neilltuo categorïau
+    assigned: "Eisoes neilltuo i:"
     available: categorïau ar gael
     create_success: Categori grëwyd yn llwyddiannus.
     delete_success: Categori ddileu'n llwyddiannus.
     edit: categori golygu
     heading: categorïau
+    no_assignments: Dim categorïau
+    select: Dewiswch gategori
     submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
     summary: crynodeb categori
     update_success: Categori ddiweddaru'n llwyddiannus.
@@ -127,8 +131,9 @@ cy:
 
   document:
     add: Ychwanegu ddogfen
-    choose_another_file: Dewiswch ffeil gwahanol i lwytho
-    choose_file: Dewiswch ffeil i'w lwytho
+    assignment: "Mae'r ddogfen hon eisoes yn neilltuo i:"
+    choose_another_file: Dewiswch ddogfen gwahanol
+    choose_file: Dewiswch ddogfen
     content_date: fersiwn Document
     content_date-hint: Mae hyn yn dangos fel "Dyddiad addasu yn" ar y safle cyhoeddus
     current_file: ddogfen cyfredol
@@ -138,6 +143,7 @@ cy:
     publication_date: dyddiad cyhoeddi Set
     published_date-hint: "Er enghraifft, 31 3 1980"
     publish_on: I'w gyhoeddi
+    selected: "Dogfen a ddewiswyd:"
     submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
     upload: Llwytho mwy o ddogfennau
 
