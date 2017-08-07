@@ -36,14 +36,14 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     # DocumentCategoriesController. Be sure to keep this updated too.
     let(:valid_session) { {} }
 
-    describe 'GET #index' do
-      before { sign_in authorised }
-      it 'assigns all document_categories as @document_categories' do
-        document_category = DocumentCategory.create! valid_attributes
-        get :index, params: {}, session: valid_session
-        expect(assigns(:document_categories)).to eq([document_category])
-      end
-    end
+    # describe 'GET #index' do
+    #   before { sign_in authorised }
+    #   it 'assigns all document_categories as @document_categories' do
+    #     document_category = DocumentCategory.create! valid_attributes
+    #     get :index, params: {}, session: valid_session
+    #     expect(assigns(:document_categories)).to eq([document_category])
+    #   end
+    # end
 
     # describe "GET #show" do
     #   before {
@@ -65,16 +65,16 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       end
     end
 
-    describe 'GET #edit' do
-      before do
-        sign_in authorised
-      end
-      it 'assigns the requested document_category as @document_category' do
-        document_category = DocumentCategory.create! valid_attributes
-        get :edit, id: document_category.to_param, session: valid_session
-        expect(assigns(:document_category)).to eq(document_category)
-      end
-    end
+    # describe 'GET #edit' do
+    #   before do
+    #     sign_in authorised
+    #   end
+    #   it 'assigns the requested document_category as @document_category' do
+    #     document_category = DocumentCategory.create! valid_attributes
+    #     get :edit, id: document_category.to_param, session: valid_session
+    #     expect(assigns(:document_category)).to eq(document_category)
+    #   end
+    # end
 
     describe 'POST #create' do
       context 'with valid params' do
@@ -121,76 +121,76 @@ RSpec.describe DocumentCategoriesController, type: :controller do
       end
     end
 
-    describe 'PUT #update' do
-      context 'with valid params' do
-        let(:new_attributes) { attributes_for(:document_category) }
+    # describe 'PUT #update' do
+    #   context 'with valid params' do
+    #     let(:new_attributes) { attributes_for(:document_category) }
+    #
+    #     before do
+    #       sign_in authorised
+    #     end
+    #     it 'updates the requested document_category' do
+    #       document_category = DocumentCategory.create! valid_attributes
+    #       put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
+    #       document_category.reload
+    #       # TO DO Flesh this out
+    #     end
+    #
+    #     before do
+    #       sign_in authorised
+    #     end
+    #     it 'assigns the requested document_category as @document_category' do
+    #       document_category = DocumentCategory.create! valid_attributes
+    #       put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
+    #       expect(assigns(:document_category)).to eq(document_category)
+    #     end
+    #
+    #     it 'redirects to the document_category' do
+    #       document_category = DocumentCategory.create! valid_attributes
+    #       put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
+    #       expect(response).to redirect_to(document_category)
+    #     end
+    #   end
+    #
+    #   context 'with invalid params' do
+    #     before do
+    #       sign_in authorised
+    #     end
+    #     it 'assigns the document_category as @document_category' do
+    #       document_category = DocumentCategory.create! valid_attributes
+    #       put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
+    #       expect(assigns(:document_category)).to eq(document_category)
+    #     end
+    #
+    #     before do
+    #       sign_in authorised
+    #     end
+    #     it "re-renders the 'edit' template" do
+    #       document_category = DocumentCategory.create! valid_attributes
+    #       put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
+    #       expect(response).to render_template('edit')
+    #     end
+    #   end
+    # end
 
-        before do
-          sign_in authorised
-        end
-        it 'updates the requested document_category' do
-          document_category = DocumentCategory.create! valid_attributes
-          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
-          document_category.reload
-          # TO DO Flesh this out
-        end
-
-        before do
-          sign_in authorised
-        end
-        it 'assigns the requested document_category as @document_category' do
-          document_category = DocumentCategory.create! valid_attributes
-          put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
-          expect(assigns(:document_category)).to eq(document_category)
-        end
-
-        it 'redirects to the document_category' do
-          document_category = DocumentCategory.create! valid_attributes
-          put :update, { id: document_category.to_param, document_category: valid_attributes }, session: valid_session
-          expect(response).to redirect_to(document_category)
-        end
-      end
-
-      context 'with invalid params' do
-        before do
-          sign_in authorised
-        end
-        it 'assigns the document_category as @document_category' do
-          document_category = DocumentCategory.create! valid_attributes
-          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
-          expect(assigns(:document_category)).to eq(document_category)
-        end
-
-        before do
-          sign_in authorised
-        end
-        it "re-renders the 'edit' template" do
-          document_category = DocumentCategory.create! valid_attributes
-          put :update, { id: document_category.to_param, document_category: invalid_attributes }, session: valid_session
-          expect(response).to render_template('edit')
-        end
-      end
-    end
-
-    describe 'DELETE #destroy' do
-      before do
-        sign_in authorised
-      end
-      it 'destroys the requested document_category' do
-        document_category = DocumentCategory.create! valid_attributes
-        expect do
-          delete :destroy, { id: document_category.to_param }, session: valid_session
-        end.to change(DocumentCategory, :count).by(-1)
-      end
-
-      before do
-        sign_in authorised
-      end
-      it 'redirects to the document_categories list' do
-        document_category = DocumentCategory.create! valid_attributes
-        delete :destroy, { id: document_category.to_param }, session: valid_session
-        expect(response).to redirect_to(document_categories_url)
-      end
-    end
+    # describe 'DELETE #destroy' do
+    #   before do
+    #     sign_in authorised
+    #   end
+    #   it 'destroys the requested document_category' do
+    #     document_category = DocumentCategory.create! valid_attributes
+    #     expect do
+    #       delete :destroy, { id: document_category.to_param }, session: valid_session
+    #     end.to change(DocumentCategory, :count).by(-1)
+    #   end
+    #
+    #   before do
+    #     sign_in authorised
+    #   end
+    #   it 'redirects to the document_categories list' do
+    #     document_category = DocumentCategory.create! valid_attributes
+    #     delete :destroy, { id: document_category.to_param }, session: valid_session
+    #     expect(response).to redirect_to(document_categories_url)
+    #   end
+    # end
   end
 end

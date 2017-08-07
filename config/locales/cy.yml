@@ -113,11 +113,13 @@ cy:
   category:
     add: Ychwanegu categori
     assign: neilltuo categorïau
+    assigned: "Eisoes neilltuo i:"
     available: categorïau ar gael
     create_success: Categori grëwyd yn llwyddiannus.
     delete_success: Categori ddileu'n llwyddiannus.
     edit: categori golygu
     heading: categorïau
+    no_assignments: Dim categorïau
     select: Dewiswch gategori
     submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
     summary: crynodeb categori
@@ -130,8 +132,8 @@ cy:
   document:
     add: Ychwanegu ddogfen
     assignment: "Mae'r ddogfen hon eisoes yn neilltuo i:"
-    choose_another_file: Dewiswch ffeil gwahanol i lwytho
-    choose_file: Dewiswch ffeil i'w lwytho
+    choose_another_file: Dewiswch ddogfen gwahanol
+    choose_file: Dewiswch ddogfen
     content_date: fersiwn Document
     content_date-hint: Mae hyn yn dangos fel "Dyddiad addasu yn" ar y safle cyhoeddus
     current_file: ddogfen cyfredol

@@ -102,16 +102,9 @@ body {
 }
 
 @media (min-width: 641px) {
-  .column-two-thirds.autocomplete_select {
-    //padding-right: 0;
+  .list {
+    line-height: 2em;
   }
-  //.list li {
-  //  line-height: 1em;
-  //}
-  //.list a {
-  //  float: right;
-  //  margin-right: 50px;
-  //}
 }
 
 @media screen and (max-width: 640px) {
@@ -124,5 +117,8 @@ body {
   }
   .button-left-spacing {
     margin-left: 0;
+  }
+  .list a {
+    display: block;
   }
 }

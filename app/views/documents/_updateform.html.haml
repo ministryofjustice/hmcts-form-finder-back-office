@@ -9,7 +9,9 @@
           = @document.attachment_file_name
 
       .form-group
-        = f.label :attachment, t('document.choose_file')
+        = f.label :attachment, t('document.choose_another_file')
+        %span.form-hint
+          This will replace the current document
         = f.file_field :attachment
 
       = f.text_field :code
