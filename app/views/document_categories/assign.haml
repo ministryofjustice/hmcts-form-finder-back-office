@@ -38,7 +38,7 @@
           - else
             = item.category.english_name
         .column-one-third
-          = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, id: params[:id], linksearch: params[:linksearch])
+          = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: @document.id, linksearch: params[:linksearch])
 
     %h3.heading-small
       = t('category.select')
@@ -64,7 +64,7 @@
         -#  %p
 
   .column-one-third
-    = link_to t('Next'), link_documents_link_path(document: params[:id])
+    = link_to t('Next'), link_documents_link_path(document: @document.id)
 
 
 

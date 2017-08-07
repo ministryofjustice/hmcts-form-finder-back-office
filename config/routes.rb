@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /en|cy/ do
     get 'edit_selected_document' => 'documents#edit_selected_document'
-
     get 'search'             => 'search#index'
     get 'search/search'      => 'search#search'
     get 'search/results'     => 'search#results'
@@ -24,23 +23,19 @@ Rails.application.routes.draw do
     resources :categories
     resources :documents
 
-    get 'link/documents/list'       => 'documents#search'
-    get 'link/documents/search'     => 'documents#search'
-    get 'link/documents/filter'     => 'documents#filter'
+
     get 'link/documents/link'       => 'documents#link'
     get 'link/documents/connect'    => 'documents#connect'
-    get 'link/documents/links'      => 'documents#links'
     get 'link/documents/disconnect'  => 'documents#disconnect'
     get 'link/documents/summary'    => 'documents#summary'
     get 'link/documents/details'    => 'documents#details'
 
     root to: redirect('/users/sign_in')
 
-    get 'link/document_categories/search'    => 'document_categories#search'
+
     get 'assign/document_categories/assign'      => 'document_categories#assign'
     get 'assign/document_categories/unassign' => 'document_categories#unassign'
     get 'assign/document_categories/assigns'   => 'document_categories#assigns'
-    get 'assign/document_categories/links'     => 'document_categories#links'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
