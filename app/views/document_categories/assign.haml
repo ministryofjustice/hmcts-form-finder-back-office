@@ -48,11 +48,14 @@
 
     = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', class:'', role:'search' do
 
-      = hidden_field_tag 'id', params[:id]
+      = hidden_field_tag 'document', @document.id
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
-          = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+          - if locale == :cy
+            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :welsh_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+          - else
+            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 

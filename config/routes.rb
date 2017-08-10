@@ -23,14 +23,9 @@ Rails.application.routes.draw do
     resources :document_categories
     resources :categories
 
-    get 'link/documents/details'    =>  'documents#details'
     get 'link/documents/disconnect' =>  'documents#disconnect'
     get 'link/documents/connect'    =>  'documents#connect'
-    get 'link/documents/filter'     =>  'documents#filter'
     get 'link/documents/link'       =>  'documents#link'
-    get 'link/documents/links'      =>  'documents#links'
-    get 'link/documents/list'       =>  'documents#search'
-    get 'link/documents/search'     =>  'documents#search'
 
     get 'assign/document_categories/assigns'  =>  'document_categories#assigns'
     get 'assign/document_categories/unassign' =>  'document_categories#unassign'

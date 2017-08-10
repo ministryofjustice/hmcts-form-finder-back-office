@@ -60,7 +60,7 @@ en:
     assign: Assign
     back: Back
     cancel: Cancel
-    continue: continue
+    continue: Continue
     done: Done
     edit: Edit
     link: Link
@@ -123,15 +123,21 @@ en:
     content_date: Document version date
     content_date-hint: This displays as "Date modified" on the public site
     current_file: "Current document "
+    details: Document details
     edit: Edit document
     heading: Documents
     link: Link documents
+    linked: Linked documents
+    linked_to: "Is already linked to:"
+    no_links: No documents
     publication_date: Set publication date
     published_date-hint: For example, 31 3 1980
     publish_on: To be published
+    select: Link document
     selected: "Selected document:"
     submit_error: " prevented this document from being submitted:"
     upload: Upload more documents
+    uploaded: Document uploaded
 
   error_count:
     one: 1 error
@@ -139,6 +145,9 @@ en:
 
   error_message:
     no_code: Reference can't be blank
+
+  heading:
+    summary: Summary
 
   helpers:
     fieldset:
@@ -153,7 +162,7 @@ en:
       doc_attachment_type:
         <<: *name_labels
       document:
-        code: Reference/number
+        code: Reference
         title: Title
         language_id: Language
         summary: Summary
@@ -186,7 +195,8 @@ en:
     create_success: Language successfully created.
     delete_success: Language successfully deleted.
     edit: Edit language
-    heading: Languages
+    plural: Languages
+    singular: Language
     submit_error: " prevented this language from being submitted:"
     summary: Language summary
     update_success: Language successfully updated.

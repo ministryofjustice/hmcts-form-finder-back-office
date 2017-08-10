@@ -24,17 +24,15 @@
         .column-one-third
           = submit_tag t('action.edit'), role: 'button', class: 'button-secondary'
 
-    %hr
-
-    %h2.heading-medium
-      = t('document.publish_on')
-
   .column-one-third
 
 .grid-row
   .column-full
 
-    - if @documents.size > 0
+    %h2.heading-medium
+      = t('document.publish_on')
+
+    - if @publication_queue.size > 0
       .table-container.container
         %table.report
           %colgroup
@@ -50,7 +48,7 @@
               %th{scope:'col'}
                 = t('helpers.label.document.title')
           %tbody
-            - @documents.each do |document|
+            - @publication_queue.each do |document|
               %tr
                 %td.font-xsmall
                   = document.published_date.strftime('%d/%m/%Y')

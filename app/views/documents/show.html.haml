@@ -1,0 +1,111 @@
+- content_for :page_title do
+  = "Your document linking summary for HMCTS Form finder"
+
+.grid-row
+  .column-full
+    = render partial: 'layouts/header', locals: { page_heading: t('heading.summary') }
+
+.grid-row
+  .column-two-thirds
+    .section
+
+      %h2.heading-large
+        = t('document.details')
+
+      = link_to t('action.edit'), edit_document_path(document: @document.id), class: 'edit-link'
+
+      %h3.heading-small
+        = t('document.uploaded')
+      = @document.attachment_file_name
+
+      %h3.heading-small
+        = t('helpers.label.document.code')
+      = @document.code
+
+      %h3.heading-small
+        = t('helpers.label.document.title')
+      = @document.title
+
+      %h3.heading-small
+        = t('heading.summary')
+      = @document.summary
+
+      %h3.heading-small
+        =t('helpers.fieldset.document.doc_attachment_type_id')
+      - if locale == :cy
+        = @document.doc_attachment_type.welsh_name
+      - else
+        = @document.doc_attachment_type.english_name
+
+      %h3.heading-small
+        = t('language.singular')
+      - if locale == :cy
+        = @document.language.welsh_name
+      - else
+        = @document.language.english_name
+
+      %h3.heading-small
+        = t('document.content_date')
+      = l @document.content_date
+
+      %h3.heading-small
+        = t('document.publication_date')
+      = l @document.published_date
+
+  .column-one-third
+
+.grid-row
+  .column-two-thirds
+    .section
+
+      %h2.heading-medium
+        = t('category.heading')
+
+      = link_to t('action.edit'), document_categories_path(document: @document.id), class: 'edit-link'
+
+      - if @document.document_categories.size > 0
+        %ul.list
+          - @document.document_categories.each do |category|
+            %li
+              - if locale == :cy
+                = category.category.welsh_name
+              - else
+                = category.category.english_name
+      - else
+        %p
+          = t('category.no_assignments')
+
+  .column-one-third
+
+.grid-row
+  .column-two-thirds
+    .section
+
+      %h2.heading-medium
+        = t('document.linked')
+
+      = link_to t('action.edit'), link_documents_link_path(document: @document.id), class: 'edit-link'
+
+      - if @linked_documents.size > 0
+        %ul.list
+          - @linked_documents.each do |item|
+            %li
+              = item.code
+              %span.attributes
+                - if locale == :cy
+                  = item.language.welsh_name
+                - else
+                  = item.language.english_name
+                = item.file_format
+      -else
+        %p
+          = t('document.no_links')
+
+  .column-one-third
+
+.grid-row
+  .column-two-thirds
+
+    = link_to t('action.done'), documents_url, class: 'button', role: 'button'
+
+  .column-one-third
