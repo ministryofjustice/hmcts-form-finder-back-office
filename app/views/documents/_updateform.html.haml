@@ -1,6 +1,16 @@
 .grid-row
   .column-two-thirds
+    - if @document.errors.any?
 
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-document', tabindex: '-1' }
+        %h1#error-summary-add-document.heading-medium.error-summary-heading
+          = t('error_count', count: @document.errors.count ) + t('document.submit_error')
+
+        %ul.error-summary-list
+          - @document.errors.full_messages.each do |msg|
+            - if msg == "Document already exists, if you want to upload a new file or update any details then please edit the document"
+            - else
+              %li= msg
     = form_for @document, multipart: true do |f|
 
       %p
@@ -32,7 +42,12 @@
           = f.label :inactive, t('label.inactive')
 
       .button-holder
-        = f.submit class: 'button', role: 'button'
-        = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
-
+        - if @document.errors[:document].present?
+          = hidden_field_tag 'overwrite_file', true
+          = f.submit class: 'button', role: 'button'
+          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+          Here
+        - else
+          = f.submit class: 'button', role: 'button'
+          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
   .column-one-third

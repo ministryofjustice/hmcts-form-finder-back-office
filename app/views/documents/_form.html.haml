@@ -9,7 +9,9 @@
 
         %ul.error-summary-list
           - @document.errors.full_messages.each do |msg|
-            %li= msg
+            - if msg == "Document already exists, are you sure you want to overwrite it?"
+            - else
+              %li= msg
 
     = form_for @document, multipart: true do |f|
 
@@ -36,10 +38,10 @@
           = f.check_box(:inactive, {}, true)
           = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
-      - if @document.errors[:document] == ["already exists, are you sure you want to overwrite it?"]
+      - if @document.errors[:document] == ["already exists, if you want to upload a new file or update any details then please edit the document."]
         = hidden_field_tag 'overwrite_file', true
         = f.submit class: 'button', role: 'button'
-        Here
+        here
       - else
         = f.submit class: 'button', role: 'button'
 

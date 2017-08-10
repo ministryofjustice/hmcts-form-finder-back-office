@@ -16,7 +16,7 @@ class DocumentsController < ApplicationController
       render 'documents/confirmation'
     else
       @document.overwrite_file = params[:overwrite_file]
-      render action: 'new'
+      render 'new'
     end
   end
 
@@ -91,12 +91,18 @@ class DocumentsController < ApplicationController
     if @document.update(params_with_user)
       render 'documents/confirmation'
     else
-      flash[:error] = 'Form can not be updated'
-      render action: 'edit'
+      if params[:overwrite_file] == 'true'
+        @document.overwrite_file = params[:overwrite_file]
+        @document.update(params_with_user)
+        render 'documents/confirmation'
+      else
+        #flash[:error] = 'Form can not be updated'
+        render 'edit'
+      end
     end
   end
 
-  private
+    private
 
   def doc_attachment_params
     params.require(:document)
