@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     // Where .block-label uses the data-target attribute
     // to toggle hidden content
     var showHideContent = new GOVUK.ShowHideContent()
@@ -21,7 +20,7 @@ $(document).ready(function () {
     });
 
     // Accessible auto complete setup
-    var selectEl = document.querySelector('#document_list');
+    var selectEl = document.querySelector('.auto-suggest-list');
     var queryStringParameters = window.location.search;
     var previouslySubmitted = queryStringParameters.length > 0;
 

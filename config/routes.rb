@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  get 'ping'               => 'ping#index'
-  get 'healthcheck'        => 'health_check#index'
+  get 'ping'        =>  'ping#index'
+  get 'healthcheck' =>  'health_check#index'
 
   scope '(:locale)', locale: /en|cy/ do
-    get 'edit_selected_document' => 'documents#edit_selected_document'
-
-    get 'search'             => 'search#index'
-    get 'search/search'      => 'search#search'
-    get 'search/results'     => 'search#results'
-    get 'search/show'        => 'search#show'
+    get 'edit_selected_document'  =>  'documents#edit_selected_document'
+    get 'search'                  =>  'search#index'
+    get 'search/search'           =>  'search#search'
+    get 'search/results'          =>  'search#results'
+    get 'search/show'             =>  'search#show'
 
     resources :doc_attachment_types
     resources :languages
@@ -20,26 +19,18 @@ Rails.application.routes.draw do
       root to: 'documents#index', as: :authenticated_root
     end
 
+    resources :documents
     resources :document_categories
     resources :categories
-    resources :documents
 
-    get 'link/documents/list'       => 'documents#search'
-    get 'link/documents/search'     => 'documents#search'
-    get 'link/documents/filter'     => 'documents#filter'
-    get 'link/documents/link'       => 'documents#link'
-    get 'link/documents/connect'    => 'documents#connect'
-    get 'link/documents/links'      => 'documents#links'
-    get 'link/documents/unconnect'  => 'documents#unconnect'
-    get 'link/documents/details'    => 'documents#details'
+    get 'link/documents/disconnect' =>  'documents#disconnect'
+    get 'link/documents/connect'    =>  'documents#connect'
+    get 'link/documents/link'       =>  'documents#link'
+
+    get 'assign/document_categories/assigns'  =>  'document_categories#assigns'
+    get 'assign/document_categories/unassign' =>  'document_categories#unassign'
 
     root to: redirect('/users/sign_in')
-
-    get 'link/document_categories/search'    => 'document_categories#search'
-    get 'link/document_categories/link'      => 'document_categories#link'
-    get 'link/document_categories/unconnect' => 'document_categories#unconnect'
-    get 'link/document_categories/connect'   => 'document_categories#connect'
-    get 'link/document_categories/links'     => 'document_categories#links'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

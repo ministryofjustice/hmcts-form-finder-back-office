@@ -13,20 +13,17 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params_with_user)
     if @document.save
-      render 'documents/confirmation'
+      render 'document_categories/index'
     else
       render action: 'new'
     end
   end
 
-  def destroy
-    @document = Document.find(params[:id])
-    if @document.destroy
-      redirect_to documents_path, notice: 'Your form has been succcessfully deleted.'
-    else
-      flash[:error] = 'Form can not be deleted'
-      render action: 'index'
-    end
+  def disconnect
+    pre_connect
+    (@parent_document.related_documents).delete(@document)
+    (@document.related_documents).delete(@parent_document)
+    post_connect
   end
 
   def edit
@@ -43,31 +40,13 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.where('published_date >= ?', Time.zone.today.beginning_of_day).order(published_date: :asc)
+    @publication_queue = Document.where('published_date >= ?', Time.zone.today.beginning_of_day).order(published_date: :asc)
   end
 
   def link
     @document = Document.find(params[:document])
     @linked_documents = @document.all_related
     @documents = @document.all_unrelated
-    render 'documents/link'
-  end
-
-  def links
-    @document = Document.find(params[:document])
-    @documents = []
-    if params[:linksearch].present?
-      @documents = @document.all_unrelated.search(params[:linksearch]).order('created_at DESC')
-    else
-      @documents = @document.all_unrelated
-    end
-    @linked_documents = @document.all_related
-
-    render 'documents/link'
-  end
-
-  def list
-    @documents = Document.all
   end
 
   def new
@@ -77,18 +56,13 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @linked_documents = @document.all_related
-  end
-
-  def unconnect
-    pre_connect
-    (@parent_document.related_documents).delete(@document)
-    post_connect
+    @assigned_categories = @document.document_categories
   end
 
   def update
     @document = Document.find(params[:id])
     if @document.update(params_with_user)
-      render 'documents/confirmation'
+      render 'document_categories/index'
     else
       flash[:error] = 'Form can not be updated'
       render action: 'edit'
@@ -113,16 +87,11 @@ class DocumentsController < ApplicationController
     @documents = @document.all_unrelated
     @linked_documents = @parent_document.all_related
     @document_categories = @document.document_categories
-    render 'documents/details'
+    render 'documents/link'
   end
 
   def pre_connect
-    if params[:linksearch].present?
-      @documents = Document.search(params[:linksearch]).order('created_at DESC')
-    else
-      @documents = []
-    end
-    @document = Document.find(params[:related_document])
+    @document = Document.find(params[:selected_document])
     @parent_document = Document.find(params[:document])
   end
 

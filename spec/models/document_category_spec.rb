@@ -41,7 +41,7 @@ RSpec.describe DocumentCategory, type: :model do
 
     expect(category.save).to be_falsey
   end
-  it 'Can link a document to a category' do
+  it 'Can assign a document to a category' do
     document = create :document
     category = create :category
     document_category = create :document_category
