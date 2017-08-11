@@ -41,7 +41,6 @@
       - if @document.errors[:document] == ["already exists, if you want to upload a new file or update any details then please edit the document."]
         = hidden_field_tag 'overwrite_file', true
         = f.submit class: 'button', role: 'button'
-        here
       - else
         = f.submit class: 'button', role: 'button'
 
