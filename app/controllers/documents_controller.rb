@@ -68,7 +68,7 @@ class DocumentsController < ApplicationController
       if params[:overwrite_file] == 'true'
         @document.overwrite_file = params[:overwrite_file]
         @document.update(params_with_user)
-        render 'documents/confirmation'
+        render 'document_categories/index'
       else
         # flash[:error] = 'Form can not be updated'
         render 'edit'
