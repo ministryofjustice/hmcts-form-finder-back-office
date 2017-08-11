@@ -70,13 +70,13 @@ class DocumentsController < ApplicationController
         @document.update(params_with_user)
         render 'documents/confirmation'
       else
-        #flash[:error] = 'Form can not be updated'
+        # flash[:error] = 'Form can not be updated'
         render 'edit'
       end
     end
   end
 
-    private
+  private
 
   def doc_attachment_params
     params.require(:document)

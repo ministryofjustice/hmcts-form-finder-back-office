@@ -21,9 +21,7 @@
 #  file_format              :string
 #  summary                  :string(250)
 #
-
 class Document < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
 
@@ -91,8 +89,8 @@ class Document < ActiveRecord::Base
     # - strip any leading, trailing whitespaces.
     # - Remove any consecutive whitespaces (squeeze).
     # - replace all whitespaces with hyphens.
+    return if code.blank?
     reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
-
     # Build new filename in [reference]-[language].[extension] format.
     ("#{reference}-#{language.code}.#{extension}").downcase!
   end
@@ -106,11 +104,10 @@ class Document < ActiveRecord::Base
   end
 
   def should_not_exist_already
-    if Document.where(attachment_file_name: filename).any?
-      self.overwrite_file = true
-      errors.add(:document, "already exists, if you want to upload a new file or update any details then please edit the document")
-      errors.add(:document, "already exists, are you sure you want to overwrite it?")
-    end
+    return unless Document.where(attachment_file_name: filename).any?
+    self.overwrite_file = true
+    errors.add(:document, 'already exists, if you want to upload a new file or update any details then please edit the document')
+    errors.add(:document, 'already exists, are you sure you want to overwrite it?')
   end
 
   def all_related
