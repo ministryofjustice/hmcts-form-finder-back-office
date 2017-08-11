@@ -38,7 +38,7 @@
               - else
                 = item.category.english_name
             .column-one-third
-              = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
+              = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, id: params[:id], linksearch: params[:linksearch])
     -else
       %p
         = t('category.no_assignments')
@@ -59,6 +59,6 @@
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
-    = link_to t('action.continue'), link_documents_link_path(document: @document.id), class: 'button', role: 'button'
+    = link_to t('action.continue'), link_documents_link_path(document: params[:id]), class: 'button', role: 'button'
 
   .column-one-third

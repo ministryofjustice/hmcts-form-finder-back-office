@@ -19,14 +19,20 @@
           = @document.attachment_file_name
 
       .form-group
-        = f.label :attachment, t('document.choose_file')
+        = f.label :attachment, t('document.choose_another_file')
+        %span.form-hint
+          This will replace the current document
         = f.file_field :attachment
 
       = f.text_field :code
       = f.text_field :title
       = f.text_area :summary, { class: 'form-control-2-3 counter', rows: '6', 'data-max-chars': '250' }
-      = f.radio_button_fieldset :doc_attachment_type_id, choices: DocAttachmentType.all, value_method: :id, text_method: :english_name
-      = f.collection_select :language_id, Language.all, :id, :english_name, { selected: 8 }, { class: 'form-control' }
+      - if locale == :cy
+        = f.radio_button_fieldset :doc_attachment_type_id, choices: DocAttachmentType.all, value_method: :id, text_method: :welsh_name
+        = f.collection_select :language_id, Language.all, :id, :welsh_name, { class: 'form-control' }
+      - else
+        = f.radio_button_fieldset :doc_attachment_type_id, choices: DocAttachmentType.all, value_method: :id, text_method: :english_name
+        = f.collection_select :language_id, Language.all, :id, :english_name, { class: 'form-control' }
 
       .form-group
         = f.gov_uk_date_field :content_date, legend_text: t('document.content_date'), placeholders: true
@@ -49,4 +55,5 @@
         - else
           = f.submit class: 'button', role: 'button'
           = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+
   .column-one-third

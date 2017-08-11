@@ -4,7 +4,7 @@
 .grid-row
   .column-full
 
-    = render partial: 'layouts/header', locals: { page_heading: t('language.heading') }
+    = render partial: 'layouts/header', locals: { page_heading: t('language.plural') }
 
     = link_to t('language.add'), new_language_path, class: 'button', role: 'button'
 

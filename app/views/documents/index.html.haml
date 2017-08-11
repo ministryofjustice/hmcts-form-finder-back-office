@@ -17,20 +17,22 @@
       = t('document.edit')
 
     = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
-      .form-group
-        .autocomplete_select
-          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { :id => 'document_list', :class => 'form-control' } )
-        = submit_tag t('document.edit'), role: 'button', class: 'button-secondary'
 
-    %h2.heading-medium
-      = t('document.publish_on')
+      .grid-row.form-group
+        .column-two-thirds.autocomplete_select
+          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+        .column-one-third
+          = submit_tag t('action.edit'), role: 'button', class: 'button-secondary'
 
   .column-one-third
 
 .grid-row
   .column-full
 
-    - if @documents.size > 0
+    %h2.heading-medium
+      = t('document.publish_on')
+
+    - if @publication_queue.size > 0
       .table-container.container
         %table.report
           %colgroup
@@ -46,7 +48,7 @@
               %th{scope:'col'}
                 = t('helpers.label.document.title')
           %tbody
-            - @documents.each do |document|
+            - @publication_queue.each do |document|
               %tr
                 %td.font-xsmall
                   = document.published_date.strftime('%d/%m/%Y')
