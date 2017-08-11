@@ -80,6 +80,7 @@ class Document < ActiveRecord::Base
   attr_accessor :overwrite_file
 
   def extension
+    return if attachment_file_name.blank?
     File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
   end
 
