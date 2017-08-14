@@ -8,9 +8,8 @@
 
         %ul.error-summary-list
           - @document.errors.full_messages.each do |msg|
-            - if msg == "Document already exists, if you want to upload a new file or update any details then please edit the document"
-            - else
-              %li= msg
+            %li= msg
+
     = form_for @document, multipart: true do |f|
 
       %p

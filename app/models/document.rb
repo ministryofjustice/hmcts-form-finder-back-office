@@ -58,7 +58,6 @@ class Document < ActiveRecord::Base
   validates :language_id, presence: true
   validates :content_date, presence: true
   validates :published_date, presence: true
-  validates :attachment_file_name, presence: true
   validate :should_not_exist_already, unless: :overwrite_file
   validates_length_of :summary, maximum: 250
 
@@ -107,8 +106,7 @@ class Document < ActiveRecord::Base
   def should_not_exist_already
     return unless Document.where(attachment_file_name: filename).any?
     self.overwrite_file = true
-    errors.add(:document, 'already exists, if you want to upload a new file or update any details then please edit the document')
-    errors.add(:document, 'already exists, are you sure you want to overwrite it?')
+    errors.add(:document, 'with the same reference, language and format already exists. Either change the reference below or go to Documents > Edit to find the existing file and amend its details.')
   end
 
   def all_related

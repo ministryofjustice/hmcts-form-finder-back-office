@@ -9,9 +9,7 @@
 
         %ul.error-summary-list
           - @document.errors.full_messages.each do |msg|
-            - if msg == "Document already exists, are you sure you want to overwrite it?"
-            - else
-              %li= msg
+            %li= msg
 
     = form_for @document, multipart: true do |f|
 
