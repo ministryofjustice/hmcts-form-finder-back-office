@@ -49,10 +49,8 @@
       .button-holder
         - if @document.errors[:document].present?
           = hidden_field_tag 'overwrite_file', true
-          = f.submit class: 'button', role: 'button'
-          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+          = f.submit class: 'button', role: 'button', value: 'Continue'
         - else
-          = f.submit class: 'button', role: 'button'
-          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+          = f.submit class: 'button', role: 'button', value: 'Continue'
 
   .column-one-third
