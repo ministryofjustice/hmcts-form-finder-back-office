@@ -53,9 +53,9 @@
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
           - if locale == :cy
-            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :welsh_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :welsh_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
           - else
-            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
