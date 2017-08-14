@@ -20,7 +20,7 @@
 
       .grid-row.form-group
         .column-two-thirds.autocomplete_select
-          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { class: 'form-control auto-suggest-list' } )
+          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
         .column-one-third
           = submit_tag t('action.edit'), role: 'button', class: 'button-secondary'
 

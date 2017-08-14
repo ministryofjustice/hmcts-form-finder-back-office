@@ -40,12 +40,6 @@
           = f.check_box(:inactive, {}, true)
           = f.label :inactive, t('label.inactive'), { class: 'form-label-bold' }
 
-
-      - if @document.errors[:document] == ["already exists, if you want to upload a new file or update any details then please edit the document."]
-        = hidden_field_tag 'overwrite_file', true
-        = f.submit class: 'button', role: 'button'
-      - else
-        = f.submit class: 'button', role: 'button'
-
+      = f.submit class: 'button', role: 'button', value: 'Continue'
 
   .column-one-third

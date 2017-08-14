@@ -139,6 +139,10 @@ class Document < ActiveRecord::Base
     "#{code} (#{language.english_name} #{file_format})"
   end
 
+  def cym_reference_with_attributes
+    "#{code} (#{language.welsh_name} #{file_format})"
+  end
+
   def self.search(search)
     where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
