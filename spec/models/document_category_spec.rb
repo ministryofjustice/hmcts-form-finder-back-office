@@ -29,12 +29,12 @@ RSpec.describe DocumentCategory, type: :model do
   it 'Cannot inactivate a Category if a document belongs to it' do
     document = create :document
     category = create :category
-    document_category = create :document_category
-    document_category.document = document
-    document_category.category = category
-
-    document.save!
-    category.save!
+    document_category = create(:document_category, category: category, document: document)
+    # document_category.document = document
+    # document_category.category = category
+    #
+    # document.save!
+    # category.save!
     document_category.save!
 
     category.inactive = true
@@ -44,30 +44,22 @@ RSpec.describe DocumentCategory, type: :model do
   it 'Can assign a document to a category' do
     document = create :document
     category = create :category
-    document_category = create :document_category
-    document_category.document = document
-    document_category.category = category
-
-    document.save!
-    category.save!
+    document_category = create(:document_category, category: category, document: document)
+    # document_category.document = document
+    # document_category.category = category
+    #
+    # document.save!
+    # category.save!
     expect(document_category.save).to be_truthy
   end
   it 'Can return linked categories' do
     document = create :document
-    category = create :category
-    document_category = create :document_category
-    document_category.document = document
-    document_category.category = category
 
-    document.save!
-    category.save!
-    document_category.save!
+    category = create :category
+    create(:document_category, category: category, document: document)
 
     category2 = create :category
-    document_category2 = create :document_category
-    document_category2.document = document
-    document_category2.category = category2
-    document_category2.save!
+    create(:document_category, category: category2, document: document)
 
     expect(document.categories.count).to eq(2)
   end

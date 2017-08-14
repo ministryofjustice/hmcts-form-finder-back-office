@@ -15,7 +15,8 @@ class DocumentsController < ApplicationController
     if @document.save
       render 'document_categories/index'
     else
-      render action: 'new'
+      @document.overwrite_file = params[:overwrite_file]
+      render 'new'
     end
   end
 
@@ -64,8 +65,14 @@ class DocumentsController < ApplicationController
     if @document.update(params_with_user)
       render 'document_categories/index'
     else
-      flash[:error] = 'Form can not be updated'
-      render action: 'edit'
+      if params[:overwrite_file] == 'true'
+        @document.overwrite_file = params[:overwrite_file]
+        @document.update(params_with_user)
+        render 'document_categories/index'
+      else
+        # flash[:error] = 'Form can not be updated'
+        render 'edit'
+      end
     end
   end
 

@@ -1,5 +1,14 @@
 .grid-row
   .column-two-thirds
+    - if @document.errors.any?
+
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-document', tabindex: '-1' }
+        %h1#error-summary-add-document.heading-medium.error-summary-heading
+          = t('error_count', count: @document.errors.count ) + t('document.submit_error')
+
+        %ul.error-summary-list
+          - @document.errors.full_messages.each do |msg|
+            %li= msg
 
     = form_for @document, multipart: true do |f|
 
@@ -38,6 +47,12 @@
           = f.label :inactive, t('label.inactive')
 
       .button-holder
-        = f.submit class: 'button', role: 'button', value: t('action.continue')
+        - if @document.errors[:document].present?
+          = hidden_field_tag 'overwrite_file', true
+          = f.submit class: 'button', role: 'button'
+          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
+        - else
+          = f.submit class: 'button', role: 'button'
+          = link_to t('action.cancel'), root_path, class: 'button-secondary button-left-spacing', role: 'button'
 
   .column-one-third
