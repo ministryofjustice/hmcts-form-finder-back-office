@@ -30,7 +30,7 @@ feature 'HMCTS Users should be able to upload and process forms/leaflets' do
       fill_in 'document_content_date_mm', with: Time.zone.now.month
       fill_in 'document_content_date_yyyy', with: Time.zone.now.year
 
-      click_button 'Continue'
+      click_button 'Submit'
     end
   end
 end

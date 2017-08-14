@@ -21,9 +21,7 @@
 #  file_format              :string
 #  summary                  :string(250)
 #
-
 class Document < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
 
@@ -60,7 +58,7 @@ class Document < ActiveRecord::Base
   validates :language_id, presence: true
   validates :content_date, presence: true
   validates :published_date, presence: true
-
+  validate :should_not_exist_already, unless: :overwrite_file
   validates_length_of :summary, maximum: 250
 
   after_create :populate_original_id
@@ -78,25 +76,37 @@ class Document < ActiveRecord::Base
   scope :language_other, -> { where.not(language_id: [8, 25]) }
   # TODO: Refactor non-human-readable where clause
 
-  def format_filename_and_type
-    # Get the file extension minus the leading '.'
-    extension = File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+  attr_accessor :overwrite_file
 
+  def extension
+    return if attachment_file_name.blank?
+    File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+  end
+
+  def filename
     # Sanitize Reference/number data input by user or seed file.
     # - Allow only alphanumeric characters, apostrophes or ellipses.  Replace all others with whitespace.
     # - strip any leading, trailing whitespaces.
     # - Remove any consecutive whitespaces (squeeze).
     # - replace all whitespaces with hyphens.
+    return if code.blank?
     reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
-
     # Build new filename in [reference]-[language].[extension] format.
-    filename = ("#{reference}-#{language.code}.#{extension}").downcase!
+    ("#{reference}-#{language.code}.#{extension}").downcase!
+  end
 
+  def format_filename_and_type
     # Set DB file_format value
     self.file_format = extension
 
     # Write the file
     attachment.instance_write(:file_name, filename)
+  end
+
+  def should_not_exist_already
+    return unless Document.where(attachment_file_name: filename).any?
+    self.overwrite_file = true
+    errors.add(:document, 'with the same reference, language and format already exists. Either change the reference below or go to Documents > Edit to find the existing file and amend its details.')
   end
 
   def all_related

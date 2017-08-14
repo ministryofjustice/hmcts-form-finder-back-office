@@ -23,10 +23,14 @@
 #
 
 FactoryGirl.define do
+  sequence :document_code do |n|
+    "DOC code#{n}"
+  end
+
   factory :document do
     attachment { File.new("#{Rails.root}/spec/support/fixtures/Blank.docx") }
     attachment_file_name 'Bob'
-    code 'DOC code'
+    code { generate :document_code }
     content_date '2017-07-01'
     doc_attachment_type_id 1
     language
