@@ -38,7 +38,7 @@
               - else
                 = item.category.english_name
             .column-one-third
-              = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: params[:document], linksearch: params[:linksearch])
+              = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: @document.id, linksearch: params[:linksearch])
     -else
       %p
         = t('category.no_assignments')
