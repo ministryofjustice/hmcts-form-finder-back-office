@@ -8,7 +8,6 @@ class CategoriesController < ApplicationController
     @inactive_categories = Category.inactive.all.order(english_name: :asc)
   end
 
-
   def show
   end
 
