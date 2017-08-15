@@ -110,6 +110,8 @@ en:
     submit_error: " prevented this category from being submitted:"
     summary: Category summary
     update_success: Category successfully updated.
+    active_category: active categories available
+    inactive_category: inactive categories available
 
   department: Her Majesty's Courts and Tribunals Service
 
