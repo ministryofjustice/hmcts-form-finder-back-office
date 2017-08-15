@@ -124,6 +124,8 @@ cy:
     submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
     summary: crynodeb categori
     update_success: Categori ddiweddaru'n llwyddiannus.
+    active_category: Categorías activas disponibles
+    inactive_category: Categorías inactivas disponibles
 
   department: Gwasanaeth Llysoedd a Thribiwnlysoedd Ei Mawrhydi
 
@@ -213,6 +215,8 @@ cy:
     submit_error: " atal yr iaith hon rhag cael ei gyflwyno:"
     summary: crynodeb iaith
     update_success: Iaith ddiweddaru'n llwyddiannus.
+    active: Idiomas activos disponibles
+    inactive: Idiomas inactivos disponibles
 
   link:
     feedback: adborth

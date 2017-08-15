@@ -202,6 +202,8 @@ en:
     submit_error: " prevented this language from being submitted:"
     summary: Language summary
     update_success: Language successfully updated.
+    active: active languages available
+    inactive: inactive languages available
 
   link:
     feedback: feedback
