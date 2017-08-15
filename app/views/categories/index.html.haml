@@ -12,8 +12,8 @@
       %table.report
         %caption
           %span.table-caption
-            = @categories.size
-            = t('category.available')
+            = @active_categories.size
+            = t('category.active_category')
         %colgroup
           %col
           %col
@@ -28,7 +28,7 @@
               = t('label.inactive')
             %th
         %tbody
-          - @categories.each do |category|
+          - @active_categories.each do |category|
             %tr
               %td
                 = category.english_name
@@ -38,3 +38,34 @@
                 = category.inactive ? 'Yes' : 'No'
               %td
                 = link_to t('action.edit'), edit_category_path(category)
+
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = @inactive_categories.size
+            = t('category.inactive_category')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('helpers.label.category.english_name')
+              %th{scope:'col'}
+                = t('helpers.label.category.welsh_name')
+              %th{scope:'col'}
+                = t('label.inactive')
+              %th
+          %tbody
+            - @inactive_categories.each do |category|
+              %tr
+                %td
+                  = category.english_name
+                %td
+                  = category.welsh_name
+                %td
+                  = category.inactive ? 'Yes' : 'No'
+                %td
+                  = link_to t('action.edit'), edit_category_path(category)

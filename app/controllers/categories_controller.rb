@@ -4,8 +4,10 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all.order(english_name: :asc)
+    @active_categories = Category.active.all.order(english_name: :asc)
+    @inactive_categories = Category.inactive.all.order(english_name: :asc)
   end
+
 
   def show
   end
