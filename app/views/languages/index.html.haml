@@ -12,8 +12,8 @@
       %table.report
         %caption
           %span.table-caption
-            = @languages.size
-            = t('language.available')
+            = @active_languages.size
+            = t('language.active')
         %colgroup
           %col
           %col
@@ -31,7 +31,42 @@
               = t('label.inactive')
             %th
         %tbody
-          - @languages.each do | language |
+          - @active_languages.each do | language |
+            %tr
+              %td
+                = language.english_name
+              %td
+                = language.welsh_name
+              %td
+                = language.code
+              %td
+                = language.inactive ? 'Yes' : 'No'
+              %td
+                = link_to t('action.edit'), edit_language_path(language)
+    .table-container.container
+      %table.report
+        %caption
+          %span.table-caption
+            = @inactive_languages.size
+            = t('language.inactive')
+        %colgroup
+          %col
+          %col
+          %col
+          %col
+        %thead
+          %tr
+            %th{scope:'col'}
+              = t('helpers.label.language.english_name')
+            %th{scope:'col'}
+              = t('helpers.label.language.welsh_name')
+            %th{scope:'col'}
+              = t('helpers.label.language.code')
+            %th{scope:'col'}
+              = t('label.inactive')
+            %th
+        %tbody
+          - @inactive_languages.each do | language |
             %tr
               %td
                 = language.english_name
