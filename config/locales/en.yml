@@ -96,16 +96,28 @@ en:
             doc_attachment_type_id:
               blank: must be selected
 
+  all: All
+
   category:
+    active:
+      singular: active category
+      plural: active categories
+    active_table_caption: Active categories
     add: Add category
+    all_active: categories are active
+    all_inactive: categories are inactive
     assign: Assign categories
     assigned: "Is already assigned to:"
-    available: categories available
     create_success: Category successfully created.
     delete_success: Category successfully deleted.
     edit: Edit category
     heading: Categories
+    inactive:
+      singular: inactive category
+      plural: inactive categories
+    inactive_table_caption: Inactive categories
     no_assignments: No categories
+    none: No categories have been defined
     select: Select category
     submit_error: " prevented this category from being submitted:"
     summary: Category summary

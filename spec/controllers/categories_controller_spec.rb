@@ -21,7 +21,7 @@ RSpec.describe CategoriesController, type: :controller do
         category = Category.create! valid_attributes
         get :index, params: {}, session: valid_session
 
-        expect(assigns(:categories)).to eq([category])
+        expect(assigns(:active_categories)).to eq([category])
       end
     end
 

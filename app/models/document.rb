@@ -112,27 +112,27 @@ class Document < ActiveRecord::Base
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
-    AND  related_documents.document_id =  #{id}
+    AND  related_documents.document_id =  #{id} AND inactive = false
       UNION
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
-    AND  related_documents.linked_document_id =  #{id})")
+    AND  related_documents.linked_document_id =  #{id}) AND inactive = false")
   end
 
   def all_unrelated
     Document.where("id <> #{id} and id not IN (SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.linked_document_id
-    AND  related_documents.document_id =  #{id}
+    AND  related_documents.document_id =  #{id} AND inactive = false
       UNION
     SELECT DISTINCT documents.id FROM documents, related_documents
     WHERE documents.id = related_documents.document_id
-    AND  related_documents.linked_document_id =  #{id}) ")
+    AND  related_documents.linked_document_id =  #{id}) AND inactive = false ")
   end
 
   def unrelated_categories
     Category.where("id NOT IN (SELECT DISTINCT categories.id FROM categories, document_categories
     WHERE categories.id = document_categories.category_id
-    AND document_categories.document_id = #{id})")
+    AND document_categories.document_id = #{id}) AND inactive = false")
   end
 
   def reference_with_attributes
