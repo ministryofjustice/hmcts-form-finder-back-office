@@ -111,15 +111,20 @@ cy:
               blank: Ni all cadarnhad Cyfrinair fod yn wag
 
   category:
+    active:
+      singular: mae'r categori yn anactif ac
+      plural: mae categorïau yn weithgar ac
+      table_caption: Categorïau gweithredol
     add: Ychwanegu categori
     assign: neilltuo categorïau
     assigned: "Eisoes neilltuo i:"
-    available: categorïau ar gael
     create_success: Categori grëwyd yn llwyddiannus.
     delete_success: Categori ddileu'n llwyddiannus.
     edit: categori golygu
     heading: categorïau
+    inactive_table_caption: Categorïau anweithgar
     no_assignments: Dim categorïau
+    none: Nid oes unrhyw gategorïau wedi'u diffinio
     select: Dewiswch gategori
     submit_error: " atal y categori hwn rhag cael ei gyflwyno:"
     summary: crynodeb categori
@@ -189,6 +194,7 @@ cy:
         email: Cyfeiriad ebost
         password: cyfrinair
         password_confirmation: cadarnhau cyfrinair
+
     hint:
       document:
         summary: Max 250 cymeriadau
@@ -198,16 +204,22 @@ cy:
       update: Cadw
 
   label:
+    actions: Gweithredoedd
     inactive: anweithgar
+    Inactive: Anweithgar
     type: math o ddogfen
     date: dyddiad
 
   language:
+    active:
+      singular: iaith yn weithgar ac
+      plural: mae ieithoedd yn weithgar ac
+      table_caption: Ieithoedd gweithredol
     add: Ychwanegu iaith
-    available: ieithoedd sydd ar gael
     create_success: Iaith a grëwyd yn llwyddiannus.
     delete_success: Iaith ddileu'n llwyddiannus.
     edit: golygu iaith
+    inactive_table_caption: Ieithoedd anweithgar
     plural: Ieithoedd
     singular: Iaith
     submit_error: " atal yr iaith hon rhag cael ei gyflwyno:"
@@ -221,6 +233,10 @@ cy:
   notice:
     success: gyflwynwyd yn llwyddiannus
     nothing_queued: Dim dogfennau yn cael eu ciwio ar hyn o bryd ar gyfer eu cyhoeddi.
+
+  partial:
+      all: Mae'r
+      currently: Ar hyn o bryd
 
   sign:
     in: Mewngofnodi

@@ -38,7 +38,7 @@ RSpec.describe LanguagesController, type: :controller do
       it 'assigns all languages as @languages' do
         language = Language.create! valid_attributes
         get :index, params: {}, session: valid_session
-        expect(assigns(:languages)).to eq([language])
+        expect(assigns(:active_languages)).to eq([language])
       end
     end
 

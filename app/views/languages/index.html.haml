@@ -8,38 +8,84 @@
 
     = link_to t('language.add'), new_language_path, class: 'button', role: 'button'
 
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = @languages.size
-            = t('language.available')
-        %colgroup
-          %col
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = t('helpers.label.language.english_name')
-            %th{scope:'col'}
-              = t('helpers.label.language.welsh_name')
-            %th{scope:'col'}
-              = t('helpers.label.language.code')
-            %th{scope:'col'}
-              = t('label.inactive')
-            %th
-        %tbody
-          - @languages.each do | language |
+    %h2.heading-medium
+      = t('partial.currently')
+      = pluralize(@active_languages.size, t('language.active.singular'), t('language.active.plural'))
+      -if @inactive_languages.size > 0
+        = t('partial.and')
+        - if @active_languages.size > 10
+          = link_to @inactive_languages.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+        -else
+          = @inactive_languages.size
+          = t('label.inactive')
+
+    - if @active_languages.size > 0
+
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = t('language.active.table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+            %col
+          %thead
             %tr
-              %td
-                = language.english_name
-              %td
-                = language.welsh_name
-              %td
-                = language.code
-              %td
-                = language.inactive ? 'Yes' : 'No'
-              %td
-                = link_to t('action.edit'), edit_language_path(language)
+              %th{scope:'col'}
+                = t('helpers.label.language.english_name')
+              %th{scope:'col'}
+                = t('helpers.label.language.welsh_name')
+              %th{scope:'col'}
+                = t('helpers.label.language.code')
+              %th{scope:'col'}
+                = t('label.actions')
+          %tbody
+            - @active_languages.each do |language|
+              %tr
+                %td
+                  = language.english_name
+                %td
+                  = language.welsh_name
+                %td
+                  = language.code
+                %td
+                  = link_to t('action.edit'), edit_language_path(language)
+
+    - if @inactive_languages.size > 0
+
+      .table-container.container
+        %table#inactive-table.report
+          %caption
+            %span.table-caption
+              = t('language.inactive_table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('helpers.label.language.english_name')
+              %th{scope:'col'}
+                = t('helpers.label.language.welsh_name')
+              %th{scope:'col'}
+                = t('helpers.label.language.code')
+              %th{scope:'col'}
+                = t('label.actions')
+              %th
+          %tbody
+            - @inactive_languages.each do |language|
+              %tr
+                %td
+                  = language.english_name
+                %td
+                  = language.welsh_name
+                %td
+                  = language.code
+                %td
+                  = link_to t('action.edit'), edit_language_path(language)
+
+= link_to 'Top', '#content', class: 'top'

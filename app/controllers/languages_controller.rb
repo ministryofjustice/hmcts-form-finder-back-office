@@ -4,7 +4,8 @@ class LanguagesController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   def index
-    @languages = Language.all.order(english_name: :asc)
+    @active_languages = Language.active.all.order(english_name: :asc)
+    @inactive_languages = Language.inactive.all.order(english_name: :asc)
   end
 
   def show
