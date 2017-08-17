@@ -14,26 +14,26 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-08-16T14:30:02+01:00">2017-08-16T14:30:02+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-08-17T12:29:38+01:00">2017-08-17T12:29:38+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">92.9%</span></span>
+    (<span class="covered_percent"><span class="green">92.91%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.96
+         2.97
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>97</b> files in total.
-    <b>1705</b> relevant lines. 
-    <span class="green"><b>1584</b> lines covered</span> and
+    <b>1707</b> relevant lines.
+    <span class="green"><b>1586</b> lines covered</span> and
     <span class="red"><b>121</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -123,11 +123,11 @@
       <tr>
         <td class="strong"><a href="#608458d427b80106df79f1ce7b786e531f06e258" class="src_link" title="app/controllers/languages_controller.rb">app/controllers/languages_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>53</td>
-        <td>27</td>
-        <td>27</td>
+        <td>54</td>
+        <td>28</td>
+        <td>28</td>
         <td>0</td>
-        <td>2.4</td>
+        <td>2.3</td>
       </tr>
       
       <tr>
@@ -247,7 +247,7 @@
         <td>11</td>
         <td>9</td>
         <td>2</td>
-        <td>0.8</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -457,7 +457,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>66.0</td>
+        <td>66.7</td>
       </tr>
       
       <tr>
@@ -943,9 +943,9 @@
       <tr>
         <td class="strong"><a href="#17532bb5011880d24b7f19d6ce756861817d22d6" class="src_link" title="spec/views/languages/index.html.haml_spec.rb">spec/views/languages/index.html.haml_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>25</td>
-        <td>9</td>
-        <td>9</td>
+        <td>37</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -3232,8 +3232,8 @@
     <h3>app/controllers/languages_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>27</b> relevant lines. 
-      <span class="green"><b>27</b> lines covered</span> and
+      <b>28</b> relevant lines.
+      <span class="green"><b>28</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3280,280 +3280,286 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">    @languages = Language.all.order(english_name: :asc)</code>
+          <code class="ruby">    @active_languages = Language.active.all.order(english_name: :asc)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+
+          <code class="ruby">    @inactive_languages = Language.inactive.all.order(english_name: :asc)</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def new</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">    @language = Language.new</code>
+          <code class="ruby">  def new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    @language = Language.new</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="21">
+        <li class="covered" data-hits="5" data-linenumber="22">
           <span class="hits">5</span>
           
           <code class="ruby">    @language = Language.new(language_params)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="22">
+        <li class="covered" data-hits="5" data-linenumber="23">
           <span class="hits">5</span>
           
           <code class="ruby">    if @language.save</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="23">
+        <li class="covered" data-hits="3" data-linenumber="24">
           <span class="hits">3</span>
           
           <code class="ruby">      redirect_to @language, notice: t(&#39;language.create_success&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
+        <li class="covered" data-hits="2" data-linenumber="26">
           <span class="hits">2</span>
           
           <code class="ruby">      render :new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="30">
+        <li class="covered" data-hits="5" data-linenumber="31">
           <span class="hits">5</span>
           
           <code class="ruby">    if @language.update(language_params)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="31">
+        <li class="covered" data-hits="3" data-linenumber="32">
           <span class="hits">3</span>
           
           <code class="ruby">      redirect_to @language, notice: t(&#39;language.update_success&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="33">
+        <li class="covered" data-hits="2" data-linenumber="34">
           <span class="hits">2</span>
           
           <code class="ruby">      render :edit</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="38">
+        <li class="covered" data-hits="2" data-linenumber="39">
           <span class="hits">2</span>
           
           <code class="ruby">    @language.destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="39">
+        <li class="covered" data-hits="2" data-linenumber="40">
           <span class="hits">2</span>
           
           <code class="ruby">    redirect_to languages_url, notice: t(&#39;language.delete_success&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby">  # Use callbacks to share common setup or constraints between actions.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
           <code class="ruby">  def set_language</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="46">
+        <li class="covered" data-hits="9" data-linenumber="47">
           <span class="hits">9</span>
           
           <code class="ruby">    @language = Language.find(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
           <code class="ruby">  # Never trust parameters from the scary internet, only allow the white list through.</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">  def language_params</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="51">
+        <li class="covered" data-hits="10" data-linenumber="52">
           <span class="hits">10</span>
           
           <code class="ruby">    params.require(:language).permit(:english_name, :welsh_name, :code, :inactive)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">end</code>
@@ -6883,8 +6889,8 @@
           <code class="ruby">    def active</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="4">
+          <span class="hits">3</span>
           
           <code class="ruby">      where(inactive: false)</code>
         </li>
@@ -6907,8 +6913,8 @@
           <code class="ruby">    def inactive</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
           
           <code class="ruby">      where(inactive: true)</code>
         </li>
@@ -11278,8 +11284,8 @@
           <code class="ruby">    def a_name?</code>
         </li>
       
-        <li class="covered" data-hits="185" data-linenumber="4">
-          <span class="hits">185</span>
+        <li class="covered" data-hits="187" data-linenumber="4">
+          <span class="hits">187</span>
           
           <code class="ruby">      return unless nil_or_empty(english_name) &amp;&amp; nil_or_empty(welsh_name)</code>
         </li>
@@ -11308,8 +11314,8 @@
           <code class="ruby">    def only_inactive_if_not_used</code>
         </li>
       
-        <li class="covered" data-hits="185" data-linenumber="9">
-          <span class="hits">185</span>
+        <li class="covered" data-hits="187" data-linenumber="9">
+          <span class="hits">187</span>
           
           <code class="ruby">      return unless inactive &amp;&amp; the_collection.where(the_attribute =&gt; id).count &gt; 0</code>
         </li>
@@ -11356,8 +11362,8 @@
           <code class="ruby">    def nil_or_empty(x)</code>
         </li>
       
-        <li class="covered" data-hits="209" data-linenumber="17">
-          <span class="hits">209</span>
+        <li class="covered" data-hits="211" data-linenumber="17">
+          <span class="hits">211</span>
           
           <code class="ruby">      if x.nil?</code>
         </li>
@@ -11368,8 +11374,8 @@
           <code class="ruby">        true</code>
         </li>
       
-        <li class="covered" data-hits="175" data-linenumber="19">
-          <span class="hits">175</span>
+        <li class="covered" data-hits="177" data-linenumber="19">
+          <span class="hits">177</span>
           
           <code class="ruby">      elsif x.empty?</code>
         </li>
@@ -11386,8 +11392,8 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="167" data-linenumber="22">
-          <span class="hits">167</span>
+        <li class="covered" data-hits="169" data-linenumber="22">
+          <span class="hits">169</span>
           
           <code class="ruby">        false</code>
         </li>
@@ -15380,7 +15386,7 @@
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">        expect(assigns(:languages)).to eq([language])</code>
+          <code class="ruby">        expect(assigns(:active_languages)).to eq([language])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
@@ -25340,8 +25346,8 @@
     <h3>spec/views/languages/index.html.haml_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>10</b> relevant lines.
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -25376,7 +25382,7 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">    assign(:languages, [</code>
+          <code class="ruby">    assign(:active_languages, [</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -25445,55 +25451,127 @@
           <code class="ruby">           ])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+
+          <code class="ruby">    assign(:inactive_languages, [</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="18">
+
+
+          <code class="ruby">             Language.create!(</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="19">
+
+
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="20">
+
+
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;,</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="21">
+
+
+          <code class="ruby">               code: &#39;Code&#39;</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="22">
+
+
+          <code class="ruby">             ),</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="23">
+
+
+          <code class="ruby">             Language.create!(</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="24">
+
+
+          <code class="ruby">               english_name: &#39;English Name&#39;,</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="25">
+
+
+          <code class="ruby">               welsh_name: &#39;Welsh Name&#39;,</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="26">
+
+
+          <code class="ruby">               code: &#39;Code&#39;</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="27">
+
+
+          <code class="ruby">             )</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="28">
+
+
+          <code class="ruby">           ])</code>
+        </li>
+
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
           <code class="ruby">  it &#39;renders a list of languages&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
           <code class="ruby">    render</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;English Name&#39;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;English Name&#39;.to_s, count: 4</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Welsh Name&#39;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Welsh Name&#39;.to_s, count: 4</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Code&#39;.to_s, count: 2</code>
+          <code class="ruby">    assert_select &#39;tr&gt;td&#39;, text: &#39;Code&#39;.to_s, count: 4</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">end</code>

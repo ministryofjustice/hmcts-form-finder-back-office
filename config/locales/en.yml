@@ -96,25 +96,18 @@ en:
             doc_attachment_type_id:
               blank: must be selected
 
-  all: All
-
   category:
     active:
-      singular: active category
-      plural: active categories
-    active_table_caption: Active categories
+      singular: category is inactive
+      plural: categories are active
+      table_caption: Active categories
     add: Add category
-    all_active: categories are active
-    all_inactive: categories are inactive
     assign: Assign categories
     assigned: "Is already assigned to:"
     create_success: Category successfully created.
     delete_success: Category successfully deleted.
     edit: Edit category
     heading: Categories
-    inactive:
-      singular: inactive category
-      plural: inactive categories
     inactive_table_caption: Inactive categories
     no_assignments: No categories
     none: No categories have been defined
@@ -197,23 +190,27 @@ en:
       update: Save
 
   label:
-    inactive: Inactive
+    actions: Actions
+    inactive: inactive
+    Inactive: Inactive
     type: Document type
     date: Date
 
   language:
+    active:
+      singular: language is active
+      plural: languages are active
+      table_caption: Active languages
     add: Add language
-    available: languages available
     create_success: Language successfully created.
     delete_success: Language successfully deleted.
     edit: Edit language
+    inactive_table_caption: Inactive languages
     plural: Languages
     singular: Language
     submit_error: " prevented this language from being submitted:"
     summary: Language summary
     update_success: Language successfully updated.
-    active: active languages available
-    inactive: inactive languages available
 
   link:
     feedback: feedback
@@ -222,6 +219,10 @@ en:
   notice:
     success: Successfully submitted
     nothing_queued: No documents are currently queued for publication.
+
+  partial:
+      and: and
+      currently: Currently
 
   sign:
     in: Sign in
