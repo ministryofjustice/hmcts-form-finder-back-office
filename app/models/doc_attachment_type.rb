@@ -13,6 +13,8 @@ require 'validators'
 
 class DocAttachmentType < ActiveRecord::Base
 
+  extend  SoftDeletion::Collection
+  include SoftDeletion::Record
   include Validators::ValueCheck
 
   has_paper_trail
