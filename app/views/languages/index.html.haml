@@ -8,6 +8,7 @@
 
     = link_to t('language.add'), new_language_path, class: 'button', role: 'button'
 
+
     .table-container.container
       %table.report
         %caption
@@ -67,14 +68,14 @@
             %th
         %tbody
           - @inactive_languages.each do | language |
-            %tr
-              %td
-                = language.english_name
-              %td
-                = language.welsh_name
-              %td
-                = language.code
-              %td
-                = language.inactive ? 'Yes' : 'No'
-              %td
-                = link_to t('action.edit'), edit_language_path(language)
+              %tr
+                %td
+                  = language.english_name
+                %td
+                  = language.welsh_name
+                %td
+                  = language.code
+                %td
+                  = link_to t('action.edit'), edit_language_path(language)
+
+= link_to 'Top', '#content', class: 'top'
