@@ -9,31 +9,21 @@
 .grid-row
   .column-two-thirds
 
-    .summary
+    %h3.heading-small
+      = t('helpers.label.user.first_name')
+    = @user.first_name
 
-      .grid-row
-        .column-one-third
-          = t('helpers.label.user.first_name')+':'
-        .column-two-thirds
-          = @user.first_name
+    %h3.heading-small
+      = t('helpers.label.user.last_name')
+    = @user.last_name
 
-      .grid-row
-        .column-one-third
-          = t('helpers.label.user.last_name')+':'
-        .column-two-thirds
-          = @user.last_name
+    %h3.heading-small
+      = t('helpers.label.user.email')
+    = @user.email
 
-      .grid-row
-        .column-one-third
-          = t('helpers.label.user.email')+':'
-        .column-two-thirds
-          = @user.email
-
-      .grid-row
-        .column-one-third
-          = t('label.Inactive')+':'
-        .column-two-thirds
-          = @user.inactive ? 'Yes' : 'No'
+    %h3.heading-small
+      = t('label.Inactive')
+    = @user.inactive ? 'Yes' : 'No'
 
     .button-holder
       = link_to t('action.edit'), edit_user_path(@user), class: 'button-secondary', role: 'button'
