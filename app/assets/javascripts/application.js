@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require vendor/polyfills/bind
 //= require govuk/selection-buttons
 //= require govuk/shim-links-with-button-role
