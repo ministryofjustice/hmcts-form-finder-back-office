@@ -80,4 +80,16 @@ RSpec.describe Document, type: :model do
       expect(document.unrelated_categories.count).to eq(1)
     end
   end
+  describe 'Overwrites' do
+    it "aren't allowed for new documents" do
+      language = create :language
+      document = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18', overwrite_file: false)
+      document.save!
+      document2 = Document.create(doc_attachment_type_id: 1, code: 'case insensitive test 555', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
+      expect(document2.save!).to be_falsey
+    end
+    # it 'updates previous versions' do
+    #
+    # end
+  end
 end
