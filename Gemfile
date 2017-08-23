@@ -21,7 +21,6 @@ gem 'puma', '~> 3.4'
 gem 'rails', '4.2.7.1'
 gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 # Use ActiveModel has_secure_password
