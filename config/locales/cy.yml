@@ -272,3 +272,6 @@ cy:
     summary: crynodeb defnyddiwr
     unlock: Datgloi fy nghyfrif
     update_success: Defnyddiwr ddiweddaru'n llwyddiannus.
+
+  value:
+    not_set: Heb ei osod

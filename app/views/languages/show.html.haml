@@ -9,33 +9,27 @@
 .grid-row
   .column-two-thirds
 
-    .summary
+    %h3.heading-small
+      = t('helpers.label.language.english_name')
+    - if @language.english_name.present?
+      = @language.english_name
+    - else
+      = t('value.not_set')
 
-      - if @language.english_name.present?
-        .grid-row
-          .column-one-third
-            = t('helpers.label.language.english_name')+':'
-          .column-two-thirds
-            = @language.english_name
+    %h3.heading-small
+      = t('helpers.label.language.welsh_name')
+    - if @language.welsh_name.present?
+      = @language.welsh_name
+    - else
+      = t('value.not_set')
 
-      - if @language.welsh_name.present?
-        .grid-row
-          .column-one-third
-            = t('helpers.label.language.welsh_name')+':'
-          .column-two-thirds
-            = @language.welsh_name
+    %h3.heading-small
+      = t('helpers.label.language.code')
+    = @language.code
 
-      .grid-row
-        .column-one-third
-          = t('helpers.label.language.code')+':'
-        .column-two-thirds
-          = @language.code
-
-      .grid-row
-        .column-one-third
-          = t('label.Inactive')+':'
-        .column-two-thirds
-          = @language.inactive ? 'Yes' : 'No'
+    %h3.heading-small
+      = t('label.Inactive')
+    = @language.inactive ? 'Yes' : 'No'
 
     .button-holder
       = link_to t('action.edit'), edit_language_path(@language), class: 'button-secondary', role: 'button'
