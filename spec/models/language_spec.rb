@@ -43,6 +43,8 @@ RSpec.describe Language, type: :model do
 
     document.language = language
 
+    document.overwrite_file = true # Need to do document.save for doc_attachment_type test to work
+
     document.save!
     language.save!
 

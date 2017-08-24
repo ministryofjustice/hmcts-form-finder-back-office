@@ -62,6 +62,7 @@ class DocumentsController < ApplicationController
 
   def update
     @document = Document.find(params[:id])
+    @document.overwrite_file = true
     if @document.update(params_with_user)
       render 'document_categories/index'
     else

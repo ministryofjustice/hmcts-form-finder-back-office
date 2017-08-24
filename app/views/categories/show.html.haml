@@ -9,29 +9,24 @@
 .grid-row
   .column-two-thirds
 
-    .summary
 
-      - if @category.english_name.present?
+    %h3.heading-small
+      = t('helpers.label.category.english_name')
+    - if @category.english_name.present?
+      = @category.english_name
+    - else
+      = t('value.not_set')
 
-        .grid-row
-          .column-one-third
-            = t('helpers.label.category.english_name')+':'
-          .column-two-thirds
-            = @category.english_name
+    %h3.heading-small
+      = t('helpers.label.category.welsh_name')
+    - if @category.welsh_name.present?
+      = @category.welsh_name
+    - else
+      = t('value.not_set')
 
-      - if @category.welsh_name.present?
-
-        .grid-row
-          .column-one-third
-            = t('helpers.label.category.welsh_name')+':'
-          .column-two-thirds
-            = @category.welsh_name
-
-      .grid-row
-        .column-one-third
-          = t('label.Inactive')+':'
-        .column-two-thirds
-          = @category.inactive ? 'Yes' : 'No'
+    %h3.heading-small
+      = t('label.Inactive')
+    = @category.inactive ? 'Yes' : 'No'
 
     .button-holder
       = link_to t('action.edit'), edit_category_path(@category), class: 'button-secondary', role: 'button'

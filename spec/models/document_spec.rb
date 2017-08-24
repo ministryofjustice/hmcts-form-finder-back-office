@@ -44,13 +44,11 @@ RSpec.describe Document, type: :model do
     it 'Has correct extension type ' do
       language = create :language
       document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
-      document.save!
       expect(document.file_format).to eq('PDF')
     end
     it 'Has correct Original ID ' do
       language = create :language
       document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
-      document.save!
       expect(document.id).to eq(document.original_id)
     end
   end
@@ -71,13 +69,20 @@ RSpec.describe Document, type: :model do
       category = create :category
       document_category = DocumentCategory.create(document: document, category: category)
 
-      document.save!
       category.save!
       document_category.save!
 
       category2 = create :category
       category2.save!
       expect(document.unrelated_categories.count).to eq(1)
+    end
+  end
+  describe 'Overwrites' do
+    it "aren't allowed for new documents" do
+      language = create :language
+      Document.create(doc_attachment_type_id: 1, code: 'Duplicate this', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18', overwrite_file: false)
+      document = Document.create(doc_attachment_type_id: 1, code: 'Duplicate this', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.docx"), attachment_file_name: 'Bob', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
+      expect(document.errors.count).to eq 1
     end
   end
 end
