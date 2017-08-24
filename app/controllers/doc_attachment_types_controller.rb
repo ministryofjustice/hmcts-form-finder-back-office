@@ -4,7 +4,8 @@ class DocAttachmentTypesController < ApplicationController
   before_action :set_doc_attachment_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @doc_attachment_types = DocAttachmentType.all.order(english_name: :asc)
+    @active_doc_attachment_types = DocAttachmentType.active.all.order(english_name: :asc)
+    @inactive_doc_attachment_types = DocAttachmentType.inactive.all.order(english_name: :asc)
   end
 
   def show

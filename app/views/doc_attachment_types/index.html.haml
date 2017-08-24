@@ -7,34 +7,65 @@
     = render partial: 'layouts/header', locals: { page_heading: t('type.heading') }
 
     = link_to t('type.add'), new_doc_attachment_type_path, class: 'button', role: 'button'
-
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = @doc_attachment_types.size
-            = t('type.available')
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = t('helpers.label.doc_attachment_type.english_name')
-            %th{scope:'col'}
-              = t('helpers.label.doc_attachment_type.welsh_name')
-            %th{scope:'col'}
-              = t('label.Inactive')
-            %th
-        %tbody
-          - @doc_attachment_types.each do | doc_attachment_type |
+    - if @active_doc_attachment_types.size > 0
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = @active_doc_attachment_types.size
+              = t('type.available')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
             %tr
-              %td
-                = doc_attachment_type.english_name
-              %td
-                = doc_attachment_type.welsh_name
-              %td
-                = doc_attachment_type.inactive ? 'Yes' : 'No'
-              %td
-                = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)
+              %th{scope:'col'}
+                = t('helpers.label.doc_attachment_type.english_name')
+              %th{scope:'col'}
+                = t('helpers.label.doc_attachment_type.welsh_name')
+              %th{scope:'col'}
+                = t('label.Inactive')
+              %th
+          %tbody
+            - @active_doc_attachment_types.each do | doc_attachment_type |
+              %tr
+                %td
+                  = doc_attachment_type.english_name
+                %td
+                  = doc_attachment_type.welsh_name
+                %td
+                  = doc_attachment_type.inactive ? 'Yes' : 'No'
+                %td
+                  = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)
+    - if @inactive_doc_attachment_types.size > 0
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = @inactive_doc_attachment_types.size
+              = t('type.available')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('helpers.label.doc_attachment_type.english_name')
+              %th{scope:'col'}
+                = t('helpers.label.doc_attachment_type.welsh_name')
+              %th{scope:'col'}
+                = t('label.Inactive')
+              %th
+          %tbody
+            - @inactive_doc_attachment_types.each do | doc_attachment_type |
+              %tr
+                %td
+                  = doc_attachment_type.english_name
+                %td
+                  = doc_attachment_type.welsh_name
+                %td
+                  = doc_attachment_type.inactive ? 'Yes' : 'No'
+                %td
+                  = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)
