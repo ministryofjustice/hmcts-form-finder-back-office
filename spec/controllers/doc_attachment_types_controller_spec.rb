@@ -39,7 +39,7 @@ RSpec.describe DocAttachmentTypesController, type: :controller do
       it 'assigns all doc_attachment_types as @doc_attachment_types' do
         doc_attachment_type = DocAttachmentType.create! valid_attributes
         get :index, params: {}, session: valid_session
-        expect(assigns(:doc_attachment_types)).to eq([doc_attachment_type])
+        expect(assigns(:active_doc_attachment_types)).to eq([doc_attachment_type])
       end
     end
 

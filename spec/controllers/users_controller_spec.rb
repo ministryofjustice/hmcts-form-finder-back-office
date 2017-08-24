@@ -38,7 +38,7 @@ RSpec.describe UsersController, type: :controller do
       before { sign_in authorised }
       it 'show a list of all users' do
         get :index
-        expect(assigns[:users].size).to eq 1
+        expect(assigns[:active_users].size).to eq 1
       end
     end
 

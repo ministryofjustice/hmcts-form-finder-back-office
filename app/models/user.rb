@@ -31,9 +31,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :trackable, :validatable
 
   def active_for_authentication?
-    super && self.inactive == false
+    super && inactive == false
   end
+
   def inactive_message
-    "User account has been disabled"
+    'User account has been disabled'
   end
 end
