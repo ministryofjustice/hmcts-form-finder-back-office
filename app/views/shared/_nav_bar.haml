@@ -1,12 +1,12 @@
-%nav{ id: 'admin-navigation' }
+%nav.global-nav
   %ul
-    %li
+    %li.global-nav-item
       = link_to t('document.heading'), documents_url
-    %li
+    %li.global-nav-item
       = link_to t('category.heading'), categories_url
-    %li
+    %li.global-nav-item
       = link_to t('language.plural'), languages_url
-    %li
+    %li.global-nav-item
       = link_to t('type.heading'), doc_attachment_types_url
-    %li
+    %li.global-nav-item
       = link_to t('user.heading'), users_url
