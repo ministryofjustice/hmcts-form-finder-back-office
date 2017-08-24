@@ -9,29 +9,23 @@
 .grid-row
   .column-two-thirds
 
-    .summary
+    %h3.heading-small
+      = t('helpers.label.doc_attachment_type.english_name')
+    - if @doc_attachment_type.english_name.present?
+      = @doc_attachment_type.english_name
+    - else
+      = t('value.not_set')
 
-      - if @doc_attachment_type.english_name.present?
+    %h3.heading-small
+      = t('helpers.label.doc_attachment_type.welsh_name')
+    - if @doc_attachment_type.welsh_name.present?
+      = @doc_attachment_type.welsh_name
+    - else
+      = t('value.not_set')
 
-        .grid-row
-          .column-one-third
-            = t('helpers.label.doc_attachment_type.english_name')+':'
-          .column-two-thirds
-            = @doc_attachment_type.english_name
-
-      - if @doc_attachment_type.welsh_name.present?
-
-        .grid-row
-          .column-one-third
-            = t('helpers.label.doc_attachment_type.welsh_name')+':'
-          .column-two-thirds
-            = @doc_attachment_type.welsh_name
-
-      .grid-row
-        .column-one-third
-          = t('label.Inactive')+':'
-        .column-two-thirds
-          = @doc_attachment_type.inactive ? 'Yes' : 'No'
+    %h3.heading-small
+      = t('label.Inactive')
+    = @doc_attachment_type.inactive ? 'Yes' : 'No'
 
     .button-holder
       = link_to t('action.edit'), edit_doc_attachment_type_path(@doc_attachment_type), class: 'button-secondary', role: 'button'

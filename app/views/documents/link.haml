@@ -62,6 +62,7 @@
         .column-one-third
           = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
 
-    = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
+    .button-holder
+      = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
 
   .column-one-third
