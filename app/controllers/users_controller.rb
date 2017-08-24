@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all.order(last_name: :asc)
+    @active_users = User.active.all.order(last_name: :asc)
+    @inactive_users = User.inactive.all.order(last_name: :asc)
   end
 
   def show

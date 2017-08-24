@@ -29,4 +29,11 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :trackable, :validatable
+
+  def active_for_authentication?
+    super && self.inactive == false
+  end
+  def inactive_message
+    "User account has been disabled"
+  end
 end

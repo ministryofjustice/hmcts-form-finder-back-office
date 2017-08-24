@@ -7,35 +7,67 @@
     = render partial: 'layouts/header', locals: { page_heading: t('user.heading') }
 
     = link_to t('user.add'), new_user_path, class: 'button'
-
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = @users.size
-            = t('user.available')
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = t('user.name')
-            %th{scope:'col'}
-              = t('helpers.label.user.email')
-            %th{scope:'col'}
-              = t('label.Inactive')
-            %th
-        %tbody
-          - @users.each do | user |
+    - if @active_users.size > 0
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = @active_users.size
+              = t('user.available')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
             %tr
-              %td
-                = user.first_name
-                = user.last_name
-              %td
-                = user.email
-              %td
-                = user.inactive ? 'Yes' : 'No'
-              %td
-                = link_to t('action.edit'), edit_user_path(user)
+              %th{scope:'col'}
+                = t('user.name')
+              %th{scope:'col'}
+                = t('helpers.label.user.email')
+              %th{scope:'col'}
+                = t('label.Inactive')
+              %th
+          %tbody
+            - @active_users.each do | user |
+              %tr
+                %td
+                  = user.first_name
+                  = user.last_name
+                %td
+                  = user.email
+                %td
+                  = user.inactive ? 'Yes' : 'No'
+                %td
+                  = link_to t('action.edit'), edit_user_path(user)
+    - if @inactive_users.size > 0
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = @inactive_users.size
+              = t('user.available')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('user.name')
+              %th{scope:'col'}
+                = t('helpers.label.user.email')
+              %th{scope:'col'}
+                = t('label.Inactive')
+              %th
+          %tbody
+            - @inactive_users.each do | user |
+              %tr
+                %td
+                  = user.first_name
+                  = user.last_name
+                %td
+                  = user.email
+                %td
+                  = user.inactive ? 'Yes' : 'No'
+                %td
+                  = link_to t('action.edit'), edit_user_path(user)
