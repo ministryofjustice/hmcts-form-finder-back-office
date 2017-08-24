@@ -5,9 +5,13 @@ class DocumentsController < ApplicationController
   before_action :set_paper_trail_whodunnit
 
   def connect
-    pre_connect
-    @parent_document.related_documents << @document
-    post_connect
+    if params[:selected_document].blank?
+      redirect_to link_documents_link_path(document: params[:document])
+    else
+      pre_connect
+      @parent_document.related_documents << @document
+      post_connect
+    end
   end
 
   def create
@@ -32,12 +36,7 @@ class DocumentsController < ApplicationController
   end
 
   def edit_selected_document
-    @document_id = params[:selected_document]
-    if @document_id == ['']
-      redirect_to documents_path
-    else
-      redirect_to edit_document_path(@document_id)
-    end
+    redirect_to params[:selected_document] == [''] ? documents_path : edit_document_path(params[:selected_document])
   end
 
   def index
