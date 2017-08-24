@@ -38,7 +38,7 @@ RSpec.describe DocAttachmentType, type: :model do
     doc_attachment_type = create :doc_attachment_type
 
     document.doc_attachment_type = doc_attachment_type
-
+    document.overwrite_file = true # Need to do document.save for doc_attachment_type test to work
     document.save!
     doc_attachment_type.save!
 
