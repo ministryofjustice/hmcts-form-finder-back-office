@@ -5,12 +5,16 @@ class DocumentCategoriesController < ApplicationController
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
 
   def assigns
-    @category = Category.find(params[:selected_category])
-    @documentcategory = DocumentCategory.new
-    @documentcategory.category_id = params[:selected_category]
-    @documentcategory.document_id = params[:document]
-    @documentcategory.save
-    postlink
+    if params[:selected_category].blank?
+      redirect_to document_categories_path(document: params[:document])
+    else
+      @category = Category.find(params[:selected_category])
+      @documentcategory = DocumentCategory.new
+      @documentcategory.category_id = params[:selected_category]
+      @documentcategory.document_id = params[:document]
+      @documentcategory.save
+      postlink
+    end
   end
 
   def create
