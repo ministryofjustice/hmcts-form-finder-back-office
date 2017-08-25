@@ -6,36 +6,77 @@
 
     = render partial: 'layouts/header', locals: { page_heading: t('user.heading') }
 
-    = link_to t('user.add'), new_user_path, class: 'button'
+    = link_to t('user.add'), new_user_path, class: 'button', role: 'button'
 
-    .table-container.container
-      %table.report
-        %caption
-          %span.table-caption
-            = @users.size
-            = t('user.available')
-        %colgroup
-          %col
-          %col
-          %col
-        %thead
-          %tr
-            %th{scope:'col'}
-              = t('user.name')
-            %th{scope:'col'}
-              = t('helpers.label.user.email')
-            %th{scope:'col'}
-              = t('label.Inactive')
-            %th
-        %tbody
-          - @users.each do | user |
+    %h2.heading-medium
+      = t('partial.currently')
+      = pluralize(@active_users.size, t('user.active.singular'), t('user.active.plural'))
+      -if @inactive_users.size > 0
+        = t('partial.and')
+        - if @active_users.size > 10
+          = link_to @inactive_users.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+        -else
+          = @inactive_users.size
+          = t('label.inactive')
+
+    - if @active_users.size > 0
+
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = t('user.active.table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
             %tr
-              %td
-                = user.first_name
-                = user.last_name
-              %td
-                = user.email
-              %td
-                = user.inactive ? 'Yes' : 'No'
-              %td
-                = link_to t('action.edit'), edit_user_path(user)
+              %th{scope:'col'}
+                = t('user.name')
+              %th{scope:'col'}
+                = t('helpers.label.user.email')
+              %th{scope:'col'}
+                = t('label.actions')
+          %tbody
+            - @active_users.each do |user|
+              %tr
+                %td
+                  = user.first_name
+                  = user.last_name
+                %td
+                  = user.email
+                %td
+                  = link_to t('action.edit'), edit_user_path(user)
+
+    - if @inactive_users.size > 0
+
+      .table-container.container
+        %table.report
+          %caption
+            %span.table-caption
+              = t('user.inactive_table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('user.name')
+              %th{scope:'col'}
+                = t('helpers.label.user.email')
+              %th{scope:'col'}
+                = t('label.actions')
+          %tbody
+            - @inactive_users.each do |user|
+              %tr
+                %td
+                  = user.first_name
+                  = user.last_name
+                %td
+                  = user.email
+                %td
+                  = link_to t('action.edit'), edit_user_path(user)
+
+= link_to t('action.top'), '#content', class: 'top'

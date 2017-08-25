@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'users/index', type: :view do
   before(:each) do
-    assign(:users, [
+    assign(:active_users, [
              User.create!(
                first_name: 'First Name',
                last_name: 'Last Name',
@@ -10,9 +10,23 @@ RSpec.describe 'users/index', type: :view do
                password: 'Encrypted Password'
              ),
              User.create!(
-               first_name: 'First Name',
-               last_name: 'Last Name',
-               email: 'Email10@email.com',
+               first_name: 'First Name1',
+               last_name: 'Last Name1',
+               email: 'Email10@email1.com',
+               password: 'Encrypted Password'
+             )
+           ])
+    assign(:inactive_users, [
+             User.create!(
+               first_name: 'First Name2',
+               last_name: 'Last Name2',
+               email: 'Email0@email2.com',
+               password: 'Encrypted Password'
+             ),
+             User.create!(
+               first_name: 'First Name3',
+               last_name: 'Last Name3',
+               email: 'Email10@email3.com',
                password: 'Encrypted Password'
              )
            ])

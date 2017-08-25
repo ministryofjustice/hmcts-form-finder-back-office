@@ -72,6 +72,7 @@ cy:
     remove: Tynnwch hyn
     select: dewiswch
     show: Dangos
+    top: Brig
 
   activerecord:
     errors:
@@ -261,6 +262,10 @@ cy:
     update_success: Teipiwch ddiweddaru'n llwyddiannus.
 
   user:
+    active:
+      singular: defnyddiwr yn weithgar
+      plural: mae defnyddwyr yn weithredol
+      table_caption: Defnyddwyr gweithgar
     add: Ychwanegu defnyddiwr
     available: defnyddwyr presennol
     change_password: Newid fy nghyfrinair
@@ -270,6 +275,7 @@ cy:
     edit: defnyddiwr golygu
     forgot_password: Wedi anghofio eich cyfrinair?
     heading: cyfrifon defnyddwyr
+    inactive_table_caption: Defnyddwyr anweithgar
     name: enw
     no_confirmation_instructions: Ddim wedi derbyn cyfarwyddiadau cadarnhad?
     no_unlock_instructions: Ddim wedi derbyn cyfarwyddiadau datglo?
