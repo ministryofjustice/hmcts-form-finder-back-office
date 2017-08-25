@@ -245,11 +245,16 @@ cy:
     with: Mewngofnodi gyda
 
   type:
+    active:
+      singular: math o ddogfen yn weithredol
+      plural: mae mathau o ddogfennau'n weithredol
+      table_caption: Mathau o ddogfennau gweithgar
     add: Ychwanegu math
     available: mathau sydd ar gael
     create_success: Teipiwch greu yn llwyddiannus.
     delete_success: Teipiwch ddileu'n llwyddiannus.
     edit: math golygu
+    inactive_table_caption: Mathau o ddogfennau anweithgar
     submit_error: " atal y math hwn rhag cael ei gyflwyno:"
     heading: mathau o ddogfen
     summary: crynodeb math
