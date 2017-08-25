@@ -8,18 +8,18 @@ RSpec.describe 'doc_attachment_types/index', type: :view do
                welsh_name: 'Welsh Name'
              ),
              DocAttachmentType.create!(
-               english_name: 'English Name1',
-               welsh_name: 'Welsh Name1'
+               english_name: 'English Name',
+               welsh_name: 'Welsh Name'
              )
            ])
     assign(:inactive_doc_attachment_types, [
              DocAttachmentType.create!(
-               english_name: 'English Name2',
-               welsh_name: 'Welsh Name2'
+               english_name: 'English Name',
+               welsh_name: 'Welsh Name'
              ),
              DocAttachmentType.create!(
-               english_name: 'English Name3',
-               welsh_name: 'Welsh Name3'
+               english_name: 'English Name',
+               welsh_name: 'Welsh Name'
              )
            ])
   end
