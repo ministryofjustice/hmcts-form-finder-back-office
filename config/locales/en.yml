@@ -67,6 +67,7 @@ en:
     remove: Remove this
     select: Select
     show: Show
+    top: Top
 
   activerecord:
     attributes:
@@ -242,6 +243,10 @@ en:
     update_success: Type successfully updated.
 
   user:
+    active:
+      singular: user is active
+      plural: users are active
+      table_caption: Active users
     add: Add user
     available: Current Users
     change_password: Change my password
@@ -251,6 +256,7 @@ en:
     edit: Edit user
     forgot_password: Forgot your password?
     heading: User accounts
+    inactive_table_caption: Inactive users
     name: Name
     no_confirmation_instructions: Didn't receive confirmation instructions?
     no_unlock_instructions: Didn't receive unlock instructions?
