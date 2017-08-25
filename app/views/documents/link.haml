@@ -60,7 +60,7 @@
           - else
             = collection_select( nil, :selected_document, @documents, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
         .column-one-third
-          = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
+          = submit_tag t('action.link'), role: 'button', class: 'button-secondary autocomplete-submit'
 
     .button-holder
       = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
