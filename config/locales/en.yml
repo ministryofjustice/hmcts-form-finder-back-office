@@ -232,11 +232,16 @@ en:
     with: Sign in with
 
   type:
+    active:
+      singular: document type is active
+      plural: document types are active
+      table_caption: Active document types
     add: Add type
     available: types available
     create_success: Type successfully created.
     delete_success: Type successfully deleted.
     edit: Edit type
+    inactive_table_caption: Inactive document types
     heading: Document types
     submit_error: " prevented this type from being submitted:"
     summary: Type summary
