@@ -27,4 +27,18 @@ RSpec.describe User, type: :model do
   end
 
   it { should have_many(:documents) }
+
+  it 'has a strong password' do
+    user = create :user
+    user.password, user.password_confirmation = 'lowercase only'
+    expect(user.valid?).to be_falsey
+    user.password, user.password_confirmation = 'lowercaseUPPERCASE'
+    expect(user.valid?).to be_falsey
+    user.password, user.password_confirmation = 'lowerUPPERnumeric12345'
+    expect(user.valid?).to be_falsey
+    user.password, user.password_confirmation = 'Az!4567'
+    expect(user.valid?).to be_falsey
+    user.password, user.password_confirmation = 'Az!45678'
+    expect(user.valid?).to be_truthy
+  end
 end

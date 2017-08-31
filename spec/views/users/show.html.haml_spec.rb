@@ -7,7 +7,8 @@ RSpec.describe 'users/show', type: :view do
                      first_name: 'First Name',
                      last_name: 'Last Name',
                      email: 'Email@email.com',
-                     password: 'Encrypted Password'
+                     password: 'Az!45678',
+                     password_confirmation: 'Az!45678'
                    )
                   )
   end

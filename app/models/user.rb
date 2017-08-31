@@ -30,6 +30,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :trackable, :validatable
 
+  validate :password_complexity
+
+  def password_complexity
+    return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)
+    errors.add :password, 'must include at least one lowercase letter, one uppercase letter, and one digit, and one of !@#$%&*'
+  end
+
   def active_for_authentication?
     super && inactive == false
   end

@@ -7,13 +7,15 @@ RSpec.describe 'users/index', type: :view do
                first_name: 'First Name',
                last_name: 'Last Name',
                email: 'Email0@email.com',
-               password: 'Encrypted Password'
+               password: 'Az!45678',
+               password_confirmation: 'Az!45678'
              ),
              User.create!(
                first_name: 'First Name1',
                last_name: 'Last Name1',
                email: 'Email10@email1.com',
-               password: 'Encrypted Password'
+               password: 'Az!45678',
+               password_confirmation: 'Az!45678'
              )
            ])
     assign(:inactive_users, [
@@ -21,13 +23,15 @@ RSpec.describe 'users/index', type: :view do
                first_name: 'First Name2',
                last_name: 'Last Name2',
                email: 'Email0@email2.com',
-               password: 'Encrypted Password'
+               password: 'Az!45678',
+               password_confirmation: 'Az!45678'
              ),
              User.create!(
                first_name: 'First Name3',
                last_name: 'Last Name3',
                email: 'Email10@email3.com',
-               password: 'Encrypted Password'
+               password: 'Az!45678',
+               password_confirmation: 'Az!45678'
              )
            ])
   end
