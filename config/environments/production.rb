@@ -85,7 +85,9 @@ Rails.application.configure do
       bucket: ENV.fetch('DEV_FORM_FINDER_S3_BUCKET'),
       access_key_id: ENV.fetch('DEV_FORM_FINDER_S3_ACCESS_KEY'),
       secret_access_key: ENV.fetch('DEV_FORM_FINDER_S3_SECRET_KEY'),
-      s3_region: ENV.fetch('DEV_FORM_FINDER_S3_REGION')
+      s3_region: ENV.fetch('DEV_FORM_FINDER_S3_REGION'),
+      s3_host_name: ENV.fetch('s3_host_name')
+
     }
   }
 end
