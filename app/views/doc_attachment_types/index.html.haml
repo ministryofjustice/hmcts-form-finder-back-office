@@ -22,7 +22,7 @@
     - if @active_doc_attachment_types.size > 0
 
       .table-container.container
-        %table#inactive-table.report
+        %table#active-table.report
           %caption
             %span.table-caption
               = t('type.active.table_caption')
@@ -51,7 +51,7 @@
     - if @inactive_doc_attachment_types.size > 0
 
       .table-container.container
-        %table.report
+        %table#inactive-table.report
           %caption
             %span.table-caption
               = t('type.inactive_table_caption')

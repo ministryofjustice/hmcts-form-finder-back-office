@@ -14,7 +14,7 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-09-15T11:17:23+01:00">2017-09-15T11:17:23+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-09-15T15:31:56+01:00">2017-09-15T15:31:56+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.02
+         3.08
        </span>
     </span> hits/line)
   </h2>
@@ -187,7 +187,7 @@
         <td>72</td>
         <td>68</td>
         <td>4</td>
-        <td>17.8</td>
+        <td>19.1</td>
       </tr>
       
       <tr>
@@ -5182,7 +5182,7 @@
         <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
-          <code class="ruby">  validate :should_not_exist_already, unless: :overwrite_file</code>
+          <code class="ruby">  validate :should_not_exist_already, unless: :overwrite_file, on: :create</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="62">
@@ -5305,14 +5305,14 @@
           <code class="ruby">  def extension</code>
         </li>
       
-        <li class="covered" data-hits="201" data-linenumber="82">
-          <span class="hits">201</span>
+        <li class="covered" data-hits="250" data-linenumber="82">
+          <span class="hits">250</span>
           
           <code class="ruby">    return if attachment_file_name.blank?</code>
         </li>
       
-        <li class="covered" data-hits="201" data-linenumber="83">
-          <span class="hits">201</span>
+        <li class="covered" data-hits="250" data-linenumber="83">
+          <span class="hits">250</span>
           
           <code class="ruby">    File.extname(attachment_file_name).gsub(/^\.+/, &#39;&#39;).upcase!</code>
         </li>
@@ -5413,8 +5413,8 @@
           <code class="ruby">    # Set DB file_format value</code>
         </li>
       
-        <li class="covered" data-hits="51" data-linenumber="100">
-          <span class="hits">51</span>
+        <li class="covered" data-hits="100" data-linenumber="100">
+          <span class="hits">100</span>
           
           <code class="ruby">    self.file_format = extension</code>
         </li>
@@ -5431,8 +5431,8 @@
           <code class="ruby">    # Write the file</code>
         </li>
       
-        <li class="covered" data-hits="51" data-linenumber="103">
-          <span class="hits">51</span>
+        <li class="covered" data-hits="100" data-linenumber="103">
+          <span class="hits">100</span>
           
           <code class="ruby">    attachment.instance_write(:file_name, filename)</code>
         </li>
@@ -5455,14 +5455,14 @@
           <code class="ruby">  def should_not_exist_already</code>
         </li>
       
-        <li class="covered" data-hits="105" data-linenumber="107">
-          <span class="hits">105</span>
+        <li class="covered" data-hits="56" data-linenumber="107">
+          <span class="hits">56</span>
           
           <code class="ruby">    return unless Document.where(attachment_file_name: filename).any?</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="108">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="1" data-linenumber="108">
+          <span class="hits">1</span>
           
           <code class="ruby">    errors.add(:document, &#39;with the same reference, language and format already exists. Either change the reference below or go to Documents &gt; Edit to find the existing file and amend its details.&#39;)</code>
         </li>

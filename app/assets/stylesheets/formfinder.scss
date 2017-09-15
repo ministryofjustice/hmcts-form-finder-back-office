@@ -9,6 +9,10 @@ hr {
   clear: both;
 }
 
+td {
+  word-break: break-all;
+}
+
 textarea {
   resize: none;
 }
