@@ -22,7 +22,7 @@
     - if @active_users.size > 0
 
       .table-container.container
-        %table.report
+        %table#active-table.report
           %caption
             %span.table-caption
               = t('user.active.table_caption')
@@ -52,7 +52,7 @@
     - if @inactive_users.size > 0
 
       .table-container.container
-        %table.report
+        %table#inactive-table.report
           %caption
             %span.table-caption
               = t('user.inactive_table_caption')
