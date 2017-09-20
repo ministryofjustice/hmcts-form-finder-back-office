@@ -51,6 +51,11 @@ RSpec.describe Document, type: :model do
       document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18')
       expect(document.id).to eq(document.original_id)
     end
+    it 'Has correct Original ID if original ID already exists' do
+      language = create :language
+      document = Document.create(doc_attachment_type_id: 1, code: 'PDF test ', title: 'DOC', attachment: File.new("#{Rails.root}/spec/support/fixtures/Blank.pdf"), attachment_file_name: 'Blank.pdf', language_id: language.id, content_date: '2017-07-01', published_date: '2017-07-18', original_id: '102')
+      expect(document.original_id).to eq(102)
+    end
   end
   it 'documents search works with a query' do
     document = create :document
