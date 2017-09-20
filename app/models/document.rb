@@ -163,7 +163,7 @@ class Document < ActiveRecord::Base
   end
 
   def populate_original_id
-    self.original_id = id
+    self.original_id = id unless original_id
     save
   end
 end
