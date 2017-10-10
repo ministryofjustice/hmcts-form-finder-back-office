@@ -1,68 +1,70 @@
 - content_for :page_title do
   = "Assign category to a document in HMCTS Form finder"
 
-.grid-row
-  .column-full
-    = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+#link-documents
 
-.grid-row
-  .column-two-thirds
+  .grid-row
+    .column-full
+      = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
 
-    %h2.heading-large
-      = t('document.link')
+  .grid-row
+    .column-two-thirds
 
-    %h3.heading-small
-      = t('document.selected')
+      %h2.heading-large
+        = t('document.link')
 
-    %p
-      = @document.code
-      %span.attributes
-        - if locale == :cy
-          = @document.language.welsh_name
-        - else
-          = @document.language.english_name
-        = @document.file_format
-      %br
-      = @document.title
+      %h3.heading-small
+        = t('document.selected')
 
-    %h3.heading-small
-      = t('document.linked_to')
-
-    - if @linked_documents.size > 0
-      .grid-row
-        - @linked_documents.each do |item|
-          .list
-            .column-two-thirds
-              = item.code
-              %span.attributes
-                - if locale == :cy
-                  = item.language.welsh_name
-                - else
-                  = item.language.english_name
-                = item.file_format
-            .column-one-third
-              = link_to t('action.remove'), link_documents_disconnect_path(selected_document: item.id, document: params[:document], linksearch: params[:linksearch])
-    -else
       %p
-        = t('document.no_links')
-
-    %h3.heading-small
-      = t('document.select')
-
-    = form_tag url_for(:controller => 'documents', :action => 'connect'), :method => 'get', class:'', role:'search' do
-
-      = hidden_field_tag 'document', @document.id
-
-      .grid-row.form-group
-        .column-two-thirds.autocomplete_select
+        = @document.code
+        %span.attributes
           - if locale == :cy
-            = collection_select( nil, :selected_document, @documents, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+            = @document.language.welsh_name
           - else
-            = collection_select( nil, :selected_document, @documents, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
-        .column-one-third
-          = submit_tag t('action.link'), role: 'button', class: 'button-secondary autocomplete-submit'
+            = @document.language.english_name
+          = @document.file_format
+        %br
+        = @document.title
 
-    .button-holder
-      = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
+      %h3.heading-small
+        = t('document.linked_to')
 
-  .column-one-third
+      - if @linked_documents.size > 0
+        .grid-row
+          - @linked_documents.each do |item|
+            .list
+              .column-two-thirds
+                = item.code
+                %span.attributes
+                  - if locale == :cy
+                    = item.language.welsh_name
+                  - else
+                    = item.language.english_name
+                  = item.file_format
+              .column-one-third
+                = link_to t('action.remove'), link_documents_disconnect_path(selected_document: item.id, document: params[:document], linksearch: params[:linksearch])
+      -else
+        %p
+          = t('document.no_links')
+
+      %h3.heading-small
+        = t('document.select')
+
+      = form_tag url_for(:controller => 'documents', :action => 'connect'), :method => 'get', id:'item_select', class:'', role: 'search' do
+
+        = hidden_field_tag 'document', @document.id
+
+        .grid-row.form-group
+          .column-two-thirds.autocomplete_select
+            - if locale == :cy
+              = collection_select( nil, :selected_document, @documents, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+            - else
+              = collection_select( nil, :selected_document, @documents, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+          .column-one-third
+            = submit_tag t('action.link'), role: 'button', class: 'auto-suggest button-secondary'
+
+      .button-holder
+        = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
+
+    .column-one-third
