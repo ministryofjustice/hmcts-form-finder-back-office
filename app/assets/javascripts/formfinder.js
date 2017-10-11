@@ -30,7 +30,7 @@ var autocomplete = function(){
 
 var setSubmitButtonState = function(){
 
-    if ( ($('ul#auto-suggest-list__listbox li').length > 1 ) && ($('ul#auto-suggest-list__listbox li:first').text()) !== "No results found" ) {
+    if ( ($('ul#auto-suggest-list__listbox li').length > 0 ) && ($('ul#auto-suggest-list__listbox li:first').text()) !== "No results found" ) {
         $('.auto-suggest').prop('disabled', false);
     }
     else {
