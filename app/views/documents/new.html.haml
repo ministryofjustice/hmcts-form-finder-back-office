@@ -1,8 +1,10 @@
 - content_for :page_title do
   = "Add a document to HMCTS Form finder"
 
-.grid-row
-  .column-full
-    = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+#new-document
 
-= render 'form'
+  .grid-row
+    .column-full
+      = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+
+  = render 'form'

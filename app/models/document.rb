@@ -90,7 +90,7 @@ class Document < ActiveRecord::Base
     # - Remove any consecutive whitespaces (squeeze).
     # - replace all whitespaces with hyphens.
     return if code.blank?
-    reference = ("#{code.gsub(/[^a-zA-Z0-9()']/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
+    reference = ("#{code.gsub(/[^a-zA-Z0-9()'.]/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
     # Build new filename in [reference]-[language].[extension] format.
     ("#{reference}-#{language.code}.#{extension}").downcase!
   end

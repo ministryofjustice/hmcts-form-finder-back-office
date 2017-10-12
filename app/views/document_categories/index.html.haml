@@ -1,65 +1,67 @@
 - content_for :page_title do
   = "Assign category to a document in HMCTS Form finder"
 
-.grid-row
-  .column-full
-    = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+#assign-categories
 
-.grid-row
-  .column-two-thirds
+  .grid-row
+    .column-full
+      = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
 
-    %h2.heading-large
-      = t('category.assign')
+  .grid-row
+    .column-two-thirds
 
-    %h3.heading-small
-      = t('document.selected')
+      %h2.heading-large
+        = t('category.assign')
 
-    %p
-      = @document.code
-      %span.attributes
-        - if locale == :cy
-          = @document.language.welsh_name
-        - else
-          = @document.language.english_name
-        = @document.file_format
-      %br
-      = @document.title
+      %h3.heading-small
+        = t('document.selected')
 
-    %h3.heading-small
-      = t('category.assigned')
-
-    - if @document.document_categories.size > 0
-      .grid-row
-        - @document.document_categories.each do |item|
-          .list
-            .column-two-thirds
-              - if locale == :cy
-                = item.category.welsh_name
-              - else
-                = item.category.english_name
-            .column-one-third
-              = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: @document.id, linksearch: params[:linksearch])
-    -else
       %p
-        = t('category.no_assignments')
-
-    %h3.heading-small
-      = t('category.select')
-
-    = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', class:'', role:'search' do
-
-      = hidden_field_tag 'document', @document.id
-
-      .grid-row.form-group
-        .column-two-thirds.autocomplete_select
+        = @document.code
+        %span.attributes
           - if locale == :cy
-            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :welsh_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+            = @document.language.welsh_name
           - else
-            = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
-        .column-one-third
-          = submit_tag t('action.assign'), role: 'button', class: 'button-secondary autocomplete-submit'
+            = @document.language.english_name
+          = @document.file_format
+        %br
+        = @document.title
 
-    .button-holder
-      = link_to t('action.continue'), link_documents_link_path(document: @document.id), class: 'button', role: 'button'
+      %h3.heading-small
+        = t('category.assigned')
 
-  .column-one-third
+      - if @document.document_categories.size > 0
+        .grid-row
+          - @document.document_categories.each do |item|
+            .list
+              .column-two-thirds
+                - if locale == :cy
+                  = item.category.welsh_name
+                - else
+                  = item.category.english_name
+              .column-one-third
+                = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: @document.id, linksearch: params[:linksearch])
+      -else
+        %p
+          = t('category.no_assignments')
+
+      %h3.heading-small
+        = t('category.select')
+
+      = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', id:'item_select', class:'', role:'search' do
+
+        = hidden_field_tag 'document', @document.id
+
+        .grid-row.form-group
+          .column-two-thirds.autocomplete_select
+            - if locale == :cy
+              = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :welsh_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+            - else
+              = collection_select( nil, :selected_category, @document.unrelated_categories, :id, :english_name, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+          .column-one-third
+            = submit_tag t('action.assign'), role: 'button', class: 'auto-suggest button-secondary'
+
+      .button-holder
+        = link_to t('action.continue'), link_documents_link_path(document: @document.id), class: 'button', role: 'button'
+
+    .column-one-third
