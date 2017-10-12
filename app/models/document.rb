@@ -21,6 +21,7 @@
 #  file_format              :string
 #  summary                  :string(250)
 #
+
 class Document < ActiveRecord::Base
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
@@ -46,6 +47,8 @@ class Document < ActiveRecord::Base
 
   before_save :format_filename_and_type
 
+  before_save :scan_for_viruses
+
   validates_attachment_presence :attachment
 
   validates_attachment_content_type :attachment,
@@ -62,6 +65,7 @@ class Document < ActiveRecord::Base
   validates :summary, length: { maximum: 250 }
 
   after_create :populate_original_id
+
 
   def active
     Document.where('inactive = ?', 'False')
@@ -106,6 +110,18 @@ class Document < ActiveRecord::Base
   def should_not_exist_already
     return unless Document.where(attachment_file_name: filename).any?
     errors.add(:document, 'with the same reference, language and format already exists. Either change the reference below or go to Documents > Edit to find the existing file and amend its details.')
+  end
+
+  def scan_for_viruses
+    path = attachment.instance_read(:path)
+    scan_result = Clamby.safe?(path)
+    if scan_result
+      return true
+    else
+      File.delete(path)
+      errors.add(:document, 'file has some virus detected.')
+      return false
+    end
   end
 
   def all_related

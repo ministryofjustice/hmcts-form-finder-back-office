@@ -3,7 +3,12 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :set_user
   before_action :set_paper_trail_whodunnit
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def configure_permitted_parameters
+    update_attrs = [:password, :password_confirmation, :current_password]
+    devise_parameter_sanitizer.permit :account_update, keys: update_attrs
+  end
   def index
     @active_users = User.active.all.order(last_name: :asc)
     @inactive_users = User.inactive.all.order(last_name: :asc)
@@ -17,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def create

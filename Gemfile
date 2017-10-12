@@ -22,7 +22,8 @@ gem 'rails', '4.2.7.1'
 gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'uglifier', '>= 1.3.0'
-
+gem 'pry'
+gem 'clamby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
