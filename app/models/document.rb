@@ -80,19 +80,23 @@ class Document < ActiveRecord::Base
 
   def extension
     return if attachment_file_name.blank?
-    File.extname(attachment_file_name).gsub(/^\.+/, '').upcase!
+
+    # Get file extension without the leading full stop.
+    File.extname(attachment_file_name).gsub(/^\.+/, '').upcase
   end
 
   def filename
+    return if code.blank?
+
     # Sanitize Reference/number data input by user or seed file.
     # - Allow only alphanumeric characters, apostrophes or ellipses.  Replace all others with whitespace.
     # - strip any leading, trailing whitespaces.
     # - Remove any consecutive whitespaces (squeeze).
     # - replace all whitespaces with hyphens.
-    return if code.blank?
     reference = ("#{code.gsub(/[^a-zA-Z0-9()'.]/, ' ').strip.squeeze(' ').gsub(/\s+/, '-')}")
+
     # Build new filename in [reference]-[language].[extension] format.
-    ("#{reference}-#{language.code}.#{extension}").downcase!
+    ("#{reference}-#{language.code}.#{extension}").downcase
   end
 
   def format_filename_and_type
