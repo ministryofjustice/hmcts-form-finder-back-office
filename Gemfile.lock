@@ -63,6 +63,7 @@ GEM
     childprocess (0.7.1)
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.2.0)
+    cliver (0.3.2)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     codeclimate-test-reporter (1.0.8)
@@ -201,6 +202,10 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.21.0)
+    poltergeist (1.16.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -331,6 +336,9 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    websocket-driver (0.7.0)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xpath (2.1.0)
       nokogiri (~> 1.3)
 
@@ -362,6 +370,7 @@ DEPENDENCIES
   paper_trail
   paperclip (= 4.3.6)
   pg
+  poltergeist
   puma (~> 3.4)
   rails (= 4.2.7.1)
   rails_12factor

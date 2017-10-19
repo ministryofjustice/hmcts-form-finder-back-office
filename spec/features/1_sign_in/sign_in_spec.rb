@@ -5,33 +5,28 @@ feature 'Signing in' do
     @user = create(:user)
   end
 
+  before do
+    login_page.load
+    expect(login_page).to have_content 'Sign in'
+  end
+
   scenario 'Signing in with correct credentials' do
-    visit new_user_session_path
-    within('#new_user') do
-      fill_in 'Email', with: @user.email
-      fill_in 'Password', with: @user.password
-    end
-    click_button 'Sign in'
-    expect(page).to have_content 'Signed in successfully.'
+    login_page.log_in(@user.email, @user.password)
+    expect(login_page).to have_content 'Signed in successfully.'
   end
 
   scenario 'Signing in using invalid email' do
-    visit new_user_session_path
-    within('#new_user') do
-      fill_in 'Email', with: Faker::Internet.email
-      fill_in 'Password', with: @user.password
-    end
-    click_button 'Sign in'
+    login_page.log_in(Faker::Internet.email, @user.password)
     expect(page).to have_content 'Invalid email or password'
   end
 
   scenario 'Signing in using invalid password' do
-    visit new_user_session_path
-    within('#new_user') do
-      fill_in 'Email', with: @user.email
-      fill_in 'Password', with: Faker::Lorem.characters(8)
-    end
-    click_button 'Sign in'
+    login_page.log_in(@user.email, Faker::Lorem.characters(8))
+    expect(page).to have_content 'Invalid email or password'
+  end
+
+  scenario 'Signing in using invalid email and password' do
+    login_page.log_in(Faker::Internet.email, Faker::Lorem.characters(8))
     expect(page).to have_content 'Invalid email or password'
   end
 end
