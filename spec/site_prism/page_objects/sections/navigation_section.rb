@@ -1,6 +1,6 @@
 module PageObjects
   module Sections
-    class PrimaryNavigationSection < SitePrism::Section
+    class NavigationSection < SitePrism::Section
       elements :all_links, 'a'
       element :active_link, 'a.active'
       element :documents, 'a[href="/en/documents"]'

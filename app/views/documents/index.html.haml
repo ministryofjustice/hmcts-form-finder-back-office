@@ -13,12 +13,11 @@
       %h2.heading-medium
         =t('document.add')
 
-      = link_to t('document.add'), new_document_path, class: 'button', role: 'button'
+      = link_to t('document.add'), new_document_path, id: 'add-document', class: 'button', role: 'button'
 
       %h2.heading-medium
         = t('document.edit')
 
-      -#= form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'document_select', class:'', role:'search') do
       = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'item_select', class:'', role:'search') do
         .grid-row.form-group
           .column-two-thirds.autocomplete_select
@@ -39,7 +38,7 @@
 
       - if @publication_queue.size > 0
         .table-container.container
-          %table.report
+          %table#queue.report
             %colgroup
               %col
               %col
@@ -63,5 +62,5 @@
                     = link_to document.title, edit_document_path(document)
 
       - else
-        %p
+        %p#empty-queue
           = t('notice.nothing_queued')

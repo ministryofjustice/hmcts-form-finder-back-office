@@ -7,26 +7,27 @@ feature 'Signing in' do
 
   before do
     login_page.load
-    expect(login_page).to have_content 'Sign in'
+    expect(login_page.sign_in_heading).to be_present
   end
 
-  scenario 'Signing in with correct credentials' do
-    login_page.log_in(@user.email, @user.password)
-    expect(login_page).to have_content 'Signed in successfully.'
-  end
-
-  scenario 'Signing in using invalid email' do
+  scenario 'using an invalid email address' do
     login_page.log_in(Faker::Internet.email, @user.password)
     expect(page).to have_content 'Invalid email or password'
   end
 
-  scenario 'Signing in using invalid password' do
+  scenario 'using an invalid password' do
     login_page.log_in(@user.email, Faker::Lorem.characters(8))
     expect(page).to have_content 'Invalid email or password'
   end
 
-  scenario 'Signing in using invalid email and password' do
+  scenario 'using an invalid email address and password' do
     login_page.log_in(Faker::Internet.email, Faker::Lorem.characters(8))
     expect(page).to have_content 'Invalid email or password'
+  end
+
+  scenario 'with correct credentials' do
+    login_page.log_in(@user.email, @user.password)
+    expect(page).to have_content 'Signed in successfully.'
+    # save_and_open_page
   end
 end

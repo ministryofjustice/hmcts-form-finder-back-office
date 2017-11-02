@@ -11,6 +11,7 @@ require 'spec_helper'
 
 require 'capybara'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
 require 'selenium-webdriver'
 require 'site_prism'
 
