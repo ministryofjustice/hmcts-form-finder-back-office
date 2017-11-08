@@ -25,6 +25,11 @@ class ApplicationController < ActionController::Base
     @user = current_user
   end
 
+  def sign_out(*args)
+    current_user.update_attribute(:current_sign_in_token, '')
+    super
+  end
+
   protected
 
   def ssl_excepted?
@@ -32,4 +37,5 @@ class ApplicationController < ActionController::Base
       (request.fullpath =~ Regexp.new(excepted_path))
     end
   end
+
 end

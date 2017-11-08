@@ -86,18 +86,18 @@ RSpec.describe DocumentCategoriesController, type: :controller do
           #   post :create, document_category: attributes_for(:document_category), session: valid_session
           # }.to change(DocumentCategory, :count).by(1)
           expect do
-            post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
+            post :create, params: { document_category: FactoryBot.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session }
           end.to change(DocumentCategory, :count).by(1)
         end
 
         it 'assigns a newly created document_category as @document_category' do
-          post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
+          post :create, params: { document_category: FactoryBot.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session }
           expect(assigns(:document_category)).to be_a(DocumentCategory)
           expect(assigns(:document_category)).to be_persisted
         end
 
         it 'redirects to the created document_category' do
-          post :create, document_category: FactoryGirl.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session
+          post :create, params: { document_category: FactoryBot.build(:document_category, document_id: document.id, category_id: category.id).attributes.symbolize_keys, session: valid_session }
           expect(response).to redirect_to(DocumentCategory.last)
         end
       end
