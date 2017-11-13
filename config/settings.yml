@@ -1,2 +1,8 @@
 excepted_from_ssl:
   - ping.json
+
+url_for_reset_mail: http://localhost
+port_for_reset_mail: 3000
+
+govuk_notify_api_key: 'overwritten-by-env-vars'
+reset_password_notify_template: '705029c9-d7e4-47a6-a963-944cb6d6b09c'

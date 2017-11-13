@@ -10,6 +10,7 @@ gem 'govuk_elements_form_builder', '>= 1.0.0'
 gem 'govuk_elements_rails', '= 3.0.0'
 gem 'govuk_frontend_toolkit', '= 6.0.0'
 gem 'govuk_template', '~> 0.22.2'
+gem 'govuk_notify_rails'
 gem 'haml-rails', '~> 0.9.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
