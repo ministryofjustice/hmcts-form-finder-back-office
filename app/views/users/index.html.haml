@@ -8,13 +8,13 @@
 
     = link_to t('user.add'), new_user_path, class: 'button', role: 'button'
 
-    %h2.heading-medium
+    %h2#active_user_count.heading-medium
       = t('partial.currently')
       = pluralize(@active_users.size, t('user.active.singular'), t('user.active.plural'))
       -if @inactive_users.size > 0
         = t('partial.and')
         - if @active_users.size > 10
-          = link_to @inactive_users.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+          = link_to @inactive_users.size.to_s + ' ' + t('label.inactive'), '#inactive_list'
         -else
           = @inactive_users.size
           = t('label.inactive')
@@ -22,7 +22,7 @@
     - if @active_users.size > 0
 
       .table-container.container
-        %table#active-table.report
+        %table#active_list
           %caption
             %span.table-caption
               = t('user.active.table_caption')
@@ -40,19 +40,19 @@
                 = t('label.actions')
           %tbody
             - @active_users.each do |user|
-              %tr
-                %td
+              %tr.item
+                %td.name
                   = user.first_name
                   = user.last_name
-                %td
+                %td.email
                   = user.email
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_user_path(user)
 
     - if @inactive_users.size > 0
 
       .table-container.container
-        %table#inactive-table.report
+        %table#inactive_list
           %caption
             %span.table-caption
               = t('user.inactive_table_caption')
@@ -70,13 +70,13 @@
                 = t('label.actions')
           %tbody
             - @inactive_users.each do |user|
-              %tr
-                %td
+              %tr.item
+                %td.name
                   = user.first_name
                   = user.last_name
-                %td
+                %td.email
                   = user.email
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_user_path(user)
 
 = link_to t('action.top'), '#content', class: 'top'

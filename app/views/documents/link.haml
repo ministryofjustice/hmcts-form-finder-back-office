@@ -16,15 +16,15 @@
       %h3.heading-small
         = t('document.selected')
 
-      %p
+      %span.reference
         = @document.code
-        %span.attributes
-          - if locale == :cy
-            = @document.language.welsh_name
-          - else
-            = @document.language.english_name
-          = @document.file_format
-        %br
+      %span.attributes
+        - if locale == :cy
+          = @document.language.welsh_name
+        - else
+          = @document.language.english_name
+        = @document.file_format
+      %span.title
         = @document.title
 
       %h3.heading-small

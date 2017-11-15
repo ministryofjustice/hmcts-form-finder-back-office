@@ -14,7 +14,7 @@
       -if @inactive_categories.size > 0
         = t('partial.and')
         - if @active_categories.size > 10
-          = link_to @inactive_categories.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+          = link_to @inactive_categories.size.to_s + ' ' + t('label.inactive'), '#inactive_list'
         -else
           = @inactive_categories.size
           = t('label.inactive')
@@ -22,7 +22,7 @@
     - if @active_categories.size > 0
 
       .table-container.container
-        %table#active-table.report
+        %table#active_list
           %caption
             %span.table-caption
               = t('category.active.table_caption')
@@ -40,18 +40,18 @@
                 = t('label.actions')
           %tbody
             - @active_categories.each do |category|
-              %tr
-                %td
+              %tr.item
+                %td.english
                   = category.english_name
-                %td
+                %td.welsh
                   = category.welsh_name
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_category_path(category)
 
     - if @inactive_categories.size > 0
 
       .table-container.container
-        %table#inactive-table.report
+        %table#inactive_list
           %caption
             %span.table-caption
               = t('category.inactive_table_caption')
@@ -69,12 +69,12 @@
                   = t('label.actions')
             %tbody
               - @inactive_categories.each do |category|
-                %tr
-                  %td
+                %tr.item
+                  %td.english
                     = category.english_name
-                  %td
+                  %td.welsh
                     = category.welsh_name
-                  %td
+                  %td.action
                     = link_to t('action.edit'), edit_category_path(category)
 
 = link_to 'Top', '#content', class: 'top'

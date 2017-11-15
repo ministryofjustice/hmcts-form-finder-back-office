@@ -1,12 +1,11 @@
 module PageObjects
   module Sections
     class LanguageFormSection < SitePrism::Section
-      element :english_name, 'input#language_english_name'
-      element :welsh_name, 'input#language_welsh_name'
-      element :inactive, 'input#language_inactive'
-      element :code, 'input#language_code'
-      element :submit, 'input[type="submit"][value="Save"]'
-      element :cancel, 'a[href="/en/languages"]'
+      element :language_code, '#language_code'
+
+      def add_language_code(code)
+        language_code.set(code)
+      end
     end
   end
 end

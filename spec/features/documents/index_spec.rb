@@ -14,17 +14,15 @@ feature 'Document index' do
     it 'contains the following content:' do
       expect(documents_index_page.heading).to be_present
       expect(documents_index_page.add_document_subheading).to be_present
-      expect(documents_index_page.add_document_link).to be_present
+      expect(documents_index_page.add_document_button).to be_present
       expect(documents_index_page.edit_document_subheading).to be_present
-      expect(documents_index_page.auto_suggest_list).to be_present
-      expect(documents_index_page.edit_button).to be_present
+      # expect(documents_index_page.auto_suggest_list).to be_present
+      expect(documents_index_page.edit_document_button).to be_present
       expect(documents_index_page.publishing_queue_subheading).to be_present
-      # save_and_open_page
     end
   end
 
   scenario 'Go to the categories page' do
     click_on('Categories')
-    save_and_open_page
   end
 end

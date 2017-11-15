@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: document_categories
+# Table name: documentcategories
 #
 #  id          :integer          not null, primary key
 #  document_id :integer

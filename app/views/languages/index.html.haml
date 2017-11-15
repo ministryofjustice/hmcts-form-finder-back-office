@@ -14,7 +14,7 @@
       -if @inactive_languages.size > 0
         = t('partial.and')
         - if @active_languages.size > 10
-          = link_to @inactive_languages.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+          = link_to @inactive_languages.size.to_s + ' ' + t('label.inactive'), '#inactive_list'
         -else
           = @inactive_languages.size
           = t('label.inactive')
@@ -22,7 +22,7 @@
     - if @active_languages.size > 0
 
       .table-container.container
-        %table#active-table.report
+        %table#active_list
           %caption
             %span.table-caption
               = t('language.active.table_caption')
@@ -43,20 +43,20 @@
                 = t('label.actions')
           %tbody
             - @active_languages.each do |language|
-              %tr
-                %td
+              %tr.item
+                %td.english
                   = language.english_name
-                %td
+                %td.welsh
                   = language.welsh_name
-                %td
+                %td.code
                   = language.code
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_language_path(language)
 
     - if @inactive_languages.size > 0
 
       .table-container.container
-        %table#inactive-table.report
+        %table#inactive_list
           %caption
             %span.table-caption
               = t('language.inactive_table_caption')
@@ -78,12 +78,12 @@
               %th
           %tbody
             - @inactive_languages.each do |language|
-              %tr
-                %td
+              %tr.item
+                %td.english
                   = language.english_name
-                %td
+                %td.welsh
                   = language.welsh_name
-                %td
+                %td.code
                   = language.code
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_language_path(language)

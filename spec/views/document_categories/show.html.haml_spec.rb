@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'document_categories/show', type: :view do
+RSpec.describe 'documentcategories/show', type: :view do
   let(:document) { create(:document) }
   let(:category) { create(:category) }
   let(:valid_attributes) { { document: document, category: category } }

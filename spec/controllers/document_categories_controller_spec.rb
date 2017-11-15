@@ -38,10 +38,10 @@ RSpec.describe DocumentCategoriesController, type: :controller do
 
     # describe 'GET #index' do
     #   before { sign_in authorised }
-    #   it 'assigns all document_categories as @document_categories' do
+    #   it 'assigns all documentcategories as @documentcategories' do
     #     document_category = DocumentCategory.create! valid_attributes
     #     get :index, params: {}, session: valid_session
-    #     expect(assigns(:document_categories)).to eq([document_category])
+    #     expect(assigns(:documentcategories)).to eq([document_category])
     #   end
     # end
 
@@ -186,7 +186,7 @@ RSpec.describe DocumentCategoriesController, type: :controller do
     #   before do
     #     sign_in authorised
     #   end
-    #   it 'redirects to the document_categories list' do
+    #   it 'redirects to the documentcategories list' do
     #     document_category = DocumentCategory.create! valid_attributes
     #     delete :destroy, { id: document_category.to_param }, session: valid_session
     #     expect(response).to redirect_to(document_categories_url)

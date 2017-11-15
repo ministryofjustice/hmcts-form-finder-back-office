@@ -38,7 +38,7 @@
 
       - if @publication_queue.size > 0
         .table-container.container
-          %table#queue.report
+          %table#publication_queue
             %colgroup
               %col
               %col
@@ -53,12 +53,12 @@
                   = t('helpers.label.document.title')
             %tbody
               - @publication_queue.each do |document|
-                %tr
-                  %td.font-xsmall
+                %tr.item
+                  %td.date
                     = document.published_date.strftime('%d/%m/%Y')
-                  %td.font-xsmall
+                  %td.reference
                     = document.code
-                  %td.font-xsmall
+                  %td.title
                     = link_to document.title, edit_document_path(document)
 
       - else
