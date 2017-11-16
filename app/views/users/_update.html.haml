@@ -15,3 +15,14 @@
       = f.text_field :first_name
       = f.text_field :last_name
       = f.text_field :email
+
+      .form-group
+        .multiple-choice
+          = f.check_box(:inactive, {}, true)
+          = f.label :inactive, t('label.Inactive'), { class: 'form-label-bold' }
+
+      .button-holder
+        = f.submit class: 'button', role: 'button'
+        = link_to t('action.cancel'), users_path, class: 'button-secondary button-left-spacing', role: 'button'
+
+.column-one-third
