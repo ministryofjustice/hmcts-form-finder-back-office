@@ -1,5 +1,6 @@
 module Settings
   DEFAULT_GA_TRACKER_ID = 'UA-12345678-12'
+  DEFAULT_NOTIFY_TEMPLATE = 'Nothing-to-see-here'
 
   module_function
 
@@ -13,6 +14,14 @@ module Settings
 
   def ga_tracker_id
     ENV.fetch('GA_TRACKER_ID', DEFAULT_GA_TRACKER_ID)
+  end
+
+  def govuk_notify_api_key
+    ENV.fetch('govuk_notify_api_key', 'blah')
+  end
+
+  def reset_password_notify_template
+    ENV.fetch('reset_password_notify_template', DEFAULT_NOTIFY_TEMPLATE)
   end
 
   def excepted_from_ssl
