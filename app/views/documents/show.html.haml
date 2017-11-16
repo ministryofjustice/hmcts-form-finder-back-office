@@ -16,19 +16,23 @@
 
       %h3.heading-small
         = t('document.uploaded')
-      = @document.attachment_file_name
+      .filename
+        = @document.attachment_file_name
 
       %h3.heading-small
         = t('helpers.label.document.code')
-      = @document.code
+      .reference
+        = @document.code
 
       %h3.heading-small
         = t('helpers.label.document.title')
-      = @document.title
+      .title
+        = @document.title
 
       %h3.heading-small
         = t('heading.summary')
-      = @document.summary
+      .summary
+        = @document.summary
 
       %h3.heading-small
         =t('helpers.fieldset.document.doc_attachment_type_id')
