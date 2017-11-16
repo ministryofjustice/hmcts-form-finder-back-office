@@ -18,7 +18,7 @@
 # t.inet     "last_sign_in_ip"
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     email { Faker::Internet.email }
     password 'Testing123!'
