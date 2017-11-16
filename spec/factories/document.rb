@@ -22,7 +22,7 @@
 #  summary                  :string(250)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence :document_code do |n|
     "DOC code#{n}"
   end

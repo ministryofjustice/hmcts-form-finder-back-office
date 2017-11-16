@@ -9,7 +9,7 @@
 #  updated_at   :datetime         not null
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :doc_attachment_type do
     english_name 'MyString'
     welsh_name 'MyString'

@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '< 3.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'devise', '~>4.1.0'
-gem 'factory_girl_rails', '~> 4.7'
+gem 'devise', '~>4.3.0'
+gem 'factory_bot_rails'
 gem 'gov_uk_date_fields', '>= 1.0.7'
 gem 'govuk_elements_form_builder', '>= 1.0.0'
-gem 'govuk_elements_rails', '>= 3.0.2'
-gem 'govuk_frontend_toolkit', '>= 6.0.0'
+gem 'govuk_elements_rails', '= 3.0.0'
+gem 'govuk_frontend_toolkit', '= 6.0.0'
 gem 'govuk_template', '~> 0.22.2'
 gem 'govuk_notify_rails'
 gem 'haml-rails', '~> 0.9.0'
@@ -16,13 +16,14 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'paper_trail'
-gem 'paperclip', '4.3.6'
-gem 'pg'
+gem 'paperclip', '~> 5.1'
+gem 'pg', '~> 0.21.0'
 gem 'puma', '~> 3.4'
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.0.3'
 gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'uglifier', '>= 1.3.0'
+gem 'rails-controller-testing'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -39,7 +40,7 @@ group :development, :test do
   gem 'selenium-webdriver', '~> 3.4'
   gem 'site_prism', '~> 2.9'
   gem 'rb-readline'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -56,4 +57,3 @@ end
 
 # For Heroku
 gem 'rails_12factor', group: :production
-gem 'codeclimate-test-reporter', group: :test, require: nil
