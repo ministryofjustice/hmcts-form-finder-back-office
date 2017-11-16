@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :trackable, :validatable
 
-  validate :password_complexity
+  validate :password_complexity, :unless => :new_record?
 
   def password_complexity
     return unless password.present? && !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)

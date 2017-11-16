@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     admin_user = current_user
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_params_for_update)
         sign_in(:user, @user, bypass: true) if admin_user == @user
         format.html { redirect_to @user, notice: t('user.update_success') }
         format.json { render :show, status: :ok, location: @user }
@@ -66,5 +66,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :inactive)
   end
-
+  def user_params_for_update
+    params.require(:user).permit(:first_name, :last_name, :email, :inactive)
+  end
 end
