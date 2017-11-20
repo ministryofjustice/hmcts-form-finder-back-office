@@ -1,4 +1,5 @@
 require 'simplecov'
+ENV['RAILS_ENV'] ||= 'test'
 SimpleCov.start
 require_relative 'support/controller_helpers'
 require 'devise'
