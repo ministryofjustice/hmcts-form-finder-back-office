@@ -1,8 +1,8 @@
 // Summary character counter setup
 var counter = function() {
 
-    var $formElement = $('.counter')
-        $formElement.characterCounter({
+    var $formElement = $('.counter');
+    $formElement.characterCounter({
         postCountMessage: "characters left",
         postCountMessageSingular: "character left",
         zeroRemainingMessage: "No characters left",
