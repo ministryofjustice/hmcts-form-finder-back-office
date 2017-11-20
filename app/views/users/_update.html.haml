@@ -1,0 +1,28 @@
+.grid-row
+  .column-two-thirds
+
+    - if @user.errors.any?
+
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-user-form', tabindex: '-1' }
+        %h1#error-summary-user-form.heading-medium.error-summary-heading
+          = t('error_count', count: @user.errors.count ) + t('user.submit_error')
+
+        %ul.error-summary-list
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
+
+    = form_for @user do |f|
+      = f.text_field :first_name
+      = f.text_field :last_name
+      = f.text_field :email
+
+      .form-group
+        .multiple-choice
+          = f.check_box(:inactive, {}, true)
+          = f.label :inactive, t('label.Inactive'), { class: 'form-label-bold' }
+
+      .button-holder
+        = f.submit class: 'button', role: 'button'
+        = link_to t('action.cancel'), users_path, class: 'button-secondary button-left-spacing', role: 'button'
+
+.column-one-third

@@ -55,9 +55,9 @@ textarea {
   height: 100%;
   padding: 25px 25px 15px 25px;
   text-decoration: none;
-  &.active {
-    border-bottom: 5px solid $link-colour;
-  }
+  //&:active {
+  //  border-bottom: 5px solid $link-colour;
+  //}
   @include bold-19();
   @include media(mobile) {
     display: block;
@@ -101,12 +101,6 @@ textarea {
   border-color: $turquoise;
   color: $page-colour;
   text-align: center;
-}
-
-.reference {
-  display: inline;
-  font-weight: bold;
-  margin-right: 0.4em;
 }
 
 .section {

@@ -14,7 +14,7 @@
       -if @inactive_doc_attachment_types.size > 0
         = t('partial.and')
         - if @active_doc_attachment_types.size > 10
-          = link_to @inactive_doc_attachment_types.size.to_s + ' ' + t('label.inactive'), '#inactive-table'
+          = link_to @inactive_doc_attachment_types.size.to_s + ' ' + t('label.inactive'), '#inactive_list'
         -else
           = @inactive_doc_attachment_types.size
           = t('label.inactive')
@@ -22,7 +22,7 @@
     - if @active_doc_attachment_types.size > 0
 
       .table-container.container
-        %table#active-table.report
+        %table#active_list
           %caption
             %span.table-caption
               = t('type.active.table_caption')
@@ -40,18 +40,18 @@
                 = t('label.actions')
           %tbody
             - @active_doc_attachment_types.each do |doc_attachment_type|
-              %tr
-                %td
+              %tr.item
+                %td.english
                   = doc_attachment_type.english_name
-                %td
+                %td.welsh
                   = doc_attachment_type.welsh_name
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)
 
     - if @inactive_doc_attachment_types.size > 0
 
       .table-container.container
-        %table#inactive-table.report
+        %table#inactive_list
           %caption
             %span.table-caption
               = t('type.inactive_table_caption')
@@ -69,12 +69,12 @@
                 = t('label.actions')
           %tbody
             - @inactive_doc_attachment_types.each do |doc_attachment_type|
-              %tr
-                %td
+              %tr.item
+                %td.english
                   = doc_attachment_type.english_name
-                %td
+                %td.welsh
                   = doc_attachment_type.welsh_name
-                %td
+                %td.action
                   = link_to t('action.edit'), edit_doc_attachment_type_path(doc_attachment_type)
 
 = link_to 'Top', '#content', class: 'top'

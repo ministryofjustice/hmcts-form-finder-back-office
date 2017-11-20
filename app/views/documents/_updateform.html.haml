@@ -44,7 +44,7 @@
       .form-group
         .multiple-choice
           = f.check_box(:inactive, {}, true)
-          = f.label :inactive, t('label.Inactive')
+          = f.label :inactive, t('label.Inactive'), { class: 'form-label-bold' }
 
       .button-holder
         - if @document.errors[:document].present?
