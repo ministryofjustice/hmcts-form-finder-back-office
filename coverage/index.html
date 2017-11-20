@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-16T11:43:59+00:00">2017-11-16T11:43:59+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-11-20T08:17:36+00:00">2017-11-20T08:17:36+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>105</b> files in total.
-    <b>1804</b> relevant lines. 
-    <span class="green"><b>1680</b> lines covered</span> and
+    <b>1802</b> relevant lines. 
+    <span class="green"><b>1678</b> lines covered</span> an
     <span class="red"><b>124</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -267,7 +267,7 @@
         <td>16</td>
         <td>15</td>
         <td>1</td>
-        <td>12.4</td>
+        <td>11.9</td>
       </tr>
       
       <tr>
@@ -763,9 +763,9 @@
       <tr>
         <td class="strong"><a href="#1e543f88e6ce6c9d6588887f5b179d7bc773506a" class="src_link" title="spec/models/user_spec.rb">spec/models/user_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>44</td>
-        <td>17</td>
-        <td>17</td>
+        <td>43</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
         <td>1.1</td>
       </tr>
@@ -1063,9 +1063,9 @@
       <tr>
         <td class="strong"><a href="#5659b54597e6558b45fd0eef8730780d98316cba" class="src_link" title="spec/views/users/edit.html.haml_spec.rb">spec/views/users/edit.html.haml_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>26</td>
-        <td>11</td>
-        <td>11</td>
+        <td>25</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -7496,7 +7496,7 @@
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">  validate :password_complexity</code>
+          <code class="ruby">  validate :password_complexity, unless: :persisted?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
@@ -7511,14 +7511,14 @@
           <code class="ruby">  def password_complexity</code>
         </li>
       
-        <li class="covered" data-hits="109" data-linenumber="36">
-          <span class="hits">109</span>
+        <li class="covered" data-hits="102" data-linenumber="36">
+          <span class="hits">102</span>
           
           <code class="ruby">    return unless password.present? &amp;&amp; !password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&amp;\*])(?=.{8,})/)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="37">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="4" data-linenumber="37">
+          <span class="hits">4</span>
           
           <code class="ruby">    errors.add :password, &#39;must include at least one lowercase letter, one uppercase letter, and one digit, and one of !@#$%&amp;*&#39;</code>
         </li>
@@ -22402,8 +22402,8 @@
     <h3>spec/models/user_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -22600,76 +22600,70 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">    user = create :user</code>
+          <code class="ruby">    user = build(:user, password: &#39;lowercase only&#39;, password_confirmation: &#39;lowercase only&#39;)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">    user.password, user.password_confirmation = &#39;lowercase only&#39;</code>
+          <code class="ruby">    expect(user.valid?).to be_falsey</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(user.valid?).to be_falsey</code>
+          <code class="ruby">    user.password, user.password_confirmation = &#39;lowercaseUPPERCASE&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">    user.password, user.password_confirmation = &#39;lowercaseUPPERCASE&#39;</code>
+          <code class="ruby">    expect(user.valid?).to be_falsey</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(user.valid?).to be_falsey</code>
+          <code class="ruby">    user.password, user.password_confirmation = &#39;lowerUPPERnumeric12345&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">    user.password, user.password_confirmation = &#39;lowerUPPERnumeric12345&#39;</code>
+          <code class="ruby">    expect(user.valid?).to be_falsey</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(user.valid?).to be_falsey</code>
+          <code class="ruby">    user.password, user.password_confirmation = &#39;Az!4567&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">    user.password, user.password_confirmation = &#39;Az!4567&#39;</code>
+          <code class="ruby">    expect(user.valid?).to be_falsey</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(user.valid?).to be_falsey</code>
+          <code class="ruby">    user.password, user.password_confirmation = &#39;Az!45678&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">    user.password, user.password_confirmation = &#39;Az!45678&#39;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
-          
           <code class="ruby">    expect(user.valid?).to be_truthy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">end</code>
@@ -27460,8 +27454,8 @@
     <h3>spec/views/users/edit.html.haml_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>10</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -27601,25 +27595,19 @@
           <code class="ruby">      assert_select &#39;input#user_email[name=?]&#39;, &#39;user[email]&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      assert_select &#39;input#user_password[name=?]&#39;, &#39;user[password]&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
