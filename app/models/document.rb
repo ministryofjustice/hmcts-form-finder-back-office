@@ -47,7 +47,7 @@ class Document < ActiveRecord::Base
 
   before_save :format_filename_and_type
 
-  before_save :scan_for_viruses
+  after_save :scan_for_viruses
 
   validates_attachment_presence :attachment
 
@@ -113,16 +113,11 @@ class Document < ActiveRecord::Base
   end
 
   def scan_for_viruses
-    path = attachment.instance_read(:path)
-    scan_result = Clamby.safe?(path)
-    if scan_result
-      return true
-    else
-      File.delete(path)
-      errors.add(:document, 'file has some virus detected.')
-      return false
-    end
+    options = {stream: self.attachment.url}
+    response = clamscan::Client.scan(options)
+    pry
   end
+
 
   def all_related
     Document.where("id IN (SELECT DISTINCT documents.id FROM documents, related_documents
