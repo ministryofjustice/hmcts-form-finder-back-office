@@ -57,7 +57,7 @@ class Document < ActiveRecord::Base
   validates :title, presence: true
   validates :language_id, presence: true
   validates :content_date, presence: true
-  validates :published_date, presence: true
+  validates :published_date, on: :create, presence: true
   validate :should_not_exist_already, unless: :overwrite_file, on: :create
   validates :summary, length: { maximum: 250 }
 

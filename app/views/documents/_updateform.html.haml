@@ -36,11 +36,6 @@
       .form-group
         = f.gov_uk_date_field :content_date, legend_text: t('document.content_date'), placeholders: true
 
-      %hr
-
-      .form-group
-        = f.gov_uk_date_field :published_date, legend_text: t('document.publication_date'), placeholders: true
-
       .form-group
         .multiple-choice
           = f.check_box(:inactive, {}, true)
