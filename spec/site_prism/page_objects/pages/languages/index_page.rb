@@ -11,7 +11,7 @@ module PageObjects
         section :language_lists, PageObjects::Sections::IndexTablesSection, '.table-container.container'
 
         element :heading, 'h1.heading-small', text: 'Languages'
-        element :add_language_link, 'a[href="/en/languages/new"]'
+        element :sub_heading, 'h2.heading-medium'
       end
     end
   end

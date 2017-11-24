@@ -113,8 +113,8 @@ cy:
 
   category:
     active:
-      singular: mae'r categori yn anactif ac
-      plural: mae categorïau yn weithgar ac
+      singular: " mae'r categori yn weithredol"
+      plural: " mae'r categorïau'n weithredol"
       table_caption: Categorïau gweithredol
     add: Ychwanegu categori
     assign: neilltuo categorïau
