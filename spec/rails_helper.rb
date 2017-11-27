@@ -35,7 +35,7 @@ Capybara.javascript_driver = :poltergeist
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 $LOAD_PATH.unshift(File.join(File.expand_path('..', __FILE__), 'site_prism'))
-require 'site_prism/page_objects/application.rb'
+require 'site_prism/page_objects/pages/application.rb'
 Dir[Rails.root.join('spec/site_prism/page_objects/{sections,pages}/**/*.rb')].each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.

@@ -1,3 +1,5 @@
+require 'page_objects/pages/base'
+
 module PageObjects
   module Pages
     module Application
@@ -29,8 +31,8 @@ module PageObjects
         show_category:              'Categories::ShowPage',
         show_document:              'Documents::ShowPage',
         show_language:              'Languages::ShowPage',
-        show_types:                 'Types::class ShowPage',
-        show_users:                 'Users::ShowPage',
+        show_type:                 'Types::ShowPage',
+        show_user:                 'Users::ShowPage',
         types_index:                'Types::IndexPage',
         users_index:                'Users::IndexPage'
       }.each do |page_name, page_class|
