@@ -99,7 +99,7 @@ en:
 
   category:
     active:
-      singular: category is inactive
+      singular: category is active
       plural: categories are active
       table_caption: Active categories
     add: Add category
