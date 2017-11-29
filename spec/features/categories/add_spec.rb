@@ -6,17 +6,16 @@ feature 'Adding categories' do
     login_page.load
     login_page.log_in(@user.email, @user.password)
     click_on('Categories')
+    click_on('Add category')
   end
 
   scenario 'Add an active empty category' do
-    click_on('Add category')
     click_on('Submit')
-    expect(new_category_page.error_heading).to have_text'1 error prevented this category from being submitted:'
-    expect(new_category_page.error_message).to have_text'An English and/or Welsh name must be supplied'
+    expect(new_category_page.error_heading).to have_text '1 error prevented this category from being submitted:'
+    expect(new_category_page.error_message).to have_text 'An English and/or Welsh name must be supplied'
   end
 
   scenario 'Add an active English category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_english_name', 'Divorce / Civil Partnership Dissolution')
     click_on('Submit')
     expect(show_category_page.creation_notice).to be_present
@@ -29,7 +28,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an active Welsh category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_welsh_name', 'Llysoedd Barn Brenhinol')
     click_on('Submit')
     expect(show_category_page.creation_notice).to be_present
@@ -42,7 +40,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an active English and Welsh category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_english_name', 'Tax and Chancery Chamber (Upper Tribunal)')
     new_category_page.fill_in_field('category_welsh_name', 'Siambr Treth a Siawnsri (Uwch Dribiwnlys)')
     click_on('Submit')
@@ -56,7 +53,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an inactive nameless category' do
-    click_on('Add category')
     new_category_page.toggle_inactive('category_inactive', 'true')
     click_on('Submit')
     expect(new_category_page.error_heading).to have_text '1 error prevented this category from being submitted:'
@@ -64,7 +60,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an inactive English category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_english_name', 'Reserve Forces Tribunal')
     new_category_page.toggle_inactive('category_inactive', 'true')
     click_on('Submit')
@@ -78,7 +73,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an inactive Welsh category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_welsh_name', 'Llysoedd Barn Brenhinol')
     new_category_page.toggle_inactive('category_inactive', 'true')
     click_on('Submit')
@@ -92,7 +86,6 @@ feature 'Adding categories' do
   end
 
   scenario 'Add an inactive category' do
-    click_on('Add category')
     new_category_page.fill_in_field('category_english_name', '﻿Probate')
     new_category_page.fill_in_field('category_welsh_name', '﻿Profiant')
     new_category_page.toggle_inactive('category_inactive', 'true')
