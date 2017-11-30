@@ -21,14 +21,20 @@ module PageObjects
         element :inactive_checkbox,   '#user_inactive'
         element :submit,              'input[type="submit"][value="Submit"]'
 
-        def add(first_name, last_name, email, password, confirmation, state)
+        def set_user(first_name, last_name, email, password, confirmation)
           first_name_field.set(first_name)
           last_name_field.set(last_name)
           email_field.set(email)
           password_field.set(password)
           confirmation_field.set(confirmation)
-          inactive_checkbox.set(state)
-          submit.click
+        end
+
+        def set_active
+          inactive_checkbox.set(false)
+        end
+
+        def set_inative
+          inactive_checkbox.set(true)
         end
       end
     end

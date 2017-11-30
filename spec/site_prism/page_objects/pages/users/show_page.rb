@@ -10,6 +10,7 @@ module PageObjects
         element :creation_notice, 'h1#notice-summary-heading', text: 'User successfully created.'
         element :update_notice, 'h1#notice-summary-heading', text: 'User successfully updated.'
         element :heading, 'h1.heading-small', text: 'User summary'
+        element :done, 'a.button.button-left-spacing'
       end
     end
   end
