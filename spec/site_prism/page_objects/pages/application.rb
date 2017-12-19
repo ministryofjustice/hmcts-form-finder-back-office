@@ -13,7 +13,7 @@ module PageObjects
 
       {
         categories_index:           'Categories::IndexPage',
-        documentcategories_index:   'DocumentCategories::IndexPage',
+        assign_categories:   'DocumentCategories::IndexPage',
         documents_index:            'Documents::IndexPage',
         edit_category:              'Categories::EditPage',
         edit_document:              'Documents::EditPage',
