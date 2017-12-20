@@ -30,10 +30,10 @@
       %h3.heading-small
         = t('category.assigned')
 
-      - if @document.document_categories.size > 0
-        .grid-row
+      #assignment-list
+        - if @document.document_categories.size > 0
           - @document.document_categories.each do |item|
-            .list
+            .grid-row
               .column-two-thirds
                 - if locale == :cy
                   = item.category.welsh_name
@@ -41,8 +41,7 @@
                   = item.category.english_name
               .column-one-third
                 = link_to t('action.remove'), assign_document_categories_unassign_path(related_category: item.id, document: @document.id, linksearch: params[:linksearch])
-      -else
-        %p
+        -else
           = t('category.no_assignments')
 
       %h3.heading-small
