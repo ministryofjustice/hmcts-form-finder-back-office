@@ -13,7 +13,7 @@ module PageObjects
 
       {
         categories_index:           'Categories::IndexPage',
-        documentcategories_index:  'DocumentCategories::IndexPage',
+        documentcategories_index:   'DocumentCategories::IndexPage',
         documents_index:            'Documents::IndexPage',
         edit_category:              'Categories::EditPage',
         edit_document:              'Documents::EditPage',
@@ -31,8 +31,8 @@ module PageObjects
         show_category:              'Categories::ShowPage',
         show_document:              'Documents::ShowPage',
         show_language:              'Languages::ShowPage',
-        show_type:                 'Types::ShowPage',
-        show_user:                 'Users::ShowPage',
+        show_type:                  'Types::ShowPage',
+        show_user:                  'Users::ShowPage',
         types_index:                'Types::IndexPage',
         users_index:                'Users::IndexPage'
       }.each do |page_name, page_class|
