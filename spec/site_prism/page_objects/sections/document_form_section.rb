@@ -45,6 +45,18 @@ module PageObjects
       def make_inactive
         inactive_checkbox.set(true)
       end
+
+      def create_active_document(reference, title, type, language)
+        select_file
+        reference_field.set(reference)
+        title_field.set(title)
+        fill_in_summary
+        fill_in_content_date
+        fill_in_publication_date
+        choose(type)
+        select(language)
+        click_on('Continue')
+      end
     end
   end
 end
