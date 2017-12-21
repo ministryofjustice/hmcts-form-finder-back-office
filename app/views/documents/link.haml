@@ -30,10 +30,10 @@
       %h3.heading-small
         = t('document.linked_to')
 
-      - if @linked_documents.size > 0
-        .grid-row
+      #linked-list
+        - if @linked_documents.size > 0
           - @linked_documents.each do |item|
-            .list
+            .grid-row
               .column-two-thirds
                 = item.code
                 %span.attributes
@@ -44,8 +44,7 @@
                   = item.file_format
               .column-one-third
                 = link_to t('action.remove'), link_documents_disconnect_path(selected_document: item.id, document: params[:document], linksearch: params[:linksearch])
-      -else
-        %p
+        -else
           = t('document.no_links')
 
       %h3.heading-small

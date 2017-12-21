@@ -13,7 +13,7 @@ module PageObjects
 
       {
         categories_index:           'Categories::IndexPage',
-        assign_categories:   'DocumentCategories::IndexPage',
+        assign_categories:          'DocumentCategories::IndexPage',
         documents_index:            'Documents::IndexPage',
         edit_category:              'Categories::EditPage',
         edit_document:              'Documents::EditPage',
@@ -21,7 +21,7 @@ module PageObjects
         edit_type:                  'Types::EditPage',
         edit_user:                  'Users::EditPage',
         languages_index:            'Languages::IndexPage',
-        link_documents:             'Documents::Link',
+        link_documents:             'Documents::LinkPage',
         login:                      'LoginPage',
         new_category:               'Categories::NewPage',
         new_document:               'Documents::NewPage',
