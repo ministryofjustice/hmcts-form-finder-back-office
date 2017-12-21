@@ -12,6 +12,7 @@ module PageObjects
 
         element :main_heading, 'h1.heading-small', text: 'Add document'
         element :section_heading, 'h2.heading-large', text: 'Link documents'
+        element :linked_list, '#linked-list'
       end
     end
   end
