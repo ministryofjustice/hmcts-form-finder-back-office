@@ -5,7 +5,7 @@ feature 'Adding types' do
     @user = create(:user)
     login_page.load
     login_page.log_in(@user.email, @user.password)
-    click_on('Document types')
+    documents_index_page.navigation.types.click
     click_on('Add type')
   end
 
