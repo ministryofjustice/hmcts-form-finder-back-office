@@ -14,7 +14,7 @@
     = form_for @document, multipart: true do |f|
 
       .form-group
-        = f.label :attachment, t('document.choose_file')
+        = f.label :attachment, t('document.choose_file'), { class: 'form-label' }
         = f.file_field :attachment
 
       = f.text_field :code

@@ -54,16 +54,17 @@
 
         = hidden_field_tag 'document', @document.id
 
-        .grid-row.form-group
-          .column-two-thirds.autocomplete_select
+        .form-group
+          .autocomplete_select
             - if locale == :cy
+              = label_tag 'auto-suggest-list', 'Rhowch gyfeirnod y ddogfen'
               = collection_select( nil, :selected_document, @documents, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
             - else
+              = label_tag 'auto-suggest-list', 'Enter document reference'
               = collection_select( nil, :selected_document, @documents, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
-          .column-one-third
+
             = submit_tag t('action.link'), role: 'button', class: 'auto-suggest button-secondary'
 
-      .button-holder
-        = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
+      = link_to t('action.continue'), document_path(@document), class: 'button', role: 'button'
 
     .column-one-third
