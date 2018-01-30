@@ -178,10 +178,6 @@ Style/IdenticalConditionalBranches:
   Description: 'This cop checks for identical lines at the beginning or end of each branch of a conditional statement.'
   Enabled: false
 
-Style/InlineComment:
-  Description: 'This cop checks for trailing inline comments.'
-  Enabled: false
-
 Style/MethodCalledOnDoEndBlock:
   Description: "This cop checks for methods called on a do...end block. The point of this check is that it's easy to miss the call tacked on to the block when reading code."
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
