@@ -8,15 +8,13 @@ class LanguagesController < ApplicationController
     @inactive_languages = Language.inactive.all.order(english_name: :asc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @language = Language.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @language = Language.new(language_params)
