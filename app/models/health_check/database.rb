@@ -1,6 +1,5 @@
 module HealthCheck
   class Database < Component
-
     def accessible?
       begin
         result = execute_simple_select_on_database.to_a == [{ 'result' => '1' }]
@@ -38,6 +37,5 @@ module HealthCheck
     def config
       OpenStruct.new(Rails.configuration.database_configuration[Rails.env])
     end
-
   end
 end

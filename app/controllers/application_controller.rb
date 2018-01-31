@@ -32,5 +32,4 @@ class ApplicationController < ActionController::Base
       (request.fullpath =~ Regexp.new(excepted_path))
     end
   end
-
 end

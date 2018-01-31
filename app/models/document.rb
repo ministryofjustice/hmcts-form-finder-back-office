@@ -49,7 +49,7 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :attachment
 
   validates_attachment_content_type :attachment,
-                                    content_type: %w(application/zip application/pdf application/msword application/excel application/vnd.ms-excel application/vnd.oasis.opendocument.text application/vnd.oasis.opendocument.spreadsheet application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.openxmlformats-officedocument.wordprocessingml.document),
+                                    content_type: %w[application/zip application/pdf application/msword application/excel application/vnd.ms-excel application/vnd.oasis.opendocument.text application/vnd.oasis.opendocument.spreadsheet application/vnd.openxmlformats-officedocument.spreadsheetml.sheet application/vnd.openxmlformats-officedocument.wordprocessingml.document],
                                     size: { in: 0..10.megabytes }
 
   validates :doc_attachment_type_id, presence: true
@@ -162,7 +162,7 @@ class Document < ActiveRecord::Base
   def self.searchdocs(search, searchcode)
     document_ids = DocumentCategory.where('category_id = ?', search).pluck(:document_id)
     ids = Document.where('lower(code) LIKE ? or lower(title) LIKE ?', "%#{searchcode.downcase}%", "%#{searchcode.downcase}%").pluck(:id)
-    document_ids = document_ids + ids
+    document_ids += ids
     Document.where(id: document_ids)
   end
 

@@ -12,7 +12,6 @@
 require 'validators'
 
 class DocAttachmentType < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
   include Validators::ValueCheck
@@ -30,5 +29,4 @@ class DocAttachmentType < ActiveRecord::Base
   def the_attribute
     :doc_attachment_type_id
   end
-
 end

@@ -12,7 +12,6 @@
 require 'validators'
 
 class Category < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
   include Validators::ValueCheck
@@ -35,5 +34,4 @@ class Category < ActiveRecord::Base
   def self.search(search)
     where('lower(english_name) LIKE ? or lower(welsh_name) LIKE ?', "%#{search.downcase}%", "%#{search.downcase}%")
   end
-
 end

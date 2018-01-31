@@ -1,5 +1,4 @@
 class DocumentCategoriesController < ApplicationController
-
   before_action :authenticate_user!, :set_user
   before_action :set_paper_trail_whodunnit
   before_action :set_document_category, only: [:show, :edit, :update, :destroy]
@@ -68,5 +67,4 @@ class DocumentCategoriesController < ApplicationController
     @linked_documents = @document.all_related
     render 'document_categories/index'
   end
-
 end
