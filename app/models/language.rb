@@ -13,7 +13,6 @@
 require 'validators'
 
 class Language < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
   include Validators::ValueCheck
@@ -32,5 +31,4 @@ class Language < ActiveRecord::Base
   def the_attribute
     :language_id
   end
-
 end

@@ -6,53 +6,19 @@ AllCops:
   Exclude:
     - db/schema.rb # Because it's generated.
 
-# Department Layout =======================================================================
-
-Layout/ClassStructure:
-  Description: 'Checks if the code style follows the ExpectedOrder configuration.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
-  Enabled: false
-
-Layout/EmptyLinesAroundArguments:
-  Description: 'This cops checks if empty lines exist around the arguments of a method invocation'
-  Enabled: false
-
-Layout/EmptyLinesAroundClassBody:
-  Description: 'This cops checks if empty lines around the bodies of classes match the configuration.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#empty-lines-around-bodies'
-  Enabled: false
-
-Layout/FirstArrayElementLineBreak:
-  Description: 'This cop checks for a line break before the first element in a multi-line array.'
-  Enabled: false
+# Layout Cops =============================================================================
 
 Layout/FirstMethodArgumentLineBreak:
   Description: 'This cop checks for a line break before the first argument in a multi-line method call.'
-  Enabled: false
-
-Layout/IndentAssignment:
-  Description: 'This cop checks the indentation of the first line of the right-hand-side of a multi-line assignment.'
-  Enabled: false
-
-Layout/MultilineArrayBraceLayout:
-  Description: 'This cop checks that the closing brace in an array literal is either on the same line as the last array element, or a new line.'
   Enabled: false
 
 Layout/MultilineMethodCallBraceLayout:
   Description: 'This cop checks that the closing brace in a method definition is either on the same line as the last method parameter, or a new line.'
   Enabled: false
 
-Layout/MultilineMethodCallIndentation:
-  Description: 'This cop checks the indentation of the method name part in method calls that span more than one line.'
-  Enabled: false
+# Lint Cops ===============================================================================
 
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Description: 'Checks for unnecessary additional spaces inside the delimiters of %i/%w/%x literals.'
-  Enabled: false
-
-# Department Lint =========================================================================
-
-# Metrics Naming ==========================================================================
+# Naming Cops =============================================================================
 
 Metrics/AbcSize:
   Description: 'A calculated magnitude based on number of assignments, branches, and conditions.'
@@ -90,9 +56,9 @@ Metrics/PerceivedComplexity:
   Description: 'A complexity metric geared towards measuring complexity for a human reader.'
   Enabled: false
 
-# Department Naming =======================================================================
+# Naming Cops =============================================================================
 
-# Performance Rails =======================================================================
+# Rails Cops ==============================================================================
 
 Performance/FlatMap:
   Description: 'Use `Enumerable#flat_map` instead of `Enumerable#map...Array#flatten(1)` or `Enumberable#collect..Array#flatten(1)`'
@@ -104,7 +70,7 @@ Performance/FlatMap:
   # This can be dangerous since `flat_map` will only flatten 1 level, and
   # `flatten` without any parameters can flatten multiple levels.
 
-# Department Rails ========================================================================
+# Rails Cops ==============================================================================
 
 Rails/ApplicationRecord:
   Description: 'This cop checks that models subclass ApplicationRecord with Rails 5.0.'
@@ -150,9 +116,9 @@ Rails/SaveBang:
   StyleGuide: 'https://github.com/bbatsov/rails-style-guide#save-bang'
   Enabled: false
 
-# Department Security =====================================================================
+# Security Cops ===========================================================================
 
-# Department Style ========================================================================
+# Style Cops ==============================================================================
 
 Style/ConditionalAssignment:
   Description: 'Check for if and case statements where each branch is used for assignment to the same variable when using the return of the condition can be used instead.'
@@ -172,10 +138,6 @@ Style/DocumentationMethod:
 
 Style/FrozenStringLiteralComment:
   Description: 'This cop is designed to help upgrade to Ruby 3.0. It will add the comment # frozen_string_literal: true to the top of files to enable frozen string literals. Frozen string literals may be default in Ruby 3.0. The comment will be added below a shebang and encoding comment. The frozen string literal comment is only valid in Ruby 2.3+.'
-  Enabled: false
-
-Style/IdenticalConditionalBranches:
-  Description: 'This cop checks for identical lines at the beginning or end of each branch of a conditional statement.'
   Enabled: false
 
 Style/MethodCalledOnDoEndBlock:
@@ -200,37 +162,12 @@ Style/MutableConstant:
   Description: "This cop checks whether some constant value isn't a mutable literal (e.g. array or hash)."
   Enabled: false
 
-Style/NumericPredicate:
-  Description: 'This cop checks for usage of comparison operators (==, >, <) to test numbers as zero, positive, or negative. These can be replaced by their respective predicate methods. The cop can also be configured to do the reverse.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#predicate-methods'
-  Enabled: false
-
-Style/ParallelAssignment:
-  Description: 'Check for simple usages of parallel assignment. It will only warn when the number of variables matches on both sides of the assignment. This also provides performance benefits'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#parallel-assignment'
-  Enabled: false
-
-Style/PercentLiteralDelimiters:
-  Description: 'Use `%`-literal delimiters consistently'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-literal-braces'
-  Enabled: false
-
 Style/RedundantParentheses:
   Description: 'This cop checks for redundant parentheses.'
   Enabled: false
 
 Style/RescueStandardError:
   Description: 'This cop checks for rescuing StandardError. There are two supported styles implicit and explicit. This cop will not register an offense if any error other than StandardError is specified.'
-  Enabled: false
-
-Style/SelfAssignment:
-  Description: 'Checks for places where self-assignment shorthand should have been used.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#self-assignment'
-  Enabled: false # Card for amending code where these offenses take place is already in Jira TPFF-121
-
-Style/Send:
-  Description: 'This cop checks for the use of the send method.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#prefer-public-send'
   Enabled: false
 
 Style/StringHashKeys:
