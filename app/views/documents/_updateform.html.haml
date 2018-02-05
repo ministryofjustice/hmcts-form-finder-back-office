@@ -13,12 +13,13 @@
     = form_for @document, multipart: true do |f|
 
       %p
-        = t('document.current_file')
         %span.bold
+          = t('document.current_file')
+        %br
           = @document.attachment_file_name
 
       .form-group
-        = f.label :attachment, t('document.choose_another_file')
+        = f.label :attachment, t('document.choose_another_file'), { class: 'form-label' }
         %span.form-hint
           This will replace the current document
         = f.file_field :attachment

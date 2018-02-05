@@ -1,174 +1,123 @@
-form {
-  .form-group {
-    .form-hint { margin-bottom: 5px; }
-    input#document_attachment { display: block; margin-top: 3px; }
+body {
+  #global-header .header-wrapper {
+    .header-global { width: 246px }
+    .sign-out { padding-right: 1.2em }
   }
-}
-
-hr {
-  clear: both;
-}
-
-td {
-  word-break: break-all;
-}
-
-textarea {
-  resize: none;
-}
-
-.attributes {
-  display: inline;
-  font-size: smaller;
-  &:after {
-    content: ")";
-  }
-  &:before {
-     content: "(";
-   }
-}
-
-.autocomplete_select {
-  margin-bottom: 10px;
-}
-
-.button-holder {
-  float: none;
-}
-
-.error-summary-list {
-  margin-top: 10px;
-}
-
-.global-nav {
-  background: $highlight-colour;
-  border-bottom: 1px solid $panel-colour;
-  margin-bottom: $gutter;
-  @extend %site-width-container;
-  @media print {
-    display: none;
-  }
-}
-
-.global-nav a {
-  display: inline-block;
-  height: 100%;
-  padding: 25px 25px 15px 25px;
-  text-decoration: none;
-  //&:active {
-  //  border-bottom: 5px solid $link-colour;
-  //}
-  @include bold-19();
-  @include media(mobile) {
-    display: block;
-    float: none;
-    text-align: center;
-  }
-}
-
-.global-nav ul {
-  li {
-    display: inline-block;
-    list-style: none;
-    @include media(mobile) {
-      display: block;
-      float: none;
+  .global-nav {
+    background: $highlight-colour;
+    border-bottom: 1px solid $panel-colour;
+    margin-bottom: $gutter;
+    @media print { display: none }
+    a {
+      display: inline-block;
+      padding: 25px 25px 15px 25px;
+      text-decoration: none;
+      @include bold-19();
+      @include media(mobile) {
+        display: block;
+        float: none;
+        text-align: center
+      }
+    }
+    ul {
+      li {
+        display: inline-block;
+        list-style: none;
+        @include media(mobile) {
+          display: block;
+          float: none
+        }
+      }
+      position: relative;
+      top: 1px;
+      @include clearfix
     }
   }
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 1px;
-  white-space: nowrap;
-  @include clearfix;
 }
 
-.list li {
-  margin-bottom: 15px;
+form {
+  .form-group {
+    .form-hint { margin-bottom: 5px }
+    input#document_attachment {
+      display: block;
+      margin-top: 3px
+    }
+  }
 }
 
-.me-character-counter {
-  margin-top: 5px;
+hr { clear: both }
+
+td { word-break: break-all }
+
+textarea { resize: none }
+
+.attributes {
+  &:after { content: ")" }
+  &:before { content: "(" }
 }
+
+.button-holder { float: none }
+
+.error-summary-list { margin-top: 10px }
+
+.list li { margin-bottom: 15px }
+
+.me-character-counter { margin-top: 5px }
 
 .me-character-counter_invalid {
   color: $error-colour;
-  font-weight: 700;
+  font-weight: 700
 }
 
 .notice-summary {
   background-color: $turquoise;
   border-color: $turquoise;
   color: $page-colour;
-  text-align: center;
+  text-align: center
 }
 
 .section {
   border-bottom: 1px solid $border-colour;
   margin-bottom: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 15px
 }
 
-.title {
-  display: block;
-}
+.title { display: block }
 
-.three-characters {
-  width: 3.4em
-}
-
-body {
-  #global-header .header-wrapper {
-    .header-global,
-    .header-proposition {
-      display: inline-block;
-    }
-    .header-global {
-      float: none;
-      margin-left: 1em;
-      margin-right: 1em;
-      width: 264px;
-    }
-    .header-proposition {
-      padding-top: 10px;
-      width: 66%;
-      .sign-out {
-        padding-right: 1em;
-      }
-    }
-  }
-}
+.three-characters { width: 3.4em }
 
 @media screen and (min-width: 641px) {
+  .auto-suggest.button-secondary {
+    float: right;
+    margin-right: 5%
+  }
+  .autocomplete__wrapper{
+    display: inline-block;
+    width: 75%
+  }
   .edit-link {
     float: right;
     position: relative;
-    top: -48px;
+    bottom: 15px
   }
   .list {
-    .column-two-thirds,
-    .column-one-third {
-      margin-bottom: 15px;
-    }
+    .column-two-thirds, .column-one-third { margin-bottom: 15px }
   }
   .top {
     margin-top: 15px;
-    float: right;
+    float: right
   }
 }
 
 @media screen and (max-width: 640px) {
-  .button, .button-secondary {
-    margin-top: 10px;
+  .auto-suggest.button-secondary { float: none }
+  .autocomplete__wrapper{ width: 100% }
+  .button-secondary {
+    margin-top: 15px;
     padding-left: 0;
     padding-right: 0;
     text-align: center;
-    width: 100%;
+    width: 100%
   }
-  .button-left-spacing {
-    margin-left: 0;
-  }
-  .list a {
-    display: block;
-  }
+  .button-left-spacing { margin-left: 0 }
 }

@@ -12,8 +12,6 @@
       %h2.heading-large
         = t('document.details')
 
-      = link_to t('action.edit'), edit_document_path(document: @document.id), class: 'edit-link'
-
       %h3.heading-small
         = t('document.uploaded')
       .filename
@@ -56,6 +54,9 @@
         = t('document.publication_date')
       = l @document.published_date
 
+      %br
+      = link_to t('action.edit'), edit_document_path(document: @document.id), class: 'edit-link'
+
   .column-one-third
 
 .grid-row
@@ -64,8 +65,6 @@
 
       %h2.heading-medium
         = t('category.heading')
-
-      = link_to t('action.edit'), document_categories_path(document: @document.id), class: 'edit-link'
 
       - if @document.document_categories.size > 0
         %ul.list
@@ -79,6 +78,8 @@
         %p
           = t('category.no_assignments')
 
+      = link_to t('action.edit'), document_categories_path(document: @document.id), class: 'edit-link'
+
   .column-one-third
 
 .grid-row
@@ -87,8 +88,6 @@
 
       %h2.heading-medium
         = t('document.linked')
-
-      = link_to t('action.edit'), link_documents_link_path(document: @document.id), class: 'edit-link'
 
       - if @linked_documents.size > 0
         %ul.list
@@ -104,6 +103,8 @@
       -else
         %p
           = t('document.no_links')
+
+      = link_to t('action.edit'), link_documents_link_path(document: @document.id), class: 'edit-link'
 
   .column-one-third
 

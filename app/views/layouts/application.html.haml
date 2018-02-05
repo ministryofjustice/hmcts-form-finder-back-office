@@ -18,12 +18,12 @@
 - content_for :proposition_header do
   .header-proposition
     .content
-      %a#proposition-name{:href => root_path}
-        -#%abbr{:title => "Her Majesty's Courts and Tribunals Service"} HMCTS
-        %abbr{ title: t('department') }
-          =t('department_initials')
-        = t('application_name')
-      = render partial:  'shared/loginout'
+      %nav#proposition-menu
+        %a#proposition-name{:href => root_path}
+          %abbr{ title: t('department') }
+            =t('department_initials')
+          = t('application_name')
+        = render partial:  'shared/loginout'
 
 = content_for :content do
   = csrf_meta_tags
@@ -51,8 +51,5 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-61690103-15', 'herokuapp.com');
     ga('send', 'pageview');
-
-
-
 
 = render template: 'layouts/govuk_template'

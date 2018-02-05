@@ -19,14 +19,14 @@
         = t('document.edit')
 
       = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'item_select', class:'', role:'search') do
-        .grid-row.form-group
-          .column-two-thirds.autocomplete_select
-            - if locale == :cy
-              = collection_select( :selected_document, params[:id], Document.all, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
-            - else
-              = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
-          .column-one-third
-            = submit_tag t('action.edit'), role: 'button', class: 'auto-suggest button-secondary'
+        - if locale == :cy
+          = label_tag 'auto-suggest-list', 'Rhowch gyfeirnod y ddogfen'
+          = collection_select( :selected_document, params[:id], Document.all, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+        - else
+          = label_tag 'auto-suggest-list', 'Enter document reference'
+          = collection_select( :selected_document, params[:id], Document.all, :id, :reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
+
+        = submit_tag t('action.edit'), role: 'button', class: 'auto-suggest button-secondary'
 
     .column-one-third
 
