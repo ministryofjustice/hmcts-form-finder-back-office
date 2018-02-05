@@ -20,7 +20,6 @@
 #
 
 class User < ActiveRecord::Base
-
   extend  SoftDeletion::Collection
   include SoftDeletion::Record
 

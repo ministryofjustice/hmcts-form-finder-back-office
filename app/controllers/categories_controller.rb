@@ -55,5 +55,4 @@ class CategoriesController < ApplicationController
   def update_params
     params.permit(:id, :english_name, :welsh_name, :inactive)
   end
-
 end

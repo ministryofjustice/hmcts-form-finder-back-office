@@ -62,20 +62,17 @@ class DocumentsController < ApplicationController
   def update
     @document = Document.find(params[:id])
     @document.overwrite_file = true
-    if @document.update(params_with_user)
-      render 'document_categories/index'
-    else
+    unless @document.update(params_with_user)
       @document.overwrite_file = params[:overwrite_file]
       @document.update(params_with_user)
-      render 'document_categories/index'
     end
+    render 'document_categories/index'
   end
 
   private
 
   def doc_attachment_params
-    params.require(:document)
-        .permit(:attachment, :code, :content_date_dd, :content_date_mm, :content_date_yyyy, :doc_attachment_type_id, :inactive, :language_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :summary, :title)
+    params.require(:document).permit(:attachment, :code, :content_date_dd, :content_date_mm, :content_date_yyyy, :doc_attachment_type_id, :inactive, :language_id, :published_date_dd, :published_date_mm, :published_date_yyyy, :summary, :title)
   end
 
   def params_with_user
@@ -96,5 +93,4 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:selected_document])
     @parent_document = Document.find(params[:document])
   end
-
 end

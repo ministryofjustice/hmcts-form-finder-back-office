@@ -1,24 +1,5 @@
 class HealthCheckService
-  COMPONENT_CLASSES =
-   [
-     HealthCheck::Database
-   ]
-
-  def initialize
-    @components = []
-    @components << HealthCheck::Database.new
-  end
-
-  def report
-    @components.each do |component|
-      component.available?
-      component.accessible?
-    end
-
-    errors = @components.map(&:error_messages).flatten
-
-    errors.empty? ? HealthCheckReport.ok : HealthCheckReport.fail(errors)
-  end
+  COMPONENT_CLASSES = [HealthCheck::Database]
 
   HealthCheckReport =
     Struct.new(:status, :messages) do
@@ -30,4 +11,18 @@ class HealthCheckService
         new('500', errors)
       end
     end
+
+  def initialize
+    @components = []
+    @components << HealthCheck::Database.new
+  end
+
+  def report
+    @components.each do |component|
+      component.available?
+      component.accessible?
+    end
+    errors = @components.map(&:error_messages).flatten
+    errors.empty? ? HealthCheckReport.ok : HealthCheckReport.fail(errors)
+  end
 end

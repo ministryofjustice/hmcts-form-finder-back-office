@@ -39,7 +39,7 @@ module PageObjects
         full_page_class = "PageObjects::Pages::#{page_class}"
 
         define_method "#{page_name}_page" do
-          app_pages[page_name] ||= full_page_class.constantize.send :new
+          app_pages[page_name] ||= full_page_class.constantize.__send__ :new
         end
       end
 
@@ -55,7 +55,7 @@ module PageObjects
         full_section_class = "PageObjects::Sections::#{section_class}"
 
         define_method "#{section_name}_section" do |rendered|
-          app_sections[section_name] ||= full_section_class.constantize.send :new, nil, Capybara.string(rendered)
+          app_sections[section_name] ||= full_section_class.constantize.__send__ :new, nil, Capybara.string(rendered)
         end
       end
     end

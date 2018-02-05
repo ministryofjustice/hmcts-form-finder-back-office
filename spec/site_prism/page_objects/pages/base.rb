@@ -1,7 +1,6 @@
 module PageObjects
   module Pages
     class Base < SitePrism::Page
-
       def fill_in_field(css_id, text)
         find("input##{css_id}").set("#{text}")
       end
