@@ -9,8 +9,8 @@ gem 'gov_uk_date_fields', '>= 2.1.1'
 gem 'govuk_elements_form_builder', '>= 1.0.0'
 gem 'govuk_elements_rails', '= 3.0.0'
 gem 'govuk_frontend_toolkit', '= 6.0.0'
-gem 'govuk_template', '~> 0.22.2'
 gem 'govuk_notify_rails'
+gem 'govuk_template', '~> 0.22.2'
 gem 'haml-rails', '~> 0.9.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -20,10 +20,10 @@ gem 'paperclip', '~> 5.1'
 gem 'pg', '~> 0.21.0'
 gem 'puma', '~> 3.4'
 gem 'rails', '5.0.3'
+gem 'rails-controller-testing'
 gem 'sass-rails', '~> 5.0'
 gem 'susy', '~> 2.2', '>= 2.2.12'
 gem 'uglifier', '>= 1.3.0'
-gem 'rails-controller-testing'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -37,10 +37,11 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'launchy'
-  gem 'selenium-webdriver', '~> 3.4'
-  gem 'site_prism', '~> 2.9'
   gem 'rb-readline'
   gem 'rspec-rails'
+  gem 'rubocop', '~> 0.52.1'
+  gem 'selenium-webdriver', '~> 3.4'
+  gem 'site_prism', '~> 2.9'
 end
 
 group :development do
