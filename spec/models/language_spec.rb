@@ -31,25 +31,19 @@ RSpec.describe Language, type: :model do
   it 'Can be deactivated if no documents belong to it' do
     language = create :language
     language.save!
-
     language.inactive = true
     language.save!
-
     expect(language.save).to be_truthy
   end
   it 'Cannot deactivate a Language if a document belongs to it' do
     document = create :document
     language = create :language
-
     document.language = language
-
-    document.overwrite_file = true # Need to do document.save for doc_attachment_type test to work
-
+    # Need to do document.save for doc_attachment_type test to work
+    document.overwrite_file = true
     document.save!
     language.save!
-
     language.inactive = true
-
     expect(language.save).to be_falsey
   end
 end
