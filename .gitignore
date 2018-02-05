@@ -16,4 +16,4 @@
 set_env.sh
 logfile
 
-coverage/assets
+/coverage/
