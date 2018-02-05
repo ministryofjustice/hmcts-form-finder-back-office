@@ -8,15 +8,13 @@ class DocAttachmentTypesController < ApplicationController
     @inactive_doc_attachment_types = DocAttachmentType.inactive.all.order(english_name: :asc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @doc_attachment_type = DocAttachmentType.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @doc_attachment_type = DocAttachmentType.new(doc_attachment_type_params)

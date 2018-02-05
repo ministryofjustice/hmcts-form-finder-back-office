@@ -170,11 +170,6 @@ Style/DocumentationMethod:
   Description: 'This cop checks for missing documentation comment for public methods. It can optionally be configured to also require documentation for non-public methods.'
   Enabled: false
 
-Style/EmptyMethod:
-  Description: 'This cop checks for the formatting of empty method definitions. By default it enforces empty method definitions to go on a single line (compact style), but it can be configured to enforce the end to go on its own line (expanded style).'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-single-line-methods'
-  Enabled: false
-
 Style/FrozenStringLiteralComment:
   Description: 'This cop is designed to help upgrade to Ruby 3.0. It will add the comment # frozen_string_literal: true to the top of files to enable frozen string literals. Frozen string literals may be default in Ruby 3.0. The comment will be added below a shebang and encoding comment. The frozen string literal comment is only valid in Ruby 2.3+.'
   Enabled: false
