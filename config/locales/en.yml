@@ -103,7 +103,7 @@ en:
       plural: categories are active
       table_caption: Active categories
     add: Add category
-    assign: Assign categories
+    assign: Assign categories to document
     assigned: "Is already assigned to:"
     create_success: Category successfully created.
     delete_success: Category successfully deleted.
@@ -129,7 +129,7 @@ en:
     content_date: Document version date
     content_date-hint: This displays as "Date modified" on the public site
     current_file: "Current document "
-    details: Document details
+    details: Details
     edit: Edit document
     heading: Documents
     link: Link documents
@@ -142,6 +142,7 @@ en:
     select: Link document
     selected: "Selected document:"
     submit_error: " prevented this document from being submitted:"
+    summary: Document summary
     upload: Upload more documents
     uploaded: Document uploaded
 
@@ -242,7 +243,7 @@ en:
     delete_success: Type successfully deleted.
     edit: Edit type
     inactive_table_caption: Inactive document types
-    heading: Document types
+    heading: Types
     submit_error: " prevented this type from being submitted:"
     summary: Type summary
     update_success: Type successfully updated.

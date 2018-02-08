@@ -5,15 +5,12 @@
 
   .grid-row
     .column-full
-      = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+      = render partial: 'layouts/header', locals: { page_heading: t('document.link') }
 
   .grid-row
     .column-two-thirds
 
-      %h2.heading-large
-        = t('document.link')
-
-      %h3.heading-small
+      %h2.heading-small
         = t('document.selected')
 
       %span.reference
@@ -27,7 +24,7 @@
       %span.title
         = @document.title
 
-      %h3.heading-small
+      %h2.heading-small
         = t('document.linked_to')
 
       #linked-list
@@ -47,7 +44,7 @@
         -else
           = t('document.no_links')
 
-      %h3.heading-small
+      %h2.heading-small
         = t('document.select')
 
       = form_tag url_for(:controller => 'documents', :action => 'connect'), :method => 'get', id:'item_select', class:'', role: 'search' do
