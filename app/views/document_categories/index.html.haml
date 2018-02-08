@@ -5,15 +5,15 @@
 
   .grid-row
     .column-full
-      = render partial: 'layouts/header', locals: { page_heading: t('document.add') }
+      = render partial: 'layouts/header', locals: { page_heading: t('category.assign') }
 
   .grid-row
     .column-two-thirds
 
-      %h2.heading-large
-        = t('category.assign')
+      -#%h2.heading-large
+      -#  = t('category.assign')
 
-      %h3.heading-small
+      %h2.heading-small
         = t('document.selected')
 
       %span.reference
@@ -27,7 +27,7 @@
       %span.title
         = @document.title
 
-      %h3.heading-small
+      %h2.heading-small
         = t('category.assigned')
 
       #assignment-list
@@ -44,7 +44,7 @@
         -else
           = t('category.no_assignments')
 
-      %h3.heading-small
+      %h2.heading-small
         = t('category.select')
 
       = form_tag url_for(:controller => 'document_categories', :action => 'assigns'), :method => 'get', id:'item_select', class:'', role:'search' do
