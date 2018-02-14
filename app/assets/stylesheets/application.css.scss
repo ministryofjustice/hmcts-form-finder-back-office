@@ -44,6 +44,7 @@
 @import "moj/helpers";
 
 //project specific
+@import "moj/autocomplete";
 @import "moj/buttons";
 //@import "moj/shame";
 @import "moj/layout";
@@ -53,7 +54,7 @@
 //@import "moj/forms";
 @import "moj/typography";
 @import "moj/govuk_overrides";
-//@import "moj/autocomplete";
+
 
 @import "accessible-autocomplete.min";
 @import "formfinder";

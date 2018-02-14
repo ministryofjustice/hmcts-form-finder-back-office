@@ -1,0 +1,7 @@
+@include media(desktop) {
+  .autocomplete__wrapper {
+    float: left;
+    display: inline-block;
+    width: 84%;
+  }
+}
