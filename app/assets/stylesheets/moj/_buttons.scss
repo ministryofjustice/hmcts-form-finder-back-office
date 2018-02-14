@@ -1,14 +1,38 @@
-.button-secondary{
+.auto-suggest {
+  margin-top: $gutter-half;
+}
+
+.button-secondary {
   @include button($grey-3);
 }
 
 .button-holder {
-  @include span(8 of 12);
-  @include first;
-
   margin-top: $gutter-half;
+  .button,
+  .button-secondary {
+    display: block;
+    margin-top: $gutter;
+  }
+  .button-secondary {
+    margin-left: 0;
+    text-align: center;
+  }
 }
 
-.button-left-spacing{
-  margin-left: $gutter;
+@include media(desktop) {
+  .auto-suggest {
+    float: right;
+    margin-top: 0px;
+  }
+  .button-holder {
+    @include first;
+    .button,
+    .button-secondary {
+      display: inline-block;
+      margin-top: 0;
+    }
+    .button-left-spacing {
+      margin-left: $gutter;
+    }
+  }
 }
