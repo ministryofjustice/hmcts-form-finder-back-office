@@ -8,7 +8,6 @@
 .grid-row
   .column-two-thirds
     .section
-
       %h2.heading-large
         = t('document.details')
 
@@ -57,12 +56,7 @@
       %br
       = link_to t('action.edit'), edit_document_path(document: @document.id), class: 'edit-link'
 
-  .column-one-third
-
-.grid-row
-  .column-two-thirds
     .section
-
       %h2.heading-medium
         = t('category.heading')
 
@@ -80,12 +74,7 @@
 
       = link_to t('action.edit'), document_categories_path(document: @document.id), class: 'edit-link'
 
-  .column-one-third
-
-.grid-row
-  .column-two-thirds
     .section
-
       %h2.heading-medium
         = t('document.linked')
 
@@ -105,11 +94,6 @@
           = t('document.no_links')
 
       = link_to t('action.edit'), link_documents_link_path(document: @document.id), class: 'edit-link'
-
-  .column-one-third
-
-.grid-row
-  .column-two-thirds
 
     .button-holder
       = link_to t('action.done'), documents_url, class: 'button', role: 'button'
