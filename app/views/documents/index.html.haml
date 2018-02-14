@@ -18,7 +18,7 @@
       %h2.heading-medium
         = t('document.edit')
 
-      = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'item_select', class:'', role:'search') do
+      = form_tag({:controller => 'documents', :action => 'edit_selected_document'}, :method => 'get', id:'item_select', role:'search') do
         - if locale == :cy
           = label_tag 'auto-suggest-list', 'Rhowch gyfeirnod y ddogfen'
           = collection_select( :selected_document, params[:id], Document.all, :id, :cym_reference_with_attributes, { prompt: true }, { id: 'auto-suggest-list', class: 'form-control' } )
