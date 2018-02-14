@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3e714eb1b7d7c29fd3f1fac513e329a47b1570fb0ec6e80f9ec9b256f352f218
 after_success:
   - bundle exec codeclimate-test-reporter
 language: ruby
@@ -12,5 +15,10 @@ before_install:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 # Please don't add extra test commands here unless they are Travis only -- Jenkins will run this script too
 script: bash ./runtests.sh
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
