@@ -117,7 +117,7 @@ cy:
       plural: " mae'r categorïau'n weithredol"
       table_caption: Categorïau gweithredol
     add: Ychwanegu categori
-    assign: neilltuo categorïau
+    assign: Dosbarthu categorïau i ddogfen
     assigned: "Eisoes neilltuo i:"
     create_success: Categori grëwyd yn llwyddiannus.
     delete_success: Categori ddileu'n llwyddiannus.
@@ -143,7 +143,7 @@ cy:
     content_date: fersiwn Document
     content_date-hint: Mae hyn yn dangos fel "Dyddiad addasu yn" ar y safle cyhoeddus
     current_file: ddogfen cyfredol
-    details: Manylion y ddogfen
+    details: Manylion
     edit: dogfen golygu
     heading: dogfennau
     link: dogfennau Cyswllt
@@ -156,6 +156,7 @@ cy:
     select: Dogfen gyswllt
     selected: "Dogfen a ddewiswyd:"
     submit_error: " atal ddogfen hon rhag cael ei gyflwyno:"
+    summary: "Crynodeb o'r ddogfen"
     upload: Llwytho mwy o ddogfennau
     uploaded: Dogfen wedi'i lwytho i fyny
 
@@ -257,7 +258,7 @@ cy:
     edit: math golygu
     inactive_table_caption: Mathau o ddogfennau anweithgar
     submit_error: " atal y math hwn rhag cael ei gyflwyno:"
-    heading: mathau o ddogfen
+    heading: Mathau
     summary: crynodeb math
     update_success: Teipiwch ddiweddaru'n llwyddiannus.
 

@@ -17,7 +17,7 @@ feature 'Document index' do
       expect(navigation_links[0]).to have_text('Documents')
       expect(navigation_links[1]).to have_text('Categories')
       expect(navigation_links[2]).to have_text('Languages')
-      expect(navigation_links[3]).to have_text('Document types')
+      expect(navigation_links[3]).to have_text('Types')
       expect(navigation_links[4]).to have_text('User accounts')
     end
   end

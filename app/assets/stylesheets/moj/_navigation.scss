@@ -1,0 +1,48 @@
+.global-nav {
+  @extend %site-width-container;
+  @media print {
+    display: none;
+  }
+  background: $highlight-colour;
+  border-bottom: 1px solid $panel-colour;
+  margin-bottom: $gutter;
+  ul {
+    @include clearfix;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 1px;
+    li {
+      @include media(mobile) {
+        display: block;
+        float: none;
+      }
+      display: inline-block;
+      text-align: center;
+      a {
+        @include bold-16();
+        @include media(desktop) {
+          @include bold-19();
+        }
+        display: block;
+        float: none;
+        padding: 1em 1em 0.75em 1em;
+        text-decoration: none;
+        &.active {
+          color: $govuk-blue;
+          -webkit-box-shadow: inset 0px -5px 0px 0px $govuk-blue;
+          -moz-box-shadow: inset 0px -5px 0px 0px $govuk-blue;
+          box-shadow: inset 0px -5px 0px 0px $govuk-blue;
+        }
+        &:focus {
+          outline: 0;
+        }
+        &:hover {
+          -webkit-box-shadow: inset 0px -5px 0px 0px $link-hover-colour;
+          -moz-box-shadow: inset 0px -5px 0px 0px $link-hover-colour;
+          box-shadow: inset 0px -5px 0px 0px $link-hover-colour;
+        }
+      }
+    }
+  }
+}
