@@ -5,7 +5,7 @@ class CreateRedirectUrls < ActiveRecord::Migration[5.0]
       t.string :outgoing
       t.integer :document_id
       t.integer :category_id
-
+      t.boolean :inactive, default: false
       t.timestamps
     end
   end

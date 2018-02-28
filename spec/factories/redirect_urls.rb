@@ -4,5 +4,6 @@ FactoryBot.define do
     outgoing "MyString"
     document_id 1
     category_id 1
+    inactive false
   end
 end

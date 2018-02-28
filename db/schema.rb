@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170712082952) do
+ActiveRecord::Schema.define(version: 20180220155818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 20170712082952) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.boolean  "inactive",     default: false
+  end
+
+  create_table "redirect_urls", force: :cascade do |t|
+    t.string   "incoming"
+    t.string   "outgoing"
+    t.integer  "document_id"
+    t.integer  "category_id"
+    t.boolean  "inactive",    default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "related_documents", force: :cascade do |t|
