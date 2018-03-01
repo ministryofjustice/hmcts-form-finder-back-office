@@ -1,0 +1,9 @@
+- content_for :page_title do
+  = "Add a redirect to HMCTS Form finder"
+
+.grid-row
+  .column-full
+
+    = render partial: 'layouts/header', locals: { page_heading: t('redirect_url.add') }
+
+= render 'form'

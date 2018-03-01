@@ -1,0 +1,34 @@
+- content_for :page_title do
+  = "Document redirects for HMCTS Form finder"
+
+.grid-row
+  .column-full
+
+    = render partial: 'layouts/header', locals: { page_heading: t('redirect_url.summary') }
+
+.grid-row
+  .column-two-thirds
+
+    %h3.heading-small
+      = t('helpers.label.redirect_url.incoming')
+    - if @redirect_url.incoming.present?
+      = @redirect_url.incoming
+    - else
+      = t('value.not_set')
+
+    %h3.heading-small
+      = t('helpers.label.redirect_url.outgoing')
+    - if @redirect_url.outgoing.present?
+      = @redirect_url.outgoing
+    - else
+      = t('value.not_set')
+
+    %h3.heading-small
+      = t('label.Inactive')
+    = @redirect_url.inactive ? 'Yes' : 'No'
+
+    .button-holder
+      = link_to t('action.edit'), edit_redirect_url_path(@redirect_url), class: 'button-secondary', role: 'button'
+      = link_to t('action.done'), redirect_urls_path, class: 'button button-left-spacing', role: 'button'
+
+  .column-one-third

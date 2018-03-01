@@ -273,3 +273,19 @@ en:
 
   value:
     not_set: Not set
+
+  redirect_url:
+    active:
+      singular: redirect is active
+      plural: redirects are active
+      table_caption: Active redirects
+    add: Add redirect
+    create_success: Redirect successfully created.
+    delete_success: Redirect successfully deleted.
+    edit: Edit redirect
+    inactive_table_caption: Inactive redirects
+    plural: Redirects
+    singular: Redirect
+    submit_error: " prevented this redirect from being submitted:"
+    summary: Redirect summary
+    update_success: Redirect successfully updated.

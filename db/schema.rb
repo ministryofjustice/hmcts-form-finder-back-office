@@ -73,11 +73,9 @@ ActiveRecord::Schema.define(version: 20180220155818) do
   create_table "redirect_urls", force: :cascade do |t|
     t.string   "incoming"
     t.string   "outgoing"
-    t.integer  "document_id"
-    t.integer  "category_id"
-    t.boolean  "inactive",    default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "inactive",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "related_documents", force: :cascade do |t|

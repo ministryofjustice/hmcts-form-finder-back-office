@@ -1,0 +1,29 @@
+.grid-row
+  .column-two-thirds
+
+    - if @redirect_url.errors.any?
+
+      .error-summary{ role: 'group', 'aria-labelledby': 'error-summary-add-redirect_url', tabindex: '-1' }
+        %h1#error-summary-add-redirect_url.heading-medium.error-summary-heading
+          = t('error_count', count: @redirect_url.errors.count ) + t('redirect_url.submit_error')
+
+        %ul.error-summary-list
+          - @redirect_url.errors.full_messages.each do |msg|
+            %li= msg
+
+    = form_for @redirect_url do |f|
+
+      .form-group
+      = f.text_field :incoming
+      = f.text_field :outgoing
+
+      .form-group
+        .multiple-choice
+          = f.check_box(:inactive, {}, true)
+          = f.label :inactive, t('label.Inactive'), { class: 'form-label-bold' }
+
+      .button-holder
+        = f.submit class: 'button', role: 'button'
+        = link_to t('action.cancel'), redirect_urls_path, class: 'button-secondary button-left-spacing', role: 'button'
+
+  .column-one-third

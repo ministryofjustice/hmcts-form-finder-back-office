@@ -1,0 +1,81 @@
+- content_for :page_title do
+  = "Document redirect_urls for HMCTS Form finder"
+
+.grid-row
+  .column-full
+
+    = render partial: 'layouts/header', locals: { page_heading: t('redirect_url.plural') }
+
+    = link_to t('redirect_url.add'), new_redirect_url_path, class: 'button', role: 'button'
+
+    %h2.heading-medium
+      = t('partial.currently')
+      = pluralize(@active_redirect_urls.size, t('redirect_url.active.singular'), t('redirect_url.active.plural'))
+      -if @inactive_redirect_urls.size > 0
+        = t('partial.and')
+        - if @active_redirect_urls.size > 10
+          = link_to @inactive_redirect_urls.size.to_s + ' ' + t('label.inactive'), '#inactive_list'
+        -else
+          = @inactive_redirect_urls.size
+          = t('label.inactive')
+
+    - if @active_redirect_urls.size > 0
+
+      .table-container.container
+        %table#active_list
+          %caption
+            %span.table-caption
+              = t('redirect_url.active.table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('helpers.label.redirect_url.incoming')
+              %th{scope:'col'}
+                = t('helpers.label.redirect_url.outgoing')
+              %th{scope:'col'}
+                = t('label.actions')
+          %tbody
+            - @active_redirect_urls.each do |redirect_url|
+              %tr.item
+                %td.english
+                  = redirect_url.incoming
+                %td.welsh
+                  = redirect_url.outgoing
+                %td.action
+                  = link_to t('action.edit'), edit_redirect_url_path(redirect_url)
+
+    - if @inactive_redirect_urls.size > 0
+
+      .table-container.container
+        %table#inactive_list
+          %caption
+            %span.table-caption
+              = t('redirect_url.inactive_table_caption')
+          %colgroup
+            %col
+            %col
+            %col
+            %col
+          %thead
+            %tr
+              %th{scope:'col'}
+                = t('helpers.label.redirect_url.incoming')
+              %th{scope:'col'}
+                = t('helpers.label.redirect_url.outgoing')
+              %th{scope:'col'}
+                = t('label.actions')
+              %th
+          %tbody
+            - @inactive_redirect_urls.each do |redirect_url|
+              %tr.item
+                %td.english
+                  = redirect_url.incoming
+                %td.welsh
+                  = redirect_url.outgoing
+                %td.action
+                  = link_to t('action.edit'), edit_redirect_url_path(redirect_url)

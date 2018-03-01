@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :documents
     resources :document_categories
     resources :categories
+    resources :redirect_urls
 
     get 'link/documents/disconnect' =>  'documents#disconnect'
     get 'link/documents/connect'    =>  'documents#connect'
