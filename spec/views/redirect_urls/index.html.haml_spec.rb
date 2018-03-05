@@ -12,21 +12,21 @@ RSpec.describe 'redirect_urls/index', type: :view do
                outgoing: 'New Place'
              )
            ])
-    assign(:inactive_redirect_urls, [
-        RedirectUrl.create!(
+    assign(:inactive_redirect_urls,
+           [
+             RedirectUrl.create!(
                incoming: 'Old Place',
                outgoing: 'New Place'
              ),
-        RedirectUrl.create!(
+             RedirectUrl.create!(
                incoming: 'Old Place',
                outgoing: 'New Place'
              )
            ])
   end
-
   it 'renders a list of redirect_urls' do
     render
     assert_select 'tr>td', text: 'Old Place'.to_s, count: 4
     assert_select 'tr>td', text: 'New Place'.to_s, count: 4
-      end
+  end
 end

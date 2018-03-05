@@ -38,3 +38,7 @@ exclude_paths:
 - db/
 - spec/
 - vendor/
+checks:
+  method-complexity:
+    config:
+      threshold: 6
