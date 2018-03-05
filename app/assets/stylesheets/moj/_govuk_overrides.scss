@@ -1,35 +1,45 @@
 #global-header .header-wrapper {
-  .header-global {
-    @include span(4 of 12);
-    .header-logo {
-      width:auto;
-      .content {
-        margin-left: 0;
-      }
-    }
+  .header-proposition {
+    padding-left: 1em;
   }
   .sign-out {
     color: #ffffff !important;
-    float: right;
-    padding-right: 1.2em;
+    display: block;
+    font-weight: bold;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
   }
+}
+
+@include media(desktop) {
+  .header-global {
+    @include span(4 of 12);
+    .header-logo {
+      width: auto;
+      .content {
+        margin-left: 0;
+      }
+    }
+  }
   .header-proposition {
-    @include span(7 at 6 of 12 no-gutters);
-    @include media(mobile) {
-      padding-left: 1em;
+    @include span(7 at 5 of 12 no-gutters);
+    .sign-out {
+      display: inline;
+      float: right;
+      font-size: 19px;
     }
   }
 }
 
-#proposition-name{
-  float: left;
+.error-summary-list {
+  margin-top: 10px;
 }
 
-.form-label,
-.gov_uk_date legend {
-  font-weight: bold;
+.notice-summary {
+  background-color: $turquoise;
+  border-color: $turquoise;
+  color: $page-colour;
+  text-align: center;
 }
