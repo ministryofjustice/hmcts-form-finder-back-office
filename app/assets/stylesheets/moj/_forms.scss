@@ -1,0 +1,30 @@
+input#document_attachment {
+  display: block;
+  margin-top: 3px;
+}
+
+legend,
+.form-label {
+  font-weight: bold;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-hint {
+  margin-bottom: 5px;
+}
+
+.me-character-counter {
+  margin-top: 5px;
+}
+
+.me-character-counter_invalid {
+  color: $error-colour;
+  font-weight: 700;
+}
+
+.three-characters {
+  width: 3.4em;
+}
