@@ -29,6 +29,7 @@ var setNavigationHighlight = function(){
     else if (/Categor/i.test(pageTitle)) { $(".global-nav a:contains('Categor')").addClass('active'); }
     else if (/Language/i.test(pageTitle)) { $(".global-nav a:contains('Language')").addClass('active'); }
     else if (/Type/i.test(pageTitle)) { $(".global-nav a:contains('Type')").addClass('active') }
+    else if (/edirect/i.test(pageTitle)) { $(".global-nav a:contains('edirect')").addClass('active') }
     else { $(".global-nav a:contains('User accounts')").addClass('active'); }
 };
 
