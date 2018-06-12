@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :users
 
     authenticated :user do
-      root to: 'documents#index', as: :authenticated_root
+      root to: 'redirect_urls#index', as: :authenticated_root
     end
 
     resources :documents
