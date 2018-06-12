@@ -15,60 +15,6 @@ ActiveRecord::Schema.define(version: 20180220155818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "english_name"
-    t.string   "welsh_name"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "inactive",     default: false
-  end
-
-  create_table "doc_attachment_types", force: :cascade do |t|
-    t.string   "english_name"
-    t.string   "welsh_name"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "inactive",     default: false
-  end
-
-  create_table "document_categories", force: :cascade do |t|
-    t.integer  "document_id"
-    t.integer  "category_id"
-    t.integer  "sort_order"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_document_categories_on_category_id", using: :btree
-    t.index ["document_id"], name: "index_document_categories_on_document_id", using: :btree
-  end
-
-  create_table "documents", force: :cascade do |t|
-    t.string   "code"
-    t.string   "title"
-    t.integer  "doc_attachment_type_id",                              null: false
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.date     "content_date"
-    t.date     "published_date"
-    t.integer  "language_id"
-    t.integer  "original_id"
-    t.integer  "creator_id"
-    t.boolean  "inactive",                            default: false
-    t.string   "original_url"
-    t.string   "file_format"
-    t.string   "summary",                 limit: 250
-  end
-
-  create_table "languages", force: :cascade do |t|
-    t.string   "english_name"
-    t.string   "welsh_name"
-    t.string   "code",                         null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "inactive",     default: false
-  end
 
   create_table "redirect_urls", force: :cascade do |t|
     t.string   "incoming"
@@ -76,13 +22,6 @@ ActiveRecord::Schema.define(version: 20180220155818) do
     t.boolean  "inactive",   default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-  end
-
-  create_table "related_documents", force: :cascade do |t|
-    t.integer "document_id"
-    t.integer "linked_document_id"
-    t.index ["document_id", "linked_document_id"], name: "index_related_documents_on_document_id_and_linked_document_id", unique: true, using: :btree
-    t.index ["linked_document_id", "document_id"], name: "index_related_documents_on_linked_document_id_and_document_id", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,6 +54,4 @@ ActiveRecord::Schema.define(version: 20180220155818) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
 
-  add_foreign_key "document_categories", "categories"
-  add_foreign_key "document_categories", "documents"
 end
