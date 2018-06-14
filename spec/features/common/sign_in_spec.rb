@@ -28,6 +28,5 @@ feature 'Signing in' do
   scenario 'with correct credentials' do
     login_page.log_in(@user.email, @user.password)
     expect(page).to have_content 'Signed in successfully.'
-    # save_and_open_page
   end
 end
