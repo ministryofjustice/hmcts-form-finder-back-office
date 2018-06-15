@@ -4,7 +4,6 @@ SimpleCov.start
 require_relative 'support/controller_helpers'
 require 'devise'
 require 'capybara/rspec'
-require 'paperclip/matchers'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 

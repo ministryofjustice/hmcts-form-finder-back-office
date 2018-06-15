@@ -26,8 +26,6 @@ RSpec.describe User, type: :model do
     expect(create(:user)).to be_valid
   end
 
-  it { should have_many(:documents) }
-
   it 'has a strong password' do
     user = build(:user, password: 'lowercase only', password_confirmation: 'lowercase only')
     expect(user.valid?).to be_falsey
