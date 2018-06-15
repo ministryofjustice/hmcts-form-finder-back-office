@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'healthcheck' =>  'health_check#index'
 
   scope '(:locale)', locale: /en|cy/ do
-
     devise_for :users
     resources :users
 
