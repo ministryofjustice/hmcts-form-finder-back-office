@@ -74,7 +74,6 @@ class Document < ActiveRecord::Base
   scope :language_bilingual, -> { where(language_id: '26') }
   scope :language_welsh, -> { where(language_id: '25') }
   scope :language_other, -> { where.not(language_id: [8, 25]) }
-  # TODO: Refactor non-human-readable where clause
 
   attr_accessor :overwrite_file
 

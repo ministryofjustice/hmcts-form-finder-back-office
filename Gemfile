@@ -39,7 +39,8 @@ group :development, :test do
   gem 'launchy'
   gem 'rb-readline'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.52.1'
+  gem 'rubocop', '~> 0.58.2'
+  gem 'rubocop-rspec', '~> 1.28'
   gem 'selenium-webdriver', '~> 3.4'
   gem 'site_prism', '~> 2.9'
 end
